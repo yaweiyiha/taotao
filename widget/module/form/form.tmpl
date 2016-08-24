@@ -1,0 +1,78 @@
+<div class="asset-widget-form">
+  <div> 
+<!--     <div class="panel-heading"></div> -->
+    <%if (tabs.length !== 0) {%>
+    <ul  class="nav nav-tabs nav-justified">
+    <%for (var i = 0, len = tabs.length; i < len; i++ ) {%>
+      <li data-key="<%-tabs[i].key%>">
+        <a href="<%-host+tabs[i].url%>" ><%-tabs[i].value%></a>
+      </li>
+    <%}%>
+    </ul>
+    <%}%>
+<!--     <div >
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-xs-8">
+                <%for (var i = 0, len = head.subList.length; i < len; i++ ) {%>
+                  <a id="inProcess" href="javascript:void(0);"><%-head.subList[i].key%>(7)</a> 
+                <%}%>
+              </div>
+
+            </div>
+          </div>
+      </div>      
+    </div> -->
+    <div class=" panel-default">
+      <div class="panel-body">
+      <%for (var i = 0, len = formlist.length; i < len; i++ ) {%>
+      <div class="row ">
+        <%for (var j = 0, lenj = formlist[i].length; j < lenj; j++ ) {%>
+          <% var item = formlist[i][j]; %>
+          <div class="<%-item.wrapperClass%> input-wrapper">
+            <%if (item.type === 'input') {%>
+              <div class="form-group input-group">
+                <div class="input-group-addon input-title" ><%-item.name%></div>
+                <input data-key="<%-item.key%>" placeholder="<%-item.placeholder%>" class="form-control" value="" maxlength="40" placeholder="">
+              </div>
+            <%} else if (item.type === 'select') {%>
+              <div class="form-group input-group">
+                  <div class="input-group-addon input-title" ><%-item.name%></div>
+                  <select class="form-control" data-key="<%-item.key%>">
+                  <%for (var k = 0, lenk = item.selectList.length; k < lenk; k++ ) {%>
+                    <option value=""><%-item.selectList[k]%></option>
+                  <%}%>
+                  </select>
+              </div> 
+             <%} else if (item.type === 'time') {%>
+                <div class="form-group input-group time">
+                  <div class="input-group-addon input-title"><%-item.name%></div>
+                  <date-control></date-control>
+                </div> 
+            <%} else if (item.type === 'dep') {%>
+                <div class="form-group input-group dep">
+                  <div class="input-group-addon input-title" ><%-item.name%></div>
+                  <input data-key="<%-item.key%>" class="form-control  readonly">
+                  <div class="input-group-addon input-title choose-button">选择</div>
+                </div> 
+            <%} else if (item.type === 'area') {%>
+              <div class="form-group input-group">
+               <div class="input-group-addon input-title" ><%-item.name%></div>
+                <city-select key="code"></city-select>
+              </div>
+            <%} else if (item.type === 'button') {%>
+                <button class="<%-item.classList%> custom-button" data-role="<%-item.evt%>"><%-item.name%></button>
+
+            <%}%>
+          </div>
+        <%}%>
+      </div>
+      <%}%>
+
+      <div class="text-edit">
+            <editor></editor>
+      </div>
+
+  </div>
+</div>

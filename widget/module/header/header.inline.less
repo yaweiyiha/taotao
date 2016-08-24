@@ -1,0 +1,146 @@
+.asset-widget-header {
+	background: #286ede;
+	height: 45px;
+	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+	
+	.logo{
+		display: inline-block;
+		width:26px;
+		height:26px;
+		margin-top:-3px;
+		background : url('/static/img/icons.png') no-repeat;
+		background-size: 26px auto;
+		background-position: 0px -92px;
+	}
+	.title{
+		color : #FFFFFF;
+	}
+	.ace-nav {
+	    height: 100%;
+	    margin: 0!important;
+	    .user-menu {
+	    	min-width: 150px;
+		    padding: 5px 0;
+		    margin: 2px 0 0;
+		    font-size: 12px;
+		    text-align: left;
+		    list-style: none;
+		    background-color: #fff;
+		    z-index: 1031;
+		    background-clip: padding-box;
+		    border: 1px solid rgba(0,0,0,.15);
+	    }
+	    .user-menu::after {
+		    content: "";
+		    border-bottom: 6px solid #fff;
+		    border-left: 6px solid transparent;
+		    border-right: 6px solid transparent;
+		    display: inline-block;
+		    position: absolute;
+		    top: 42px;
+		    left: 140px;
+	    }
+	    .user-menu > li{
+	    	height : 36px;
+	    	line-height : 36px;
+	    	color: #333;
+	    	cursor : pointer;
+	    }
+	    .user-menu > li > span {
+	    	
+    		margin-left: 12px;
+	    }
+	    .user-menu > li > span > i {
+	    	margin-right : 10px;
+	    }
+	    .user-menu > li:first-child {
+	    	border-bottom: #e5e5e5 1px solid;
+	    }
+	}
+	.ace-nav>li:first-child {
+	    border-left: none;
+	}
+	.ace-nav>li.green>a {
+	    background-color: #62a8d1;
+	}
+	.ace-nav>li>a>.badge {
+	    position: relative;
+	    top: -4px;
+	    left: 2px;
+	    padding-right: 5px;
+	    padding-left: 5px;
+	}
+	.label-success, .badge-success {
+	    background-color: #62a8d1!important;
+	}
+	.badge {
+	    text-shadow: none;
+	    font-size: 12px;
+	    padding-top: 1px;
+	    padding-bottom: 3px;
+	    font-weight: normal;
+	    line-height: 17px;
+	}
+	.navbar-brand {
+		img {
+			display: inline-block;
+		}
+		.caption {
+			color: white;
+			font-size: 16px;
+		}
+	}
+	.green {
+	    color: #999!important;
+	}
+	.ace-nav>li {
+	    line-height: 50px;
+	    border-left: 1px solid #DDD;
+	    padding: 0;
+	    position: relative;
+	    float: left!important;
+	}
+	.ace-nav>li.light-blue>a {
+	    background-color: #181818;
+	}
+	.ace-nav>li>a {
+	    background-color: #2e6589;
+	    color: #FFF;
+	    display: block;
+	    line-height: inherit;
+	    text-align: center;
+	    height: 100%;
+	    width: auto;
+	    min-width: 50px;
+	    padding: 0 8px;
+	    position: relative;
+	}
+	.ace-nav .nav-user-photo {
+	    margin: -4px 8px 0 0;
+	    border-radius: 100%;
+	    border: 2px solid #FFF;
+	    max-width: 40px;
+	}
+	.user-info {
+	    max-width: 100px;
+	    display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    text-align: left;
+	    vertical-align: top;
+	    line-height: 15px;
+	    position: relative;
+	    top: 6px;
+	}
+	.user-info small {
+	    display: block;
+	}
+	.ace-nav>li>a>[class*="icon-"] {
+	    font-size: 16px;
+	    color: #FFF;
+	    display: inline-block;
+	    width: 20px;
+	    text-align: center;
+	}
+}
