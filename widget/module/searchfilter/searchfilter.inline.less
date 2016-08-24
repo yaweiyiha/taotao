@@ -1,15 +1,18 @@
 .asset-widget-searchfilter {
-	width: 95%;
     margin: 0 auto;
+    overflow: hidden;
 
 	.filters-item{
+		position: relative;
 	    border-bottom: 0.5px dashed #ccc;
 		padding-bottom: 10px;
 		padding-top : 10px;
 		.input-title{
 			color : #808080;
 			padding : 5px;
-			margin-left : 20px;
+			position: absolute;
+			left: 20px;
+			top: 5px;
 		}
 		&:last-child {
 			border-bottom: 0px;
@@ -17,11 +20,12 @@
 	}	
 
 	.options {
+		margin-left: 130px;
 		display : inline-block ;
-    	margin-left: 50px;
     	color : #666666;
     	.option-item{	
-    		margin-left : 30px;
+    		margin-left : 20px;
+			padding: 3px 6px;
     	}
     	.active{
 		   	background: #568fe3;

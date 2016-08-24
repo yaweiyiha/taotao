@@ -97,6 +97,10 @@ fis.match('static/js/{controller,model,widget}.js', {
     parser: fis.plugin('babel')
 });
 
+fis.match('test/data/**.js', {
+    parser: fis.plugin('babel')
+});
+
 /**********************
      pack files 
 **********************/
@@ -190,6 +194,10 @@ fis.match('::package', {
 
 fis.match('*.{js,css,png}', {
     useHash: true
+});
+fis.match('test/data/**.js', {
+    useHash: true,
+    isMod: true
 });
 // useHash exclude ueditor
 fis.match('static/js/ueditor/{lang,themes,third-party,dialogs}/**', {

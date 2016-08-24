@@ -15,11 +15,17 @@ require.loadCss({
 var searchfilter = Widget.extend({ 
     init : function(data){
         this.vm = this.display(data ,tpl ,'vue');
+
+        this.bind();
+    },
+    bind: function () {
+        $(this.vm.$el).on('click', '.option-item', function () {
+            console.log(this);
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+        });
     },
     methods:{
-    	filterData : function(me){
-    		this.vm.addClass(me, 'active');
-    	}
     }
 });
 

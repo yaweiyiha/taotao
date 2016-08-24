@@ -7,7 +7,7 @@
 **/
 
 import Model from 'static/js/model.js'
-
+import TableData from 'test/data/distributManage'
 var url = require('asset:widget/util/url.js');
 
 class tableModel extends Model{
@@ -20,7 +20,11 @@ class tableModel extends Model{
     getData(url,param) {
         var me = this;
         return new Promise(function(resolve, reject){
-
+            // test data
+            console.log(TableData);
+            resolve(TableData);
+            return;
+            
             var xhr = $.ajax({
                 url:  url ,
                 type: 'POST',

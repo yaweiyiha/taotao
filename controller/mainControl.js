@@ -70,13 +70,11 @@ class MainControl extends Control{
         me.getViews([widgets.form],data.form);
         me.getViews([widgets.searchfilter],{filters: data.filters});
 
-
-        // me.getModel('table',(model) => {
-            
-        //     model.getData(data.form.url,data.form.param).then((res) => {
-        //         me.getViews([me.widgets.table], $.extend(res,formData));
-        //     });
-        // });
+        me.getModel('table',(model) => {
+            model.getData(data.form.url,data.form.param).then((res) => {
+                me.getViews([me.widgets.table], $.extend(res,data.form));
+            });
+        });
 
         listener.trigger('page', 'loaded', {info: 'load success'});
     }

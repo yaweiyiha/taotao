@@ -3,7 +3,7 @@
     <div class="table-loading">
         
     </div>
-	<div class="row table-page-option">
+	<!-- <div class="row table-page-option">
 		<div class="col-sm-6">
 			<div class="dataTables_length" id="tp_length">
 				<label>
@@ -20,9 +20,9 @@
 				</label>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
-	<table id="tp" class="table table-striped table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
+	<table class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
 		<thead>
 			<tr role="row" >
 				<template  v-for="item in tables">
@@ -33,7 +33,7 @@
         <tbody>
     		<template v-for="item in data">
 
-    				<tr role="row" class="odd">
+    				<tr role="row">
     					<template v-for="(i,t) in tables">
                             <td v-if="t.key === 'dateCreate'">{{item[t.key] | datetime}}</td>
 							<td v-if="t.key !== ''">{{item[t.key]}}</td>
