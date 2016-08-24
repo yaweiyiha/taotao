@@ -53,7 +53,7 @@ urlConfig['product/maintenance'] =
 		'subtitle' : {name : '产品维护' ,url : ''},
 		'key' : '产品维护',
 		'subFun' : {'key' : '新增产品' , evt :'addProduct'},
-		'drafts' : true,
+		'drafts' : '#main/product/draft',
 	},
 	'filters' : [
 		{ key :'productName', name : '产品类型', wrapperClass : 'col-sm-6' , 

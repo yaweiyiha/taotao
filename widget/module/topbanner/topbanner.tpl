@@ -3,18 +3,18 @@
         <div class="col-md-6 titles">
             <span v-if="title">{{title}}</span>
             <em> > </em>
-            <span v-if="subtitle" v-bind:class="'active' : subtitle">{{subtitle.name}}</span>
-            <em v-if="third-title"> > </em>
-            <span v-if="third-title" v-bind:class="'active' : third-title">{{third-title}}</span>
+            <span v-if="subtitle" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</span>
+            <em v-if="thirdTitle"> &gt; </em>
+            <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
         </div>
         <div class="col-md-6 text-right">
         	<div class="sub-func">
         		<em class="add-icon"></em>
-        		<span class="" type="button"  data-role="{{subFun.evt}}">{{subFun.key}}</span>
+        		<span class="" data-role="{{subFun.evt}}">{{subFun.key}}</span>
         	</div>
 			<span class="spliter"></span>
-			<div class="draft">
-				<span href="/admin/product/draftList">草稿箱&nbsp;(59)</span>
+			<div v-if="drafts" class="draft">
+				<a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
 			</div>
 
         </div>
