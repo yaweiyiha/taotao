@@ -24,7 +24,9 @@ var addform = Widget.extend({
     	});
     },
     methods:{
-    	
+    	back : () => {
+            window.history.back();
+        }
     }
 });
 

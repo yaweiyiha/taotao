@@ -7,15 +7,18 @@
         <li data-key="{{tab.key}}" v-bind:class="{ 'active': index === 1 }">
             <a href="javascript:;" data-href="{{host + tab.url}}" >{{tab.value}}</a>
         </li>
+        
       </template>
+      <button class="return custom-button" @click="back">返回</button>
     </ul>
-    <div class="panel panel-default">
+    <div class="panel">
       <div class="panel-body">
       <template v-for = "form in forms">
           <div class="sub-panel">
               <div class="row title">
                   <div class="col-xs-12">
                       <span class="section-title">{{form.panelName}}</span>
+                      <span v-if="form.subFun" class="icon"></span>
                       <span class="text-strong-red">{{form.descTitle}}</span>
                   </div>
               </div>
@@ -78,7 +81,7 @@
       <star></star>
       <div class="tac">
           <template v-for="bt in buttonlist">
-              <button class="{{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
       </div>
   </div>
