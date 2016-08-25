@@ -8,11 +8,20 @@
             <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
         </div>
         <div class="col-md-6 text-right">
-        	<div class="sub-func">
-        		<em class="add-icon"></em>
-        		<span class="" data-role="{{subFun.evt}}">{{subFun.key}}</span>
+        	<div v-if="subFun" class="sub-func" >
+                <template v-for = "(index,func) in subFun">
+                    <div v-if="func.code == 'add' " >
+                        <em class="add-icon"></em>
+                        <span class="" >{{func.key}}</span>
+                    </div>
+                    <div v-if="func.code === 'save' || func.code === 'republic' " >
+                        <button class="custom-button" data-role="{{func.evt}}">{{func.key}}</button>
+                    </div>
+
+                </template>
+
         	</div>
-			<span class="spliter"></span>
+			<span v-if="index >= 1" class="spliter"></span>
 			<div v-if="drafts" class="draft">
 				<a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
 			</div>

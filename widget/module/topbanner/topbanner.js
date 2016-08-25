@@ -17,7 +17,7 @@ var topbanner = Widget.extend({
         this.bind();
     },
     bind : function(){
-    	$('.topbanner').on('click', '[data-role=addProduct]', function () {
+    	$('.sub-func').on('click', function () {
             addProDialog.show();
         });
     },

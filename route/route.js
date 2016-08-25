@@ -22,7 +22,6 @@ class Router {
         });
 
         window.addEventListener('hashchange', function () {
-
             listener.trigger('hash', 'change');
             me.navigation();
         }, false);

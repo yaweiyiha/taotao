@@ -27,13 +27,13 @@ var widgets  = {
     header: 
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
-        { widget: 'topbanner', data: {},container: '.cnt-box' },
+        { widget: 'topbanner', data: {},container: '.form-wrapper' },
     addform : 
-        { widget: 'addform', data: {},container: '.cnt-box' },
+        { widget: 'addform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
-        { widget: 'backtotop', container: '.cnt-box'},
+        { widget: 'backtotop', container: '.form-wrapper'},
     footer : 
         { widget: 'footer', container: '.footer-box'},
 };

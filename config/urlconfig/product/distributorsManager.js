@@ -12,10 +12,9 @@ urlConfig['distributors/maintenance'] =
 
 		'formlist' :[
 			[ 	
-				{ key :'orderNumber' ,name : '发行商名称', wrapperClass : 'col-sm-6' ,   type : 'input'},
-				{ key :'orderNumber' ,name : '发行商电话', wrapperClass : 'col-sm-6' ,   type : 'input'},
-			],[ 	
-				{ key :'orderNumber' ,name : '发行商地址', wrapperClass : 'col-sm-6' ,   type : 'input'},
+				{ key :'orderNumber' ,name : '发行商名称', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商名称关键字'},
+				{ key :'orderNumber' ,name : '发行商电话', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商电话关键字'},
+				{ key :'orderNumber' ,name : '发行商地址', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商地址关键字'},
 			],
 		],
 		'buttonlist': [
@@ -26,20 +25,15 @@ urlConfig['distributors/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'订单号', width:"10%" ,key : 'orderNumber',classList: 'sorting_disabled'},
-			{ name :'下单时间', width:"5%" ,key : 'dateCreate' ,classList:'sorting_desc'},
-			{ name :'产品名称', width:"8%" ,key : 'paymentName',classList:'sorting_disabled'},
-			{ name :'理财经理', width:"6%" ,key : 'manageName',classList:'sorting_disabled'},
-			{ name :'理财经理账号', width:"6%" ,key : 'manageAccount',classList:'sorting_disabled'},
-			{ name :'上级部门', width:"6%" ,key : 'parentDepartmentName',classList:'sorting_disabled'},
-			{ name :'部门', width:"6%" ,key : 'departmentName',classList:'sorting_disabled'},
-			{ name :'投资人', width:"6%" ,key : 'customer',classList:'sorting_disabled'},
-			{ name :'成交金额(元)', width:"6%" ,key : 'totalAmount',classList:'sorting_disabled'},
-			{ name :'类型', width:"5%" ,key : 'order_type',classList:'sorting_disabled'},
-			{ name :'已审核', width:"7%",key : 'excuteedNodeNames' ,classList:'sorting_disabled'},
-			{ name :'待审核', width:"7%" ,key : 'notExcuteedNodeNames',classList:'sorting_disabled'},
-			{ name :'支付方式', width:"5%" ,key : 'paymentName',classList:'sorting_disabled'},
-			{ name :'操作栏', width:"8%" ,key: '',classList:'sorting_disabled'},
+			{ name :'订单号', width:"15%" ,key : 'auditStatus',classList: 'sorting_disabled'},
+			{ name :'下单时间', width:"10%" ,key : 'available' ,classList:'sorting_desc'},
+			{ name :'产品名称', width:"10%" ,key : 'availableStatus',classList:'sorting_disabled'},
+			{ name :'成交金额(元)', width:"15%" ,key : 'dateOfUpdate',classList:'sorting_disabled'},
+			{ name :'类型', width:"10%" ,key : 'id',classList:'sorting_disabled'},
+			{ name :'已审核', width:"10%",key : 'name' ,classList:'sorting_disabled'},
+			{ name :'待审核', width:"10%" ,key : 'saleStatus',classList:'sorting_disabled'},
+			{ name :'支付方式', width:"10%" ,key : 'sales_status_fk',classList:'sorting_disabled'},
+			{ name :'操作栏', width:"10%" ,key: 'startingPrice',classList:'sorting_disabled'},
 		],
 		'url' : "/admin/sales/searchSalesOrder/search?orderStatus=REVIEWING",
 		'param' : {
@@ -48,10 +42,9 @@ urlConfig['distributors/maintenance'] =
 		}
 	},
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {name : '产品维护' ,url : ''},
+		'title' : '发行商管理',
+		'subtitle' : {name : '查看' ,url : ''},
 		'key' : '产品维护',
-		'subFun' : {'key' : '新增产品' , evt :'addProduct'},
-		'drafts' : true,
+		'subFun' : [{'key' : '新增发行商' , evt :'addDistributors' ,code : 'add'}],
 	}
 }
