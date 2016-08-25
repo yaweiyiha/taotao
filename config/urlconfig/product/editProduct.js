@@ -1,0 +1,41 @@
+import Dict from 'config/dict/product-dict'
+
+urlConfig['fund/edit'] = {
+	'topbanner' : {
+		'title' : '产品管理',
+		'subtitle' : {'name': '产品维护', url : '' }, 
+		'thirdTitle' : '编辑基金产品',
+		'key' : '产品维护',
+	},
+	'forms' : [
+			{	
+				'panelName' : '基本信息',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.distriSize ,Dict.moneyUnit, Dict.yearIncome],
+					[Dict.saleSize, Dict.moneyUnit, Dict.interestRate, Dict.staticUnit('%')],
+					[Dict.soled]
+				],
+			},
+			{	
+				'panelName' : '状态',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.foundStatus],
+					[Dict.proStatus]
+				],
+			},
+			{	
+				'panelName' : '其他',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.riskRant],
+					[Dict.star],
+				],
+			},
+	],
+	'buttonlist': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+	],
+}

@@ -162,7 +162,9 @@ fis.match('::package', {
 fis.match('/{controller,widget,model}/**.js', {
     isMod: true
 });
-
+fis.match('config/dict/**.js', {
+    isMod: true
+});
 fis.match('static/js/**.js', {
     isMod: true
 });

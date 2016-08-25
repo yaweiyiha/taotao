@@ -26,15 +26,16 @@
         <template v-for="li in form.formlist">
           <div class="row ">
             <template v-for="item in li">
-                <div class="{{item.wrapperClass}} input-wrapper">
+                <div class="{{item.wrapperClass}} input-wrapper rt">
                   <div v-if="item.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{item.name}}
                         <span v-if="item.isrequire" class="text-strong-red">*</span>
                     </div>
                     <input data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}">
+                    <div class="unit" v-if="item.unit">{{ item.unit }}</div>
                   </div>
 <!--                   bln {{item.bln}}  brn{{item.brn }}  bld{{item.bld }} brd{{item.brd }} -->
-                  <div v-if="item.type === 'select'" class="form-group input-group">
+                  <div v-if="item.type === 'select'" class="form-group input-group w100">
                       <div v-if= "item.name" class="input-group-addon input-title" >{{item.name}}<span v-if="item.isrequire" class="text-strong-red">*</span>
                       </div>
                       <select class="input-control" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" data-key="{{item.key}}"> 
@@ -42,7 +43,7 @@
                             <option value="">{{option}}</option>
                         </template>
                       </select>
-                  </div> 
+                  </div>
                   <div  v-if="item.type === 'time'" class="form-group input-group time">
                     <div class="input-group-addon input-title" >{{item.name}}
                         <span v-if="item.isrequire" class="text-strong-red">*</span>
@@ -70,6 +71,10 @@
                         <input type="radio" name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
                       </template>
                   </div>
+                  <div v-if="item.type === 'star'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{item.name}}</div>
+                    <star></star>
+                  </div>
               </div>
             </template>
    
@@ -78,7 +83,6 @@
       </template>
 
 
-      <star></star>
       <div class="tac">
           <template v-for="bt in buttonlist">
               <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
