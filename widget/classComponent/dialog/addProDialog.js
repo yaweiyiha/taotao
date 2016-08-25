@@ -15,11 +15,10 @@ class  addProDialog{
             title : '新增产品',
             pros : [
                 {'name' : '基金' , 'url' : '#addPro/fund/add' },
-                {'name' : '资管' , 'url' : '#addPro/zg/add' },
-                {'name' : '信托' , 'url' : '#addPro/xintuo/add' },
-                {'name' : '会员精选' , 'url' : '/vipChoiceness/add' },
-                {'name' : '股权投资' , 'url' : '/equityInvestment/add' },
-                {'name' : '海外保险' , 'url' : '/insurance/add' },
+                {'name' : '资管' , 'url' : '#addPro/asset/add' },
+                {'name' : '信托' , 'url' : '#addPro/trust/add' },
+                {'name' : '债权转让' , 'url' : '#addPro/debtassgin/add' },
+                {'name' : '股权投资' , 'url' : '#addPro/equityInvestment/add' },
             ],
             buttons : [],
         }
