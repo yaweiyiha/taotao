@@ -14,7 +14,14 @@ require.loadCss({
 var addform = Widget.extend({ 
 
     init : function(data){
-        var vm = this.display(data ,tpl ,'vue');
+        this.vm = this.display(data ,tpl ,'vue');
+        this.bind();
+    },
+    bind: function () {
+    	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
+    		$(this).siblings().removeClass('active');
+    		$(this).addClass('active');
+    	});
     },
     methods:{
     	
