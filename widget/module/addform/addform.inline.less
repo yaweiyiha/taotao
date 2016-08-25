@@ -24,6 +24,11 @@
 			border-left: 1px solid transparent;
 			a {
 				color: #333;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: none;
+				}
 			}
 
 			&.active {
@@ -78,11 +83,23 @@
 				}
 			}
 		}
+
 		.input-wrapper {
+			.unit {
+				position: absolute;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 10px;
+				border-left: 1px dashed #eee;
+				right: 0;
+				top: 0;
+			}
 			.input-group-addon{
 				border : 0px;
-			    background-color : #ffffff;	
-    			}
+			    background-color : #ffffff;
+			    min-width: 105px;
+			    text-align: right;
+    		}
 			input {
 				border: 1px solid #e6e6e6;
 				border-top-right-radius: 3px;
@@ -100,6 +117,7 @@
 			    line-height: 1.42857143;
 			    color: #555;
 			    background-color: #fff;
+			    border-radius: 2px !important;
 			}
 		}
 		.text-strong-red {
