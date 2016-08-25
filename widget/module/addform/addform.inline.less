@@ -1,5 +1,56 @@
 .asset-widget-addform {
+	.my-tabs {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 10px;
+		> li {
+			float: left;
+			height: 32px;
+			line-height: 32px;
+			padding-left: 15px;
+			padding-right: 30px;
+			position: relative;
+			background: white;
+			overflow: hidden;
+			border-left: 1px solid transparent;
+			a {
+				color: #333;
+			}
 
+			&.active {
+				top: 1px;
+				border-left: 1px solid #eee;
+
+				a {
+					color: #1b66cf;
+				}
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					height: 3px;
+					width: 100%;
+					background: #1b66cf;
+					left: 0;
+					top: 0;
+				}
+
+				&::after {
+					content: '';
+					display: block;
+					width: 22px;
+					height: 32px;
+					background: url(/static/img/tab-active-bg.png) no-repeat;
+					position: absolute;
+					right: 0;
+					top: 0px;
+				}
+			}
+		}
+	}
 	.panel-body {
 		.title {
 			border-bottom: #f3f3f3 1px solid;
@@ -45,6 +96,7 @@
 			color : red;
 		}
 	}
+
 
 
 }

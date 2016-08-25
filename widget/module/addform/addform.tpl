@@ -2,10 +2,10 @@
 
   <div> 
     <div class="panel-heading"></div>
-    <ul class="nav nav-tabs nav-justified">
-      <template v-if="tabs.length !== 0" v-for='tab in tabs' >
-        <li data-key="{{tab.key}}">
-            <a href="{{host + tab.url}}" >{{tab.value}}</a>
+    <ul class="my-tabs clearfix">
+      <template v-if="tabs.length !== 0" v-for='(index, tab) in tabs' >
+        <li data-key="{{tab.key}}" v-bind:class="{ 'active': index === 1 }">
+            <a href="javascript:;" data-href="{{host + tab.url}}" >{{tab.value}}</a>
         </li>
       </template>
     </ul>
