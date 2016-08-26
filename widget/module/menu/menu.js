@@ -13,6 +13,8 @@ var menu = Widget.extend({
     
     init: function (data) {
 		this.display(data, tpl); 
+	    Waves.attach('.waves', ['waves-block', 'waves-classic']);
+		Waves.init();
     },
     methods : {
 		subShow: function (event) {

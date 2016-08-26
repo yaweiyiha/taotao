@@ -21,6 +21,9 @@ var form = Widget.extend({
         this.eles = this.display(res, tpl, 'native');
         this.render();
         this.bind();
+        Waves.attach('button', ['waves-block', 'waves-light']);
+        Waves.init();
+
     },
     processData :function (data = {}){
     	this.data = data;

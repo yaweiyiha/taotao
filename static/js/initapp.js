@@ -25,3 +25,21 @@ widgets = cc.createPageStructure(mainPageStructure, widgets);
 
 cc.getViews([widgets.header,widgets.backtotop,widgets.footer]);
 cc.getViews([widgets.menu],menusConfig);
+
+
+// delegate system navigate
+if (URL_MODE === 'pushstate') {
+    let layer = document.querySelector('body');
+    layer.addEventListener('click', function (e) {
+        let tagName = e.target.tagName;
+        let ele = $(e.target);
+        if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
+            let link = ele.attr('href');
+            link = link.replace(/^#/ , '/');
+            window.history.pushState({},'',link);
+            listener.trigger('page', 'reload');
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    }, true);
+}

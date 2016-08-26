@@ -20,6 +20,19 @@ var url = {
         return param;
 
     },
+
+    getUriParams: function () {
+        let uri = '';
+        if (URL_MODE === 'pushstate') {
+            uri = location.pathname.replace(/^\//, '');
+            
+        } else {
+            uri = location.hash.replace(/^#/, '');
+        }
+
+        return uri.split('/');
+    },
+
     getHash: function () {
 
         var hash = location.hash.match(/\?/) ? location.hash.split('?')[0] : location.hash;

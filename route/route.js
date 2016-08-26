@@ -26,12 +26,17 @@ class Router {
             listener.trigger('hash', 'change');
             me.navigation();
         }, false);
+        window.addEventListener('popstate', function () {
+            listener.trigger('hash', 'change');
+            me.navigation();
+        }, false);
     }
 
     navigation() {
         let me = this;
-        let hash = Url.getHash() || this.DEFUALT_PAGE;
-        let page = Url.getPage() || '';
+        let uriParams = Url.getUriParams();
+        let hash = uriParams.shift() || this.DEFUALT_PAGE;
+        let page = uriParams.join('/') || '';
         let configData = urlConfig[page] || {};
         let path = `asset:controller/${hash}Control.js`;
         listener.trigger('page', 'change');

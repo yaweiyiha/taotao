@@ -6,7 +6,7 @@
         <ul class="nav nav-list" v-on:click="subShow">
             <li v-for="menu in menus">
                 <div v-if="!menu.url" class="icldsub">
-                    <a href="javascript:;" class="dropdown-toggle">
+                    <a href="javascript:;" class="dropdown-toggle waves">
                         <i class="icon {{ menu.classStyle }}"></i>
                         {{ menu.name }}
                         <b class="arrow icon-angle-down"></b>
