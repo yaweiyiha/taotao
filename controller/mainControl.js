@@ -48,7 +48,7 @@ class MainControl extends Control{
     init(data){
         var me = this;
 
-        this.widgets = this.createPageStructure(mainPageStructure, widgets);
+        this.widgets = this.createPageStructure(mainPageStructure, widgets, '.form-wrapper');
 
         me.getViews([widgets.topbanner],data.topbanner);
         me.getViews([widgets.form],data.form);

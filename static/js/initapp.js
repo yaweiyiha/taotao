@@ -11,7 +11,7 @@ require.loadCss({
 var widgets  = {
 
     header: 
-        { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
+        { widget: 'header',data: { username : 'yaweiyihan'}, container: '.header-box' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
@@ -20,7 +20,7 @@ var widgets  = {
         { widget: 'footer', container: '.footer-box'},
 };
 var cc = new Control();
-debugger
+
 widgets = cc.createPageStructure(mainPageStructure, widgets);
 
 cc.getViews([widgets.header,widgets.backtotop,widgets.footer]);
