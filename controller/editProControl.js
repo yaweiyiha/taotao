@@ -51,7 +51,9 @@ class editProControl extends Control{
      */
     init(data){
         var me = this;
-        this.widgets = this.createPageStructure(mainPageStructure, widgets);
+        let structure = `<div class="form-wrapper"></div>
+                         <div class="my-cnt-wrapper"></div>`;
+        this.widgets = this.createPageStructure(structure, widgets);
 
         /**
          * has no data ,can render directly

@@ -50,8 +50,10 @@ class addProControl extends Control{
      * @return void
      */
     init(data){
+        let structure = `<div class="form-wrapper"></div>
+                         <div class="my-cnt-wrapper"></div>`;
         var me = this;
-        this.widgets = this.createPageStructure(mainPageStructure, widgets);
+        this.widgets = this.createPageStructure(structure, widgets);
 
         /**
          * has no data ,can render directly

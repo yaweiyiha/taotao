@@ -92,11 +92,12 @@ export default class Control{
      * @return {Object}
      */
     createPageStructure(structure = '', widgets = [], container = '#main') {
+        console.log(container);
         container = $(container);
-        
+        container.empty();
+
         if (structure) {
             structure = $(structure);
-            container.empty();
             container.append(structure);
         }
 

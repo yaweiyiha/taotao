@@ -4,7 +4,6 @@ let mainPageStructure = `
 <div id="wrapper">
 	<div class="menu-box"></div>
 	<div class="cnt-box">
-		<div class="form-wrapper"></div>
 	</div>
 </div>
 
