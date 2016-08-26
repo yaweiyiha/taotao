@@ -20,7 +20,6 @@ var widgets  = {
         { widget: 'footer', container: '.footer-box'},
 };
 var cc = new Control();
-debugger
 widgets = cc.createPageStructure(mainPageStructure, widgets);
 
 cc.getViews([widgets.header,widgets.backtotop,widgets.footer]);

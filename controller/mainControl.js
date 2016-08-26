@@ -10,13 +10,13 @@ import mainPageStructure  from 'config/pageStructure.js';
 
 /**
  * mainPage own css
- */
-var style = __inline('/static/css/page/main-page.inline.less');
+//  */
+// var style = __inline('/static/css/page/main-page.inline.less');
 
-require.loadCss({
-    name: 'asset-main-page-style',
-    content: style
-});
+// require.loadCss({
+//     name: 'asset-main-page-style',
+//     content: style
+// });
 
 /**
  * page consists of widgets
@@ -48,7 +48,7 @@ class MainControl extends Control{
     init(data){
         var me = this;
 
-        this.widgets = this.createPageStructure(mainPageStructure, widgets);
+        this.widgets = this.createPageStructure(mainPageStructure, widgets ,'.form-wrapper');
 
         me.getViews([widgets.topbanner],data.topbanner);
         me.getViews([widgets.form],data.form);

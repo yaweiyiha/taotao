@@ -21,7 +21,6 @@ class tableModel extends Model{
         var me = this;
         return new Promise(function(resolve, reject){
             // test data
-            console.log(TableData);
             resolve(TableData);
             return;
             
