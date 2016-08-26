@@ -8,6 +8,8 @@
  * @require.async asset:model/tablemodel.js
 **/
 
+let counter = 1;
+
 export default class Control{
 
  	constructor(data){
@@ -90,15 +92,15 @@ export default class Control{
      * @return {Object}
      */
     createPageStructure(structure = '', widgets = [], container = '#main') {
+        console.log(container);
         container = $(container);
-        
+        container.empty();
+
         if (structure) {
             structure = $(structure);
-            container.empty();
             container.append(structure);
         }
 
-        var counter = 1;
         for (let i in widgets) {
             if (widgets.hasOwnProperty(i)) {
                 let item = widgets[i];

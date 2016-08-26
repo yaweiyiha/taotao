@@ -6,7 +6,7 @@
  * @date 2016.8.2
 **/
 import Control from 'static/js/controller.js';
-import mainPageStructure  from 'config/pageStructure.js';
+// import mainPageStructure  from 'config/pageStructure.js';
 
 /**
  * mainPage own css
@@ -31,7 +31,7 @@ var widgets  = {
     searchfilter : 
         { widget: 'searchfilter', data: {},container: '.form-wrapper' },
     table : 
-        { widget: 'table', container: '.cnt-box' },
+        { widget: 'table', container: '.my-cnt-wrapper' },
 };
 
 
@@ -47,8 +47,9 @@ class MainControl extends Control{
      */
     init(data){
         var me = this;
-
-        this.widgets = this.createPageStructure(mainPageStructure, widgets ,'.form-wrapper');
+        let structure = `<div class="form-wrapper"></div>
+                         <div class="my-cnt-wrapper"></div>`;
+        this.widgets = this.createPageStructure(structure, widgets, '.cnt-box');
 
         me.getViews([widgets.topbanner],data.topbanner);
         me.getViews([widgets.form],data.form);
