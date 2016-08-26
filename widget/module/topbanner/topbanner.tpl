@@ -21,6 +21,9 @@
                 </template>
 
         	</div>
+            <div v-if= "needback"> 
+                <button class="return custom-button" @click="back">返回</button>
+            </div>
 			<span v-if="index >= 1" class="spliter"></span>
 			<div v-if="drafts" class="draft">
 				<a href="{{drafts}}" >草稿箱&nbsp;(59)</a>

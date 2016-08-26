@@ -61,6 +61,7 @@ urlConfig['fund/add'] =
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
 	],
+	'needback' : true
 
 }
 
@@ -139,6 +140,7 @@ urlConfig['trust/add'] =
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
 	],
+	'needback' : true
 
 
 }
@@ -201,6 +203,7 @@ urlConfig['asset/add'] =
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
 	],
+	'needback' : true
 
 }
 
@@ -254,6 +257,7 @@ urlConfig['debtassgin/add'] =
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
 	],
+	'needback' : true
 
 }
 
@@ -308,6 +312,7 @@ urlConfig['equityInvestment/add'] =
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
 	],
+	'needback' : true
 
 }
 

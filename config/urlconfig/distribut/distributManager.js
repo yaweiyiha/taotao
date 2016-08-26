@@ -54,4 +54,5 @@ urlConfig['distribut/maintenance'] =
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 
 	],
+	'needback' : false
 }

@@ -11,12 +11,12 @@ import mainPageStructure  from 'config/pageStructure.js';
 /**
  * mainPage own css
  */
-var style = __inline('/static/css/page/main-page.inline.less');
+// var style = __inline('/static/css/page/main-page.inline.less');
 
-require.loadCss({
-    name: 'asset-main-page-style',
-    content: style
-});
+// require.loadCss({
+//     name: 'asset-main-page-style',
+//     content: style
+// });
 
 /**
  * page consists of widgets
@@ -33,9 +33,9 @@ var widgets  = {
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
-        { widget: 'backtotop', container: '.form-wrapper'},
+        { widget: 'backtotop', container: '.form-wrapper' },
     footer : 
-        { widget: 'footer', container: '.footer-box'},
+        { widget: 'footer', container: '.footer-box' },
 };
 
 
@@ -50,10 +50,11 @@ class addProControl extends Control{
      * @return void
      */
     init(data){
+
         let structure = `<div class="form-wrapper"></div>
                          <div class="my-cnt-wrapper"></div>`;
         var me = this;
-        this.widgets = this.createPageStructure(structure, widgets);
+        this.widgets = this.createPageStructure(structure, widgets ,'.cnt-box');
 
         /**
          * has no data ,can render directly

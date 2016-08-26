@@ -22,7 +22,9 @@ var topbanner = Widget.extend({
         });
     },
     methods:{
-    	
+    	back : () => {
+            window.history.back();
+        }
     }
 });
 

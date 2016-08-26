@@ -41,5 +41,6 @@ urlConfig['schedule/report'] =
 		'title' : '分销产品报表',
 		'subtitle' : {name : '产品进度报表' ,url : ''},
 		'key' : '产品进度报表',
-	}
+	},
+	'needback' : false
 }

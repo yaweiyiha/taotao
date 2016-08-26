@@ -38,6 +38,7 @@ urlConfig['fund/edit'] = {
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
+	'needback' : true
 }
 
 urlConfig['asset/edit'] = {
@@ -74,6 +75,7 @@ urlConfig['asset/edit'] = {
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
+	'needback' : true
 }
 
 urlConfig['trust/edit'] = {
@@ -104,6 +106,7 @@ urlConfig['trust/edit'] = {
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
+	'needback' : true
 }
 
 
@@ -134,6 +137,7 @@ urlConfig['debtassgin/edit'] = {
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
+	'needback' : true
 }
 
 urlConfig['equityInvestment/edit'] = {
@@ -163,4 +167,5 @@ urlConfig['equityInvestment/edit'] = {
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
+	'needback' : true
 }

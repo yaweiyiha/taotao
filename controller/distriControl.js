@@ -54,7 +54,7 @@ class distriControl extends Control{
         let structure = `<div class="form-wrapper"></div>
                          <div class="my-cnt-wrapper"></div>`;
         
-        this.widgets = this.createPageStructure(structure, widgets);
+        this.widgets = this.createPageStructure(structure, widgets ,'.cnt-box');
 
         /**
          * has no data ,can render directly

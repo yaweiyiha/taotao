@@ -48,5 +48,6 @@ urlConfig['distripro/report'] =
 		{ key :'productName', name : '分销方', wrapperClass : 'col-sm-6' , 
 			options : ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险'] ,type : 'select' },
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
-	]
+	],
+	'needback' : false
 }
