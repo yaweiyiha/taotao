@@ -1,32 +1,32 @@
 window.menusConfig = {
 	menus: [
 		{
-			key: '2',
+			key: '1',
 			url: '', 
-			classStyle:'icon-briefcase', 
+			classStyle:'icon-pro-manager', 
 			name:' 产品管理',
 			level2List: [
-				{ name:'产品维护', url:'product/maintenance' },
-				{ name:'发行商管理', url:'distributors/maintenance' }
+				{ name:'产品维护', url:'#main/product/maintenance' },
+				{ name:'发行商管理', url:'#main/distributors/maintenance' }
 			]
 		}, 
 		{
-			key: '3',
+			key: '2',
 			url: '', 
-			classStyle:'icon-credit-card', 
+			classStyle:'icon-distri-manager', 
 			name:'分销管理',
 			level2List: [
-				{ name:'分销签约管理', url:'distribut/maintenance' },
+				{ name:'分销签约管理', url:'#main/distribut/maintenance' },
 			]
 		},
 		{
-			key: '4',
+			key: '3',
 			url: '', 
-			classStyle:'icon-calendar', 
-			name:'报表管理',
+			classStyle:'icon-report-manager', 
+			name: '报表管理',
 			level2List: [
-				{ name:'分销产品销售报表', url:'sales/salesquota/portal' },
-				{ name:'产品进度状态表', url:'sales/salesquota/portal' },
+				{ name:'分销产品销售报表', url:'#main/distripro/report' },
+				{ name:'产品进度状态表', url:'#main/schedule/report' },
 			]
 		}
 	]

@@ -24,22 +24,14 @@ require.loadCss({
  */
 var widgets  = {
 
-    header: 
-        { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
         { widget: 'topbanner', data: {},container: '.form-wrapper' },
     form : 
         { widget: 'form', data: {},container: '.form-wrapper' },
     searchfilter : 
         { widget: 'searchfilter', data: {},container: '.form-wrapper' },
-    menu : 
-        { widget: 'menu', container: '.menu-box' },
     table : 
         { widget: 'table', container: '.cnt-box' },
-    backtotop : 
-        { widget: 'backtotop', container: '.cnt-box'},
-    footer : 
-        { widget: 'footer', container: '.footer-box'},
 };
 
 
@@ -58,17 +50,10 @@ class MainControl extends Control{
 
         this.widgets = this.createPageStructure(mainPageStructure, widgets);
 
-        /**
-         * has no data ,can render directly
-         */
-        me.getViews([widgets.header,widgets.backtotop,widgets.footer]);
-        /**
-         * render with widget's own data
-         */
-        me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
         me.getViews([widgets.form],data.form);
-        me.getViews([widgets.searchfilter],{filters: data.filters});
+        data.filters &&  me.getViews([widgets.searchfilter],{filters: data.filters});
+        
 
         me.getModel('table',(model) => {
             model.getData(data.form.url,data.form.param).then((res) => {

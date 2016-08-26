@@ -93,7 +93,7 @@ fis.match('/{controller,model,route,config}/**.js', {
     })
 });
 
-fis.match('static/js/{controller,model,widget}.js', {
+fis.match('static/js/{controller,model,widget,initapp}.js', {
     parser: fis.plugin('babel')
 });
 
@@ -139,7 +139,8 @@ fis.match('::package', {
             'widget/classComponent/datecontrol/datecontrol.js',
             'widget/classComponent/dialog/**.js',
             'widget/module/backtotop/backtotop.js',
-            'widget/module/topbanner/topbanner.js'
+            'widget/module/topbanner/topbanner.js',
+            'widget/module/distriform/distriform.js',
         ],
         'static/add_sync_0_pkg.js': [
             'controller/addProControl.js',

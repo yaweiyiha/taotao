@@ -49,4 +49,10 @@ export default {
  	'interestRate' 	: { key :'productName', name : '利率', wrapperClass : 'col-md-5' , type : 'input', placeholder : '', unit: '%'},					
  	'soled'			: { key :'productName', name : '已销售份额', wrapperClass : 'col-md-5' , type : 'input', placeholder : '', unit: '元', isrequire: true},
  	'star'			: { key :'productName', name : '收益评级', wrapperClass : 'col-md-5' , type : 'star'},
+ 	
+ 	'proFoundDay'   : { key :'productName', name : '产品成立日期', wrapperClass : 'col-md-5' , type : 'time'},
+ 	'distirName'   : { key :'orderNumber' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称'},
+ 	'distirPhone'   : { key :'orderNumber' ,name : '发行商固定电话', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商固定电话'},
+ 	'distirFullName'   : { key :'orderNumber' ,name : '发行商全称', wrapperClass : 'col-md-12' ,   type : 'input',placeholder : '请输入发行商全称'},
+ 	'distirAddr'   : { key :'orderNumber' ,name : '发行商地址', wrapperClass : 'col-md-12' ,   type : 'input',placeholder : '请输入发行商地址'},
  }

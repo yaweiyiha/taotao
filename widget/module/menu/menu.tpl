@@ -7,7 +7,7 @@
             <li v-for="menu in menus">
                 <div v-if="!menu.url" class="icldsub">
                     <a href="javascript:;" class="dropdown-toggle">
-                        <i class="{{ menu.classStyle }}"></i>
+                        <i class="icon {{ menu.classStyle }}"></i>
                         {{ menu.name }}
                         <b class="arrow icon-angle-down"></b>
                     </a>
@@ -22,7 +22,7 @@
                 </div>
                 <div v-else class="unicldsub linkTag">
                     <a href="{{ menu.url }}" data-level="1" data-name="{{ menu.name }}" v-on:click="eleMenus" style="cursor:pointer;">
-                        <i class="icon-list {{ menu.classStyle }}" ></i>
+                        <i class="icon {{ menu.classStyle }}" ></i>
                         {{ menu.name }}
                     </a>
                 </div>

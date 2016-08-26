@@ -45,6 +45,6 @@ urlConfig['distributors/maintenance'] =
 		'title' : '发行商管理',
 		'subtitle' : {name : '查看' ,url : ''},
 		'key' : '产品维护',
-		'subFun' : [{'key' : '新增发行商' , evt :'addDistributors' ,code : 'add'}],
+		'subFun' : [{'key' : '新增发行商' , href :'#addPro/distributor/add' ,code : 'add'}],
 	}
 }

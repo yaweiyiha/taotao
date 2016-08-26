@@ -2,18 +2,18 @@
     <div class="row">
         <div class="col-md-6 titles">
             <span v-if="title">{{title}}</span>
-            <em> > </em>
+            <em>  </em>
             <span v-if="subtitle" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</span>
-            <em v-if="thirdTitle"> &gt; </em>
+            <em v-if="thirdTitle"> </em>
             <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
         </div>
         <div class="col-md-6 text-right">
         	<div v-if="subFun" class="sub-func" >
                 <template v-for = "(index,func) in subFun">
-                    <div v-if="func.code == 'add' " >
+                    <a v-if="func.code == 'add' " href='{{func.href}}' data-role="{{func.evt}}">
                         <em class="add-icon"></em>
                         <span class="" >{{func.key}}</span>
-                    </div>
+                    </a>
                     <div v-if="func.code === 'save' || func.code === 'republic' " >
                         <button class="custom-button" data-role="{{func.evt}}">{{func.key}}</button>
                     </div>

@@ -3,6 +3,7 @@
  * @require.async asset:controller/mainControl.js
  * @require.async asset:controller/addProControl.js
  * @require.async asset:controller/editProControl.js
+ * @require.async asset:controller/distriControl.js
  */
 
 import Url from 'widget/util/url.js'
@@ -22,6 +23,7 @@ class Router {
         });
 
         window.addEventListener('hashchange', function () {
+            
             listener.trigger('hash', 'change');
             me.navigation();
         }, false);

@@ -39,3 +39,128 @@ urlConfig['fund/edit'] = {
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
 }
+
+urlConfig['asset/edit'] = {
+	'topbanner' : {
+		'title' : '产品管理',
+		'subtitle' : {'name': '产品维护', url : '' }, 
+		'thirdTitle' : '编辑资管产品',
+		'key' : '产品维护',
+	},
+	'forms' : [
+			{	
+				'panelName' : '基本信息',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.soled ,Dict.yearIncome],
+				],
+			},
+			{	
+				'panelName' : '状态',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.foundStatus ,Dict.proStatus],
+				],
+			},
+			{	
+				'panelName' : '其他',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.riskRant]
+				],
+			},
+	],
+	'buttonlist': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+	],
+}
+
+urlConfig['trust/edit'] = {
+	'topbanner' : {
+		'title' : '产品管理',
+		'subtitle' : {'name': '产品维护', url : '' }, 
+		'thirdTitle' : '编辑信托产品',
+		'key' : '产品维护',
+	},
+	'forms' : [
+			{	
+				'panelName' : '基本信息',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.soled ],
+				],
+			},
+			{	
+				'panelName' : '状态',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.riskRant ,Dict.foundStatus],
+					[Dict.proStatus]
+				],
+			}
+	],
+	'buttonlist': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+	],
+}
+
+
+urlConfig['debtassgin/edit'] = {
+	'topbanner' : {
+		'title' : '产品管理',
+		'subtitle' : {'name': '产品维护', url : '' }, 
+		'thirdTitle' : '编辑信托产品',
+		'key' : '产品维护',
+	},
+	'forms' : [
+			{	
+				'panelName' : '基本信息',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.proFoundDay ],
+				],
+			},
+			{	
+				'panelName' : '状态',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.riskRant ,Dict.proStatus],
+				],
+			}
+	],
+	'buttonlist': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+	],
+}
+
+urlConfig['equityInvestment/edit'] = {
+	'topbanner' : {
+		'title' : '产品管理',
+		'subtitle' : {'name': '产品维护', url : '' }, 
+		'thirdTitle' : '编辑股权投资产品',
+		'key' : '产品维护',
+	},
+	'forms' : [
+			{	
+				'panelName' : '基本信息',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.proFoundDay ],
+				],
+			},
+			{	
+				'panelName' : '状态',
+				'descTitle' : '(*为必填)',
+				'formlist'   : [
+					[Dict.riskRant ,Dict.proStatus],
+				],
+			}
+	],
+	'buttonlist': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+	],
+}
