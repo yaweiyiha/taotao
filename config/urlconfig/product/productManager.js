@@ -53,13 +53,13 @@ urlConfig['product/maintenance'] =
 	},
 	'filters' : [
 		{ key :'productName', name : '产品类型', wrapperClass : 'col-sm-6' , 
-			options : ['全部','基金','权益类','资管','信托','会员精选','股权投资','海外保险'] ,type : 'select' },
+			options : ['全部','基金','权益类','资管','信托','会员精选','股权投资','海外保险'] ,type : 'filter' },
 		{ key :'customer', name : '产品状态',  wrapperClass : 'col-md-6',
-			options : ['全部','在售','预售','售罄','已结束','执行中','募集失败'] ,type : 'select'},
+			options : ['全部','在售','预售','售罄','已结束','执行中','募集失败'] ,type : 'filter'},
 		{ key :'code', name : '审核状态' , wrapperClass :'col-md-6' ,
-			options : ['全部','待审核','审核失败','审核通过'] ,type : 'select'},	
+			options : ['全部','待审核','审核失败','审核通过'] ,type : 'filter'},	
 		{ key :'selectedDeptIds', name : '上下架状态', wrapperClass: 'col-md-6',
-		  options : ['全部','上架','下架'] ,type : 'select',},
+		  options : ['全部','上架','下架'] ,type : 'filter',},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 	]
 }

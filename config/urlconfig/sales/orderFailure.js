@@ -17,7 +17,7 @@ urlConfig['sales/orderFailure'] =
 				{ name : '投资人',  wrapperClass : 'col-md-3',type : 'input'},
 					{ key :'code', name : '理财师归属地' , wrapperClass :'col-md-9 city-select' ,type : 'area'},
 			],[
-				{ name : '类型', wrapperClass : 'col-md-3',selectList : ['全部','续投','普通'], type:'select'},
+				{ name : '类型', wrapperClass : 'col-md-3',selectList : ['全部','续投','普通'], type:'filter'},
 				{ key :'beginTime', name : '下单时间', wrapperClass: 'col-md-3' ,type : 'time', classList: 'beginTime' },
 				{ key:'endTime', name : '到', wrapperClass: 'col-md-3' ,type : 'time', classList: 'endTime' },
 				{ key :'selectedDeptIds', name : '部门', wrapperClass: 'col-md-3' ,type : 'dep'},

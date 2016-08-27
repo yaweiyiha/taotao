@@ -56,15 +56,41 @@ urlConfig['sign/done'] =
 			{	
 				'panelName' : '线上申请内容',
 				'formlist'   : [
-					[ Dict.appProName , Dict.contractCopy],
-					[ Dict.distriCompany ],
-					[ Dict.distriTime ],
-					[ Dict.distriAmount ],
-					[ Dict.commissionTypeText ],
-					[ Dict.appTime ],
+					[ Dict.textList([
+						{name : '申请代销产品名称' ,value : '小众赢1号'},	
+						{name : '发行公司' ,value : '固定佣金'},	
+						{name : '佣金比例' ,value : '2%'},	
+						{name : '代销时间' ,value : '2016-10-08至2016-12-10'},	
+						{name : '代销额度' ,value : ' 200万'},	
+						{name : '申请代销时间 ' ,value : '2016-10-08至2016-12-10'},	
+					])  , Dict.contractCopy ]
 				 ],
 			},
 	]
 
 }
 
+urlConfig['sign/reject'] =
+{
+	'topbanner' : {
+		'title' : '分销管理',
+		'subtitle' : {'name': '分销签约管理', url : '' }, 
+		'thirdTitle' : '拒绝代销签约',
+	},
+	'forms' : [
+			{	
+				'panelName' : '认购信息',
+				'formlist'   : [
+					[ Dict.IdCardPositive , Dict.IdCardNegative],
+				 ],
+			},
+			{	
+				'panelName' : '支付信息',
+				'formlist'   : [
+					[ Dict.payType ],
+					[ Dict.transferCertificate ],
+				 ],
+			},
+	]
+
+}

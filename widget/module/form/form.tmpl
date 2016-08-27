@@ -40,8 +40,8 @@
               <div class="form-group input-group">
                   <div class="input-group-addon input-title" ><%-item.name%></div>
                   <select class="form-control" data-key="<%-item.key%>">
-                  <%for (var k = 0, lenk = item.selectList.length; k < lenk; k++ ) {%>
-                    <option value=""><%-item.selectList[k]%></option>
+                  <%for (var k = 0, lenk = item.options.length; k < lenk; k++ ) {%>
+                    <option value=""><%-item.options[k]%></option>
                   <%}%>
                   </select>
               </div> 

@@ -3,7 +3,7 @@
 	      <template v-for = "f in filters">
 	          <div class="filters-item">
 	          	  <span class="input-title"> {{f.name}}</span>
-	              <div v-if="f.type === 'select'" class="options">
+	              <div v-if="f.type === 'filter'" class="options">
 	                    <template v-for="(index,option) in f.options">
 	                        <span value="" v-bind:class="{'active': index=== 0}" class="option-item">{{option}}</span>
 	                    </template>

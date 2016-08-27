@@ -11,8 +11,20 @@ export default {
  	'distriCompany'  :   { key :'productName', name : '发行公司',value : '固定佣金 佣金比例:2%', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriTime'  :   { key :'productName', name : '代销时间',value : '2016-10-08至2016-12-10', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriAmount'  :   { key :'productName', name : '代销额度',value : '200万', wrapperClass : 'col-md-2' , type : 'text'},
- 	'contractCopy'  :   { key :'productName', name : '电子合同影印件', wrapperClass : 'col-md-5' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'contractCopy'  :   { key :'productName', name : '电子合同影印件', wrapperClass : 'col-md-5 left-right' , type : 'img',src: '/static/img/default_user.jpg'},
  	'distriName'  :   { key :'productName', name : '分销方名称',value : '创宁金融', wrapperClass : 'col-md-2' , type : 'text'},
  	'padNum'  :   { key :'productName', name : 'pad数',value : '20', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriLogo'  :   { key :'productName',  wrapperClass : 'col-md-5' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'IdCardPositive'  :   { key :'productName',  name : '身份正面照' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'IdCardNegative'  :   { key :'productName', name : '身份负面照' , wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+  	'payType'  :   { key :'productName', name : '支付方式',value : '银行转账凭证', selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-2' , type : 'text'},
+ 	'transferCertificate'  :   { key :'productName', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'transferCertificate'  :   { key :'productName', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'transferCertificate'  :   { key :'productName', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'transferCertificate'  :   { key :'productName', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+ 	'transferCertificate'  :   { key :'productName', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img',src: '/static/img/default_user.jpg'},
+
+
+ 	'baseText'  : (name, value, key = '') => ({ key :key, name : name , value: value, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-4 up-down' , type : 'text'}),
+ 	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),
  }

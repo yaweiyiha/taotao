@@ -12,7 +12,9 @@ urlConfig['distripro/report'] =
 		'formlist' :[
 			[ 	
 				
-				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
+				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-3 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
+				{ key :'distributor' ,name : '分销方', wrapperClass: 'col-sm-3' ,type : 'select',
+				  options: ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险']},
 				{ key :'beginTime' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
 				// { key :'orderNumber' ,name : '上架时间', wrapperClass : 'col-sm-4' ,   type : 'input'},
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
@@ -44,10 +46,10 @@ urlConfig['distripro/report'] =
 		'subtitle' : {name : '分销产品销售报表' ,url : ''},
 		'key' : '分销产品销售报表',
 	},
-	'filters' : [
-		{ key :'productName', name : '分销方', wrapperClass : 'col-sm-6' , 
-			options : ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险'] ,type : 'select' },
-		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
-	],
+	// 'filters' : [
+	// 	{ key :'productName', name : '分销方', wrapperClass : 'col-sm-6' , 
+	// 		options : ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险'] ,type : 'filter' },
+	// 	// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
+	// ],
 	'needback' : false
 }

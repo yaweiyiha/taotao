@@ -29,7 +29,11 @@
 
 
                   <div v-if="item.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" >{{item.name}} : {{item.value}}
+                    <div class="input-group-addon input-title" v-bind:style="item.selfStyle">{{item.name}} : {{item.value}}
+                    </div>
+                  </div>
+                  <div v-if="item.type === 'textList'" class="form-group input-group text">
+                    <div v-for="text in item.textArr" class="input-title" v-bind:style="text.selfStyle">{{text.name}} : {{text.value}}
                     </div>
                   </div>
                   <div v-if="item.type === 'input'" class="form-group input-group">
@@ -48,10 +52,10 @@
                         </template>
                       </select>
                   </div>
-                  <div  v-if="item.type === 'img'" class="form-group input-group image">
-                      <div class="input-group-addon input-title" >{{item.name}}
+                  <div v-if="item.type === 'img'" class="form-group input-group image" v-bind:style="item.selfStyle">
+                      <div class="input-title" >{{item.name}}
                       </div>
-                      <img src="{{item.src}}" alt="">
+                      <img v-bind:src="item.src" alt="">
                   </div> 
                   <div  v-if="item.type === 'time'" class="form-group input-group time">
                     <div class="input-group-addon input-title" >{{item.name}}

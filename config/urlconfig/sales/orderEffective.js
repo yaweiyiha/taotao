@@ -18,8 +18,8 @@ urlConfig['sales/orderEffective'] =
 				{ key :'code', name : '理财师归属地' , wrapperClass :'col-md-9 city-select' ,type : 'area'},
 			],[
 				{ key :'', name : '待审核状态', wrapperClass : 'col-md-3',
-			      selectList : ['全部','资料审核','资料复核','支付审核','产品审核','产品二次复核','总审核'] ,type:'select'},
-				{ key :'order_type', name : '类型', wrapperClass : 'col-md-3',selectList : ['全部','续投','普通'], type:'select'},
+			      selectList : ['全部','资料审核','资料复核','支付审核','产品审核','产品二次复核','总审核'] ,type:'filter'},
+				{ key :'order_type', name : '类型', wrapperClass : 'col-md-3',selectList : ['全部','续投','普通'], type:'filter'},
 				{ key :'beginTime' , wrapperClass: 'col-md-6 date-control' ,type : 'time'},
 
 			],[
