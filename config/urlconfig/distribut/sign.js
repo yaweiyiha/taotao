@@ -79,16 +79,19 @@ urlConfig['sign/reject'] =
 	},
 	'forms' : [
 			{	
-				'panelName' : '认购信息',
+				'panelName' : '基本信息',
 				'formlist'   : [
-					[ Dict.IdCardPositive , Dict.IdCardNegative],
+					[ Dict.baseText('申请代销产品名称','小众赢1号')],
+					[ Dict.baseText('申请分销商','小众赢')],
+					[ Dict.baseText('申请代销时间','2016-10-08至2016-12-10')],
+					[ Dict.baseText('申请代销额度','200万')],
 				 ],
 			},
 			{	
 				'panelName' : '支付信息',
 				'formlist'   : [
-					[ Dict.payType ],
-					[ Dict.transferCertificate ],
+					[ Dict.baseText('签约状态','已拒绝分销申请')],
+					[ Dict.baseText('拒绝原因','小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝')],
 				 ],
 			},
 	]

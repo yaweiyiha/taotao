@@ -34,7 +34,7 @@
             <%if (item.type === 'input') {%>
               <div class="form-group input-group">
                 <div class="input-group-addon input-title" ><%-item.name%></div>
-                <input data-key="<%-item.key%>" placeholder="<%-item.placeholder%>" class="form-control" value="" maxlength="40" placeholder="">
+                <input data-key="<%-item.key%>" placeholder="<%-item.placeholder%>" class="custom-input"  value="" maxlength="40" placeholder="">
               </div>
             <%} else if (item.type === 'select') {%>
               <div class="form-group input-group">

@@ -27,7 +27,7 @@ var widgets  = {
     header: 
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
-        { widget: 'topbanner', data: {},container: '.cnt-box' },
+        { widget: 'topbanner', data: {},container: '.topbanner-wrapper' },
     addform : 
         { widget: 'addform', data: {},container: '.cnt-box' },
     menu : 
@@ -51,8 +51,8 @@ class editProControl extends Control{
      */
     init(data){
         var me = this;
-        let structure = `<div class="form-wrapper"></div>
-                         <div class="my-cnt-wrapper"></div>`;
+        let structure = `<div class="topbanner-wrapper"></div>
+                         <div class="form-wrapper"></div>`;
         this.widgets = this.createPageStructure(structure, widgets ,'.cnt-box');
 
         /**
@@ -64,6 +64,7 @@ class editProControl extends Control{
          */
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
+        debugger
         me.getViews([widgets.addform],data);
 
 

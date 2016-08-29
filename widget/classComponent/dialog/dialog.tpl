@@ -1,10 +1,10 @@
 <div class="dialog-cover">
 	<div class="ui-widget-overlay ui-front"></div>
 	<div class="ui-dialog ui-widget ui-widget-content usersys-widget-dialog" tabindex="-1" role="dialog" aria-describedby="departmentSelectWin" aria-labelledby="ui-id-1">
-		<div class="ui-dialog-titlebar ui-widget-header">
+		<div class="ui-dialog-titlebar ui-widget-header rt">
 			<span id="ui-id-1" class="ui-dialog-title">{{title}}</span>
 			
-			<span class="ui-button-icon-primary ui-icon ui-icon-closethick" @click="hide"></span><span class="ui-button-text"></span>
+			<span class="close-btn" @click="hide"></span><span class="ui-button-text"></span>
 		</div>
 		<div v-if="type==='dep'" class="departmentSelectWin" v-if="type == 'dep'" class="ui-dialog-content">
 			<ul class="departmentTree" class="ztree">
@@ -64,7 +64,7 @@
 
 		<div v-if="type === 'addPro'" class="modal-body text-center add-pro" >
 			<template v-for="pro in pros">
-				<a href="{{pro.url}}" class="btn btn-primary btn-lg add-pro-item" @click="hide"><span>{{pro.name}}</span></a>
+				<a href="{{pro.url}}" class="add-pro-item" @click="hide"><span>{{pro.name}}</span></a>
 			</template>
 		</div>
 		<div  v-if="buttons.length !== 0" class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">

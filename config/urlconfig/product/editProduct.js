@@ -5,9 +5,9 @@ urlConfig['fund/edit'] = {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '' }, 
 		'thirdTitle' : '编辑基金产品',
-		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -33,6 +33,7 @@ urlConfig['fund/edit'] = {
 					[Dict.star],
 				],
 			},
+		]
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
@@ -49,6 +50,7 @@ urlConfig['asset/edit'] = {
 		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -70,6 +72,7 @@ urlConfig['asset/edit'] = {
 					[Dict.riskRant]
 				],
 			},
+		]
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
@@ -86,6 +89,7 @@ urlConfig['trust/edit'] = {
 		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -101,6 +105,7 @@ urlConfig['trust/edit'] = {
 					[Dict.proStatus]
 				],
 			}
+		]
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
@@ -118,6 +123,7 @@ urlConfig['debtassgin/edit'] = {
 		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -132,6 +138,7 @@ urlConfig['debtassgin/edit'] = {
 					[Dict.riskRant ,Dict.proStatus],
 				],
 			}
+		]
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
@@ -148,6 +155,7 @@ urlConfig['equityInvestment/edit'] = {
 		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -162,6 +170,7 @@ urlConfig['equityInvestment/edit'] = {
 					[Dict.riskRant ,Dict.proStatus],
 				],
 			}
+		]
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},

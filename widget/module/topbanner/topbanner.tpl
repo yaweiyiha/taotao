@@ -3,31 +3,27 @@
         <div class="col-md-6 titles">
             <span v-if="title">{{title}}</span>
             <em>  </em>
-            <span v-if="subtitle" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</span>
+            <a v-if="subtitle" href="{{subtitle.url}}" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</a>
             <em v-if="thirdTitle"> </em>
             <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
         </div>
-        <div class="col-md-6 text-right">
+        <div class="col-md-5 text-right">
         	<div v-if="subFun" class="sub-func" >
                 <template v-for = "(index,func) in subFun">
-                    <a v-if="func.code == 'add' " href='{{func.href}}' data-role="{{func.evt}}">
+                    <a v-if="func.code == 'add' "  href="{{func.url}}" data-role="{{func.evt}}">
                         <em class="add-icon"></em>
                         <span class="" >{{func.key}}</span>
                     </a>
                     <div v-if="func.code === 'save' || func.code === 'republic' " >
                         <button class="custom-button" data-role="{{func.evt}}">{{func.key}}</button>
                     </div>
-
+                    <span v-if="index >= 0" class="spliter"></span>
                 </template>
-
         	</div>
-            <div v-if= "needback"> 
-                <button class="return custom-button" @click="back">返回</button>
+           
+            <div v-if="drafts" class="draft">
+                <a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
             </div>
-			<span v-if="index >= 1" class="spliter"></span>
-			<div v-if="drafts" class="draft">
-				<a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
-			</div>
 
         </div>
     </div>

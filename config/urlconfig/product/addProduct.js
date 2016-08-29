@@ -5,15 +5,16 @@ urlConfig['fund/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增基金产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '资产设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -32,14 +33,13 @@ urlConfig['fund/add'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,],
-					[	elementDict.proTerm ,elementDict.distriDate],
+					[	elementDict.proTerm ,elementDict.termUnit ,elementDict.distriDate],
 					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
 					[	elementDict.closedTime , elementDict.openDay,],
 					[	elementDict.moneyType ,elementDict.riskRant],
 					[   elementDict.incomeRant ]
-
 				],
 			},
 			{	
@@ -53,13 +53,38 @@ urlConfig['fund/add'] =
 			},
 			{	
 				'panelName' : '添加自定义要素',
-				'subFun' : 'add',
+				'subFun' : 'addSelfEle',
 			}
+		],
+		[
+			{	
+				'panelName' : '发布策略',
+				'formlist'   : [
+					[	elementDict.personnelPolicy ],
+					[	elementDict.employeePolicy],
+					[	elementDict.salesPolicy],
+				],
+			},
+			{	
+				'panelName' : '佣金设置-直销员',
+				'formlist'   : [
+					[	elementDict.comComputePolicy ],
+					[	elementDict.comType ],
+				],
+			},
+			{	
+				'panelName' : '佣金确认方式',
+				'formlist'   : [
+					[	elementDict.comConfirmType ],
+				],
+			},
+		]
 
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
+		{name : '发布',classList : 'primary',type : 'button',evt:'republic'},
+		{name : '保存',classList : 'default ml10', type : 'button', evt : 'save'},
+
 	],
 	'needback' : true
 
@@ -69,7 +94,7 @@ urlConfig['trust/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增信托产品',
 		'key' : '产品维护',
 		'subFun' : [
@@ -82,6 +107,7 @@ urlConfig['trust/add'] =
 		{ key: 'CommiSet', value: '资产设置' }, 
 	],
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -134,6 +160,7 @@ urlConfig['trust/add'] =
 				'panelName' : '添加自定义要素',
 				'subFun' : 'add',
 			}
+		]
 
 	],
 	'buttonlist': [
@@ -148,7 +175,7 @@ urlConfig['asset/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增资管产品',
 		'key' : '产品维护',
 	},
@@ -157,6 +184,7 @@ urlConfig['asset/add'] =
 		{ key: 'CommiSet', value: '资产设置' }, 
 	],
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -197,6 +225,7 @@ urlConfig['asset/add'] =
 				'panelName' : '添加自定义要素',
 				'subFun' : 'add',
 			}
+		]
 
 	],
 	'buttonlist': [
@@ -211,7 +240,7 @@ urlConfig['debtassgin/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增资管产品',
 		'key' : '产品维护',
 	},
@@ -220,6 +249,7 @@ urlConfig['debtassgin/add'] =
 		{ key: 'CommiSet', value: '资产设置' }, 
 	],
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -251,6 +281,7 @@ urlConfig['debtassgin/add'] =
 				'panelName' : '添加自定义要素',
 				'subFun' : 'add',
 			}
+		],
 
 	],
 	'buttonlist': [
@@ -265,7 +296,7 @@ urlConfig['equityInvestment/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增股权投资产品',
 		'key' : '产品维护',
 	},
@@ -274,6 +305,7 @@ urlConfig['equityInvestment/add'] =
 		{ key: 'CommiSet', value: '资产设置' }, 
 	],
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
@@ -306,6 +338,7 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '添加自定义要素',
 				'subFun' : 'add',
 			}
+		]
 
 	],
 	'buttonlist': [

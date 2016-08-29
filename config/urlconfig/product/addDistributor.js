@@ -9,15 +9,16 @@ urlConfig['distributor/add'] =
 		'key' : '产品维护',
 	},
 	'forms' : [
+		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(全部填写)',
 				'formlist'   : [
-					[   Dict.distirName, Dict.distirPhone,],
-					[   Dict.distirFullName ],
-					[   Dict.distirAddr ],
+					[   Dict.distirName, Dict.distirPhone ],
+					[   Dict.distirFullName , Dict.distirAddr ],
 				],
 			},
+		]
 
 	],
 	'buttonlist': [
