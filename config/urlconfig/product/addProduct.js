@@ -16,6 +16,13 @@ urlConfig['fund/add'] =
 	'forms' : [
 		[
 			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
+		],
+		[
+			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
@@ -56,30 +63,6 @@ urlConfig['fund/add'] =
 				'subFun' : 'addSelfEle',
 			}
 		],
-		[
-			{	
-				'panelName' : '发布策略',
-				'formlist'   : [
-					[	elementDict.personnelPolicy ],
-					[	elementDict.employeePolicy],
-					[	elementDict.salesPolicy],
-				],
-			},
-			{	
-				'panelName' : '佣金设置-直销员',
-				'formlist'   : [
-					[	elementDict.comComputePolicy ],
-					[	elementDict.comType ],
-				],
-			},
-			{	
-				'panelName' : '佣金确认方式',
-				'formlist'   : [
-					[	elementDict.comConfirmType ],
-				],
-			},
-		]
-
 	],
 	'buttonlist': [
 		{name : '发布',classList : 'primary',type : 'button',evt:'republic'},

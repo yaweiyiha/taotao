@@ -67,6 +67,6 @@ export default {
 					   options : ['未设置','固定佣金','阶梯佣金'] ,isrequire : true},
  	'comConfirmType'     : { key :'orderNumber' ,name : '佣金确认方式', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址'},
 
- 
-
+ 	// 佣金设置，逻辑关系比较复杂，使用单独的vue组件
+ 	'productCommSet': {type: 'product-commset'}
  }

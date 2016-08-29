@@ -3,6 +3,7 @@ import cityselect from 'widget/component/cityselect/cityselect.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import Star from 'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
+import commset from  'widget/component/productcommset/productcommset';
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');

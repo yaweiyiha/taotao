@@ -20,7 +20,7 @@
       <template v-for = "(index,form) in forms">
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{'none' : index === 1 }">
           <div v-for = "panel in form" class="sub-panel" >
-              <div class="row title">
+              <div class="row title" v-if="panel.panelName">
                   <div>
                       <span class="section-title">{{panel.panelName}}</span>
                       <span v-if="panel.subFun" class="icon" data-role="{{panel.subFun}}"></span>
@@ -50,7 +50,11 @@
         <template v-for="li in panel.formlist">
           <div class="row ">
             <template v-for="item in li">
-                <div class="{{item.wrapperClass}} input-wrapper rt">
+                <div class="{{item.wrapperClass || ''}} input-wrapper rt">
+                  <template v-if="item.type === 'product-commset'">
+                    <product-commset></product-commset>
+                  </template>
+                  
                   <div v-if="item.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{item.name}}
                         <span v-if="item.isrequire" class="text-strong-red">*</span>
