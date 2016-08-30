@@ -1,6 +1,5 @@
 <div class="styleguide asset-widget-distriform">
 <div> 
-    <div class="panel-heading"></div>
     <ul class="my-tabs clearfix">
       <template v-if="tabs.length !== 0" v-for='(index, tab) in tabs' >
         <li data-key="{{tab.key}}" v-bind:class="{ 'active': index === 1 }">
@@ -8,7 +7,6 @@
         </li>
         
       </template>
-      <button class="return custom-button" @click="back">返回</button>
     </ul>
     <div class="panel">
       <div class="panel-body">

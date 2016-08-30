@@ -68,5 +68,14 @@ export default {
  	'comConfirmType'     : { key :'orderNumber' ,name : '佣金确认方式', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址'},
 
  	// 佣金设置，逻辑关系比较复杂，使用单独的vue组件
- 	'productCommSet': {type: 'product-commset'}
+ 	'productCommSet': {type: 'product-commset'},
+ 	'incomeDistriType' : { key :'orderNumber' ,name : '收益分配方式', wrapperClass : 'col-md-6' ,   type : 'select', 
+					   options : ['到期一次性还本付息','按期付息，到期还本']},
+	'incomeDistirCycle' : { key :'orderNumber' ,name : '收益分配方式', wrapperClass : 'col-md-4 prn' ,   type : 'select', 
+					   options : ['按月','按季度','按年','按周','按天','按半年']},
+	'incomeDistirUnit' : { key :'orderNumber' ,name : '每', wrapperClass : 'col-md-2 pln' ,   type : 'input'},				   
+  	'incomeComputeDay' : { key :'orderNumber' ,name : '收益计算日期', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '固定日期','isChecked' : 'checked',key : 'fixedDay'},{'name' : '按日成交' ,key : 'closeDay'},{'name' : '成立日',key : 'foundDay' }  ] },
+ 	'fixedDay' 	:  { key :'orderNumber' ,name : '固定日期', wrapperClass : 'col-md-6 fixedDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
+ 	'closeDay' 	:  { key :'orderNumber' ,name : '按日成交', wrapperClass : 'col-md-6 none closeDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
+ 	'foundDay' 	:  { key :'orderNumber' ,name : '成立日', wrapperClass : 'col-md-6 none foundDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
  }

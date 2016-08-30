@@ -41,7 +41,7 @@ class addProControl extends Control{
     init(data){
 
         let structure = `<div class="topbanner-wrapper"></div>
-                         <div class="form-wrapper"></div>
+                         <div class="form-wrapper" style="padding: 0"></div>
                          <div class="my-cnt-wrapper"></div>`;
         var me = this;
         this.widgets = this.createPageStructure(structure, widgets ,'.cnt-box');

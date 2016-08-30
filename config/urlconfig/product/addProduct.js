@@ -14,13 +14,7 @@ urlConfig['fund/add'] =
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
-		[
-			{	
-				'formlist'   : [
-					[	elementDict.productCommSet ],
-				],
-			},
-		],
+
 		[
 			{	
 				'panelName' : '基本信息',
@@ -63,6 +57,13 @@ urlConfig['fund/add'] =
 				'subFun' : 'addSelfEle',
 			}
 		],
+		[
+			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{name : '发布',classList : 'primary',type : 'button',evt:'republic'},
@@ -87,7 +88,7 @@ urlConfig['trust/add'] =
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '资产设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
 		[
@@ -116,7 +117,7 @@ urlConfig['trust/add'] =
 						elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,
 					],
 					[	
-						elementDict.proTerm ,elementDict.purchaseAmount,elementDict.moneyUnit,
+						elementDict.proTerm ,elementDict.termUnit,elementDict.purchaseAmount,elementDict.moneyUnit,
 					],
 					[	
 						elementDict.increasingAmount,elementDict.moneyUnit,
@@ -141,14 +142,21 @@ urlConfig['trust/add'] =
 			},
 			{	
 				'panelName' : '添加自定义要素',
-				'subFun' : 'add',
+				'subFun' : 'addSelfEle',
 			}
-		]
+		],
+		[
+			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
+		],
 
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
 	],
 	'needback' : true
 
@@ -164,7 +172,7 @@ urlConfig['asset/add'] =
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '资产设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
 		[
@@ -186,7 +194,7 @@ urlConfig['asset/add'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,],
-					[	elementDict.proTerm ,elementDict.purchaseAmount,elementDict.moneyUnit],
+					[	elementDict.proTerm ,elementDict.termUnit,elementDict.purchaseAmount,elementDict.moneyUnit],
 					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
 					[	elementDict.increasingAmount , elementDict.moneyUnit],
 					[	elementDict.buyBegintime ,elementDict.buyEndTime],
@@ -201,19 +209,28 @@ urlConfig['asset/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.yearIncome ]
+					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
+					[	elementDict.yearIncome ],
+					[   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
 				]
 			},
 			{	
 				'panelName' : '添加自定义要素',
-				'subFun' : 'add',
+				'subFun' : 'addSelfEle',
 			}
-		]
+		],
+		[
+			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
+		],
 
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
 	],
 	'needback' : true
 
@@ -229,7 +246,7 @@ urlConfig['debtassgin/add'] =
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '资产设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
 		[
@@ -238,7 +255,7 @@ urlConfig['debtassgin/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.productName, elementDict.distributor ],
-					[   elementDict.proTerm	],
+					[   elementDict.proTerm	,elementDict.termUnit],
 				],
 			},
 
@@ -262,14 +279,21 @@ urlConfig['debtassgin/add'] =
 			},
 			{	
 				'panelName' : '添加自定义要素',
-				'subFun' : 'add',
+				'subFun' : 'addSelfEle',
 			}
+		],
+		[
+			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
 		],
 
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
 	],
 	'needback' : true
 
@@ -285,7 +309,7 @@ urlConfig['equityInvestment/add'] =
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '资产设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
 		[
@@ -319,14 +343,20 @@ urlConfig['equityInvestment/add'] =
 			},
 			{	
 				'panelName' : '添加自定义要素',
-				'subFun' : 'add',
+				'subFun' : 'addSelfEle',
 			}
-		]
-
+		],
+		[
+			{	
+				'formlist'   : [
+					[	elementDict.productCommSet ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default',type : 'button',evt:'republic'},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
 	],
 	'needback' : true
 

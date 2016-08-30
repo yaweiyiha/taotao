@@ -18,6 +18,7 @@ var addform = Widget.extend({
     init : function(data){
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
+        Waves.attach('button', ['waves-light']);
     },
     bind: function () {
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
@@ -44,6 +45,16 @@ var addform = Widget.extend({
                 target.addClass('none');
             }
         });
+
+        $('input[type=radio]').on('click' , function(){
+            var key = $(this).attr('data-key');
+            var arr = $('.incomeComputeDay').toArray();
+
+            arr.forEach(function(item){
+                $(item).addClass('none');
+            });
+            $('.' + key).removeClass('none');
+        })
     },
     methods:{
     	back : () => {

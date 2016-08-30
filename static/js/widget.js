@@ -84,6 +84,8 @@ var Widget = (function() {
             return tpl;
         }
 
+        // Waves.attach('button', ['waves-float', 'waves-light']);
+        // Waves.init();
     }
 
     Widget.prototype.reload = function () {

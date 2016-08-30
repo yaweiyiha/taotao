@@ -35,11 +35,10 @@ urlConfig['distribut/maintenance'] =
 			{ name :'支付方式', width:"10%" ,key : 'sales_status_fk',classList:'sorting_disabled'},
 			{ name :'操作栏', width:"10%" ,key: 'startingPrice',classList:'sorting_disabled'},
 		],
-		'url' : "/admin/sales/searchSalesOrder/search?orderStatus=REVIEWING",
-		'param' : {
-			 draw : 1 ,orderStatus :"REVIEWING" ,pageNow : 1, pageSize : 10,
-			 sortString : "dateCreate.desc",
-		}
+		'url' : "publisher/list",
+		'param' : { 
+			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
+		 }
 	},
 	'topbanner' : {
 		'title' : '分销管理',

@@ -102,7 +102,7 @@
                           <span v-if="item.isrequire" class="text-strong-red">*</span>
                       </div>
                       <template v-for="r in item.radios">
-                        <input type="radio" class='radio-input' name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
+                        <input type="radio" data-key="{{r.key}}" class='radio-input' name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
                       </template>
                   </div>
                   <div v-if="item.type === 'star'" class="form-group input-group">

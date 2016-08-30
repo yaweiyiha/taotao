@@ -17,10 +17,10 @@
                     <div v-if="func.code === 'save' || func.code === 'republic' " >
                         <button class="custom-button" data-role="{{func.evt}}">{{func.key}}</button>
                     </div>
-                    <span v-if="index >= 0" class="spliter"></span>
+                    <span v-if="index !== subFun.length - 1" class="spliter"></span>
                 </template>
         	</div>
-           
+           <span v-if="drafts" class="spliter"></span>
             <div v-if="drafts" class="draft">
                 <a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
             </div>

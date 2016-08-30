@@ -26,7 +26,6 @@ widgets = cc.createPageStructure(mainPageStructure, widgets);
 cc.getViews([widgets.header,widgets.backtotop,widgets.footer]);
 cc.getViews([widgets.menu],menusConfig);
 
-
 // delegate system navigate
 if (URL_MODE === 'pushstate') {
     let layer = document.querySelector('body');

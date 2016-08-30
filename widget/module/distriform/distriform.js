@@ -16,6 +16,7 @@ var distriform = Widget.extend({
     init : function(data){
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
+        Waves.attach('button', ['waves-float', 'waves-light']);
     },
     bind: function () {
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
