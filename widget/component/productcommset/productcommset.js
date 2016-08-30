@@ -1,4 +1,4 @@
-import LadderComm from 'widget/component/laddercomm/laddercomm'
+import CommType from 'widget/component/commtype/commtype'
 
 let style = __inline('./productcommset.inline.less');
 let tpl = __inline('./productcommset.tpl');

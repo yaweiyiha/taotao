@@ -30,18 +30,19 @@ export default Vue.component('ladder-comm', {
  	data: () => ({
  	}),
  	methods: {
- 		resetLastList: function () {
- 			this.list[this.list.length - 1].end = this.list[this.list.length - 2].end;
+ 		fixList: function () {
+ 			this.list[1].start = this.list[0].end;
+  			this.list[this.list.length - 1].end = this.list[this.list.length - 2].end;
  		},
  		addRule: function () {
  			this.list = this.list.slice(0, this.list.length - 1).concat([
  				{start: '', end: '', proportion: ''}
  			]).concat(this.list.slice(-1));
- 			this.resetLastList();
+ 			this.fixList();
  		},
  		removeRule: function (index, item) {
  			this.list.$remove(item);
- 			this.resetLastList();
+ 			this.fixList();
  		},
  		processData: function (index, item) {
  			if (index + 2 === this.list.length) {

@@ -30,5 +30,5 @@
 			</tr>
 		</tbody>
 	</table>
-	<button v-if="!readonly" class="btn btn-primary mt10" @click="addRule">新增规则</button>
+	<button v-if="!readonly" class="custom-button mt10" @click="addRule">新增规则</button>
 </div>

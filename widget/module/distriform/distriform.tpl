@@ -23,9 +23,12 @@
         <template v-for="li in form.formlist">
           <div class="row ">
             <template v-for="item in li">
-                <div class="{{item.wrapperClass}} input-wrapper rt">
+                <!-- 佣金类型 -->
+                <div v-if="item.type === 'CommType'">
+                  <comm-type></comm-type>
+                </div>
 
-
+                <div class="{{item.wrapperClass || ''}} input-wrapper rt">
                   <div v-if="item.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="item.selfStyle">{{item.name}} : {{item.value}}
                     </div>

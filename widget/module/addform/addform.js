@@ -21,6 +21,7 @@ var addform = Widget.extend({
         Waves.attach('button', ['waves-light']);
     },
     bind: function () {
+        let me = this;
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
@@ -54,7 +55,7 @@ var addform = Widget.extend({
                 $(item).addClass('none');
             });
             $('.' + key).removeClass('none');
-        })
+        });
     },
     methods:{
     	back : () => {
