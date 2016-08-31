@@ -62,7 +62,7 @@ export default class Control{
         widgets.forEach(function (item) {
 
             let data = ( item && item.data) ?  item.data  :  {};
-            data._container_ = item.wrapper || item.container || '#page-wrapper';
+            data._container_ = item.wrapper || item.container || '#main';
             data._error_ = pageData._error_ || '';
             data._containerDom_ = item.wrapperDom || null;
             data._widgetName_ = item.widget;

@@ -4,7 +4,7 @@
  * @require.async asset:controller/addProControl.js
  * @require.async asset:controller/editProControl.js
  * @require.async asset:controller/distriControl.js
- * @require.async asset:controller/commsetControl.js
+ * @require.async asset:controller/loginControl.js
  */
 
 import Url from 'widget/util/url.js'
