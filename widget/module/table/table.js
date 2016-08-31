@@ -4,7 +4,6 @@ import datetime from 'widget/filter/datetime.js';
 import productCategory from 'widget/filter/productCategory.js'
 import applyState from 'widget/filter/applyState.js'
 import distributorStatus from 'widget/filter/distributorStatus.js'
-import confirmDialog from 'widget/classComponent/dialog/confirm';
 
 var style = __inline('./table.inline.less');
 var tpl = __inline('./table.tpl');
@@ -113,7 +112,6 @@ var table = Widget.extend({
         });
         $('a[data-evt=statusChange]').on('click',function(){
 
-            confirmDialog.show('确认停用？');
             let target = $(this);
             let id = $(this).attr('data-param');
             let value = parseInt($(this).attr('value'));

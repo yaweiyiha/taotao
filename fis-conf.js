@@ -31,9 +31,9 @@ fis.media('xuxu').match('*', {
   
 });
 
-// fis.match('*.{js,css,png,gif,woff}', {
-//     url: '/admin$0'
-// })
+fis.match('*.{js,css,png,gif,woff}', {
+    url: '/admin$0'
+})
 
 /**********************
      parse files 

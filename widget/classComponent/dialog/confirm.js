@@ -8,7 +8,7 @@ require.loadCss({
 
 class  comfirmDialog{
 	
-	show(info){
+	show(info,callback){
 
         let opts = {
             type  : 'confirm',

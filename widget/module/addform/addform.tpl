@@ -118,9 +118,9 @@
           </div>
         </template>
       </template>
-      <div class="tac">
+      <div>
           <template v-for="bt in buttons">
-              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
       </div>
 

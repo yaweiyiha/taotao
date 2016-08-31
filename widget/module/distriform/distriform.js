@@ -70,10 +70,11 @@ var distriform = Widget.extend({
             processData: false,
             type: 'POST',
             success: function(data){
-                console.log(data);
+                if(data.mgs === 'success') {
+                    history.back();
+                }
             }
         });
-        // console.log(data.getAll('attachment'), data.getAll('offlineStartDate'));
       });
     },
 
