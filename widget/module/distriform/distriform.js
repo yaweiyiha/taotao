@@ -5,7 +5,6 @@ import Star from 'widget/component/star/star';
 import CommType from 'widget/component/commtype/commtype';
 import singledate from  'widget/component/singledate/singledate';
 
-
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
 
@@ -55,7 +54,7 @@ var distriform = Widget.extend({
         let files = $('.attachment', me.vm.$el)[0].files;
         // console.log(files);
 
-        data.append('id', 7);
+        data.append('id', _APP_HASH.id);
         data.append('commissionType', 10);
         data.append('fixedCommission', 0.02);
         data.append('attachment', files[0]);
@@ -76,7 +75,25 @@ var distriform = Widget.extend({
             }
         });
       });
+
+      $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
+        $.ajax({
+            url: window.Config.host + 'agentsales/reject',
+            data: {
+              id: _APP_HASH.id,
+              rejectReason: 'just for test'
+            },
+            type: 'POST',
+            success: function(data){
+              if (data.msg === 'success') {
+                history.back();
+              }
+            }
+        });
+      });
+      
     },
+
 
     previewImage :function(file, imageContainer)
     {

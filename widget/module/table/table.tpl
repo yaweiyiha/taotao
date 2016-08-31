@@ -54,21 +54,32 @@
 
     <div class="row">
     	<div class="col-sm-5">
-    		<div class="dataTables_info" id="tp_info" role="status" aria-live="polite">第 1 页 ( 总共 154 页，1,538条记录 )</div>
+    		<div class="dataTables_info" id="tp_info" role="status" aria-live="polite">第 {{pageNo}} 页 ( 总共 {{totalPages}} 页，{{totalSize}}条记录 )</div>
     	</div>
     	<div class="col-sm-7">
     		<div class="dataTables_paginate paging_full_numbers" id="tp_paginate">
     			<ul class="pagination">
-    				<li class="paginate_button first disabled" id="tp_first">
-    					<a href="#" aria-controls="tp" data-dt-idx="0" tabindex="0">首页</a>
+                    <!-- 首页 -->
+    				<li v-if="pageNo === 1" class="paginate_button first disabled">
+    					<a href="javascript:;" aria-controls="tp" data-dt-idx="0" tabindex="0">首页</a>
     				</li>
-    				<li class="paginate_button previous disabled" id="tp_previous">
-    					<a href="#" aria-controls="tp" data-dt-idx="1" tabindex="0">«</a>
-    				</li>
+                    <li v-else class="paginate_button first">
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="0" @click="changePage(1)">首页</a>
+                    </li>
+
+                    <!-- 上一页 -->
+                    <li v-if="pageNo === 1" class="paginate_button previous disabled">
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="1" tabindex="0">«</a>
+                    </li>
+                    <li v-else class="paginate_button previous">
+                        <a href="#" aria-controls="tp" data-dt-idx="1" tabindex="0" @click="changePage(pageNo - 1)">«</a>
+                    </li>
+
+                    <!-- 中间页 -->
     				<li class="paginate_button active">
-    					<a href="#" aria-controls="tp" data-dt-idx="2" tabindex="0">1</a>
+    					<a href="javascript:;" aria-controls="tp" data-dt-idx="2" tabindex="1">1</a>
     				</li>
-    				<li class="paginate_button ">
+    				<!-- <li class="paginate_button ">
     					<a href="#" aria-controls="tp" data-dt-idx="3" tabindex="0">2</a>
     				</li>
     				<li class="paginate_button ">
@@ -86,13 +97,23 @@
     				<li class="paginate_button ">
     					<a href="#" aria-controls="tp" data-dt-idx="8" tabindex="0">154
     					</a>
+    				</li> -->
+
+                    <!-- 下一页 -->
+    				<li v-if="pageNo === totalPages" class="paginate_button next disabled" id="tp_next">
+    					<a href="javascript:;" aria-controls="tp" data-dt-idx="9" tabindex="0">»</a>
     				</li>
-    				<li class="paginate_button next" id="tp_next">
-    					<a href="#" aria-controls="tp" data-dt-idx="9" tabindex="0">»</a>
-    				</li>
-    				<li class="paginate_button last" id="tp_last">
-    					<a href="#" aria-controls="tp" data-dt-idx="10" tabindex="0">尾页</a>
-    				</li>
+                    <li v-else class="paginate_button next" id="tp_next">
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="9" tabindex="0" @click="changePage(pageNo + 1)">»</a>
+                    </li>
+
+                    <!-- 最后页 -->
+                    <li v-if="pageNo === totalPages" class="paginate_button last disabled" id="tp_last">
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="10" tabindex="0">尾页</a>
+                    </li>
+                    <li v-else class="paginate_button last" id="tp_last">
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="10" tabindex="0" @click="changePage(totalPages)">尾页</a>
+                    </li>
     			</ul>
     		</div>
     	</div>

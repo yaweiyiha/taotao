@@ -15,7 +15,7 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
-
+        this._filters_ = {};
         this.localData = {};
     	let res  = this.processData(data);
         this.eles = this.display(res, tpl, 'native');
@@ -115,34 +115,23 @@ var form = Widget.extend({
         });
         $('.form-wrapper').on('click', '.filters-item .option-item', function () {
             let filter = {};
-            let value = $(this).text();
-            let key = $(this).parents('.options').attr('data-key');
+            let key = $(this).parents('.options').attr("data-key");
+            let value = $(this).attr("data-value");
             filter[key] = value;
 
-            let inputFilters = me.getInputFilters();
-            let filters = Object.assign(filter, inputFilters);
-            console.log(filters);
+            me._filters_ = Object.assign(me._filters_, filter);
+
             var url = me.data.url ; 
-            data = $.extend({param: data},{url : url});
+            data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            var inputCollections = $('.panel-body').find('[data-key]');
-            var data = {};
-            for (var i = 0, len = inputCollections.length; i < len; i++) {
-                var ele = $(inputCollections[i]);
-                var key = ele.attr('data-key');
-                var val = ele.attr('data-values') || ele.val();
-                if (key && val) {
-                    data[key] = val;
-                }
-            }
+            me._filters_ = Object.assign(me._filters_, me.getInputFilters());
 
             //console.log(data);
             var url = me.data.url ; 
-            data = $.extend({param: data},{url : url});
+            data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
-            console.log(data);
         });
 
         $('.panel-body').on('click', '[data-role=clearInput]', function () {

@@ -15,17 +15,60 @@ require.loadCss({
 
 var table = Widget.extend({
     
-    data :{
-        data : [],  
-    },
+    data : {
+        items: [],
+        pageList: [],
+        pageNo: 1,
+        totalPages: 1,
+        totolSize: '0',
+        params: {
+            url: '',
+            filters: {},
+        }
+    }, 
     init: function (data) {
-        this.initData = Object.assign({}, data);
-        this.data = this.processData(data);
+        this.data = $.extend(this.data, this.processData(data));
+        console.log(data);
         this.vm = this.display(data, tpl ,'vue');
         this.bind();
     },
+    calculateIndexes: function (current, length, displayLength) {
+        // current，当前页码，计算出来的页码尽可能将这个页码放到中间。
+        // length，页码的长度，总共有多少个页码。
+        // displayLength，要显示多少个页码，包括固定的第一个和最后一个。
+        displayLength = displayLength - 2;
+        var indexes = [1];
+        var start = Math.round(current - displayLength / 2);
+        var end = Math.round(current + displayLength / 2);
+        if (start <= 1) {
+            start = 2;
+            end = start + displayLength - 1;
+            if (end >= length - 1) {
+                end = length - 1;
+            }
+        }
+        if (end >= length - 1) {
+            end = length - 1;
+            start = end - displayLength + 1;
+            if (start <= 1) {
+                start = 2;
+            }
+        }
+        if (start !== 2) {
+            indexes.push("...");
+        }
+        for (var i = start; i <= end; i++) {
+            indexes.push(i);
+        }
+        if (end !== length - 1) {
+            indexes.push("...");
+        }
+        indexes.push(length);
+        return indexes;
+    },
     processData : function (data){
-
+        data.totalPages = Math.ceil(data.totalSize / data.pageSize);
+        data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5)
         if(data.operater ){
             let operater = data.operater;
             let tableData = data.items;
@@ -133,7 +176,6 @@ var table = Widget.extend({
 
     },
     getData :function(url,param) {
-
         var me = this;
         return new Promise(function(resolve, reject){
             var xhr = $.ajax({
@@ -159,10 +201,18 @@ var table = Widget.extend({
         });
     },
     update: function(data){
-
+        var me = this;
+        this.vm.$set('params.url', data.url);
+        this.vm.$set('params.filters', data.param);
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
             if (res.msg === 'success') {
+                let totalPages = Math.ceil(res.totalSize / res.pageSize);
+                let pages = me.calculateIndexes(res.pageNo, totalPages, 5);
+                this.vm.$set('totalPages', totalPages);
+                this.vm.$set('totalSize', res.totalSize)
+                this.vm.$set('pageList', pages);
+                this.vm.$set('pageNo', res.pageNo);
                 this.vm.$set('items', res.items);
             }
         });
