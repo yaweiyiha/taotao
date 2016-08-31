@@ -8,33 +8,27 @@ require.loadCss({
     content: style
 });
 
-var login = Widget.extend({
-    
-    init: function () {
-    	let data = {
-    		username: '',
-    		password: '',
-    		code: '',
-    		baseVerfifyCode: 'http://qikun.bravowhale-dev.com:8118/admin/jcaptcha.jpg',
-    		random: ''
-    	};
-
-        var vm = this.display(data, tpl);
-        
-    },
+export default new Vue({
+    el: $('#main').get(0),
+    template: tpl,
+    data: () => ({
+        username: '',
+        password: '',
+        code: '',
+        baseVerfifyCode: 'http://qikun.bravowhale-dev.com:8118/admin/jcaptcha.jpg',
+        random: ''
+    }),
     computed: {
-    	verifyCode: function () {
-    		return `${this.baseVerfifyCode}?_r=${this.random}`;
-    	}
+        verifyCode: function () {
+            return `${this.baseVerfifyCode}?_r=${this.random}`;
+        }
     },
     methods: {
-    	login: function () {
-    		console.log(this.username, this.password, this.code);
-    	},
-    	refreshCode: function () {
-    		this.random = Math.random();
-    	}
+        login: function () {
+            console.log(this.username, this.password, this.code);
+        },
+        refreshCode: function () {
+            this.random = Math.random();
+        }
     }
 });
-
-export default login;
