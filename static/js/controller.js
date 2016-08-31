@@ -6,6 +6,8 @@
  *
  * regist async module for loaded  when system is running
  * @require.async asset:model/tablemodel.js
+ * @require.async asset:model/distrimodel.js
+ * @require.async asset:model/formModel.js
 **/
 
 let counter = 1;

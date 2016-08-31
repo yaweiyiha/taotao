@@ -25,17 +25,26 @@ urlConfig['distribut/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'订单号', width:"15%" ,key : 'auditStatus',classList: 'sorting_disabled'},
-			{ name :'下单时间', width:"10%" ,key : 'available' ,classList:'sorting_desc'},
-			{ name :'产品名称', width:"10%" ,key : 'availableStatus',classList:'sorting_disabled'},
-			{ name :'成交金额(元)', width:"15%" ,key : 'dateOfUpdate',classList:'sorting_disabled'},
-			{ name :'类型', width:"10%" ,key : 'id',classList:'sorting_disabled'},
-			{ name :'已审核', width:"10%",key : 'name' ,classList:'sorting_disabled'},
-			{ name :'待审核', width:"10%" ,key : 'saleStatus',classList:'sorting_disabled'},
-			{ name :'支付方式', width:"10%" ,key : 'sales_status_fk',classList:'sorting_disabled'},
-			{ name :'操作栏', width:"10%" ,key: 'startingPrice',classList:'sorting_disabled'},
+			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'nomal'},
+			{ name :'申请方', width:"8%" ,key : 'agentName',type: 'nomal'},	
+			{ name :'类型', width:"8%" ,key : 'productCategory', type: 'productCategory' },
+			{ name :'申请额度', width:"8%" ,key: 'applyQuota',type: 'nomal' },
+			{ name :'申请代销开始日', width:"8%" ,key: 'updateTime' ,  type: 'time' },
+			{ name :'申请代销结束日', width:"8%" ,key: 'applyEndDate', type: 'time'},
+			{ name :'状态', width:"8%" ,key: 'applyState',type: 'applyState'},
+			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
-		'url' : "publisher/list",
+		'operater' : {
+		    bindKey  : 'applyState',
+		    operaterList : {
+		    	10 : {	name: '签约审核' ,     url : '#distri/sign/validate'},
+		    	20 : {	name: '查看签约状态',  url : '#distri/sign/reject' },
+		    	30 : {	name: '查看签约状态' , url : '#distri/sign/reject' } ,
+		    	40 : {	name: '查看签约状态',  url : '#distri/sign/done' }
+		    },
+		    param : 'id' ,
+		},
+		'url' : "agentsales/list",
 		'param' : { 
 			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
 		 }

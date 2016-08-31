@@ -52,10 +52,10 @@ export default {
  	'star'			: { key :'productName', name : '收益评级', wrapperClass : 'col-md-6' , type : 'star'},
  	
  	'proFoundDay'   : { key :'productName', name : '产品成立日期', wrapperClass : 'col-md-6' , type : 'time'},
- 	'distirName'    : { key :'orderNumber' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称'},
- 	'distirPhone'   : { key :'orderNumber' ,name : '发行商固定电话', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商固定电话'},
- 	'distirFullName'   : { key :'orderNumber' ,name : '发行商全称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商全称'},
- 	'distirAddr'   : { key :'orderNumber' ,name : '发行商地址', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址'},
+ 	'distirName'    : { key :'name' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称'},
+ 	'distirPhone'   : { key :'telephone' ,name : '发行商固定电话', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商固定电话'},
+ 	'distirFullName'   : { key :'fullName' ,name : '发行商全称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商全称'},
+ 	'distirAddr'   : { key :'address' ,name : '发行商地址', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址'},
  	
  	'personnelPolicy' : { key :'orderNumber' ,name : '人员策略', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '员工' },{'name' : '直销员','isChecked' : 'checked' } ] },
  	'salesPolicy'  : { key :'orderNumber' ,name : '直销员策略', wrapperClass : 'col-md-6' ,   type : 'select', 

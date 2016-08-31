@@ -21,8 +21,9 @@ urlConfig['distributor/add'] =
 		]
 
 	],
-	'buttonlist': [
-		{name : '确认新增',classList : 'primary', type : 'button', evt : 'save'},
+	'buttons': [
+		{name : '确认新增',classList : 'primary', type : 'button', evt : 'submit'},
 	],
+	'url' : 'publisher/add'
 
 }

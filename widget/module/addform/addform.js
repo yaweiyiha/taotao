@@ -4,6 +4,7 @@ import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import Star from 'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
+import formModel from 'model/formModel';
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -16,11 +17,13 @@ require.loadCss({
 var addform = Widget.extend({ 
 
     init : function(data){
+        this.data = data;
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         Waves.attach('button', ['waves-light']);
     },
     bind: function () {
+        var me = this ;
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
@@ -55,6 +58,31 @@ var addform = Widget.extend({
             });
             $('.' + key).removeClass('none');
         })
+        // $("button[data-role='addDistirbutor']").on('click',function(){
+        //     alert(1);
+        // })
+
+        $('button[data-role="submit"]').on('click', function () {
+
+            let data = {};
+            let url  = '';
+            let inputCollections = $('.panel-body').find('[data-key]');
+
+            for (let i = 0, len = inputCollections.length; i < len; i++) {
+                let ele = $(inputCollections[i]);
+                let key = ele.attr('data-key');
+                let val = ele.attr('data-values') || ele.val();
+                if (key) {
+                    data[key] = val;
+                }
+            }
+            url = Config.host + me.data.url ;
+       
+            let model = new formModel();
+            model.getData(url,data).then((res) => {
+                window.history.back();
+            });
+        });
     },
     methods:{
     	back : () => {

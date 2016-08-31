@@ -27,22 +27,22 @@ urlConfig['product/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'订单号', width:"15%" ,key : 'auditStatus',classList: 'sorting_disabled'},
-			{ name :'下单时间', width:"10%" ,key : 'available' ,classList:'sorting_desc'},
-			{ name :'产品名称', width:"10%" ,key : 'availableStatus',classList:'sorting_disabled'},
-			{ name :'成交金额(元)', width:"15%" ,key : 'dateOfUpdate',classList:'sorting_disabled'},
-			{ name :'类型', width:"10%" ,key : 'id',classList:'sorting_disabled'},
-			{ name :'已审核', width:"10%",key : 'name' ,classList:'sorting_disabled'},
-			{ name :'待审核', width:"10%" ,key : 'saleStatus',classList:'sorting_disabled'},
-			{ name :'支付方式', width:"10%" ,key : 'sales_status_fk',classList:'sorting_disabled'},
-			{ name :'操作栏', width:"10%" ,key: 'startingPrice',classList:'sorting_disabled'},
+			{ name :'产品ID', width:"8%" ,key : 'id',classList: 'sorting_disabled'},
+			{ name :'产品名称', width:"8%" ,key : 'name' ,classList:'sorting_desc'},
+			{ name :'产品类型（ID）', width:"8%" ,key : 'categoryId',classList:'sorting_disabled'},
+			{ name :'产品类型（名称）', width:"8%" ,key : 'categoryName',classList:'sorting_disabled'},
+			{ name :'产品状态（产品销售状态）（ID）', width:"8%" ,key : 'salesStatusId',classList:'sorting_disabled'},
+			{ name :'产品状态（产品销售状态）（名称）', width:"8%",key : 'salesStatusName' ,classList:'sorting_disabled'},
+			{ name :'上下架状态（ID）', width:"8%" ,key : 'available',classList:'sorting_disabled'},
+			{ name :'上下架状态（名称）', width:"8%" ,key : 'availableName',classList:'sorting_disabled'},
+			{ name :'上架日期', width:"8%" ,key: 'dateIssue',classList:'sorting_disabled'},
+			{ name :'审核状态（ID）', width:"8%" ,key: 'statusId',classList:'sorting_disabled'},
+			{ name :'审核状态（名称）', width:"8%" ,key: 'statusName',classList:'sorting_disabled'},
 		],
-		// 'url' : "/admin/sales/searchSalesOrder/search?orderStatus=REVIEWING",
-		'url': '/test/data/distributManage.js',
-		'param' : {
-			 draw : 1 ,orderStatus :"REVIEWING" ,pageNow : 1, pageSize : 10,
-			 sortString : "dateCreate.desc",
-		}
+		'url' : "product/maintenance/list",
+		'param' : { 
+			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
+		 }
 	},
 	'topbanner' : {
 		'title' : '产品管理',

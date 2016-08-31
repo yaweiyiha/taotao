@@ -10,7 +10,7 @@ import Model from 'static/js/model.js'
 // import TableData from 'test/data/distributManage'
 var url = require('asset:widget/util/url.js');
 
-class tableModel extends Model{
+class formModel extends Model{
 
     /**
      * @param  {String} url
@@ -23,11 +23,9 @@ class tableModel extends Model{
             // test data
             // resolve(TableData);
             // return;
-            url = Config.host + url ;
             var xhr = $.ajax({
                 type: 'POST',
                 url:  url ,
-
                 dataType: 'json',
                 contentType : 'application/json;charset=UTF-8',
                 data: JSON.stringify(param),
@@ -48,4 +46,4 @@ class tableModel extends Model{
     }
 }
 
-module.exports = tableModel;
+module.exports = formModel;

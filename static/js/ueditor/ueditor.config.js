@@ -21,7 +21,7 @@
      */
 	var pathName=window.document.location.pathname;
 	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-	window.UEDITOR_HOME_URL = projectName+'/static/js/ueditor/';
+	window.UEDITOR_HOME_URL = projectName+'static/js/ueditor/';
     var URL = window.UEDITOR_HOME_URL || getUEBasePath();
 
     /**

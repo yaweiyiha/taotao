@@ -115,7 +115,11 @@
           </div>
         </template>
       </template>
-
+      <div class="tac">
+          <template v-for="bt in buttons">
+              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
+          </template> 
+      </div>
 
 
   </div>

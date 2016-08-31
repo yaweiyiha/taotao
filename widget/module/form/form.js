@@ -112,8 +112,9 @@ var form = Widget.extend({
 
             //console.log(data);
             var url = me.data.url ; 
-            //data = $.extend({param: data},{url : url});
-           // me.updateTable(data);
+            data = $.extend({param: data},{url : url});
+            me.updateTable(data);
+            console.log(data);
         });
 
         $('.panel-body').on('click', '[data-role=clearInput]', function () {

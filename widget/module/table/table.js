@@ -1,6 +1,8 @@
 import Widget from 'static/js/widget.js';
 import tableModel from 'model/tableModel.js';
-import datetime from 'widget/filter/datetime.js'
+import datetime from 'widget/filter/datetime.js';
+import productCategory from 'widget/filter/productCategory.js'
+import applyState from 'widget/filter/applyState.js'
 
 var style = __inline('./table.inline.less');
 var tpl = __inline('./table.tpl');
@@ -17,9 +19,28 @@ var table = Widget.extend({
     },
     init: function (data) {
         
-        this.data = data;
+        this.data = this.processData(data);
         this.vm = this.display(data, tpl ,'vue');
         this.bind();
+    },
+    processData : function (data){
+
+        if(data.operater){
+            let operater = data.operater;
+            let tableData = data.items;
+            let operaterList = operater.operaterList;
+            let bindKey = operater.bindKey;
+            let param = operater.param;
+
+            tableData.forEach(function(item){
+                var state = item[bindKey];
+                item['operater'] = operaterList[state].name;
+                item['operaterUrl'] = operaterList[state].url + "?" + param + "="+ item[param];
+            });
+            return  data;
+        }
+
+
     },
     bind: function(){
         var me = this;
@@ -52,12 +73,15 @@ var table = Widget.extend({
     update: function(data){
 
         let model = new tableModel();
-        model.getData(data.url ,data.param).then((res) => {
-            this.vm.data = res.data;
+        model.getData(data.url ,data.param).then((res) => {  
+            console.log(res);
+            this.vm.data = res;
         });
     },
     filters : {
-        datetime : datetime
+        datetime : datetime ,
+        productCategory : productCategory,
+        applyState : applyState,
     },
     watch :{
         data : function(){

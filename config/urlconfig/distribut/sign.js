@@ -47,26 +47,27 @@ urlConfig['sign/validate'] =
 urlConfig['sign/done'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
-		'thirdTitle' : '新增基金产品',
-		'key' : '产品维护',
+		'title' : '分销管理',
+		'subtitle' : {'name': '分销签约管理', url : '' }, 
+		'thirdTitle' : '代销已签约',
 	},
 	'forms' : [
 			{	
 				'panelName' : '线上申请内容',
 				'formlist'   : [
 					[ Dict.textList([
-						{name : '申请代销产品名称' ,value : '小众赢1号'},	
-						{name : '发行公司' ,value : '固定佣金'},	
-						{name : '佣金比例' ,value : '2%'},	
-						{name : '代销时间' ,value : '2016-10-08至2016-12-10'},	
-						{name : '代销额度' ,value : ' 200万'},	
-						{name : '申请代销时间 ' ,value : '2016-10-08至2016-12-10'},	
+						{name : '申请代销产品名称' ,key : 'productName'},	
+						{name : '发行公司' ,key : 'publisherName'},	
+						{name : '佣金类型' ,key : 'commisionType'},	
+						{name : '佣金比例' ,key : 'fixedCommission'},	
+						{name : '代销时间' ,key : 'applyStartDate,applyEndDate'},	
+						{name : '代销额度' ,key : 'applyQuota'},	
+						{name : '申请代销时间 ' ,key : 'createTime'},	
 					])  , Dict.contractCopy ]
 				 ],
 			},
-	]
+	],
+	'url' : 'agentsales/detail'
 
 }
 
@@ -81,19 +82,20 @@ urlConfig['sign/reject'] =
 			{	
 				'panelName' : '基本信息',
 				'formlist'   : [
-					[ Dict.baseText('申请代销产品名称','小众赢1号')],
-					[ Dict.baseText('申请分销商','小众赢')],
-					[ Dict.baseText('申请代销时间','2016-10-08至2016-12-10')],
-					[ Dict.baseText('申请代销额度','200万')],
+					[ Dict.baseText('申请代销产品名称','','productName')],
+					[ Dict.baseText('申请分销商','','productName')],
+					[ Dict.baseText('申请代销时间','')],
+					[ Dict.baseText('申请代销额度','','applyQuota')],
 				 ],
 			},
 			{	
 				'panelName' : '支付信息',
 				'formlist'   : [
-					[ Dict.baseText('签约状态','已拒绝分销申请')],
-					[ Dict.baseText('拒绝原因','小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝小众赢已拒绝')],
+					[ Dict.baseText('签约状态','','applyState')],
+					[ Dict.baseText('拒绝原因','','rejectReason')],
 				 ],
 			},
-	]
+	],
+	'url' : 'agentsales/detail'
 
 }

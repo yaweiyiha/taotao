@@ -36,6 +36,7 @@ class Router {
     navigation() {
         let me = this;
         let uriParams = Url.getUriParams();
+        // let params = Url.getParams();
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
         let page = uriParams.join('/') || '';
         let configData = urlConfig[page] || {};

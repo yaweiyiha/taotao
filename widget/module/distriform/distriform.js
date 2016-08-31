@@ -14,15 +14,33 @@ require.loadCss({
 var distriform = Widget.extend({ 
 
     init : function(data){
+
+        // console.log(data.forms);
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         Waves.attach('button', ['waves-float', 'waves-light']);
+
+    },
+    processData :function(data){
+
+        
+        // let formData = data.forms;
+        // let formlistArr = [];
+        // let 
+        // formData.forEach(function(item){
+        //     formlistArr.push(item.formlist) ;
+        // });
+
+        // formlistArr
+
     },
     bind: function () {
+
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
     	});
+
     },
 
     previewImage :function(file)

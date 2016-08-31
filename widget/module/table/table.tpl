@@ -31,24 +31,20 @@
 			</tr>
 		</thead>
         <tbody>
-    		<template v-for="item in data">
-
-    				<tr role="row">
-    					<template v-for="(i,t) in tables">
-                            <td v-if="t.key === 'dateCreate'">{{item[t.key] | datetime}}</td>
-							<td v-if="t.key !== ''">{{item[t.key]}}</td>
-				    		<td v-if="i === tables.length">
-				    			<a class="detail" href="javascript:void(0);" >
-				    				<span>详情</span>
-				    			</a>
-				    			<a class="submit" href="javascript:void(0);" data-id="1603">
-				    				<span>审核</span>
-				    			</a>
-				    		</td>
-		        		</template>
-		        	</tr>
-
-
+    		<template v-for="item in items">
+				<tr role="row">
+					<template v-for="(i,t) in tables">
+                        <td v-if="t.type === 'nomal'" v-bind:class = "{'operator ': t.key ==='operater'}">{{item[t.key]}}</td>
+                        <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
+						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
+                        <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
+                        <td v-if="t.type === 'operater'" class = "operator">
+                            <a href="{{item.operaterUrl}} ">
+                                {{item[t.key]}}
+                            </a>
+                        </td>
+	        		</template>
+	        	</tr>
 		</template>
         </tbody>
     </table>	

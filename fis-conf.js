@@ -32,7 +32,7 @@ fis.media('xuxu').match('*', {
 });
 
 // fis.match('*.{js,css,png,gif}', {
-//     release: '/static/$0',
+//     release: 'static/$0',
 //     url: '/xuxu/asset/$0'
 // })
 
@@ -108,25 +108,23 @@ fis.match('test/data/**.js', {
 fis.match('::package', {
     packager: fis.plugin('map', {
         'static/core-lib.js': [
-            '/static/lib/**.js',
+            'static/lib/**.js',
         ],
         'static/core-js.js': [
             '/config/**.js',
-            '/static/js/controller.js',
-            '/static/js/model.js',
-            '/static/js/widget.js',
-            '/static/js/initapp.js',
+            'static/js/controller.js',
+            'static/js/model.js',
+            'static/js/widget.js',
+            'static/js/initapp.js',
             '/widget/util/*.js',
 			'/route/sRouter.js',
             '/route/route.js'
         ],
         'static/center_sync_0_pkg.js': [
             'controller/mainControl.js',
-            '/static/js/datetime/**.js',
-            '/static/js/ztree/**.js',
-            'model/tablemodel.js',
-            'model/depmodel.js',
-            'model/areamodel.js',
+            'static/js/datetime/**.js',
+            'static/js/ztree/**.js',
+            'model/**.js',
             'widget/module/header/header.js',
             'widget/module/form/form.js',
             'widget/module/searchfilter/searchfilter.js',
@@ -135,7 +133,7 @@ fis.match('::package', {
             'widget/module/footer/footer.js',
             'widget/component/**.js',
             'widget/component/edit/edit.js',
-            'widget/filter/datetime.js',
+            'widget/filter/**.js',
             'widget/classComponent/datecontrol/datecontrol.js',
             'widget/classComponent/dialog/**.js',
             'widget/module/backtotop/backtotop.js',

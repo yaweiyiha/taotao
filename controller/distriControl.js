@@ -11,7 +11,7 @@ import mainPageStructure  from 'config/pageStructure.js';
 /**
  * mainPage own css
  */
-var style = __inline('/static/css/page/main-page.inline.less');
+var style = __inline('static/css/page/main-page.inline.less');
 
 require.loadCss({
     name: 'asset-main-page-style',
@@ -28,7 +28,7 @@ var widgets  = {
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
         { widget: 'topbanner', data: {},container: '.form-wrapper' },
-    addform : 
+    distriform : 
         { widget: 'distriform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
@@ -65,15 +65,20 @@ class distriControl extends Control{
          */
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
-        me.getViews([widgets.addform],data);
-
-
-        // me.getModel('table',(model) => {
+        // 
+        if( data.url !== '' &&  data.url !== undefined){
+            let param = location.href.split('?')[1];
+            data.url =  data.url + '?' + param;
+            me.getModel('distri',(model) => {
             
-        //     model.getData(formData.url,formData.param).then((res) => {
-        //         me.getViews([me.widgets.table], $.extend(res,formData));
-        //     });
-        // });
+            model.getData(data.url).then((res) => {
+                me.getViews([me.widgets.distriform], $.extend(res,data));
+                });
+            });
+        }else{
+            me.getViews([widgets.distriform],data);
+        }
+
 
         listener.trigger('page', 'loaded', {info: 'load success'});
     }

@@ -23,6 +23,9 @@ var url = {
 
     getUriParams: function () {
         let uri = '';
+        let uriArr = [];
+        let uriArrLen = 0;
+        let tmpArr = [];
         if (URL_MODE === 'pushstate') {
             uri = location.pathname.replace(/^\//, '');
             
@@ -30,7 +33,33 @@ var url = {
             uri = location.hash.replace(/^#/, '');
         }
 
-        return uri.split('/');
+        uriArr = uri.split('/');
+        uriArrLen = uriArr.length;
+        tmpArr = uriArr[uriArrLen -1].split('?');
+        if( tmpArr.length > 1 ){
+            uriArr.pop();
+            uriArr.push(tmpArr[0]);
+        }
+        return uriArr;
+    },
+    getParams: function () {
+        let uri = '';
+        let uriArr = [];
+        let uriArrLen = 0;
+        let tmpArr = [];
+        if (URL_MODE === 'pushstate') {
+            uri = location.pathname.replace(/^\//, '');
+            
+        } else {
+            uri = location.hash.replace(/^#/, '');
+        }
+
+        uriArr = uri.split('/');
+        uriArrLen = uriArr.length;
+        tmpArr = uriArr[uriArrLen -1].split('?');
+        if( tmpArr.length > 1 ){
+            return tmpArr[1];
+        }
     },
 
     getHash: function () {

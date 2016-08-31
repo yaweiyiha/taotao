@@ -11,7 +11,7 @@
             <ul class="nav ace-nav">
 <!--                 <li class="light-blue">
                     <a  href="javascript:void(0)"  @click="show=!show">
-                        <img class="nav-user-photo" src="/static/img/default_user.jpg">
+                        <img class="nav-user-photo" src="static/img/default_user.jpg">
                         <span class="user-info" style="font-size: 13px;">
                             <small style="font-size: 12px;">您好,</small>
                             {{ username }}

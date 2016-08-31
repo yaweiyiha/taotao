@@ -11,7 +11,7 @@ import mainPageStructure  from 'config/pageStructure.js';
 /**
  * mainPage own css
  */
-var style = __inline('/static/css/page/main-page.inline.less');
+var style = __inline('static/css/page/main-page.inline.less');
 
 require.loadCss({
     name: 'asset-main-page-style',

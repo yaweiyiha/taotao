@@ -1,7 +1,7 @@
 import mainPageStructure  from 'config/pageStructure.js';
 import Control from 'static/js/controller.js';
 
-var style = __inline('/static/css/page/main-page.inline.less');
+var style = __inline('static/css/page/main-page.inline.less');
 
 require.loadCss({
     name: 'asset-main-page-style',
