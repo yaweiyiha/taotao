@@ -5,6 +5,7 @@
  * @require.async admin:controller/editProControl.js
  * @require.async admin:controller/distriControl.js
  * @require.async admin:controller/commsetControl.js
+ * @require.async asset:controller/loginControl.js
  */
 
 import Url from 'widget/util/url.js'

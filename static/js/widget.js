@@ -74,6 +74,7 @@ var Widget = (function() {
                 methods: me.methods,
                 filter : me.filter, 
                 watch : me.watch,
+                computed: me.computed || {}
             });
             this.vm = vm; 
             return vm;
