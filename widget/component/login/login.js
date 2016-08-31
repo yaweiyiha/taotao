@@ -8,8 +8,7 @@ require.loadCss({
     content: style
 });
 
-export default new Vue({
-    el: $('#main').get(0),
+export default Vue.component('login', {
     template: tpl,
     data: () => ({
         username: '',
