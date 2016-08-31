@@ -37,7 +37,7 @@ urlConfig['distributors/maintenance'] =
 			'operaterList' : [
 				{'name' : '详情' , 'url' : '#addPro/distributor/view' },
 				{'name' : '编辑' , 'url' : '#addPro/distributor/edit' },
-				{'name' : ['停用','启用'] , 'evt' : ['statusChange'] ,'param' : 'id', 'bindKey' : 'status' , 'value' : [1 , 0]},
+				{'name' : ['停用','启用'] , 'evt' : 'statusChange' ,'param' : 'id', 'bindKey' : 'status' , 'value' : [1 , 0]},
 			],
 			'param' : 'id' ,
 

@@ -4,6 +4,7 @@ import datetime from 'widget/filter/datetime.js';
 import productCategory from 'widget/filter/productCategory.js'
 import applyState from 'widget/filter/applyState.js'
 import distributorStatus from 'widget/filter/distributorStatus.js'
+import confirmDialog from 'widget/classComponent/dialog/confirm';
 
 var style = __inline('./table.inline.less');
 var tpl = __inline('./table.tpl');
@@ -46,7 +47,6 @@ var table = Widget.extend({
                 });
                 
             }else if (data.operater.type === 'fixed'){
-
                 let param = operater.param;
                 tableData.forEach(function(item){
                     let name = '';
@@ -66,7 +66,7 @@ var table = Widget.extend({
                             let key = item[bindKey];
                             let pos = op.value.indexOf(key);
                             name = op.name[pos];
-                            evt = op.evt[pos];
+                            evt = op.evt;
                             val = key;
                         }
                         operaterObj = {
@@ -113,13 +113,12 @@ var table = Widget.extend({
         });
         $('a[data-evt=statusChange]').on('click',function(){
 
+            confirmDialog.show('确认停用？');
+            let target = $(this);
             let id = $(this).attr('data-param');
-            let value = $(this).attr('value');
+            let value = parseInt($(this).attr('value'));
             let url = Config.host + 'publisher/editStatus';
             let status = value ? value - 1 : value + 1;
-
-            let statusArr = ['停用','启用'];
-            let statusText = statusArr[status];
             let param = {
                 'id'      :  id,
                 'status'  :  status
@@ -128,7 +127,7 @@ var table = Widget.extend({
             me.getData(url,param).then((res) =>{
 
                 if(res.status === 1){
-                    $(this).text(statusText);
+                    location.reload();
                 }
             });
 
@@ -165,8 +164,9 @@ var table = Widget.extend({
 
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
-            console.log(res);
-            this.vm.data = res;
+            if (res.msg === 'success') {
+                this.vm.$set('items', res.items);
+            }
         });
     },
     filters : {
