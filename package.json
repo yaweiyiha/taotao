@@ -1,5 +1,5 @@
 {
-  "name": "asset-Front-end-frame",
+  "name": "admin-Front-end-frame",
   "version": "1.0.0",
   "description": "rebuild with fis, es6 and Vue",
   "main": "index.html",
@@ -14,15 +14,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yaweiyiha/asset.git"
+    "url": "git+https://github.com/yaweiyiha/admin.git"
   },
   "keywords": [
-    "fis, asset, es6, Vue"
+    "fis, admin, es6, Vue"
   ],
   "author": "xuyawei",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yaweiyiha/asset/issues"
+    "url": "https://github.com/yaweiyiha/admin/issues"
   },
-  "homepage": "https://github.com/yaweiyiha/asset#readme"
+  "homepage": "https://github.com/yaweiyiha/admin#readme"
 }

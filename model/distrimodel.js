@@ -8,7 +8,7 @@
 
 import Model from 'static/js/model.js'
 // import TableData from 'test/data/distributManage'
-var url = require('asset:widget/util/url.js');
+var url = require('admin:widget/util/url.js');
 
 class distriModel extends Model{
 

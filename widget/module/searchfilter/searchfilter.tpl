@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-searchfilter">
+<div class="styleguide admin-widget-searchfilter">
     <div class="panel panel-default">
 	      <template v-for = "f in filters">
 	          <div class="filters-item">

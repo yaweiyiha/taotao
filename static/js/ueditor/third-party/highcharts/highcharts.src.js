@@ -2064,7 +2064,7 @@ SVGElement.prototype = {
 			titleNode,
 			attrSetters = wrapper.attrSetters,
 			shadows = wrapper.shadows,
-			hasSetSymbolSize,
+			hadminSymbolSize,
 			doTransform,
 			ret = wrapper;
 
@@ -2224,9 +2224,9 @@ SVGElement.prototype = {
 					if (wrapper.symbolName && /^(x|y|width|height|r|start|end|innerR|anchorX|anchorY)/.test(key)) {
 
 
-						if (!hasSetSymbolSize) {
+						if (!hadminSymbolSize) {
 							wrapper.symbolAttr(hash);
-							hasSetSymbolSize = true;
+							hadminSymbolSize = true;
 						}
 						skipAttr = true;
 					}
@@ -4699,7 +4699,7 @@ Highcharts.VMLElement = VMLElement = {
 			nodeName = element.nodeName,
 			renderer = wrapper.renderer,
 			symbolName = wrapper.symbolName,
-			hasSetSymbolSize,
+			hadminSymbolSize,
 			shadows = wrapper.shadows,
 			skipAttr,
 			attrSetters = wrapper.attrSetters,
@@ -4743,10 +4743,10 @@ Highcharts.VMLElement = VMLElement = {
 						// if one of the symbol size affecting parameters are changed,
 						// check all the others only once for each call to an element's
 						// .attr() method
-						if (!hasSetSymbolSize) {
+						if (!hadminSymbolSize) {
 							wrapper.symbolAttr(hash);
 
-							hasSetSymbolSize = true;
+							hadminSymbolSize = true;
 						}
 						skipAttr = true;
 

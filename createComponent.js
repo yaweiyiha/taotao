@@ -12,13 +12,13 @@ var widget = arguments[0];
 var componentName = arguments[1];
 
 var htmlTpl = [];
-htmlTpl.push('<div class="styleguide asset-widget-' + widget + '">');
+htmlTpl.push('<div class="styleguide admin-widget-' + widget + '">');
 htmlTpl.push('');
 htmlTpl.push('</div>');
 htmlTpl = htmlTpl.join('\n');
 
 var styleTpl = [];
-styleTpl.push('.asset-widget-' + widget + ' {');
+styleTpl.push('.admin-widget-' + widget + ' {');
 styleTpl.push('');
 styleTpl.push('}');
 styleTpl = styleTpl.join('\n');
@@ -28,7 +28,7 @@ jsTpl.push("let style = __inline('./" + widget + ".inline.less');");
 jsTpl.push("let tpl = __inline('./" + widget + ".tpl');");
 jsTpl.push("");
 jsTpl.push("require.loadCss({");
-jsTpl.push("    name: 'asset-widget-" + widget + "-style',");
+jsTpl.push("    name: 'admin-widget-" + widget + "-style',");
 jsTpl.push("    content: style");
 jsTpl.push("});");
 jsTpl.push("");

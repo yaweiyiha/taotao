@@ -1,6 +1,6 @@
 import Widget from 'static/js/widget.js';
 import cityselect from 'widget/component/cityselect/cityselect.js';
-import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
+import dateControl from 'widget/classComponent/datecontrol/datecontrol';
 import Star from 'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
@@ -10,7 +10,7 @@ let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
 
 require.loadCss({
-    name: 'asset-widget-addform-style',
+    name: 'admin-widget-addform-style',
     content: style
 });
 
@@ -60,9 +60,9 @@ var addform = Widget.extend({
         })
 
         $('button[data-role="submit"]').on('click', function () {
-
             let data = {};
             let url  = '';
+            let param = '';
             let inputCollections = $('.panel-body').find('[data-key]');
 
             for (let i = 0, len = inputCollections.length; i < len; i++) {
@@ -73,13 +73,22 @@ var addform = Widget.extend({
                     data[key] = val;
                 }
             }
-            url = Config.host + me.data.url ;
-       
+            url = me.data.submiturl || me.data.url;
+            param = me.data.param;
+
+            if(param){
+                let params = location.href.split('?')[1].split("=");
+                let key = params[0];
+                let val = params[1];
+                data[key] = val;
+            }
+
             let model = new formModel();
             model.getData(url,data).then((res) => {
                 window.history.back();
             });
         });
+
     },
     methods:{
     	back : () => {

@@ -5,7 +5,7 @@ let style = __inline('./topbanner.inline.less');
 let tpl = __inline('./topbanner.tpl');
 
 require.loadCss({
-    name: 'asset-widget-topbanner-style',
+    name: 'admin-widget-topbanner-style',
     content: style
 });
 

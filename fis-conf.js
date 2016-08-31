@@ -6,7 +6,7 @@
 set namespace ; require file by modular way 
 ********************************************/
 
-fis.config.set('namespace', 'asset');
+fis.config.set('namespace', 'admin');
 
 /************************************
 set domain to make sure that you 
@@ -15,7 +15,7 @@ can get back files from corect position
 
 
 // fis.match('*.{js,css,png,gif}', {
-//     domain:  '/xuxu/' +  fis.get('namespace')
+//     domain:  '/admin/' +  fis.get('namespace')
 // });
 
 /*******************************************
@@ -26,15 +26,14 @@ demo : fis3 relase xuxu -w
 fis.media('xuxu').match('*', {
     deploy: fis.plugin('http-push', {
         receiver: 'http://localhost/receiver.php',
-        to: 'D:/apache-tomcat-7.0.70/webapps/ROOT/xuxu/asset'
+        to: 'D:/apache-tomcat-7.0.70/webapps/admin'
     }),
   
 });
 
-// fis.match('*.{js,css,png,gif}', {
-//     release: 'static/$0',
-//     url: '/xuxu/asset/$0'
-// })
+fis.match('*.{js,css,png,gif}', {
+    url: '/admin$0'
+})
 
 
 /**********************

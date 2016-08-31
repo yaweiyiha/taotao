@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-productcommset">
+<div class="styleguide admin-widget-productcommset">
 	<div class="row title">
       	<div>
 	        <span class="section-title">发布策略</span>

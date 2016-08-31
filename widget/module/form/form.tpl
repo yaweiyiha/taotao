@@ -1,4 +1,4 @@
-<div class="asset-widget-form">
+<div class="admin-widget-form">
   <div class="breadcrumbs subnav" id="breadcrumbs">
 <!--         <ul class="breadcrumb nav-item">
             <li>{{title}}</li>

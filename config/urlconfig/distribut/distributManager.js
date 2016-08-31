@@ -43,6 +43,7 @@ urlConfig['distribut/maintenance'] =
 		    	40 : {	name: '查看签约状态',  url : '#distri/sign/done' }
 		    },
 		    param : 'id' ,
+		    type : 'non-fixed',
 		},
 		'url' : "agentsales/list",
 		'param' : { 

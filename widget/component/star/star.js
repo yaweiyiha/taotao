@@ -2,7 +2,7 @@ let style = __inline('./star.inline.less');
 let tpl = __inline('./star.tpl');
 
 require.loadCss({
-    name: 'asset-widget-star-style',
+    name: 'admin-widget-star-style',
     content: style
 });
 

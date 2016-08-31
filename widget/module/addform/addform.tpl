@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-addform">
+<div class="styleguide admin-widget-addform">
 
   <div> 
     <div class="panel-heading"></div>
@@ -16,7 +16,7 @@
       </div>
     </ul>
     <div class="panel">
-
+      
       <template v-for = "(index,form) in forms">
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{'none' : index === 1 }">
           <div v-for = "panel in form" class="sub-panel" >
@@ -47,69 +47,69 @@
                     </div>
                   </div>
               </div>
-        <template v-for="li in panel.formlist">
+        <template v-for="list in panel.formlist">
           <div class="row ">
-            <template v-for="item in li">
-                <div class="{{item.wrapperClass || ''}} input-wrapper rt">
-                  <template v-if="item.type === 'product-commset'">
+            <template v-for="li in list">
+                <div class="{{li.wrapperClass || ''}} input-wrapper rt">
+                  <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
-                  <div v-if="item.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="item.selfStyle">{{item.name}} : {{item.value}}
+                  <div v-if="li.type === 'text'" class="form-group input-group text">
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
                     </div>
                   </div>
-                  <div v-if="item.type === 'input'" class="form-group input-group">
-                    <div class="input-group-addon input-title" >{{item.name}}
-                        <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div v-if="li.type === 'input'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                        <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-valide="{{item.isrequire ? 'required' : ''}}" data-des="{{item.name}}" data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}" v-model="item.value || ''" v-bind:readonly="item.readonly">
-                    <div class="unit" v-if="item.unit">{{ item.unit }}</div>
+                    <input data-valide="{{li.isrequire ? 'required' : ''}}" data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="li.readonly" value="{{item[li.key]}}">
+                    <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
-                  <div v-if="item.type === 'select'" class="form-group input-group w100">
-                      <div v-if= "item.name" class="input-group-addon input-title" >{{item.name}}<span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div v-if="li.type === 'select'" class="form-group input-group w100">
+                      <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
-                      <select class="input-control" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" data-key="{{item.key}}"> 
-                        <template v-for="option in item.options">
+                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}"> 
+                        <template v-for="option in li.options">
                             <option value="">{{option}}</option>
                         </template>
                       </select>
                   </div>
-                  <div  v-if="item.type === 'time'" class="form-group input-group time">
-                    <div class="input-group-addon input-title" >{{item.name}}
-                        <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div  v-if="li.type === 'time'" class="form-group input-group time">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                        <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control {{item.classList}}" readonly>
+                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control {{li.classList}}" readonly>
                   </div> 
 
-                  <div  v-if="item.type === 'singledate'" class="form-group input-group">
-                    <div class="input-group-addon input-title" >{{item.name}}
-                        <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div  v-if="li.type === 'singledate'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                        <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
                       <single-date></single-date>
                   </div> 
-                  <div v-if="item.type === 'dep'" class="form-group input-group dep">
-                    <div class="input-group-addon input-title" >{{item.name}}
-                        <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div v-if="li.type === 'dep'" class="form-group input-group dep">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                        <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{item.key}}" class="input-control  readonly">
+                    <input data-key="{{li.key}}" class="input-control  readonly">
                     <div class="input-group-addon input-title choose-button">选择</div>
                   </div> 
-                  <div  v-if="item.type === 'area'" class="form-group input-group">
-                   <div class="input-group-addon input-title" >{{item.name}}
-                      <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div  v-if="li.type === 'area'" class="form-group input-group">
+                   <div class="input-group-addon input-title" >{{li.name}}
+                      <span v-if="li.isrequire" class="text-strong-red">*</span>
                    </div>
                     <city-select key="code"></city-select>
                   </div>
-                  <div v-if="item.type ==='radios'" class="form-group input-group"> 
-                      <div class="input-group-addon input-title" >{{item.name}}
-                          <span v-if="item.isrequire" class="text-strong-red">*</span>
+                  <div v-if="li.type ==='radios'" class="form-group input-group"> 
+                      <div class="input-group-addon input-title" >{{li.name}}
+                          <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
-                      <template v-for="r in item.radios">
+                      <template v-for="r in li.radios">
                         <input type="radio" data-key="{{r.key}}" class='radio-input' name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
                       </template>
                   </div>
-                  <div v-if="item.type === 'star'" class="form-group input-group">
-                    <div class="input-group-addon input-title" >{{item.name}}</div>
+                  <div v-if="li.type === 'star'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{li.name}}</div>
                     <star></star>
                   </div>
               </div>

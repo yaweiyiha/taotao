@@ -1,4 +1,4 @@
-<div class="asset-widget-cityselect row">
+<div class="admin-widget-cityselect row">
 	<select class="col-md-3 " class="province form-control" style="width:30%" v-model="provinceSelected">
 		<option value="">省</option>
 		<template v-for="(index, pr) in province" track-by="$index" >

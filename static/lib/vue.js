@@ -957,12 +957,12 @@ var text = Object.freeze({
     _delimitersChanged: true,
 
     /**
-     * List of asset types that a component can own.
+     * List of admin types that a component can own.
      *
      * @type {Array}
      */
 
-    _assetTypes: ['component', 'directive', 'elementDirective', 'filter', 'transition', 'partial'],
+    _adminTypes: ['component', 'directive', 'elementDirective', 'filter', 'transition', 'partial'],
 
     /**
      * prop binding modes
@@ -1580,7 +1580,7 @@ var transition = Object.freeze({
     var tag = el.tagName.toLowerCase();
     var hasAttrs = el.hasAttributes();
     if (!commonTagRE.test(tag) && !reservedTagRE.test(tag)) {
-      if (resolveAsset(options, 'components', tag)) {
+      if (resolveadmin(options, 'components', tag)) {
         return { id: tag };
       } else {
         var is = hasAttrs && getIsBinding(el, options);
@@ -1612,7 +1612,7 @@ var transition = Object.freeze({
     // dynamic syntax
     var exp = el.getAttribute('is');
     if (exp != null) {
-      if (resolveAsset(options, 'components', exp)) {
+      if (resolveadmin(options, 'components', exp)) {
         el.removeAttribute('is');
         return { id: exp };
       }
@@ -1718,20 +1718,20 @@ var transition = Object.freeze({
   };
 
   /**
-   * Assets
+   * admins
    *
    * When a vm is present (instance creation), we need to do
    * a three-way merge between constructor options, instance
    * options and parent options.
    */
 
-  function mergeAssets(parentVal, childVal) {
+  function mergeadmins(parentVal, childVal) {
     var res = Object.create(parentVal || null);
-    return childVal ? extend(res, guardArrayAssets(childVal)) : res;
+    return childVal ? extend(res, guardArrayadmins(childVal)) : res;
   }
 
-  config._assetTypes.forEach(function (type) {
-    strats[type + 's'] = mergeAssets;
+  config._adminTypes.forEach(function (type) {
+    strats[type + 's'] = mergeadmins;
   });
 
   /**
@@ -1787,7 +1787,7 @@ var transition = Object.freeze({
 
   function guardComponents(options) {
     if (options.components) {
-      var components = options.components = guardArrayAssets(options.components);
+      var components = options.components = guardArrayadmins(options.components);
       var ids = Object.keys(components);
       var def;
       if ('development' !== 'production') {
@@ -1846,30 +1846,30 @@ var transition = Object.freeze({
   }
 
   /**
-   * Guard an Array-format assets option and converted it
+   * Guard an Array-format admins option and converted it
    * into the key-value Object format.
    *
-   * @param {Object|Array} assets
+   * @param {Object|Array} admins
    * @return {Object}
    */
 
-  function guardArrayAssets(assets) {
-    if (isArray(assets)) {
+  function guardArrayadmins(admins) {
+    if (isArray(admins)) {
       var res = {};
-      var i = assets.length;
-      var asset;
+      var i = admins.length;
+      var admin;
       while (i--) {
-        asset = assets[i];
-        var id = typeof asset === 'function' ? asset.options && asset.options.name || asset.id : asset.name || asset.id;
+        admin = admins[i];
+        var id = typeof admin === 'function' ? admin.options && admin.options.name || admin.id : admin.name || admin.id;
         if (!id) {
-          'development' !== 'production' && warn('Array-syntax assets must provide a "name" or "id" field.');
+          'development' !== 'production' && warn('Array-syntax admins must provide a "name" or "id" field.');
         } else {
-          res[id] = asset;
+          res[id] = admin;
         }
       }
       return res;
     }
-    return assets;
+    return admins;
   }
 
   /**
@@ -1918,9 +1918,9 @@ var transition = Object.freeze({
   }
 
   /**
-   * Resolve an asset.
+   * Resolve an admin.
    * This function is used because child instances need access
-   * to assets defined in its ancestor chain.
+   * to admins defined in its ancestor chain.
    *
    * @param {Object} options
    * @param {String} type
@@ -1929,18 +1929,18 @@ var transition = Object.freeze({
    * @return {Object|Function}
    */
 
-  function resolveAsset(options, type, id, warnMissing) {
+  function resolveadmin(options, type, id, warnMissing) {
     /* istanbul ignore if */
     if (typeof id !== 'string') {
       return;
     }
-    var assets = options[type];
+    var admins = options[type];
     var camelizedId;
-    var res = assets[id] ||
+    var res = admins[id] ||
     // camelCase ID
-    assets[camelizedId = camelize(id)] ||
+    admins[camelizedId = camelize(id)] ||
     // Pascal Case ID
-    assets[camelizedId.charAt(0).toUpperCase() + camelizedId.slice(1)];
+    admins[camelizedId.charAt(0).toUpperCase() + camelizedId.slice(1)];
     if ('development' !== 'production' && warnMissing && !res) {
       warn('Failed to resolve ' + type.slice(0, -1) + ': ' + id, options);
     }
@@ -2365,7 +2365,7 @@ var transition = Object.freeze({
   	isFragment: isFragment,
   	getOuterHTML: getOuterHTML,
   	mergeOptions: mergeOptions,
-  	resolveAsset: resolveAsset,
+  	resolveadmin: resolveadmin,
   	checkComponentAttr: checkComponentAttr,
   	commonTagRE: commonTagRE,
   	reservedTagRE: reservedTagRE,
@@ -5087,7 +5087,7 @@ var template = Object.freeze({
       if (!filters) return;
       var i = filters.length;
       while (i--) {
-        var filter = resolveAsset(this.vm.$options, 'filters', filters[i].name);
+        var filter = resolveadmin(this.vm.$options, 'filters', filters[i].name);
         if (typeof filter === 'function' || filter.read) {
           this.hasRead = true;
         }
@@ -6830,7 +6830,7 @@ var template = Object.freeze({
     update: function update(id, oldId) {
       var el = this.el;
       // resolve on owner vm
-      var hooks = resolveAsset(this.vm.$options, 'transitions', id);
+      var hooks = resolveadmin(this.vm.$options, 'transitions', id);
       id = id || 'v';
       oldId = oldId || 'v';
       el.__v_trans = new Transition(el, id, hooks, this.vm);
@@ -7322,7 +7322,7 @@ var template = Object.freeze({
     if (commonTagRE.test(tag)) {
       return;
     }
-    var def = resolveAsset(options, 'elementDirectives', tag);
+    var def = resolveadmin(options, 'elementDirectives', tag);
     if (def) {
       return makeTerminalNodeLinkFn(el, tag, '', options, def);
     }
@@ -7389,7 +7389,7 @@ var template = Object.freeze({
       attr = attrs[i];
       name = attr.name.replace(modifierRE, '');
       if (matched = name.match(dirAttrRE)) {
-        def = resolveAsset(options, 'directives', matched[1]);
+        def = resolveadmin(options, 'directives', matched[1]);
         if (def && def.terminal) {
           if (!termDef || (def.priority || DEFAULT_TERMINAL_PRIORITY) > termDef.priority) {
             termDef = def;
@@ -7525,7 +7525,7 @@ var template = Object.freeze({
                   continue;
                 }
 
-                dirDef = resolveAsset(options, 'directives', dirName, true);
+                dirDef = resolveadmin(options, 'directives', dirName, true);
                 if (dirDef) {
                   pushDir(dirName, dirDef);
                 }
@@ -7695,9 +7695,9 @@ var template = Object.freeze({
         // non-element template
         replacer.nodeType !== 1 ||
         // single nested component
-        tag === 'component' || resolveAsset(options, 'components', tag) || hasBindAttr(replacer, 'is') ||
+        tag === 'component' || resolveadmin(options, 'components', tag) || hasBindAttr(replacer, 'is') ||
         // element directive
-        resolveAsset(options, 'elementDirectives', tag) ||
+        resolveadmin(options, 'elementDirectives', tag) ||
         // for block
         replacer.hasAttribute('v-for') ||
         // if block
@@ -8797,7 +8797,7 @@ var template = Object.freeze({
       var filter, fn, args, arg, offset, i, l, j, k;
       for (i = 0, l = filters.length; i < l; i++) {
         filter = filters[write ? l - i - 1 : i];
-        fn = resolveAsset(this.$options, 'filters', filter.name, true);
+        fn = resolveadmin(this.$options, 'filters', filter.name, true);
         if (!fn) continue;
         fn = write ? fn.write : fn.read || fn;
         if (typeof fn !== 'function') continue;
@@ -8830,7 +8830,7 @@ var template = Object.freeze({
       if (typeof value === 'function') {
         factory = value;
       } else {
-        factory = resolveAsset(this.$options, 'components', value, true);
+        factory = resolveadmin(this.$options, 'components', value, true);
       }
       /* istanbul ignore if */
       if (!factory) {
@@ -9592,7 +9592,7 @@ var template = Object.freeze({
     },
 
     insert: function insert(id) {
-      var partial = resolveAsset(this.vm.$options, 'partials', id, true);
+      var partial = resolveadmin(this.vm.$options, 'partials', id, true);
       if (partial) {
         this.factory = new FragmentFactory(this.vm, partial);
         vIf.insert.call(this);
@@ -9758,7 +9758,7 @@ var template = Object.freeze({
 
   var digitsRE = /(\d{3})(?=\d)/g;
 
-  // asset collections must be a plain object.
+  // admin collections must be a plain object.
   var filters = {
 
     orderBy: orderBy,
@@ -9954,9 +9954,9 @@ var template = Object.freeze({
       Sub['super'] = Super;
       // allow further extension
       Sub.extend = Super.extend;
-      // create asset registers, so extended classes
-      // can have their private assets too.
-      config._assetTypes.forEach(function (type) {
+      // create admin registers, so extended classes
+      // can have their private admins too.
+      config._adminTypes.forEach(function (type) {
         Sub[type] = Super[type];
       });
       // enable recursive self-lookup
@@ -10018,14 +10018,14 @@ var template = Object.freeze({
     };
 
     /**
-     * Create asset registration methods with the following
+     * Create admin registration methods with the following
      * signature:
      *
      * @param {String} id
      * @param {*} definition
      */
 
-    config._assetTypes.forEach(function (type) {
+    config._adminTypes.forEach(function (type) {
       Vue[type] = function (id, definition) {
         if (!definition) {
           return this.options[type + 's'][id];

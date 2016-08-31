@@ -4,7 +4,7 @@ let style = __inline('./commtype.inline.less');
 let tpl = __inline('./commtype.tpl');
 
 require.loadCss({
-    name: 'asset-widget-commtype-style',
+    name: 'admin-widget-commtype-style',
     content: style
 });
 

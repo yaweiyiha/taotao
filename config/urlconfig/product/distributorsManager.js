@@ -15,12 +15,8 @@ urlConfig['distributors/maintenance'] =
 				{ key :'name' ,name : '发行商名称', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商名称关键字'},
 				{ key :'telephone' ,name : '发行商电话', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商电话关键字'},
 				{ key :'address' ,name : '发行商地址', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商地址关键字'},
-				{ name : '搜索', classList : 'btn btn-primary search',type : 'button', evt : 'submit'},
+				{ name : '搜索', classList : '',type : 'button', evt : 'submit'},
 			],
-		],
-		'buttonlist': [
-			{name : '搜索', classList : 'btn btn-primary search',type : 'button', evt : 'submit'},
-			{name : '重置搜索条件', classList : 'btn btn-primary search',type : 'button',evt:'clearInput'},
 		],
 
 		'type' : 'effective',
@@ -30,11 +26,22 @@ urlConfig['distributors/maintenance'] =
 			{ name :'发行商全称', width:"8%",key : 'fullName' ,type:'nomal'},
 			{ name :'发行商固定电话', width:"8%" ,key : 'telephone',type:'nomal'},
 			{ name :'发行商地址', width:"8%" ,key : 'address',type:'nomal'},
-			{ name :'发行商地址', width:"8%" ,key : 'status',type:'nomal'},
+			{ name :'状态', width:"8%" ,key : 'status',type:'distributorStatus'},
 			{ name :'创建者', width:"8%" ,key: 'creatorName',type:'nomal'},
 			{ name :'创建时间', width:"8%" ,key : 'createTime',type:'time'},
+			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 
 		],
+		'operater' :{
+			'type' : 'fixed',
+			'operaterList' : [
+				{'name' : '详情' , 'url' : '#addPro/distributor/view' },
+				{'name' : '编辑' , 'url' : '#addPro/distributor/edit' },
+				{'name' : ['停用','启用'] , 'evt' : ['stopUse','startUse'] , 'bindKey' : 'status' , 'value' : [1 , 0]},
+			],
+			'param' : 'id' ,
+
+		},
 		'url' : "publisher/list",
 		'param' : { 
 			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10

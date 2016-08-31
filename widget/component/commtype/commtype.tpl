@@ -1,12 +1,12 @@
-<div class="styleguide asset-widget-commtype">
+<div class="styleguide admin-widget-commtype">
   	<div class="row">	
 		<div class="col-md-6 input-wrapper rt">
 	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
+	          <div class="input-group-addon input-title" >
 	          	佣金类型
 	          	<span class="text-strong-red">*</span>
 	          </div>
-	          <select class="input-control" v-model="StaffCommType"> 
+	          <select class="input-control" v-model="StaffCommType" data-key="commissionType"> 
 	            <option value="1">未设置</option>
 	            <option value="2">固定佣金</option>
 	            <option value="3">阶梯佣金</option>
@@ -19,7 +19,7 @@
 	          	佣金比例
 	          	<span class="text-strong-red">*</span>
 	          </div>
-				<input class="input-control" value="0">
+				<input class="input-control" value="0" data-key="fixedCommission">
 				<div class="unit">%</div>
 	      	</div>
 	  	</div>  	

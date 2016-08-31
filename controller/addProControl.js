@@ -55,8 +55,21 @@ class addProControl extends Control{
          */
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
-        me.getViews([widgets.addform],data);
+        // me.getViews([widgets.addform],data);
 
+        if( data.url !== '' &&  data.url !== undefined){
+            let param = location.href.split('?')[1];
+            let url = Config.host +  data.url + '?' + param;
+            me.getModel('distri',(model) => {
+            
+            model.getData(url).then((res) => {
+                console.log(res);
+                me.getViews([me.widgets.addform], $.extend(res,data));
+                });
+            });
+        }else{
+            me.getViews([widgets.addform],data);
+        }
 
         // me.getModel('table',(model) => {
             

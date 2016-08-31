@@ -2,7 +2,7 @@ let style = __inline('./singledate.inline.less');
 let tpl = __inline('./singledate.tpl');
 
 require.loadCss({
-    name: 'asset-widget-singledate-style',
+    name: 'admin-widget-singledate-style',
     content: style
 });
 

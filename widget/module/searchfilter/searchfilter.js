@@ -8,7 +8,7 @@ let style = __inline('./searchfilter.inline.less');
 let tpl = __inline('./searchfilter.tpl');
 
 require.loadCss({
-    name: 'asset-widget-searchfilter-style',
+    name: 'admin-widget-searchfilter-style',
     content: style
 });
 

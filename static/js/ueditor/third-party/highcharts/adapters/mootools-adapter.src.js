@@ -89,7 +89,7 @@ win.HighchartsAdapter = {
 	 * @param {Function} callback
 	 */
 	getScript: function (scriptLocation, callback) {
-		// We cannot assume that Assets class from mootools-more is available so instead insert a script tag to download script.
+		// We cannot assume that admins class from mootools-more is available so instead insert a script tag to download script.
 		var head = doc.getElementsByTagName('head')[0];
 		var script = doc.createElement('script');
 

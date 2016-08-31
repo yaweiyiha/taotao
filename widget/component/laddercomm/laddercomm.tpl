@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-laddercomm">
+<div class="styleguide admin-widget-laddercomm">
 	<table width="100%">
 		<tbody>
 			<tr v-for="(index, item) in list">

@@ -5,7 +5,7 @@ var style = __inline('./menu.inline.less');
 var tpl = __inline('./menu.tpl');
 
 require.loadCss({
-    name: 'asset-widget-menu-style',
+    name: 'admin-widget-menu-style',
     content: style
 });
 

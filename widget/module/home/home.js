@@ -4,7 +4,7 @@ var style = __inline('./home.inline.less');
 var tpl = __inline('./home.tpl');
 
 require.loadCss({
-    name: 'asset-widget-home-style',
+    name: 'admin-widget-home-style',
     content: style
 });
 

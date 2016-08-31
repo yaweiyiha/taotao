@@ -50,7 +50,7 @@ var header = Widget.extend({
                 cache : false,
                 success : function(data) {   
                     if(data.status=='ok') {
-                        //setCookie("asset.LOCALE", dom.id, null);
+                        //setCookie("admin.LOCALE", dom.id, null);
                         window.location.reload(); 
                     } else {
                         alertDialog.show("语言切换失败");

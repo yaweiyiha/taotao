@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-topbanner">
+<div class="styleguide admin-widget-topbanner">
     <div class="row">
         <div class="col-md-6 titles">
             <span v-if="title">{{title}}</span>

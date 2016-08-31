@@ -5,9 +5,9 @@
  * @date 2016.8.2
  *
  * regist async module for loaded  when system is running
- * @require.async asset:model/tablemodel.js
- * @require.async asset:model/distrimodel.js
- * @require.async asset:model/formModel.js
+ * @require.async admin:model/tablemodel.js
+ * @require.async admin:model/distrimodel.js
+ * @require.async admin:model/formModel.js
 **/
 
 let counter = 1;
@@ -40,7 +40,7 @@ export default class Control{
      * @return {void}
      */
     getModel(modelName, cb) {
-        var modelPath  = "asset:model/" + modelName + 'model.js';
+        var modelPath  = "admin:model/" + modelName + 'model.js';
         require.async(modelPath, function (Model) {
             var model = new Model();
             cb && cb(model);
@@ -70,7 +70,7 @@ export default class Control{
             let pageDataCopy = $.extend(true, {}, pageData);
             data = $.extend(true, pageDataCopy, data);
             dataResource.push(data);
-            let viewPath = `asset:widget/module/${item.widget}/${item.widget}.js`;
+            let viewPath = `admin:widget/module/${item.widget}/${item.widget}.js`;
             widgetResource.push(viewPath);
             
         });

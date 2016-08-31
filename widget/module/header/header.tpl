@@ -1,4 +1,4 @@
-<div class="asset-widget-header navbar  navbar-fixed-top">
+<div class="admin-widget-header navbar  navbar-fixed-top">
 	<div class="navbar-container">
         <div class="navbar-header pull-left">
             <a href="/admin/" class="navbar-brand">

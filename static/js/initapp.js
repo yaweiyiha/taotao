@@ -5,7 +5,7 @@ import AlertDialog from 'widget/classComponent/dialog/alert'
 var style = __inline('static/css/page/main-page.inline.less');
 
 require.loadCss({
-    name: 'asset-main-page-style',
+    name: 'admin-main-page-style',
     content: style
 });
 

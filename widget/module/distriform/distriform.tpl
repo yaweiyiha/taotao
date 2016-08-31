@@ -1,4 +1,4 @@
-<div class="styleguide asset-widget-distriform">
+<div class="styleguide admin-widget-distriform">
 <div> 
     <ul class="my-tabs clearfix">
       <template v-if="tabs.length !== 0" v-for='(index, tab) in tabs' >
@@ -39,7 +39,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control" value="" maxlength="40" placeholder="{{li.placeholder}}" v-bind:readonly="item.readonly || false" v-model="item.vlaue || ''">
+                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control" value="" maxlength="40" placeholder="{{li.placeholder}}" v-bind:readonly="item.readonly || false" v-model="item.vlaue || ''" value="{{{{item[li.key]}}}}">
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
@@ -61,7 +61,12 @@
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
                     <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control {{li.classList}}" readonly>
-                  </div> 
+                  </div>
+                  <div  v-if="li.type === 'singledate'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                    </div>
+                      <single-date></single-date>
+                  </div>  
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
@@ -102,10 +107,7 @@
                         <span>{{li.value}}</span>
                     </div>
   
-                    <input class="lefile" type="file" style="display:none">
-<!--                   <div id="preview">
-                      <img id="imghead" width=100 height=100 border=0 src='<%=request.getContextPath()%>/images/defaul.jpg'>
-                  </div> -->
+                    <input class="lefile" type="file" data-key='attachment' name="attachment" style="display:none">
                   </div>
               </div>
             </template>

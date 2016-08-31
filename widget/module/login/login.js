@@ -4,7 +4,7 @@ var style = __inline('./login.inline.less');
 var tpl = __inline('./login.tpl');
 
 require.loadCss({
-    name: 'asset-widget-login-style',
+    name: 'admin-widget-login-style',
     content: style
 });
 

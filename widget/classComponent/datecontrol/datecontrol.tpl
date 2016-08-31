@@ -1,4 +1,4 @@
-<div class="asset-widget-datecontrol row">
+<div class="admin-widget-datecontrol row">
     <div class="col-md-5 prn">
   		<div class="input-group ">
 			  <input class="form-control beginTime"  value v-model="beginTime">

@@ -1,10 +1,10 @@
 /**
  * 此处需要声明 require.async所有的可能值
- * @require.async asset:controller/mainControl.js
- * @require.async asset:controller/addProControl.js
- * @require.async asset:controller/editProControl.js
- * @require.async asset:controller/distriControl.js
- * @require.async asset:controller/commsetControl.js
+ * @require.async admin:controller/mainControl.js
+ * @require.async admin:controller/addProControl.js
+ * @require.async admin:controller/editProControl.js
+ * @require.async admin:controller/distriControl.js
+ * @require.async admin:controller/commsetControl.js
  */
 
 import Url from 'widget/util/url.js'
@@ -40,7 +40,7 @@ class Router {
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
         let page = uriParams.join('/') || '';
         let configData = urlConfig[page] || {};
-        let path = `asset:controller/${hash}Control.js`;
+        let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');
         
         require.async(path, function (controller) {
@@ -87,7 +87,7 @@ class Router {
 // 	navigation() {
 //         let page = Url.getPage() || '';
 //         let configData = urlConfig[page] || {};
-//         let path = `asset:controller/mainControl.js`;
+//         let path = `admin:controller/mainControl.js`;
         
 //         require.async(path, function (controller) {
 //             new controller(configData);

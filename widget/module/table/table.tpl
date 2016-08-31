@@ -1,4 +1,4 @@
-<div class="asset-widget-table ">
+<div class="admin-widget-table ">
 
     <div class="table-loading">
         
@@ -38,10 +38,13 @@
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
+                        <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
                         <td v-if="t.type === 'operater'" class = "operator">
-                            <a href="{{item.operaterUrl}} ">
-                                {{item[t.key]}}
-                            </a>
+                            <template v-for="op in item[t.key]">
+                                <a href="{{op.url}} " data-evt="{{op.evt}}">
+                                    {{op.name}}
+                                </a>
+                            </template>
                         </td>
 	        		</template>
 	        	</tr>

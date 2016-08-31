@@ -3,13 +3,14 @@ import cityselect from 'widget/component/cityselect/cityselect.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import Star from 'widget/component/star/star';
 import CommType from 'widget/component/commtype/commtype';
+import singledate from  'widget/component/singledate/singledate';
 
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
 
 require.loadCss({
-    name: 'asset-widget-distriform-style',
+    name: 'admin-widget-distriform-style',
     content: style
 });
 

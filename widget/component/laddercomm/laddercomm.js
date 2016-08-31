@@ -2,7 +2,7 @@ let style = __inline('./laddercomm.inline.less');
 let tpl = __inline('./laddercomm.tpl');
 
 require.loadCss({
-    name: 'asset-widget-laddercomm-style',
+    name: 'admin-widget-laddercomm-style',
     content: style
 });
 

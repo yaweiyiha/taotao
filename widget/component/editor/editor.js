@@ -6,7 +6,7 @@ let tpl = __inline('./editor.tpl');
 let editor = null;
 
 require.loadCss({
-    name: 'asset-widget-editor-style',
+    name: 'admin-widget-editor-style',
     content: style
 });
 

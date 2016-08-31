@@ -4,7 +4,7 @@ let style = __inline('./productcommset.inline.less');
 let tpl = __inline('./productcommset.tpl');
 
 require.loadCss({
-    name: 'asset-widget-productcommset-style',
+    name: 'admin-widget-productcommset-style',
     content: style
 });
 

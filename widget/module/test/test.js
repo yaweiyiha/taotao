@@ -2,7 +2,7 @@ let style = __inline('./test.inline.less');
 let tpl = __inline('./test.tpl');
 
 require.loadCss({
-    name: 'asset-widget-test-style',
+    name: 'admin-widget-test-style',
     content: style
 });
 

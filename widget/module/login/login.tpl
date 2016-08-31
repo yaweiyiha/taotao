@@ -1,3 +1,3 @@
-<div class="asset-widget-login">
+<div class="admin-widget-login">
 	
 </div>
