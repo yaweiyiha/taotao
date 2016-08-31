@@ -11,8 +11,8 @@ urlConfig['distribut/maintenance'] =
 		},
 		'formlist' :[
 			[
-				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input',placeholder : '请输入产品名称'},
-				{ key :'orderNumber' ,name : '申请方', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入申请方'},
+				{ key :'productName' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input',placeholder : '请输入产品名称'},
+				{ key :'agentName' ,name : '申请方', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入申请方'},
 				{ name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
 			],
 		],
@@ -56,9 +56,9 @@ urlConfig['distribut/maintenance'] =
 		'key' : '产品维护',
 	},
 	'filters' : [
-		{ key :'productName', name : '类型', wrapperClass : 'col-sm-6' , 
+		{ key :'productCategoryId', name : '类型', wrapperClass : 'col-sm-6' , 
 		  	options : ['全部','基金','资管','信托','债券转让','股权投资'] ,type : 'filter' },
-		{ key :'customer', name : '申请状态',  wrapperClass : 'col-md-6',
+		{ key :'applyState', name : '申请状态',  wrapperClass : 'col-md-6',
 			options : ['全部','签约审核','对方取消申请','代销已签约','取消签约'] ,type : 'filter'},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 

@@ -20,7 +20,6 @@ var searchfilter = Widget.extend({
     },
     bind: function () {
         $(this.vm.$el).on('click', '.option-item', function () {
-            console.log(this);
             $(this).siblings().removeClass('active');
             $(this).addClass('active');
         });

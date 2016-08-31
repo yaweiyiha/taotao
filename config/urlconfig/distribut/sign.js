@@ -38,8 +38,8 @@ urlConfig['sign/validate'] =
 
 	],
 	'buttonlist': [
-		{name : '完成签约',classList : 'primary', type : 'button', evt : 'save' ,alt : '允许分销方开始代销'},
-		{name : '决绝签约',classList : 'default',type : 'button',evt:'republic'},
+		{name : '完成签约',classList : 'primary', type : 'button', evt : 'finishSigned' ,alt : '允许分销方开始代销'},
+		{name : '拒绝签约',classList : 'default',type : 'button',evt:'rejectSigned'},
 	],
 	'url' : 'agentsales/detail'
 

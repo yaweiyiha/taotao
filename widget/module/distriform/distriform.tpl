@@ -60,7 +60,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control {{li.classList}}" readonly>
+                    <date-control></date-control>
                   </div>
                   <div  v-if="li.type === 'singledate'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}
@@ -107,7 +107,7 @@
                         <span>{{li.value}}</span>
                     </div>
   
-                    <input class="lefile" type="file" data-key='attachment' name="attachment" style="display:none">
+                    <input class="attachment lefile" type="file" data-key='attachment' name="attachment" style="display:none">
                   </div>
               </div>
             </template>

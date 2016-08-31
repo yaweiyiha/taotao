@@ -19,7 +19,7 @@ var table = Widget.extend({
         data : [],  
     },
     init: function (data) {
-        
+        this.initData = Object.assign({}, data);
         this.data = this.processData(data);
         this.vm = this.display(data, tpl ,'vue');
         this.bind();
@@ -165,8 +165,9 @@ var table = Widget.extend({
 
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
-            console.log(res);
-            this.vm.data = res;
+            if (res.msg === 'success') {
+                this.vm.$set('items', res.items);
+            }
         });
     },
     filters : {

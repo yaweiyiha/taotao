@@ -64,6 +64,22 @@ var form = Widget.extend({
             });
         }
     },
+
+    getInputFilters: () => {
+        var inputCollections = $('.panel-body').find('[data-key]');
+        var data = {};
+        for (var i = 0, len = inputCollections.length; i < len; i++) {
+            var ele = $(inputCollections[i]);
+            var key = ele.attr('data-key');
+            var val = ele.attr('data-values') || ele.val();
+            if (key && val) {
+                data[key] = val;
+            }
+        }
+
+        return data;
+    },
+
     bind : function(){
 
         var me = this;
@@ -97,7 +113,19 @@ var form = Widget.extend({
             }
             dialog.show(setting);
         });
-        
+        $('.form-wrapper').on('click', '.filters-item .option-item', function () {
+            let filter = {};
+            let value = $(this).text();
+            let key = $(this).parents('.options').attr('data-key');
+            filter[key] = value;
+
+            let inputFilters = me.getInputFilters();
+            let filters = Object.assign(filter, inputFilters);
+            console.log(filters);
+            var url = me.data.url ; 
+            data = $.extend({param: data},{url : url});
+            me.updateTable(data);
+        });
         $('.panel-body').on('click', '[data-role=submit]', function () {
             var inputCollections = $('.panel-body').find('[data-key]');
             var data = {};
@@ -105,7 +133,7 @@ var form = Widget.extend({
                 var ele = $(inputCollections[i]);
                 var key = ele.attr('data-key');
                 var val = ele.attr('data-values') || ele.val();
-                if (key) {
+                if (key && val) {
                     data[key] = val;
                 }
             }
