@@ -48,6 +48,33 @@ var distriform = Widget.extend({
         }
         me.previewImage(this, imageContainer.get(0));
       });
+
+      $(this.vm.$el).on('click' ,'[data-role=finishSigned]', function () {
+        let data = new FormData();
+        // add attachment file data
+        let files = $('.attachment', me.vm.$el)[0].files;
+        // console.log(files);
+
+        data.append('id', 7);
+        data.append('commissionType', 10);
+        data.append('fixedCommission', 0.02);
+        data.append('attachment', files[0]);
+        data.append('offlineStartDate', '2016-08-19');
+        data.append('offlineEndDate', '2016-08-29');
+
+        $.ajax({
+            url: window.Config.host + 'agentsales/approve',
+            data: data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            type: 'POST',
+            success: function(data){
+                console.log(data);
+            }
+        });
+        // console.log(data.getAll('attachment'), data.getAll('offlineStartDate'));
+      });
     },
 
     previewImage :function(file, imageContainer)

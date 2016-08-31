@@ -11,8 +11,8 @@ urlConfig['distribut/maintenance'] =
 		},
 		'formlist' :[
 			[
-				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input',placeholder : '请输入产品名称'},
-				{ key :'orderNumber' ,name : '申请方', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入申请方'},
+				{ key :'productName' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input',placeholder : '请输入产品名称'},
+				{ key :'agentName' ,name : '申请方', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入申请方'},
 				{ name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
 			],
 		],

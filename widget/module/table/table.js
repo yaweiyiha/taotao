@@ -20,7 +20,7 @@ var table = Widget.extend({
         data : [],  
     },
     init: function (data) {
-        
+        this.initData = Object.assign({}, data);
         this.data = this.processData(data);
         this.vm = this.display(data, tpl ,'vue');
         this.bind();
