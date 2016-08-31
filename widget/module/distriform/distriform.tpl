@@ -39,7 +39,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control" value="" maxlength="40" placeholder="{{li.placeholder}}">
+                    <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control" value="" maxlength="40" placeholder="{{li.placeholder}}" v-bind:readonly="item.readonly || false" v-model="item.vlaue || ''">
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">

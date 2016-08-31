@@ -2,7 +2,7 @@
 
   <div> 
     <div class="panel-heading"></div>
-    <ul v-if= "tabs" class="my-tabs clearfix">
+    <ul v-if= "tabs || buttonlist" class="my-tabs clearfix">
       <template v-if="tabs.length !== 0" v-for='(index, tab) in tabs' >
         <li data-key="{{tab.key}}" tab-index="{{index}}" v-bind:class="{ 'active': index === 0 }">
             <a href="javascript:;" data-href="{{host + tab.url}}" >{{tab.value}}</a>
@@ -54,12 +54,15 @@
                   <template v-if="item.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
-                  
+                  <div v-if="item.type === 'text'" class="form-group input-group text">
+                    <div class="input-group-addon input-title" v-bind:style="item.selfStyle">{{item.name}} : {{item.value}}
+                    </div>
+                  </div>
                   <div v-if="item.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{item.name}}
                         <span v-if="item.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-valide="{{item.isrequire ? 'required' : ''}}" data-des="{{item.name}}" data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}">
+                    <input data-valide="{{item.isrequire ? 'required' : ''}}" data-des="{{item.name}}" data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}" v-model="item.value || ''" v-bind:readonly="item.readonly">
                     <div class="unit" v-if="item.unit">{{ item.unit }}</div>
                   </div>
                   <div v-if="item.type === 'select'" class="form-group input-group w100">

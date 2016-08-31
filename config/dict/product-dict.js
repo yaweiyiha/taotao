@@ -78,4 +78,6 @@ export default {
  	'fixedDay' 	:  { key :'orderNumber' ,name : '固定日期', wrapperClass : 'col-md-6 fixedDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
  	'closeDay' 	:  { key :'orderNumber' ,name : '按日成交', wrapperClass : 'col-md-6 none closeDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
  	'foundDay' 	:  { key :'orderNumber' ,name : '成立日', wrapperClass : 'col-md-6 none foundDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
+ 
+ 	'baseInput'  : (opts = {}) => ({ key :'orderNumber' ,name : opts.name || '', readonly: opts.readonly || false, wrapperClass : 'col-md-6', type : 'input', value: opts.value || ''}),
  }
