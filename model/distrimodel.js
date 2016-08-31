@@ -23,7 +23,6 @@ class distriModel extends Model{
             // test data
             // resolve(TableData);
             // return;
-            url = Config.host + url ;
             var xhr = $.ajax({
                 type: 'GET',
                 url:  url ,

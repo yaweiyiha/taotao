@@ -20,10 +20,10 @@
                   </div>
               </div>
           </div>
-        <template v-for="li in form.formlist">
+        <template v-for="list in form.formlist">
           <div class="row ">
-            <template v-for="li in li">
-                <div v-if="item.type === 'CommType'">
+            <template v-for="li in list">
+                <div v-if="li.type === 'CommType'">
                   <comm-type></comm-type>
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
