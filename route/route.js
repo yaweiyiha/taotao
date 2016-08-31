@@ -40,7 +40,7 @@ class Router {
         // let params = Url.getParams();
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
         let page = uriParams.join('/') || 'distribut/maintenance';
-        console.log(hash, page);
+        window._APP_HASH = Url.urlToJSON();
         let configData = urlConfig[page] || {};
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');

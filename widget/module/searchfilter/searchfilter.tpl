@@ -5,7 +5,7 @@
 	          	  <span class="input-title"> {{f.name}}</span>
 	              <div v-if="f.type === 'filter'" data-key="{{f.key}}" class="options">
 	                    <template v-for="(index,option) in f.options">
-	                        <span value="" v-bind:class="{'active': index=== 0}" class="option-item">{{option}}</span>
+	                        <span v-bind:class="{'active': index=== 0}" class="option-item" data-value="{{f.values[index]}}">{{option}}</span>
 	                    </template>
 	              </div> 
 	           </div>

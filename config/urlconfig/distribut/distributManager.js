@@ -57,9 +57,9 @@ urlConfig['distribut/maintenance'] =
 	},
 	'filters' : [
 		{ key :'productCategoryId', name : '类型', wrapperClass : 'col-sm-6' , 
-		  	options : ['全部','基金','资管','信托','债券转让','股权投资'] ,type : 'filter' },
+		  	options : ['全部','基金','资管','信托','债券转让','股权投资'], values: [-1, 10, 30, 40, 60, 70], type : 'filter' },
 		{ key :'applyState', name : '申请状态',  wrapperClass : 'col-md-6',
-			options : ['全部','签约审核','对方取消申请','代销已签约','取消签约'] ,type : 'filter'},
+			options : ['全部','签约审核','对方取消申请','代销已签约','取消签约'], values: [-1, 10, 20, 30, 40] ,type : 'filter'},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 
 	],
