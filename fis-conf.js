@@ -31,7 +31,7 @@ fis.media('xuxu').match('*', {
   
 });
 
-fis.match('*.{js,css,png,gif}', {
+fis.match('*.{js,css,png,gif,woff}', {
     url: '/admin$0'
 })
 
@@ -116,7 +116,6 @@ fis.match('::package', {
             'static/js/widget.js',
             'static/js/initapp.js',
             '/widget/util/*.js',
-			'/route/sRouter.js',
             '/route/route.js'
         ],
         'static/center_sync_0_pkg.js': [

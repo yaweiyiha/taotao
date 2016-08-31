@@ -27,7 +27,7 @@ export default {
  	'proTerm' 		:  { key :'orderNumber' ,name : '产品期限', wrapperClass : 'col-md-4 prn' ,   brd : true,  type : 'input',placeholder : '请输入发行规模' , options : ['无'],isrequire : true},
  	'termUnit' 	    :  { key :'orderNumber' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['自然年','自然季','自然月','天','不限期(前台投资人自选限期)','非固定限期(不赎回则一直持有)', '无']},
- 	'distriDate' 	:  { key :'orderNumber' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate', placeholder:'请输入发行规模',isrequire : true},
+ 	'distriDate' 	:  { key :'orderNumber' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate',isrequire : true},
  	'purchaseAmount':  { key :'orderNumber' ,name : '起购金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入发行规模'},
  	'increasingAmount':{ key :'orderNumber' ,name : '递增金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入发行规模'},
  	'subscriptionFee' :{ key :'orderNumber' ,name : '认购费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入认购费"},

@@ -1,0 +1,306 @@
+.error-wrapper {
+	.wrapper {
+		text-align: center;
+		color: #B4B4B4;
+		height: 130px;
+		padding: 16px 0;
+
+		.error-img {
+			width: 52px;
+			height: 67px;
+			margin: auto;
+			background: url(static/img/widget-error.png) no-repeat;
+			background-size: 52px auto;
+		}
+
+		.info {
+			margin-top: 14px;
+		}
+	}
+
+	&.page-error {
+		.wrapper {
+			height: auto;
+			margin-top: 100px;
+
+			.error-img {
+				width: 70px;
+				height: 90px;
+				background: url(static/img/page-error.png) no-repeat;
+				background-size: 70px auto;
+			}
+		}
+	}
+}
+#loading {
+    width: 120px;
+    height: 120px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    border-radius: 3px;
+    z-index: 10000;
+    color: #999;
+    text-align: center;
+    line-height: 200px;
+    background : url(static/img/loading.gif) no-repeat;
+    background-size: 70px auto;
+
+
+    &::before {
+    	content: '';
+    	display: block;
+    	width: 60px;
+    	height: 60px;
+    	left: 30px;
+    	top: 20px;
+    	position: absolute;
+	    background: url(static/img/loading.png) no-repeat;
+	    background-position: 0 0;
+	    background-size: 60px auto;
+    }
+
+    &::after {
+    	content: '';
+    	display: block;
+    	width: 60px;
+    	height: 60px;
+    	left: 30px;
+    	top: 20px;
+    	position: absolute;
+	    background: url(static/img/loading.png) no-repeat;
+	    background-size: 60px auto;
+	    background-position: 0 -60px;
+		animation:loading-circle 1s infinite linear;
+		-webkit-animation:loading-circle 1s infinite linear;
+    }
+}
+.tips {
+    font-size: 12px;
+    color: red;
+    margin-left: 109px;
+    position: relative;
+    top: -5px;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clearfix {
+    *zoom: 1;
+}
+.left {
+    float: left;
+    display: inline-block;
+}
+.right {
+    float: right;
+    display: inline-block;
+}
+.tl {
+    text-align: left;
+}
+.tr {
+    text-align: right;
+}
+.content-box{
+    width : 83%;
+    margin-right: 15px;
+}
+.pln {
+    padding-left: 0 !important;
+}
+.prn {
+    padding-right: 0 !important;
+}
+.w100 {
+    width: 100%;
+}
+select {
+    border: 1px solid #e6e6e6 ;
+}
+.bld{
+    border-left : 0px;
+    border-left : 1px dashed #e6e6e6 !important;
+}
+.brd {
+    border: 1px solid #e6e6e6;
+    border-right : 1px dashed #e6e6e6 !important;
+}
+.bln{
+    border: 1px solid #e6e6e6 !important;
+    border-left : 0px !important;
+}
+.brn {
+    border: 1px solid #e6e6e6 !important;
+    border-right : 0px !important;
+}
+.rt {
+    position: relative;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.ml10 {
+    margin-left: 10px !important;
+}
+.none {
+    display: none;
+}
+.com-border-bottom,
+.com-border-top,
+.com-border-left,
+.com-border-right {
+    position: relative;
+}
+.com-border-top:before,
+.com-border-bottom:after,
+.com-border-left:before,
+.com-border-right:after {
+    content: "";
+    position: absolute;
+    font-size: 0;
+    line-height: 0;
+    background-color: #e7e7e7;
+    z-index: 1001;
+}
+.border-box.com-border-top:before,
+.border-box.com-border-bottom:after,
+.border-box.com-border-left:before,
+.border-box.com-border-right:after {
+    background-color: #d9d9d9;
+}
+.com-border-bottom:after,
+.com-border-top:before {
+    width: 100%;
+    height: 1px;
+    left: 0;
+}
+.com-border-left:before,
+.com-border-right:after {
+    width: 1px;
+    height: 100%;
+    top: 0;
+}
+.com-border-top:before {
+    top: 0;
+    -webkit-transform-origin: center top;
+}
+.com-border-bottom:after {
+    bottom: 0;
+    -webkit-transform-origin: center bottom;
+}
+.com-border-left:before {
+    left: 0;
+    -webkit-transform-origin: left center;
+}
+.com-border-right:after {
+    right: 0;
+    -webkit-transform-origin: right center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), not all {
+    .com-border-top:before,
+    .com-border-bottom:after {
+        -webkit-transform: scaleY(0.667);
+    }
+    .com-border-left:before,
+    .com-border-right:after {
+        -webkit-transform: scaleX(0.667);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), not all {
+    .com-border-top:before,
+    .com-border-bottom:after {
+        -webkit-transform: scaleY(0.5);
+    }
+    .com-border-left:before,
+    .com-border-right:after {
+        -webkit-transform: scaleX(0.5);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3), not all {
+    .com-border-top:before,
+    .com-border-bottom:after {
+        -webkit-transform: scaleY(0.33333);
+    }
+    .is-nexus-5 .com-border-top:before,
+    .is-nexus-5 .com-border-bottom:after {
+        height: 2px;
+    }
+    .is-nexus-5 .com-border-left:before,
+    .is-nexus-5 .com-border-right:after {
+        width: 2px;
+    }
+    .com-border-left:before,
+    .com-border-right:after {
+        -webkit-transform: scaleX(0.33333);
+    }
+}
+@keyframes loading-circle
+{
+	from {
+		transform:rotate(0);
+		-wekit-transform:rotate(0);
+	}
+	to {
+		transform:rotate(360deg);
+		-wekit-transform:rotate(360deg);
+	}
+}
+
+@-webkit-keyframes loading-circle
+{
+	from {
+		transform:rotate(0);
+		-wekit-transform:rotate(0);
+	}
+	to {
+		transform:rotate(360deg);
+		-wekit-transform:rotate(360deg);
+	}
+}
+.debug {
+    position: absolute;
+    background: rgba(255, 255, 255, .4);
+    width: 100%;
+    top: 0;
+    left: 0;
+    word-break:break-all;
+}
+.custom-button{
+        background-color : #286ede;
+        color: #ffffff;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 3px;
+
+    }

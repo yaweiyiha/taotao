@@ -39,7 +39,8 @@ class Router {
         let uriParams = Url.getUriParams();
         // let params = Url.getParams();
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
-        let page = uriParams.join('/') || '';
+        let page = uriParams.join('/') || 'distribut/maintenance';
+        console.log(hash, page);
         let configData = urlConfig[page] || {};
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');

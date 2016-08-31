@@ -21,20 +21,14 @@ var distriform = Widget.extend({
         // console.log(data.forms);
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
+        this.render();
         Waves.attach('button', ['waves-float', 'waves-light']);
 
     },
+    render : function(){
+
+    },
     processData :function(data){
-
-        
-        // let formData = data.forms;
-        // let formlistArr = [];
-        // let 
-        // formData.forEach(function(item){
-        //     formlistArr.push(item.formlist) ;
-        // });
-
-        // formlistArr
 
     },
     bind: function () {

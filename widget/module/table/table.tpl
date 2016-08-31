@@ -41,7 +41,7 @@
                         <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
                         <td v-if="t.type === 'operater'" class = "operator">
                             <template v-for="op in item[t.key]">
-                                <a href="{{op.url}} " data-evt="{{op.evt}}">
+                                <a href="{{op.url}} " data-evt="{{op.evt}}" value="{{op.val}}" data-param= '{{op.par}}' value="{{op.val}}">
                                     {{op.name}}
                                 </a>
                             </template>

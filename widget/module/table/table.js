@@ -54,23 +54,27 @@ var table = Widget.extend({
                     let evt = '';
                     let bindKey = '';
                     let operaterObj = {};
+                    let val    = '';
                     item['operater'] = [];
 
                     operaterList.forEach(function(op){
                         name    = op.name;
-                        url     = op.url ? op.url + "?" + param + "="+ item[param]: '';
-                        evt     = op.evt ? op.evt : '';
-                        // debugger
+                        url     = op.url ? op.url + "?" + param + "="+ item[param]: 'javascript:void(0)';
                         bindKey = op.bindKey ? op.bindKey : '';
+
                         if(bindKey){
                             let key = item[bindKey];
                             let pos = op.value.indexOf(key);
                             name = op.name[pos];
+                            evt = op.evt[pos];
+                            val = key;
                         }
                         operaterObj = {
                             name : name,
                             url  : url ,
                             evt :  evt , 
+                            val : val ,
+                            par  : item[param],
                         } 
                         item['operater'].push(operaterObj);
                     })
@@ -105,6 +109,55 @@ var table = Widget.extend({
             model.getData(me.data.url,param).then((res) => {
                 me.vm.data = res.data;
                 $(this).addClass('sorting_asc');
+            });
+        });
+        $('a[data-evt=statusChange]').on('click',function(){
+
+            let id = $(this).attr('data-param');
+            let value = $(this).attr('value');
+            let url = Config.host + 'publisher/editStatus';
+            let status = value ? value - 1 : value + 1;
+
+            let statusArr = ['停用','启用'];
+            let statusText = statusArr[status];
+            let param = {
+                'id'      :  id,
+                'status'  :  status
+            }
+
+            me.getData(url,param).then((res) =>{
+
+                if(res.status === 1){
+                    $(this).text(statusText);
+                }
+            });
+
+        });
+
+    },
+    getData :function(url,param) {
+
+        var me = this;
+        return new Promise(function(resolve, reject){
+            var xhr = $.ajax({
+                type: 'POST',
+                url:  url ,
+
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data: JSON.stringify(param),
+                timeout : 10000,
+                cache: false,
+                success: function (ret) {
+                    if(ret.msg === 'success'){
+                        resolve(ret);
+                    }
+                    
+                },
+                error: function (ret) {
+                    console.log('fail');
+                    reject();
+                }
             });
         });
     },
