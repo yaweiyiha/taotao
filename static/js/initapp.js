@@ -1,5 +1,6 @@
 import mainPageStructure  from 'config/pageStructure.js';
 import Control from 'static/js/controller.js';
+import AlertDialog from 'widget/classComponent/dialog/alert'
 
 var style = __inline('static/css/page/main-page.inline.less');
 
@@ -42,3 +43,33 @@ if (URL_MODE === 'pushstate') {
         }
     }, true);
 }
+
+let validate = (layer) => {
+    let flag = true;
+
+    let eles = layer.find('[data-valide]');
+    eles.toArray().forEach((item) => {
+        item = $(item);
+        let validter = item.attr('data-valide');
+        validter = String.prototype.split.call(validter, ',');
+        let parentNode = item.parents('.input-wrapper');
+        if ($.inArray('required', validter) > -1) {
+            parentNode.find('.tips').remove();
+            if (item.val() === '') {
+                flag = false;
+                parentNode.append(`<p class="tips">${item.attr('data-des')}必填</p>`);
+            }
+        }
+    });
+
+    if (flag === false) {
+        AlertDialog.show('填写不完整，请检查必填字段');
+    }
+}
+
+// republic button click
+$('body').on('click', '[data-role=republic]', function () {
+    validate($('body'));
+});
+
+

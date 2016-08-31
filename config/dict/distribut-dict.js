@@ -1,6 +1,5 @@
 export default {
-	'commissionType'   :  { key :'orderNumber' ,name : '佣金类型', wrapperClass : 'col-md-5  ' ,type : 'select', 
-				   		options : ['未设置','固定佣金','阶梯佣金'] },
+	'commissionType'   :  { type: 'CommType' },
  	'consignmentTime'  : { key :'productName', name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time'},
  	'uploadContract'   : { key :'productName', name : '上传合同影印件', wrapperClass : 'col-md-5' , type : 'button' ,value : '添加图片' ,icon : 'addImg'},
  	'appProName'  :   { key :'productName', name : '申请代销产品名称',value : '小众赢1号', wrapperClass : 'col-md-2' , type : 'text'},

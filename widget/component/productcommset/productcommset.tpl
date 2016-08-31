@@ -42,43 +42,8 @@
 	        <span class="section-title">佣金设置-理财师</span>
       	</div>
   	</div>
-  	<div class="row">	
-		<div class="col-md-6 input-wrapper rt">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	佣金类型
-	          	<span class="text-strong-red">*</span>
-	          </div>
-	          <select class="input-control" v-model="StaffCommType"> 
-	            <option value="1">未设置</option>
-	            <option value="2">固定佣金</option>
-	            <option value="3">阶梯佣金</option>
-	          </select>
-	      	</div>
-	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '2'">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	佣金比例
-	          	<span class="text-strong-red">*</span>
-	          </div>
-				<input class="input-control" value="0">
-				<div class="unit">%</div>
-	      	</div>
-	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '3'">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	金额单位
-	          </div>
-	          <select class="input-control"> 
-	            <option value="1">元</option>
-	            <option value="2">万元</option>
-	            <option value="3">亿元</option>
-	          </select>
-	      	</div>
-	  	</div>  	
-  	</div>
+  	<comm-type></comm-type>	
+
   	</template>
   	<template v-if="strategySalespeople">  	
 	<div class="row title">
@@ -95,43 +60,25 @@
 	      </div>
 	  	</div>
   	</div>
-  	<div class="row">	
-		<div class="col-md-6 input-wrapper rt">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	佣金类型
-	          	<span class="text-strong-red">*</span>
-	          </div>
-	          <select class="input-control" v-model="salespeopleCommType"> 
-	            <option value="1">未设置</option>
-	            <option value="2">固定佣金</option>
-	            <option value="3">阶梯佣金</option>
-	          </select>
-	      	</div>
-	  	</div>
-		<div class="col-md-6 input-wrapper rt" v-if="salespeopleCommType === '2'">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	佣金比例
-	          	<span class="text-strong-red">*</span>
-	          </div>
-				<input class="input-control" value="0">
-				<div class="unit">%</div>
-	      	</div>
-	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="salespeopleCommType === '3'">
-	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	金额单位
-	          </div>
-	          <select class="input-control"> 
-	            <option value="1">元</option>
-	            <option value="2">万元</option>
-	            <option value="3">亿元</option>
-	          </select>
-	      	</div>
-	  	</div>  	
-  	</div>
+  	<template v-if="salespeopleCommRule === '1'">
+	<comm-type></comm-type>	
+	</template>
+	<template v-if="salespeopleCommRule === '2'">
+		<div class="row">
+			<div class="col-md-6 input-wrapper rt">
+		      	<div class="form-group input-group w100">
+		          <div class="input-group-addon input-title">
+		          	折标系数
+		          </div>
+		          <input class="input-control" value="1">
+		      	</div>
+		  	</div>
+		  	<div class="col-md-6">
+		  		注：单笔订单业绩 = 订单金额 * 折标系数
+		  	</div>
+		</div>
+	  	<ladder-comm unit="元" :list="monthlyPerformance" :readonly="true"></ladder-comm>
+	</template>
 	</template>
 	<div class="row title">
       	<div>

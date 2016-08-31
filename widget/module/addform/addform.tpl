@@ -59,7 +59,7 @@
                     <div class="input-group-addon input-title" >{{item.name}}
                         <span v-if="item.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}">
+                    <input data-valide="{{item.isrequire ? 'required' : ''}}" data-des="{{item.name}}" data-key="{{item.key}}" v-bind:class="{'bln' : item.bln ,'brn' : item.brn ,'bld' : item.bld , 'brd' : item.brd }" class="input-control" value="" maxlength="40" placeholder="{{item.placeholder}}">
                     <div class="unit" v-if="item.unit">{{ item.unit }}</div>
                   </div>
                   <div v-if="item.type === 'select'" class="form-group input-group w100">

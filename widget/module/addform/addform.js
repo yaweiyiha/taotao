@@ -23,7 +23,7 @@ var addform = Widget.extend({
         Waves.attach('button', ['waves-light']);
     },
     bind: function () {
-        var me = this ;
+        let me = this;
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
@@ -58,9 +58,6 @@ var addform = Widget.extend({
             });
             $('.' + key).removeClass('none');
         })
-        // $("button[data-role='addDistirbutor']").on('click',function(){
-        //     alert(1);
-        // })
 
         $('button[data-role="submit"]').on('click', function () {
 

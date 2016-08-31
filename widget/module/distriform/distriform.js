@@ -2,6 +2,8 @@ import Widget from 'static/js/widget.js';
 import cityselect from 'widget/component/cityselect/cityselect.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import Star from 'widget/component/star/star';
+import CommType from 'widget/component/commtype/commtype';
+
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -35,45 +37,56 @@ var distriform = Widget.extend({
 
     },
     bind: function () {
+      var me = this;
 
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
     	});
 
+      // preview images
+      $(this.vm.$el).on('change', '.lefile', function () {
+        let imageContainer = $(me.vm.$el).find('.previewImage');
+        if (imageContainer.size() === 0) {
+          imageContainer = $('<img class="previewImage" src="" />');
+          $(this).parents('.row').after(imageContainer);
+        }
+        me.previewImage(this, imageContainer.get(0));
+      });
     },
 
-    previewImage :function(file)
+    previewImage :function(file, imageContainer)
     {
+          var me = this;
           var MAXWIDTH  = 260; 
           var MAXHEIGHT = 180;
-          var div = document.getElementById('preview');
+
           if (file.files && file.files[0])
           {
-              div.innerHTML ='<img id=imghead>';
-              var img = document.getElementById('imghead');
-              img.onload = function(){
-                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-                img.width  =  rect.width;
-                img.height =  rect.height;
-//                 img.style.marginLeft = rect.left+'px';
-                img.style.marginTop = rect.top+'px';
-              }
+              // imageContainer.onload = function(){
+              //   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, imageContainer.offsetWidth, imageContainer.offsetHeight);
+              //   imageContainer.width  =  rect.width;
+              //   imageContainer.height =  rect.height;
+              //   imageContainer.style.marginLeft = '20px';
+              //   imageContainer.style.marginTop = rect.top+'px';
+              // }
               var reader = new FileReader();
-              reader.onload = function(evt){img.src = evt.target.result;}
+              reader.onload = function(evt){
+                imageContainer.src = evt.target.result;
+              }
               reader.readAsDataURL(file.files[0]);
           }
           else //兼容IE
           {
-            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-            file.select();
-            var src = document.selection.createRange().text;
-            div.innerHTML = '<img id=imghead>';
-            var img = document.getElementById('imghead');
-            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+            // var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            // file.select();
+            // var src = document.selection.createRange().text;
+            // div.innerHTML = '<img id=imghead>';
+            // var img = document.getElementById('imghead');
+            // img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            // var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            // status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            // div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
           }
     },
 

@@ -23,6 +23,9 @@
         <template v-for="li in form.formlist">
           <div class="row ">
             <template v-for="li in li">
+                <div v-if="item.type === 'CommType'">
+                  <comm-type></comm-type>
+                </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{item[li.key]}}
