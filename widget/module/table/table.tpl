@@ -76,9 +76,24 @@
                     </li>
 
                     <!-- 中间页 -->
-    				<li class="paginate_button active">
-    					<a href="javascript:;" aria-controls="tp" data-dt-idx="2" tabindex="1">1</a>
-    				</li>
+                    <template v-if="totalPages === 1">
+                        <li class="paginate_button active">
+                            <a href="javascript:;">1</a>
+                        </li>
+                    </template>
+                    <template v-else>
+                        <template v-for="item in pageList">
+                        <li v-if="item === pageNo" class="paginate_button active">
+                            <a href="javascript:;">{{ item }}</a>
+                        </li>
+                        <li v-if="item === '...'" class="paginate_button disabled">
+                            <a href="javascript:;">{{ item }}</a>
+                        </li>
+                        <li v-if="item !== pageNo && item !== '...'" class="paginate_button">
+                            <a href="javascript:;" @click="changePage(item)">{{ item }}</a>
+                        </li>
+                        </template>
+                    </template>
     				<!-- <li class="paginate_button ">
     					<a href="#" aria-controls="tp" data-dt-idx="3" tabindex="0">2</a>
     				</li>
