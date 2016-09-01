@@ -42,11 +42,6 @@ var form = Widget.extend({
                 el: $('.date-control', this._containerDom_).get(0)
             });
         }
-        // if($('.text-edit').length !== 0) {
-        //     new Vue({
-        //         el: $('.text-edit', this._containerDom_).get(0)
-        //     });
-        // }
 
         if($('.time').length !== 0){
             var container = $(this);
@@ -114,24 +109,28 @@ var form = Widget.extend({
             dialog.show(setting);
         });
         $('.form-wrapper').on('click', '.filters-item .option-item', function () {
-            let filter = {};
-            let key = $(this).parents('.options').attr("data-key");
-            let value = $(this).attr("data-value");
-            filter[key] = value;
 
-            me._filters_ = Object.assign(me._filters_, filter);
+            let filter  = {};
 
-            var url = me.data.url ; 
+            let key     =  $(this).parents('.options').attr("data-key");
+            let value   =  $(this).attr("data-value");
+            filter[key] =  value;
+            let url     =  me.data.url;
+            let inputFilters = me.getInputFilters();
+            let filters =  inputFilters && $.extend(inputFilters,filter);
+
+            me._filters_ = Object.assign(me._filters_, filters);
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
+
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            me._filters_ = Object.assign(me._filters_, me.getInputFilters());
 
-            //console.log(data);
+            me._filters_ = Object.assign(me._filters_, me.getInputFilters());
             var url = me.data.url ; 
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
+
         });
 
         $('.panel-body').on('click', '[data-role=clearInput]', function () {

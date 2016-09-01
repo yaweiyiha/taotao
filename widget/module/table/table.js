@@ -158,7 +158,7 @@ var table = Widget.extend({
             let target = $(this);
             let id = $(this).attr('data-param');
             let value = parseInt($(this).attr('value'));
-            let url = Config.host + 'publisher/editStatus';
+            let url =  'publisher/editStatus';
             let status = value ? value - 1 : value + 1;
             let param = {
                 'id'      :  id,
@@ -201,6 +201,7 @@ var table = Widget.extend({
         });
     },
     update: function(data){
+
         var me = this;
         this.vm.$set('params.url', data.url);
         this.vm.$set('params.filters', data.param);

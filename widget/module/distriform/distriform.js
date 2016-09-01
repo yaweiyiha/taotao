@@ -62,7 +62,7 @@ var distriform = Widget.extend({
         data.append('offlineEndDate', '2016-08-29');
 
         $.ajax({
-            url: window.Config.host + 'agentsales/approve',
+            url: 'agentsales/approve',
             data: data,
             cache: false,
             contentType: false,
@@ -78,7 +78,7 @@ var distriform = Widget.extend({
 
       $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
         $.ajax({
-            url: window.Config.host + 'agentsales/reject',
+            url: 'agentsales/reject',
             data: {
               id: _APP_HASH.id,
               rejectReason: 'just for test'

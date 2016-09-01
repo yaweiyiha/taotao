@@ -68,7 +68,7 @@ class distriControl extends Control{
         // 
         if( data.url !== '' &&  data.url !== undefined){
             let param = location.href.split('?')[1];
-            let url = Config.host +  data.url + '?' + param;
+            let url =  data.url + '?' + param;
             me.getModel('distri',(model) => {
             
             model.getData(url).then((res) => {
