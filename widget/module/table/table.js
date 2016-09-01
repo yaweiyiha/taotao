@@ -193,8 +193,7 @@ var table = Widget.extend({
                 success: function (ret) {
                     if(ret.msg === 'success'){
                         resolve(ret);
-                    }
-                    
+                    }  
                 },
                 error: function (ret) {
                     console.log('fail');
@@ -221,6 +220,7 @@ var table = Widget.extend({
         });
     },
     update: function(data){
+
         this._params_.url = data.url;
         this._params_.filters = data.param;
         this.updateTableData(data);
@@ -235,7 +235,6 @@ var table = Widget.extend({
         let me = this;
         return {
             changePage: function (page) {
-                console.log(page);
                 me.updatePage(page, me);
             }
         }
