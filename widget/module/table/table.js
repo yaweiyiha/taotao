@@ -21,15 +21,18 @@ var table = Widget.extend({
         pageNo: 1,
         totalPages: 1,
         totolSize: '0',
-        params: {
-            url: '',
-            filters: {},
-        }
     }, 
     init: function (data) {
-        this.data = $.extend(this.data, this.processData(data));
-        console.log(data);
-        this.vm = this.display(data, tpl ,'vue');
+        this._initData_ = Object.assign({}, data);
+        
+        let myData = $.extend(data, this.processData(data));
+
+        // filters store
+        this._params_ = {};
+        this._params_.url = '';
+        this._params_.filters = {};
+
+        this.vm = this.display(myData, tpl ,'vue');
         this.bind();
     },
     calculateIndexes: function (current, length, displayLength) {
@@ -200,10 +203,8 @@ var table = Widget.extend({
             });
         });
     },
-    update: function(data){
+    updateTableData: function (data) {
         var me = this;
-        this.vm.$set('params.url', data.url);
-        this.vm.$set('params.filters', data.param);
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
             if (res.msg === 'success') {
@@ -213,9 +214,31 @@ var table = Widget.extend({
                 this.vm.$set('totalSize', res.totalSize)
                 this.vm.$set('pageList', pages);
                 this.vm.$set('pageNo', res.pageNo);
+
+                res = me.processData(Object.assign(me._initData_, res));
                 this.vm.$set('items', res.items);
             }
         });
+    },
+    update: function(data){
+        this._params_.url = data.url;
+        this._params_.filters = data.param;
+        this.updateTableData(data);
+    },
+    updatePage: function (page, scope = this) {
+        let data = {};
+        data.url = scope._params_.url;
+        data.param = Object.assign(scope._params_.filters, {pageNo: page});
+        scope.updateTableData(data);
+    },
+    setMethods: function () {
+        let me = this;
+        return {
+            changePage: function (page) {
+                console.log(page);
+                me.updatePage(page, me);
+            }
+        }
     },
     filters : {
         datetime          : datetime ,

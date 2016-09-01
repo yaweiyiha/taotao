@@ -71,7 +71,7 @@ var Widget = (function() {
                 el: container.get(0),
                 data: data,
                 template: tpl,
-                methods: me.methods,
+                methods: me.setMethods ? me.setMethods() : me.methods,
                 filter : me.filter, 
                 watch : me.watch,
                 computed: me.computed || {}
