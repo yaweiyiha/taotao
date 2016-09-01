@@ -2,6 +2,72 @@
 	background: #286ede;
 	height: 45px;
 	box-shadow: 0px 1px 2px 0 rgba(0, 0, 0, 0.2);
+	position: relative;
+
+	.user-info-box {
+		height: 50px;
+		width: 50px;
+		position: absolute;
+		right: 10px;
+		top: 0;
+		cursor: pointer;
+
+		.user-menu {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			background: #f9f9f9;
+			border-radius: 3px;
+			width: 130px;
+			font-size: 12px;
+			position: absolute;
+			right: 10px;
+			top: 45px;
+			border: 1px solid #eee;
+
+			li:not(:last-child) {
+				border-bottom: 1px solid #eee;
+			}
+
+			li {
+				padding: 13px 23px;
+
+				i {
+					margin-right: 10px;
+				}
+
+				&:hover {
+					background: #f9f9f9;
+				}
+			}
+		}
+
+		.avatar-icon {
+			position: absolute;
+			width: 18px;
+			height: 25px;
+			background: url(static/img/user-icon.png) no-repeat;
+			background-size: 18px auto;
+			background-position: 0 0;
+			top: 12px;
+
+		}
+
+		.arrow {
+			position: absolute;
+			width: 10px;
+			height: 10px;
+			background: url(static/img/user-icon.png) no-repeat;
+			background-size: 18px auto;
+			background-position: 0 -27px;
+			left: 25px;
+			top: 22px;
+
+			&.down {
+				background-position: 0 -36px;
+			}
+		}
+	}
 	
 	.logo{
 		display: inline-block;
