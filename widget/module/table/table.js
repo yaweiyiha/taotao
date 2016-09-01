@@ -29,8 +29,8 @@ var table = Widget.extend({
 
         // filters store
         this._params_ = {};
-        this._params_.url = '';
-        this._params_.filters = {};
+        this._params_.url = data.url;
+        this._params_.filters = data.filters || {};
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();
