@@ -34,14 +34,14 @@
     		<template v-for="item in items">
 				<tr role="row">
 					<template v-for="(i,t) in tables">
-                        <td v-if="t.type === 'nomal'" v-bind:class = "{'operator ': t.key ==='operater'}">{{item[t.key]}}</td>
+                        <td v-if="t.type === 'nomal'" >{{item[t.key]}}</td>
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
                         <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
                         <td v-if="t.type === 'operater'" class = "operator">
-                            <template v-for="op in item[t.key]">
-                                <a href="{{op.url}} " data-evt="{{op.evt}}" value="{{op.val}}" data-param= '{{op.par}}' value="{{op.val}}">
+                            <template v-for="op in item.operater">
+                                <a href="{{op.url}} " data-evt="{{op.evt}}" value="{{op.val}}" data-param= '{{op.par}}'>
                                     {{op.name}}
                                 </a>
                             </template>
@@ -51,7 +51,6 @@
 		</template>
         </tbody>
     </table>	
-
     <div class="row">
     	<div class="col-sm-5">
     		<div class="dataTables_info" id="tp_info" role="status" aria-live="polite">第 {{pageNo}} 页 ( 总共 {{totalPages}} 页，{{totalSize}}条记录 )</div>

@@ -24,9 +24,10 @@ var table = Widget.extend({
     }, 
     init: function (data) {
         this._initData_ = Object.assign({}, data);
-        
+
         let myData = $.extend(data, this.processData(data));
 
+        // console.log(myData);
         // filters store
         this._params_ = {};
         this._params_.url = data.url;
@@ -69,10 +70,83 @@ var table = Widget.extend({
         indexes.push(length);
         return indexes;
     },
+    _parseOperaterItem: function (expression) {
+        let res = {};
+        if (/^(\{\{).+(\}\})$/.test(expression.trim())) {
+            expression = expression.replace(/\s/g, '');
+            expression = expression.replace(/^(\{\{)|(\}\})$/g, '');
+            let match = /(.+?)\((.+?)\)/.exec(expression);
+            res.type = 'expression';
+            res.functionName = match[1];
+            res.params = String.prototype.split.call(match[2], ',');
+        } else {
+            res.type = 'string';
+            res.value = expression;
+        }
+
+        return res;
+    },
+    parseOperater: function (operater, dataItem) {
+        let me = this;
+
+        let parseList = [];
+
+        function _parse (list, separator = '') {
+            let cache = [];
+            list.forEach(function (item) {
+                let res = me._parseOperaterItem(item);
+                if (res.type === 'string') {
+                    cache.push(res.value);
+                } else if (res.type === 'expression') {
+                    if (res.functionName === 'DICT') {
+                        cache.push(operater[res.params[1]]['' + dataItem[res.params[0]]]);
+                    } else if (res.functionName === 'INTERFACE_DATA') {
+                        cache.push(dataItem[res.params[0]]);
+                    }
+                }
+            });
+
+            return cache.join(separator);
+        }
+        function conditionExec (expression) {
+            if (!expression) {
+                return true;
+            }
+            let res = me._parseOperaterItem(expression);
+            if (res.functionName === 'equal') {
+                return ('' + dataItem[res.params[0]]) === res.params[1];
+            }
+        }
+        operater.operaterList.forEach(function (condition) {
+            let parseItem = {};
+            condition.forEach(function(item) {
+                let continueFlag = false;
+
+                if (!continueFlag && conditionExec(item.condition)) {
+                    continueFlag = true;
+                    // parse name
+                    parseItem.name = _parse(item.content.name);
+                    // parse url
+                    parseItem.url = _parse(item.content.url);
+                    if (item.content.evt && item.content.evt.length) {
+                        parseItem.evt = _parse(item.content.evt);
+                    }
+                }
+            });
+            parseList.push(parseItem);
+        });
+
+        return parseList;
+    },
     processData : function (data){
+        let me = this;
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
         let tableData = data.items;
+
+        data.items.forEach(function (dataItem) {
+            dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
+        });
         // if(data.tableFilter){
         //     let filterKey  =  data.tableFilter.key;
         //     let filterVal  =  data.tableFilter.value;
@@ -91,61 +165,61 @@ var table = Widget.extend({
         //         tableData.splice(pos,1);
         //     });
         // }
-        if(data.operater ){
-            let operater = data.operater;
+        // if(data.operater ){
+        //     let operater = data.operater;
             
-            let operaterList = operater.operaterList;
-            if(data.operater.type === 'non-fixed'){
+        //     let operaterList = operater.operaterList;
+        //     if(data.operater.type === 'non-fixed'){
 
-                let bindKey = operater.bindKey;
-                let param = operater.param;
+        //         let bindKey = operater.bindKey;
+        //         let param = operater.param;
 
-                tableData.forEach(function(item){
-                    let state = item[bindKey];
-                    item['operater'] = [];
-                    let operaterObj = {
-                        name : operaterList[state].name,
-                        url  : operaterList[state].url + "?" + param + "="+ item[param]
-                    } 
-                    item['operater'].push(operaterObj);
-                });
+        //         tableData.forEach(function(item){
+        //             let state = item[bindKey];
+        //             item['operater'] = [];
+        //             let operaterObj = {
+        //                 name : operaterList[state].name,
+        //                 url  : operaterList[state].url + "?" + param + "="+ item[param]
+        //             } 
+        //             item['operater'].push(operaterObj);
+        //         });
                 
-            }else if (data.operater.type === 'fixed'){
-                let param = operater.param;
-                tableData.forEach(function(item){
-                    let name = '';
-                    let url = '';
-                    let evt = '';
-                    let bindKey = '';
-                    let operaterObj = {};
-                    let val    = '';
-                    item['operater'] = [];
+        //     }else if (data.operater.type === 'fixed'){
+        //         let param = operater.param;
+        //         tableData.forEach(function(item){
+        //             let name = '';
+        //             let url = '';
+        //             let evt = '';
+        //             let bindKey = '';
+        //             let operaterObj = {};
+        //             let val    = '';
+        //             item['operater'] = [];
 
-                    operaterList.forEach(function(op){
-                        name    = op.name;
-                        url     = op.url ? op.url + "?" + param + "="+ item[param]: 'javascript:void(0)';
-                        bindKey = op.bindKey ? op.bindKey : '';
+        //             operaterList.forEach(function(op){
+        //                 name    = op.name;
+        //                 url     = op.url ? op.url + "?" + param + "="+ item[param]: 'javascript:void(0)';
+        //                 bindKey = op.bindKey ? op.bindKey : '';
 
-                        if(bindKey){
-                            let key = item[bindKey];
-                            let pos = op.value.indexOf(key);
-                            name = op.name[pos];
-                            evt = op.evt;
-                            val = key;
-                        }
-                        operaterObj = {
-                            name : name,
-                            url  : url ,
-                            evt :  evt , 
-                            val : val ,
-                            par  : item[param],
-                        } 
-                        item['operater'].push(operaterObj);
-                    })
-                });
-            }
+        //                 if(bindKey){
+        //                     let key = item[bindKey];
+        //                     let pos = op.value.indexOf(key);
+        //                     name = op.name[pos];
+        //                     evt = op.evt;
+        //                     val = key;
+        //                 }
+        //                 operaterObj = {
+        //                     name : name,
+        //                     url  : url ,
+        //                     evt :  evt , 
+        //                     val : val ,
+        //                     par  : item[param],
+        //                 } 
+        //                 item['operater'].push(operaterObj);
+        //             })
+        //         });
+        //     }
 
-        }
+        // }
         return  data;
 
     },

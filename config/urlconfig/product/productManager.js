@@ -40,16 +40,56 @@ urlConfig['product/maintenance'] =
 		'param' : { 
 			"exclude": 1, "pageNo": 1, "pageSize": 10
 		 },
-		'operater' : {
-		    'bindKey'  : 'statusId',
-		    'operaterList' : {	
-		    	20 : {	name: '审核',  url : '#distri/sign/reject' },
-		    	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
-		    	40 : {	name: '编辑',  url : '#distri/sign/done' }
-		    },
-		    'param' : 'id' ,
-		    'type' : 'non-fixed',
-		},
+		 'operater': {
+		 	statusIdDict: {
+		 		'20': '审核',
+		 		'30': '失败原因',
+		 		'40': '编辑'
+		 	},
+		 	pageDict: {
+		 		'10': 'fund',
+		 		'30': 'asset',
+		 		'40': 'trust',
+		 		'60': 'debtassgin',
+		 		'70': 'equityInvestment'
+		 	},
+		 	operaterList: [
+		 		[
+			 		{
+			 			condition: '{{ equal(statusId, 20) }}',
+			 			content: {
+				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
+				 			url: ['#editPro/', '{{ DICT(categoryId, pageDict)}}', '/validate?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+			 		},
+			 		{
+			 			condition: '{{ equal(statusId, 30) }}',
+			 			content: {
+				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
+				 			url: ['javascript:;'],
+				 			evt: ['dialog']
+			 			},
+			 		},
+			 		{
+			 			condition: '{{ equal(statusId, 40) }}',
+			 			content: {
+				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
+				 			url: ['#editPro/', '{{ DICT(categoryId, pageDict)}}', '/edit?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+			 		}		 		
+		 		]
+		 	]
+		 },
+		// 'operater' : {
+		//     'bindKey'  : 'statusId',
+		//     'operaterList' : {	
+		//     	20 : {	name: '审核',  url : '#distri/sign/reject' },
+		//     	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
+		//     	40 : {	name: '编辑',  url : '#distri/sign/done' }
+		//     },
+		//     'param' : 'id' ,
+		//     'type' : 'non-fixed',
+		// },
 	},
 	'topbanner' : {
 		'title' : '产品管理',

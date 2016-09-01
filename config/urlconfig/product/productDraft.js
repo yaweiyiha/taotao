@@ -36,16 +36,25 @@ urlConfig['product/draft'] =
 			"exclude": 0, "pageNo": 1, "pageSize": 10 ,'statusId' : 10
 		 },
 		'operater' : {
-		    'bindKey'  : 'statusId',
-		    'operaterList' : {	
-		    	10 : [
-		    		{	name: '编辑',  url : '#distri/sign/reject' },
-		    		{	name: '提交审核',  url : '#distri/sign/reject' },
-		    	],
-		    },
-		    'param' : 'id' ,
-		    'type' : 'non-fixed',
-		},
+			operaterList: [
+				[
+					{
+			 			content: {
+				 			name: ['编辑'],
+				 			url: ['#distri/sign/reject/', '{{ INTERFACE_DATA(id) }}']
+			 			}
+					}
+				],
+				[
+					{
+			 			content: {
+				 			name: ['提交审核'],
+				 			url: ['#distri/sign/reject/', '{{ INTERFACE_DATA(id) }}']
+			 			}
+					}
+				]
+			]
+		}
 	},
 	'topbanner' : {
 		'title' : '产品管理',
