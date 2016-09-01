@@ -1,4 +1,71 @@
 .admin-widget-distriform {
+	.attachment-view-wrapper {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		z-index: 9999;
+
+		.box {
+			width: 950px;
+			background: white;
+			position: absolute;
+			top: 100px;
+			left: 50%;
+			margin-left: -475px;
+
+			.header {
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				border-bottom: 1px solid #ddd;
+				position: relative;
+
+				.close-btn {
+					width: 14px;
+				    height: 14px;
+				    position: absolute;
+				    top: 12px;
+				    right: 15px;
+				    transform: rotate(45deg);
+				    cursor: pointer;
+
+				    &::before {
+						content: '';
+					    display: block;
+					    width: 100%;
+					    height: 1px;
+					    background: #aaa;
+					    position: absolute;
+					    top: 50%;
+					    left: 0;
+    				}
+
+    				&::after {
+						content: '';
+					    display: block;
+					    height: 100%;
+					    width: 1px;
+					    background: #aaa;
+					    position: absolute;
+					    top: 0;
+					    left: 50%;    				
+    				}
+    			}
+
+			}
+			.preview {
+				padding: 10px;
+				text-align: center;
+				img {
+					max-width: 930px;
+					max-height: 400px;
+				}
+			}
+		}
+	}
 	.my-tabs {
 		margin: 0;
 		padding: 0;
@@ -189,6 +256,7 @@
 	}
 
 	.previewImage {
+		cursor: pointer;
 		width: 100px;
 		margin-left: 120px;
 	}

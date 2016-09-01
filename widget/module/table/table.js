@@ -30,7 +30,7 @@ var table = Widget.extend({
         // filters store
         this._params_ = {};
         this._params_.url = data.url;
-        this._params_.filters = data.filters || {};
+        this._params_.filters = data.filters || {pageSize: 10};
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();

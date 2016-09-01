@@ -117,7 +117,17 @@
       </template>
 <!--       <input type="file" class="custom-button fun-button" value="添加文件"> -->
       
-
+      <div class="attachment-view-wrapper" style="display:none">
+        <div class="box">
+          <div class="header">
+            预览附件信息
+            <i class="close-btn"></i>
+          </div>
+          <div class="preview">
+            <img src="" alt="">
+          </div>
+        </div>
+      </div>
       <div class="tac">
           <template v-for="bt in buttonlist">
               <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 

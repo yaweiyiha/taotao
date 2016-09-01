@@ -76,6 +76,10 @@ var distriform = Widget.extend({
         });
       });
 
+      $(this.vm.$el).on('click', '.attachment-view-wrapper .close-btn', function () {
+        $(this).parents('.attachment-view-wrapper').hide();
+      });
+
       $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
         $.ajax({
             url: 'agentsales/reject',
@@ -113,6 +117,10 @@ var distriform = Widget.extend({
               var reader = new FileReader();
               reader.onload = function(evt){
                 imageContainer.src = evt.target.result;
+                $(imageContainer).on('click', function () {
+                  $(me.vm.$el).find('.attachment-view-wrapper img').attr('src', imageContainer.src);
+                  $(me.vm.$el).find('.attachment-view-wrapper').show();
+                });
               }
               reader.readAsDataURL(file.files[0]);
           }
