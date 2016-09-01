@@ -6,7 +6,18 @@
                 <span class="caption">金融资产管理平台</span>
             </a>
         </div>
-
+        <div class="user-info-box" v-on:click.stop="showMenu = !showMenu">
+            <div class="avatar-icon"></div>
+            <div class="arrow" v-bind:class="{ 'down': showMenu }"></div>
+            <ul class="user-menu" v-show="showMenu">
+                <li>
+                    <i class="icon-edit"></i>修改密码
+                </li>
+                <li>
+                    <i class="icon-off"></i>退出
+                </li>
+            </ul>
+        </div>
         <div class="navbar-header pull-right" role="navigation">
             <ul class="nav ace-nav">
 <!--                 <li class="light-blue">

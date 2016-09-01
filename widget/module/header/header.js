@@ -13,13 +13,17 @@ require.loadCss({
 var header = Widget.extend({
 
     data : {
-        show : false,
+        showMenu : false,
     },
     ready: function(){
     },
     init: function (res) {
         let data = $.extend(this.data,res);
         var vm = this.display(data, tpl,'vue');
+
+        $('body').on('click', () => {
+            this.vm.$set('showMenu', false);
+        });
     },
     methods : {
         logout: function (){
