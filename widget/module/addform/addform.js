@@ -105,9 +105,24 @@ var addform = Widget.extend({
             filters.categoryFk = 10;
             // url = 'http://10.66.19.249:8082/admin/' +  
 
+
+            if($('.maturities').val() === '' || $('.maturities').val() === undefined){
+                filters['unitFkMaturities'] = '';
+            }
+            if($(".offeringSize").val() === '' || $('.maturities').val() === undefined){
+                filters['unitFkOfferingSize'] = '';
+            }
+            if($(".startingPrice").val() === '' || $('.maturities').val() === undefined){
+                filters['unitFkStartingPrice'] = '';
+            }
+            if($(".increasement").val() === '' || $('.maturities').val() === undefined ){
+                filters['unitFkIncreasement'] = '';
+            }
             let obj  = {
                 'product' : filters,
             }
+            console.log(obj);
+            return;
             
             me.getData(me.data.saveUrl,obj).then((res)=>{
                 console.log(res);
