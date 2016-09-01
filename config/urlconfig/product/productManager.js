@@ -38,18 +38,18 @@ urlConfig['product/maintenance'] =
 		'tableFilter' : { 'key' : 'statusId', 'value' : 10  }, 
 		'url' : "product/maintenance/list",
 		'param' : { 
-			"isExcludeDraft": true, "pageNo": 1, "pageSize": 10
+			"exclude": 1, "pageNo": 1, "pageSize": 10
 		 },
-		// 'operater' : {
-		//     'bindKey'  : 'statusId',
-		//     'operaterList' : {	
-		//     	20 : {	name: '审核',  url : '#distri/sign/reject' },
-		//     	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
-		//     	40 : {	name: '编辑',  url : '#distri/sign/done' }
-		//     },
-		//     'param' : 'id' ,
-		//     'type' : 'non-fixed',
-		// },
+		'operater' : {
+		    'bindKey'  : 'statusId',
+		    'operaterList' : {	
+		    	20 : {	name: '审核',  url : '#distri/sign/reject' },
+		    	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
+		    	40 : {	name: '编辑',  url : '#distri/sign/done' }
+		    },
+		    'param' : 'id' ,
+		    'type' : 'non-fixed',
+		},
 	},
 	'topbanner' : {
 		'title' : '产品管理',

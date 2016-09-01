@@ -33,9 +33,9 @@ urlConfig['fund/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
-					[	elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,],
-					[	elementDict.proTerm ,elementDict.termUnit ,elementDict.distriDate],
-					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
+					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
+					[	elementDict.proTerm ,elementDict.unitFkMaturities ,elementDict.distriDate],
+					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
 					[	elementDict.closedTime , elementDict.openDay,],
@@ -115,10 +115,10 @@ urlConfig['trust/add'] =
 					[	
 						elementDict.foundStatus , elementDict.proStatus
 					],[	
-						elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,
+						elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.unitFkOfferingSize,
 					],
 					[	
-						elementDict.proTerm ,elementDict.termUnit,elementDict.purchaseAmount,elementDict.moneyUnit,
+						elementDict.proTerm ,elementDict.unitFkMaturities,elementDict.purchaseAmount,elementDict.moneyUnit,
 					],
 					[	
 						elementDict.increasingAmount,elementDict.moneyUnit,

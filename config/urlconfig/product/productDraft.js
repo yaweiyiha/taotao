@@ -33,14 +33,15 @@ urlConfig['product/draft'] =
 		'tableFilter' : { 'key' : 'statusId', 'value' : 10  }, 
 		'url' : "product/maintenance/list",
 		'param' : { 
-			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
+			"exclude": 0, "pageNo": 1, "pageSize": 10 ,'statusId' : 10
 		 },
 		'operater' : {
 		    'bindKey'  : 'statusId',
 		    'operaterList' : {	
-		    	20 : {	name: '审核',  url : '#distri/sign/reject' },
-		    	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
-		    	40 : {	name: '编辑',  url : '#distri/sign/done' }
+		    	10 : [
+		    		{	name: '编辑',  url : '#distri/sign/reject' },
+		    		{	name: '提交审核',  url : '#distri/sign/reject' },
+		    	],
 		    },
 		    'param' : 'id' ,
 		    'type' : 'non-fixed',

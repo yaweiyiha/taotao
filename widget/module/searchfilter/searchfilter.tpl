@@ -9,7 +9,6 @@
 	                    </template>
 	              </div> 
 	           </div>
-
 	      </template>
 	</div>
 </div>

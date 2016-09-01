@@ -94,17 +94,22 @@ var addform = Widget.extend({
         });
 
         $('button[data-role="save"]').on('click',function(){
+
+            
             let filters = {};
             filters = Object.assign(filters, me.getInputFilters());
+            if(filters.name == "" || filters.name == undefined){
+                //todo 保存的时候产品名字不能为空
+                //return;
+            }
             filters.categoryFk = 10;
-            url = 'http://10.66.19.249:8082/admin/' +  me.data.saveUrl
+            // url = 'http://10.66.19.249:8082/admin/' +  
 
             let obj  = {
                 'product' : filters,
             }
             
-            return;
-            me.getData(url,obj).then((res)=>{
+            me.getData(me.data.saveUrl,obj).then((res)=>{
                 console.log(res);
             });
         })
@@ -139,13 +144,11 @@ var addform = Widget.extend({
         for (var i = 0, len = inputCollections.length; i < len; i++) {
             var ele = $(inputCollections[i]);
             var key = ele.attr('data-key');
-            debugger
-            var val = ele.attr('data-values') || ele.val() || ele.text();
+            var val = ele.attr('data-values') || ele.val() || ele.find("option:selected").text();
             if (key && val) {
                 data[key] = val;
             }
         }
-
         return data;
     },
     methods:{
