@@ -22,6 +22,10 @@ var addform = Widget.extend({
         this.bind();
         Waves.attach('button', ['waves-light']);
     },
+    processData :function(){
+        this.saveUrl   = data.saveUrl;
+        this.publicUrl = data.publicUrl;
+    },
     bind: function () {
         let me = this;
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
@@ -89,6 +93,60 @@ var addform = Widget.extend({
             });
         });
 
+        $('button[data-role="save"]').on('click',function(){
+            let filters = {};
+            filters = Object.assign(filters, me.getInputFilters());
+            filters.categoryFk = 10;
+            url = 'http://10.66.19.249:8082/admin/' +  me.data.saveUrl
+
+            let obj  = {
+                'product' : filters,
+            }
+            
+            return;
+            me.getData(url,obj).then((res)=>{
+                console.log(res);
+            });
+        })
+    },
+    getData :(url,param) => {
+
+        return new Promise(function(resolve, reject){
+            var xhr = $.ajax({
+                type: 'POST',
+                url:  url ,
+                dataType: 'json',
+                contentType : 'application/json;charset=UTF-8',
+                data: JSON.stringify(param),
+                timeout : 10000,
+                cache: false,
+                success: function (ret) {
+                    if(ret.msg === 'success'){
+                        resolve(ret);
+                    }  
+                },
+                error: function (ret) {
+                    console.log('fail');
+                    reject();
+                }
+            });
+        });
+    },
+    getInputFilters: () => {
+
+        var inputCollections = $('.panel-body').find('[data-key]');
+        var data = {};
+        for (var i = 0, len = inputCollections.length; i < len; i++) {
+            var ele = $(inputCollections[i]);
+            var key = ele.attr('data-key');
+            debugger
+            var val = ele.attr('data-values') || ele.val() || ele.text();
+            if (key && val) {
+                data[key] = val;
+            }
+        }
+
+        return data;
     },
     methods:{
     	back : () => {

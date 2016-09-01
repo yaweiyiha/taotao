@@ -27,22 +27,29 @@ urlConfig['product/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'产品ID', width:"8%" ,key : 'id',classList: 'sorting_disabled'},
-			{ name :'产品名称', width:"8%" ,key : 'name' ,classList:'sorting_desc'},
-			{ name :'产品类型（ID）', width:"8%" ,key : 'categoryId',classList:'sorting_disabled'},
-			{ name :'产品类型（名称）', width:"8%" ,key : 'categoryName',classList:'sorting_disabled'},
-			{ name :'产品状态（产品销售状态）（ID）', width:"8%" ,key : 'salesStatusId',classList:'sorting_disabled'},
-			{ name :'产品状态（产品销售状态）（名称）', width:"8%",key : 'salesStatusName' ,classList:'sorting_disabled'},
-			{ name :'上下架状态（ID）', width:"8%" ,key : 'available',classList:'sorting_disabled'},
-			{ name :'上下架状态（名称）', width:"8%" ,key : 'availableName',classList:'sorting_disabled'},
-			{ name :'上架日期', width:"8%" ,key: 'dateIssue',classList:'sorting_disabled'},
-			{ name :'审核状态（ID）', width:"8%" ,key: 'statusId',classList:'sorting_disabled'},
-			{ name :'审核状态（名称）', width:"8%" ,key: 'statusName',classList:'sorting_disabled'},
+			{ name :'产品名称', width:"8%" ,key : 'name' ,type:'nomal'},
+			{ name :'类型', width:"8%" ,key : 'categoryName',type:'nomal'},
+			{ name :'产品状态', width:"8%",key : 'salesStatusName' ,type:'nomal'},
+			{ name :'上下架状态', width:"8%" ,key : 'availableName',type:'nomal'},
+			{ name :'上架日期', width:"8%" ,key: 'dateIssue',type:'time'},
+			{ name :'审核状态', width:"8%" ,key: 'statusName',type:'nomal'},
+			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
+		'tableFilter' : { 'key' : 'statusId', 'value' : 10  }, 
 		'url' : "product/maintenance/list",
 		'param' : { 
-			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
-		 }
+			"isExcludeDraft": true, "pageNo": 1, "pageSize": 10
+		 },
+		// 'operater' : {
+		//     'bindKey'  : 'statusId',
+		//     'operaterList' : {	
+		//     	20 : {	name: '审核',  url : '#distri/sign/reject' },
+		//     	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
+		//     	40 : {	name: '编辑',  url : '#distri/sign/done' }
+		//     },
+		//     'param' : 'id' ,
+		//     'type' : 'non-fixed',
+		// },
 	},
 	'topbanner' : {
 		'title' : '产品管理',
@@ -53,13 +60,13 @@ urlConfig['product/maintenance'] =
 	},
 	'filters' : [
 		{ key :'productName', name : '产品类型', wrapperClass : 'col-sm-6' , 
-			options : ['全部','基金','权益类','资管','信托','会员精选','股权投资','海外保险'] ,type : 'filter' },
+			options : ['全部','基金','权益类','资管','信托','会员精选','股权投资','海外保险'] ,values: [-1, 10, 30, 40, 60, 70],type : 'filter' },
 		{ key :'customer', name : '产品状态',  wrapperClass : 'col-md-6',
-			options : ['全部','在售','预售','售罄','已结束','执行中','募集失败'] ,type : 'filter'},
+			options : ['全部','在售','预售','售罄','已结束','执行中','募集失败'] ,values: [-1, 10, 30, 40, 60, 70],type : 'filter'},
 		{ key :'code', name : '审核状态' , wrapperClass :'col-md-6' ,
-			options : ['全部','待审核','审核失败','审核通过'] ,type : 'filter'},	
+			options : ['全部','待审核','审核失败','审核通过'] , values: [-1, 10, 30, 40, 60, 70],type : 'filter'},	
 		{ key :'selectedDeptIds', name : '上下架状态', wrapperClass: 'col-md-6',
-		  options : ['全部','上架','下架'] ,type : 'filter',},
+		  options : ['全部','上架','下架'] , values: [-1, 10, 30, 40, 60, 70],type : 'filter',},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 	]
 }

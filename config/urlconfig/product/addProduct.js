@@ -70,7 +70,8 @@ urlConfig['fund/add'] =
 		{name : '保存',classList : 'default ml10', type : 'button', evt : 'save'},
 
 	],
-	'needback' : true
+	'saveUrl'    : 'product/save',
+	'publishUrl' : 'product/publish',
 
 }
 

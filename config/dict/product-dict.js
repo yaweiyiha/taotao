@@ -43,7 +43,7 @@ export default {
  	
  	'yearIncome' 	: { key :'arrTypeFk' ,name : '年化收益率', wrapperClass : 'col-md-6' ,   type : 'select', options : ['不选择','固定','浮动','固定阶梯','浮动阶梯']},
  	
- 	'industryTypeFk' 	: { key :'orderNumber' ,name : '信托类型', wrapperClass : 'col-md-6' ,   type : 'select', 
+ 	'industryTypeFk' 	: { key :'industryTypeFk' ,name : '信托类型', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['政信类','金融类','基础设施','工商企业','房地产','其他'],isrequire : true},
  	'distriArea' 	: { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['发行商A','发行商B','发行商C','新增发行商'],isrequire : true},
@@ -52,7 +52,7 @@ export default {
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'productName', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
  	'soled'			: { key :'productName', name : '已销售份额', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '元', isrequire: true},
- 	'star'			: { key :'productName', name : '收益评级', wrapperClass : 'col-md-6' , type : 'star'},
+ 	'star'			: { key :'arrRank', name : '收益评级', wrapperClass : 'col-md-6' , type : 'star'},
  	
  	'proFoundDay'   : { key :'productName', name : '产品成立日期', wrapperClass : 'col-md-6' , type : 'time'},
  	'distirName'    : { key :'name' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称'},
@@ -66,7 +66,7 @@ export default {
  	'employeePolicy'  : { key :'orderNumber' ,name : '员工策略', wrapperClass : 'col-md-6 none' ,   type : 'select', 
 					   options : ['全部']},
  	'comComputePolicy' : { key :'orderNumber' ,name : '佣金计算规则', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '直接佣金','isChecked' : 'checked'},{'name' : '月度业绩' } ] },
- 	'comType'      : { key :'orderNumber' ,name : '佣金类型', wrapperClass : 'col-md-6' ,   type : 'select', 
+ 	'commissionTypeFk'      : { key :'orderNumber' ,name : '佣金类型', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['未设置','固定佣金','阶梯佣金'] ,isrequire : true},
  	'comConfirmType'     : { key :'orderNumber' ,name : '佣金确认方式', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址'},
 

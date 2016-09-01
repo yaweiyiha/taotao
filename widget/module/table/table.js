@@ -30,7 +30,7 @@ var table = Widget.extend({
         // filters store
         this._params_ = {};
         this._params_.url = data.url;
-        this._params_.filters = data.filters || {};
+        this._params_.filters = data.filters || {pageSize : 10};
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();
@@ -71,10 +71,29 @@ var table = Widget.extend({
     },
     processData : function (data){
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
-        data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5)
+        data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
+        let tableData = data.items;
+        // if(data.tableFilter){
+        //     let filterKey  =  data.tableFilter.key;
+        //     let filterVal  =  data.tableFilter.value;
+        //     let indexArr   =  [];
+        //     tableData.forEach(function(item){
+        //         if(item[filterKey] === filterVal){
+        //             indexArr.push($.inArray(item,tableData));
+        //         }
+        //     });
+
+        //     indexArr.forEach(function(pos,index){
+        
+        //         if(index !== 0){
+        //             pos = pos -index 
+        //         } 
+        //         tableData.splice(pos,1);
+        //     });
+        // }
         if(data.operater ){
             let operater = data.operater;
-            let tableData = data.items;
+            
             let operaterList = operater.operaterList;
             if(data.operater.type === 'non-fixed'){
 
@@ -125,8 +144,9 @@ var table = Widget.extend({
                     })
                 });
             }
-            return  data;
+
         }
+        return  data;
 
     },
     bind: function(){

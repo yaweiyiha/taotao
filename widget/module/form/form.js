@@ -15,6 +15,7 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
+
         this._filters_ = {};
         this.localData = {};
     	let res  = this.processData(data);
@@ -22,7 +23,6 @@ var form = Widget.extend({
         this.render();
         this.bind();
         Waves.attach('button', ['waves-float', 'waves-light']);
-
 
     },
     processData :function (data = {}){

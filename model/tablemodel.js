@@ -23,7 +23,7 @@ class tableModel extends Model{
             // test data
             // resolve(TableData);
             // return;
-            // url = location.host + _path +  '/'+ url ;
+            // url = Config.host + url ;
             var xhr = $.ajax({
                 type: 'POST',
                 url:  url ,
