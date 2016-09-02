@@ -57,7 +57,6 @@ class addProControl extends Control{
         me.getViews([widgets.topbanner],data.topbanner);
         // me.getViews([widgets.addform],data);
         me.getModel('productinfo', (model) => {
-        
         model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
             let dictData = {};
             $.extend(dictData, data);

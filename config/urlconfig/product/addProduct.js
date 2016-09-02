@@ -21,7 +21,7 @@ urlConfig['fund/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.proName, elementDict.fundType,elementDict.fundTypeUnit	],
-					[   elementDict.fundStrategy,elementDict.secondStrategy, ],
+					[   elementDict.fundStrategy],
 					[   elementDict.distributor, elementDict.hoster	],
 					[   elementDict.fundLeader,elementDict.fundManager],
 					[   elementDict.trusteeFee ,elementDict.phone ],

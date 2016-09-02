@@ -80,16 +80,6 @@ urlConfig['product/maintenance'] =
 		 		]
 		 	]
 		 },
-		// 'operater' : {
-		//     'bindKey'  : 'statusId',
-		//     'operaterList' : {	
-		//     	20 : {	name: '审核',  url : '#distri/sign/reject' },
-		//     	30 : {	name: '失败原因' , url : '#distri/sign/reject' } ,
-		//     	40 : {	name: '编辑',  url : '#distri/sign/done' }
-		//     },
-		//     'param' : 'id' ,
-		//     'type' : 'non-fixed',
-		// },
 	},
 	'topbanner' : {
 		'title' : '产品管理',

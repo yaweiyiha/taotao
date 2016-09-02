@@ -54,6 +54,9 @@
                   <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
+                  <template v-if="li.type === 'fundStrategy'">
+                    <fund-strategy></fund-strategy>
+                  </template>
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
                     </div>
