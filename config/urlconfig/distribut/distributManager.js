@@ -35,15 +35,44 @@ urlConfig['distribut/maintenance'] =
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
 		'operater' : {
-		    bindKey  : 'applyState',
-		    operaterList : {
-		    	10 : {	name: '签约审核' ,     url : '#distri/sign/validate'},
-		    	20 : {	name: '查看签约状态',  url : '#distri/sign/reject' },
-		    	30 : {	name: '查看签约状态' , url : '#distri/sign/reject' } ,
-		    	40 : {	name: '查看签约状态',  url : '#distri/sign/done' }
+		    applyStateDict: {
+		 		'10': '签约审核',
+		 		'20': '查看签约状态',
+		 		'30': '查看签约状态',
+		 		'40': '查看签约状态'
 		    },
-		    param : 'id' ,
-		    type : 'non-fixed',
+		    operaterList: [
+		    	[
+		    		{
+			 			condition: '{{ equal(applyState, 10) }}',
+			 			content: {
+				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
+				 			url: ['#distri/sign/validate?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+		    		},
+		    		{
+			 			condition: '{{ equal(applyState, 20) }}',
+			 			content: {
+				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
+				 			url: ['#distri/sign/reject/?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+		    		},
+		    		{
+			 			condition: '{{ equal(applyState, 30) }}',
+			 			content: {
+				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
+				 			url: ['#distri/sign/reject/?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+		    		},
+		    		{
+			 			condition: '{{ equal(applyState, 40) }}',
+			 			content: {
+				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
+				 			url: ['#distri/sign/done?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+		    		}
+		    	]
+		    ]
 		},
 		'url' : "agentsales/list",
 		'param' : { 

@@ -10,34 +10,33 @@ import Model from 'static/js/model.js'
 // import TableData from 'test/data/distributManage'
 var url = require('admin:widget/util/url.js');
 
-class tableModel extends Model{
+class ProductInfoModel extends Model{
 
     /**
      * @param  {String} url
      * @param  {Object} param
      * @return {void}
      */
-    getData(url,param) {
+    getData(url, param) {
         var me = this;
+        url = window.Config.host + url + param.id;
         return new Promise(function(resolve, reject){
             // test data
             // resolve(TableData);
             // return;
-            url = Config.host + url ;
             var xhr = $.ajax({
-                type: 'POST',
+                type: 'GET',
                 url:  url ,
-
                 dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data: JSON.stringify(param),
+                // contentType : 'application/json;charset=UTF-8',
+                // data: JSON.stringify(param),
+                // data: param,
                 timeout : 10000,
-                cache: false,
+                cache: true,
                 success: function (ret) {
                     if(ret.msg === 'success'){
                         resolve(ret);
                     }
-                    
                 },
                 error: function (ret) {
                     console.log('fail');
@@ -48,4 +47,4 @@ class tableModel extends Model{
     }
 }
 
-module.exports = tableModel;
+module.exports = ProductInfoModel;

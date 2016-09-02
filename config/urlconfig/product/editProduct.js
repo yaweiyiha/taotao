@@ -12,8 +12,8 @@ urlConfig['fund/edit'] = {
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.distriSize ,Dict.moneyUnit, Dict.yearIncome],
-					[Dict.saleSize, Dict.moneyUnit, Dict.interestRate, Dict.staticUnit('%')],
+					[Dict.distriSize, Dict.moneyUnit, Dict.yearIncome],
+					[Dict.saleSize, Dict.moneyUnit, Dict.interestRate],
 					[Dict.soled]
 				],
 			},
@@ -35,6 +35,7 @@ urlConfig['fund/edit'] = {
 			},
 		]
 	],
+	'url': 'product/edit/',
 	'buttonlist': [
 		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},

@@ -33,14 +33,37 @@ urlConfig['distributors/maintenance'] =
 
 		],
 		'operater' :{
-			'type' : 'fixed',
-			'operaterList' : [
-				{'name' : '详情' , 'url' : '#addPro/distributor/view' },
-				{'name' : '编辑' , 'url' : '#addPro/distributor/edit' },
-				{'name' : ['停用','启用'] , 'evt' : 'statusChange' ,'param' : 'id', 'bindKey' : 'status' , 'value' : [1 , 0]},
-			],
-			'param' : 'id' ,
-
+			statusDict: {
+		 		'1': '停用',
+		 		'0': '启用'
+			},
+			operaterList: [
+				[
+					{
+			 			content: {
+				 			name: ['详情'],
+				 			url: ['#addPro/distributor/view/?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+					}
+				],
+				[
+					{
+			 			content: {
+				 			name: ['编辑'],
+				 			url: ['#addPro/distributor/edit/?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+					}
+				],
+				[
+					{
+			 			content: {
+				 			name: ['{{ DICT(status, statusDict) }}'],
+				 			url: ['javascript:;'],
+				 			evt: ['statusChange']
+			 			},
+					}
+				]
+			]
 		},
 		'url' : "publisher/list",
 		'param' : { 

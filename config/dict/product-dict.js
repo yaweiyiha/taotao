@@ -31,6 +31,9 @@ export default {
 	'unitFkIncreasement' 	:  { key :'unitFkIncreasement' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['元','万元','亿'],value : [1100,1200,1300] , isNum : 1},
 
+	'moneyUnit' 	:  { key :'unitFkIncreasement' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
+					    options : ['万元','元','亿']},
+
 	'saleSize' 		:  { key :'offeringSize' ,name : '可销售份额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入发行规模',isrequire : true}, 				 
  	'proTerm' 		:  { key :'maturities' ,name : '产品期限', wrapperClass : 'col-md-4 prn' ,   brd : true,  type : 'input',placeholder : '请输入发行规模' , options : ['无']},
  	'unitFkMaturities' 	    :  { key :'unitFkMaturities' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 

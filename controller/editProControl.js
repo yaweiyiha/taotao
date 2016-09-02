@@ -6,17 +6,6 @@
  * @date 2016.8.2
 **/
 import Control from 'static/js/controller.js';
-import mainPageStructure  from 'config/pageStructure.js';
-
-/**
- * mainPage own css
- */
-var style = __inline('static/css/page/main-page.inline.less');
-
-require.loadCss({
-    name: 'admin-main-page-style',
-    content: style
-});
 
 /**
  * page consists of widgets
@@ -29,17 +18,17 @@ var widgets  = {
     topbanner : 
         { widget: 'topbanner', data: {},container: '.topbanner-wrapper' },
     addform : 
-        { widget: 'addform', data: {},container: '.cnt-box' },
+        { widget: 'addform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
-        { widget: 'backtotop', container: '.cnt-box'},
+        { widget: 'backtotop', container: '.form-wrapper' },
     footer : 
-        { widget: 'footer', container: '.footer-box'},
+        { widget: 'footer', container: '.footer-box' },
 };
 
 
-class editProControl extends Control{
+class addProControl extends Control{
 
     constructor(data){
         super(data);
@@ -50,9 +39,11 @@ class editProControl extends Control{
      * @return void
      */
     init(data){
-        var me = this;
+
         let structure = `<div class="topbanner-wrapper"></div>
-                         <div class="form-wrapper"></div>`;
+                         <div class="form-wrapper" style="padding: 0"></div>
+                         <div class="my-cnt-wrapper"></div>`;
+        var me = this;
         this.widgets = this.createPageStructure(structure, widgets ,'.cnt-box');
 
         /**
@@ -64,9 +55,17 @@ class editProControl extends Control{
          */
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
-        debugger
-        me.getViews([widgets.addform],data);
-
+        // me.getViews([widgets.addform],data);
+        me.getModel('productinfo', (model) => {
+        
+        model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
+            let dictData = {};
+            $.extend(dictData, data);
+            dictData.item = me.processData(res.item);
+            me.getViews([me.widgets.addform], $.extend(dictData, data));
+            });
+        });
+        // me.getViews([widgets.addform],data);
 
         // me.getModel('table',(model) => {
             
@@ -77,6 +76,13 @@ class editProControl extends Control{
 
         listener.trigger('page', 'loaded', {info: 'load success'});
     }
+
+    processData(data) {
+        // todo
+        return {
+            issureScale: data.product.issureScale,
+        }
+    }
 }
 
-export default editProControl;
+export default addProControl;
