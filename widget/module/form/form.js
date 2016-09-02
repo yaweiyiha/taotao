@@ -116,18 +116,23 @@ var form = Widget.extend({
             let value   =  $(this).attr("data-value");
             filter[key] =  value;
             let url     =  me.data.url;
+            let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             let filters =  inputFilters && $.extend(inputFilters,filter);
 
-            me._filters_ = Object.assign(me._filters_, filters);
+
+            me._filters_ = Object.assign(me._filters_, $.extend(filters,alwaysParam));
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
 
-            me._filters_ = Object.assign(me._filters_, me.getInputFilters());
-            var url = me.data.url ; 
+            
+            let alwaysParam   =  me.data.alwaysParam;
+            me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
+            let url = me.data.url ; 
+
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
 

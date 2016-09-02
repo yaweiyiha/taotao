@@ -6,10 +6,10 @@
 	          	佣金类型
 	          	<span class="text-strong-red">*</span>
 	          </div>
-	          <select class="input-control" v-model="StaffCommType" data-key="commissionType"> 
-	            <option value="1">未设置</option>
-	            <option value="2">固定佣金</option>
-	            <option value="3">阶梯佣金</option>
+	          <select class="input-control" v-model="StaffCommType" data-key="commissionTypeFk"> 
+	            <option value="-1">未设置</option>
+	            <option value="10">固定佣金</option>
+	            <option value="20">阶梯佣金</option>
 	          </select>
 	      	</div>
 	  	</div>  	

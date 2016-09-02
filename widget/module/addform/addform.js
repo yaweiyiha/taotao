@@ -5,6 +5,7 @@ import Star from 'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
 import formModel from 'model/formModel';
+import CommType from 'widget/component/commtype/commtype';
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -95,39 +96,49 @@ var addform = Widget.extend({
 
         $('button[data-role="save"]').on('click',function(){
 
-            
-            let filters = {};
-            filters = Object.assign(filters, me.getInputFilters());
-            if(filters.name == "" || filters.name == undefined){
-                //todo 保存的时候产品名字不能为空
-                //return;
-            }
-            filters.categoryFk = 10;
-            // url = 'http://10.66.19.249:8082/admin/' +  
+            let dataRole = $(this).attr('data-role');
+            if(dataRole == 'save' || dataRole == 'republic') {
 
+                let filters = {};
+                let url  =  '';
+                filters = Object.assign(filters, me.getInputFilters());
+                if(filters.name == "" || filters.name == undefined){
+                    //todo 保存的时候产品名字不能为空
+                    //return;
+                }
+                filters.categoryFk = $(this).attr("pro");
 
-            if($('.maturities').val() === '' || $('.maturities').val() === undefined){
-                filters['unitFkMaturities'] = '';
+                if($('.maturities').val() === '' || $('.maturities').val() === undefined){
+                    filters['unitFkMaturities'] = '';
+                }
+                if($(".offeringSize").val() === '' || $('.maturities').val() === undefined){
+                    filters['unitFkOfferingSize'] = '';
+                }
+                if($(".startingPrice").val() === '' || $('.maturities').val() === undefined){
+                    filters['unitFkStartingPrice'] = '';
+                }
+                if($(".increasement").val() === '' || $('.maturities').val() === undefined ){
+                    filters['unitFkIncreasement'] = '';
+                }
+                if($(".issureScale").val() === '' || $('.maturities').val() === undefined){
+                    filters['unitFkIssureScale'] = '';
+                }
+                let obj  = {
+                    'product' : filters,
+                }
+                console.log(obj);
+                return;
+                me.getData(me.data.saveUrl,obj).then((res)=>{
+                    console.log(res);
+                });
             }
-            if($(".offeringSize").val() === '' || $('.maturities').val() === undefined){
-                filters['unitFkOfferingSize'] = '';
-            }
-            if($(".startingPrice").val() === '' || $('.maturities').val() === undefined){
-                filters['unitFkStartingPrice'] = '';
-            }
-            if($(".increasement").val() === '' || $('.maturities').val() === undefined ){
-                filters['unitFkIncreasement'] = '';
-            }
-            let obj  = {
-                'product' : filters,
-            }
-            console.log(obj);
-            return;
-            
-            me.getData(me.data.saveUrl,obj).then((res)=>{
-                console.log(res);
-            });
+           
         })
+
+        $('button[data-role="republic"]').on('click',function () {
+            validate($('body'));
+        });
+
     },
     getData :(url,param) => {
 
@@ -154,12 +165,21 @@ var addform = Widget.extend({
     },
     getInputFilters: () => {
 
-        var inputCollections = $('.panel-body').find('[data-key]');
-        var data = {};
-        for (var i = 0, len = inputCollections.length; i < len; i++) {
-            var ele = $(inputCollections[i]);
-            var key = ele.attr('data-key');
-            var val = ele.attr('data-values') || ele.val() || ele.find("option:selected").text();
+        let inputCollections = $('.panel-body').find('[data-key]');
+        let data = {};
+        for (let i = 0, len = inputCollections.length; i < len; i++) {
+            let val = '';
+            let ele = $(inputCollections[i]);
+            let key = ele.attr('data-key');
+            let isNum = ele.attr('is-num');
+
+            if(isNum){
+                val = parseInt(ele.attr('data-values')) || parseInt(ele.val()) 
+                      || parseInt(ele.find("option:selected").text())
+            }else{
+                val = ele.attr('data-values') || ele.val() || ele.find("option:selected").text();
+            }
+            
             if (key && val) {
                 data[key] = val;
             }

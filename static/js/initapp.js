@@ -68,8 +68,5 @@ let validate = (layer) => {
 }
 
 // republic button click
-$('body').on('click', '[data-role=republic]', function () {
-    validate($('body'));
-});
 
 
