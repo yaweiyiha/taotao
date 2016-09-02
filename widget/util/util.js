@@ -28,13 +28,13 @@ var util = {
         // param `el` is the commType wrapper jQuery element
         let data = {};
         
-        data.commissionTypeFk = el.find('.StaffCommType').val();
+        data.commissionTypeFk = +el.find('.StaffCommType').val();
         data.fixedCommission = null;
         data.StaffCommUnit = null;
         data.ladder = null;
-        if (data.commissionTypeFk === '10') {
-            data.fixedCommission = el.find('.fixedCommission').val();
-        } else if (data.commissionTypeFk === '20') {
+        if (data.commissionTypeFk === 10) {
+            data.fixedCommission = +el.find('.fixedCommission').val();
+        } else if (data.commissionTypeFk === 20) {
             data.StaffCommUnit = el.find('.StaffCommUnit').val();
             data.ladder = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
         }
@@ -63,6 +63,21 @@ var util = {
         }
         return data;
     },
+    processData: (data) => {
+        return {
+            issureScale        : ''+data.product.issureScale,
+            arrTypeFk          : ''+data.product.arrTypeFk,
+            offeringSize       : ''+data.product.offeringSize,
+            expectedArr        : ''+data.product.expectedArr,
+            selfDefinedProcess : ''+data.product.selfDefinedProcess,
+            establishStatus    : ''+data.product.establishStatus,
+            riskRating         : ''+data.product.riskRating,
+            salesStatusFk      : ''+data.product.salesStatusFk,
+            unitFkIssureScale  : ''+data.product.unitFkIssureScale, 
+            unitFkOfferingSize : ''+data.product.unitFkOfferingSize,
+            unitFkOfferingSize : ''+data.product.unitFkOfferingSize,
+        }
+    }
 };
 
 module.exports = util;

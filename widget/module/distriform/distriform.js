@@ -4,6 +4,7 @@ import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import Star from 'widget/component/star/star';
 import CommType from 'widget/component/commtype/commtype';
 import singledate from  'widget/component/singledate/singledate';
+import Util from  'widget/util/util';
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -17,8 +18,6 @@ var distriform = Widget.extend({
 
     init : function(data){
 
-        // console.log(data.forms);
-        debugger
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         this.render();
@@ -53,7 +52,8 @@ var distriform = Widget.extend({
         let data = new FormData();
         // add attachment file data
         let files = $('.attachment', me.vm.$el)[0].files;
-        // console.log(files);
+        // console.log(fileles);
+        console.log(Util.getCommTypeData($('.admin-widget-commtype')));
 
         data.append('id', _APP_HASH.id);
         data.append('commissionType', 10);
@@ -61,7 +61,7 @@ var distriform = Widget.extend({
         data.append('attachment', files[0]);
         data.append('offlineStartDate', '2016-08-19');
         data.append('offlineEndDate', '2016-08-29');
-
+        return ;
         $.ajax({
             url: 'agentsales/approve',
             data: data,

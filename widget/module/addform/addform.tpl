@@ -33,7 +33,7 @@
                       <div class="form-group input-group">
                         <div class="input-group-addon input-title">标题
                         </div>
-                        <input class="input-control" value="" maxlength="40" data-key="orderNumber" placeholder="请输入标题">  
+                        <input class="input-control" value="" maxlength="40" data-key="title" placeholder="请输入标题">  
                       </div>              
                     </div>
                   </div>
@@ -42,7 +42,7 @@
                       <div class="form-group input-group">
                         <div class="input-group-addon input-title">内容
                         </div>
-                        <textarea type="" class="input-control" value="" maxlength="40" data-key="orderNumber" style="width:400px;height:150px" placeholder="请输入内容"></textarea>
+                        <textarea type="" class="input-control" value="" maxlength="40" data-key="content" style="width:400px;height:150px" placeholder="请输入内容"></textarea>
                       </div>              
                     </div>
                   </div>

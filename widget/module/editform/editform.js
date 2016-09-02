@@ -54,7 +54,10 @@ var editform = Widget.extend({
         	filters.productId = parseInt(_APP_HASH.id);
         	
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
-        		console.log(res);
+                if(res.msg === "success"){
+                    window.location.href = '#main/product/maintenance';
+                }
+        		
         	});
         	
         });

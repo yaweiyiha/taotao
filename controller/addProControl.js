@@ -6,6 +6,7 @@
  * @date 2016.8.2
 **/
 import Control from 'static/js/controller.js';
+import Util from 'widget/util/util';
 
 /**
  * page consists of widgets

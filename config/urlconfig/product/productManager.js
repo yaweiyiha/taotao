@@ -59,7 +59,7 @@ urlConfig['product/maintenance'] =
 			 			condition: '{{ equal(statusId, 20) }}',
 			 			content: {
 				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
-				 			url: ['#editPro/', '{{ DICT(categoryId, pageDict)}}', '/validate?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#addPro/', '{{ DICT(categoryId, pageDict)}}', '/add?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 			 		},
 			 		{

@@ -6,6 +6,7 @@
  * @date 2016.8.2
 **/
 import Control from 'static/js/controller.js';
+import Util from 'widget/util/util';
 
 /**
  * page consists of widgets
@@ -58,35 +59,13 @@ class addProControl extends Control{
         me.getModel('productinfo', (model) => {
         model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
             let dictData = {};
-            $.extend(dictData, data);
-            dictData.item = me.processData(res.item);
+            $.extend(dictData, data);  
+            dictData.item = Util.processData(res.item);
             me.getViews([me.widgets.editform], $.extend(dictData, data));
             });
         });
-        // me.getViews([widgets.editform],data);
-
-        // me.getModel('table',(model) => {
-            
-        //     model.getData(formData.url,formData.param).then((res) => {
-        //         me.getViews([me.widgets.table], $.extend(res,formData));
-        //     });
-        // });
 
         listener.trigger('page', 'loaded', {info: 'load success'});
-    }
-
-    processData(data) {
-        // todo
-        return {
-            issureScale: data.product.issureScale,
-            arrTypeFk  : enums.arrTypeFk[data.product.arrTypeFk],
-            offeringSize : data.product.offeringSize,
-            expectedArr  : data.product.expectedArr,
-            selfDefinedProcess : data.product.selfDefinedProcess,
-            establishStatus : enums.establishStatus[data.product.establishStatus],
-            riskRating : enums.riskRating[data.product.riskRating],
-        }
-
     }
 }
 

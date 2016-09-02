@@ -8,9 +8,6 @@ require.loadCss({
     content: style
 });
 
-
-
-
 var login = Vue.extend({
     template: tpl,
     data: () => ({

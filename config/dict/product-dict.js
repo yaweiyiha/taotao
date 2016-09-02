@@ -44,7 +44,7 @@ export default {
  	'closedTime' 	: { key :'closeTime' ,name : '封闭期', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入封闭期"},
 	'openDay'		: { key :'openDayDesc' ,name : '开放日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请输入开放日"},
  	'moneyType' 	: { key :'currencies' ,name : '币种', wrapperClass : 'col-md-6' ,   type : 'select', options : ['人民币','美元','港币','其他'],value : [10,20,30,40] , isNum : 1},
-	'riskRant' 		: { key :'riskRating' ,name : '风险等级', wrapperClass : 'col-md-6' ,   type : 'select', options : ['高风险','中风险','低风险'],value : [10,20,30] , isNum : 1},
+	'riskRant' 		: { key :'riskRating' ,name : '风险等级', wrapperClass : 'col-md-6' ,   type : 'select', options : ['高风险','中风险','低风险'],value : [30,20,10] , isNum : 1},
  	'incomeRant' 	: { key :'arrRank' ,name : '收益评级', wrapperClass : 'col-md-6' ,   type : 'star'},
  	
  	'yearIncome' 	: { key :'arrTypeFk' ,name : '年化收益率', wrapperClass : 'col-md-6' ,   type : 'select', options : ['不选择','固定','浮动','固定阶梯','浮动阶梯']},
