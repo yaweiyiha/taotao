@@ -14,7 +14,9 @@
                     <i class="icon-edit"></i>修改密码
                 </li>
                 <li>
-                    <i class="icon-off"></i>退出
+                    <a href="logout" onclick="javascript:sessionStorage.clear();">
+                        <i class="icon-off"></i>退出
+                    </a>
                 </li>
             </ul>
         </div>

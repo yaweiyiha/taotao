@@ -44,6 +44,9 @@ class Router {
         window._APP_HASH._uri_ = page;
         window._APP_HASH._page_ = hash;
         let configData = urlConfig[page] || {};
+
+        console.log(JSON.stringify(page));
+        
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');
         

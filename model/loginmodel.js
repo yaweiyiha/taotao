@@ -1,8 +1,34 @@
+/**
+ * loginModel for POST login
+ * 
+ * @author songgaoke@bravowhale.com
+ * @date 2016.9.2
+ *
+**/
+
 import Model from 'static/js/model.js'
 
-
-
 class loginModel extends Model{
+    getData(url,data) {
+        return new Promise(function(resolve, reject){
+            var xhr = $.ajax({
+                url: url,
+                type: 'POST',
+                data : data,
+                dataType: 'json',
+                success: function (ret) {
+                    console.log(ret);
+                },
+                error: function () {
+                    console.log('请求失败');
+                    reject();
+                }
+            });
+        });
+    }
+}
+
+/*class loginModel extends Model{
 
     getData(dataKey = '',opt) {
 
@@ -41,7 +67,7 @@ class loginModel extends Model{
             });
         });
     }
-}
+}*/
 
 
 export default loginModel;
