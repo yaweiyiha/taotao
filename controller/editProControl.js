@@ -80,7 +80,15 @@ class addProControl extends Control{
         // todo
         return {
             issureScale: data.product.issureScale,
+            arrTypeFk  : enums.arrTypeFk[data.product.arrTypeFk],
+            offeringSize : data.product.offeringSize,
+            expectedArr  : data.product.expectedArr,
+            selfDefinedProcess : data.product.selfDefinedProcess,
+            establishStatus : data.product.establishStatus,
+            riskRating : data.product.riskRating,
+
         }
+
     }
 }
 

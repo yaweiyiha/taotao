@@ -1,6 +1,7 @@
 import mainPageStructure  from 'config/pageStructure.js';
 import Control from 'static/js/controller.js';
 import AlertDialog from 'widget/classComponent/dialog/alert'
+import Util from 'widget/util/util'
 
 var style = __inline('static/css/page/main-page.inline.less');
 
@@ -26,6 +27,7 @@ widgets = cc.createPageStructure(mainPageStructure, widgets);
 
 cc.getViews([widgets.header,widgets.backtotop,widgets.footer]);
 cc.getViews([widgets.menu],menusConfig);
+
 
 // delegate system navigate
 if (URL_MODE === 'pushstate') {
@@ -67,6 +69,11 @@ let validate = (layer) => {
     }
 }
 
-// republic button click
+let getEnums = () => {
 
+     Util.getData('product/maintenance/enums' ,'', 'GET').then((res) => {
+        window.enums = res.item;
+    });
+}
 
+getEnums();

@@ -46,11 +46,11 @@ urlConfig['fund/add'] =
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
-				'formlist'   : [
-					[	
-						elementDict.yearIncome
-					]
-				]
+				// 'formlist'   : [
+				// 	[	
+				// 		elementDict.yearIncome
+				// 	]
+				// ]
 			},
 			{	
 				'panelName' : '添加自定义要素',
