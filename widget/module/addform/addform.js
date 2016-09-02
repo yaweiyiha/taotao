@@ -6,6 +6,7 @@ import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
 import formModel from 'model/formModel';
 import CommType from 'widget/component/commtype/commtype';
+import YearRate from 'widget/component/yearrate/yearrate';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
 
