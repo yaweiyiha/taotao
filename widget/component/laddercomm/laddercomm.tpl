@@ -31,4 +31,5 @@
 		</tbody>
 	</table>
 	<button v-if="!readonly" class="custom-button mt10" @click="addRule">新增规则</button>
+	<textarea v-model="dataCollect"></textarea>
 </div>

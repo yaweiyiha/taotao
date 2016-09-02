@@ -69,8 +69,30 @@ export default Vue.component('ladder-comm', {
  					'元': 1100,
  					'万元': 1200,
  					'亿元': 1300
+ 				};
+ 				cache.extraCommission = item.proportion;
+ 				cache.measureUnitFk = this.unit ? dict[this.unit] : dict[item.unit];
+ 				cache.sorter = index;
+ 				if (index === 0) {
+ 					cache.value1 = +item.end;
+ 					cache.operator1 = 'LE';
+ 					cache.value2 = null;
+ 					cache.operator2 = null;
+ 				} else if (index === (list.length - 1)) {
+ 					cache.value1 = +item.end;
+ 					cache.operator1 = 'GT';
+ 					cache.value2 = null;
+ 					cache.operator2 = null;
+ 				} else {
+ 					cache.value1 = +item.start;
+ 					cache.operator1 = 'GT';
+ 					cache.value2 = +item.start;
+ 					cache.operator2 = 'LT';
  				}
+ 				return cache;
  			});
+
+ 			return JSON.stringify(cache);
  		}
  	},
  	methods: {
