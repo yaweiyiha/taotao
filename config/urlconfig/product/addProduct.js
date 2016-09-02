@@ -21,7 +21,7 @@ urlConfig['fund/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.proName, elementDict.fundType,elementDict.fundTypeUnit	],
-					[   elementDict.fundStrategy,elementDict.secondStrategy, ],
+					[   elementDict.fundStrategy],
 					[   elementDict.distributor, elementDict.hoster	],
 					[   elementDict.fundLeader,elementDict.fundManager],
 					[   elementDict.trusteeFee ,elementDict.phone ],
@@ -46,11 +46,11 @@ urlConfig['fund/add'] =
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
-				'formlist'   : [
-					[	
-						elementDict.yearIncome
-					]
-				]
+				// 'formlist'   : [
+				// 	[	
+				// 		elementDict.yearIncome
+				// 	]
+				// ]
 			},
 			{	
 				'panelName' : '添加自定义要素',

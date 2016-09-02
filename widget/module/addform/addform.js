@@ -6,6 +6,8 @@ import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
 import formModel from 'model/formModel';
 import CommType from 'widget/component/commtype/commtype';
+import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
+import Util from 'widget/util/util';
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -20,12 +22,26 @@ var addform = Widget.extend({
     init : function(data){
         this.data = data;
         this.vm = this.display(data ,tpl ,'vue');
+        this.render();
         this.bind();
         Waves.attach('button', ['waves-light']);
     },
     processData :function(){
         this.saveUrl   = data.saveUrl;
         this.publicUrl = data.publicUrl;
+    },
+    render : function(){
+        if($('select[data-key="publisherFk"]')){
+            let publisherList  = enums.publisherFk;
+            let publisherArr   =  [];
+
+            for(key in publisherList){
+                let option = `<option value="${key}">${publisherList[key]}</option>`;
+                publisherArr.push(option);
+            }
+            $('select[data-key="publisherFk"]').append(publisherArr);
+        
+        }
     },
     bind: function () {
         let me = this;
@@ -89,7 +105,7 @@ var addform = Widget.extend({
             }
 
             let model = new formModel();
-            model.getData(url,data).then((res) => {
+            model.getData(url,data,'POST').then((res) => {
                 window.history.back();
             });
         });
@@ -101,34 +117,39 @@ var addform = Widget.extend({
 
                 let filters = {};
                 let url  =  '';
-                filters = Object.assign(filters, me.getInputFilters());
+                filters = Object.assign(filters, Util.getInputFilters());
                 if(filters.name == "" || filters.name == undefined){
                     //todo 保存的时候产品名字不能为空
                     //return;
                 }
-                filters.categoryFk = $(this).attr("pro");
+                filters.categoryFk    = parseInt($(this).attr("pro"));
+                filters.fundTypeFk    = parseInt(filters.fundTypeFk);
+                filters.fundSubTypeFk = parseInt(filters.fundSubTypeFk);
 
-                if($('.maturities').val() === '' || $('.maturities').val() === undefined){
-                    filters['unitFkMaturities'] = '';
+                if($("input[data-key='maturities']").val() === '' 
+                    || $("input[data-key='maturities']").val() === undefined){
+                    filters.unitFkMaturities= '';
                 }
-                if($(".offeringSize").val() === '' || $('.maturities').val() === undefined){
-                    filters['unitFkOfferingSize'] = '';
+                if($("input[data-key='offeringSize']").val() === '' 
+                    || $("input[data-key='offeringSize']").val() === undefined){
+                    filters.unitFkOfferingSize = '';
                 }
-                if($(".startingPrice").val() === '' || $('.maturities').val() === undefined){
-                    filters['unitFkStartingPrice'] = '';
+                if($("input[data-key='startingPrice']").val() === '' 
+                    || $("input[data-key='startingPrice']").val() === undefined){
+                    filters.unitFkStartingPrice = '';
                 }
-                if($(".increasement").val() === '' || $('.maturities').val() === undefined ){
-                    filters['unitFkIncreasement'] = '';
+                if($("input[data-key='increasement']").val() === '' 
+                    || $("input[data-key='increasement']").val() === undefined ){
+                    filters.unitFkIncreasement = '';
                 }
-                if($(".issureScale").val() === '' || $('.maturities').val() === undefined){
-                    filters['unitFkIssureScale'] = '';
+                if($("input[data-key='issureScale']").val() === '' 
+                    || $("input[data-key='issureScale']").val() === undefined){
+                    filters.unitFkIssureScale = '';
                 }
                 let obj  = {
                     'product' : filters,
                 }
-                console.log(obj);
-                return;
-                me.getData(me.data.saveUrl,obj).then((res)=>{
+                Util.getData(me.data.saveUrl,obj,'POST').then((res)=>{
                     console.log(res);
                 });
             }
@@ -140,52 +161,7 @@ var addform = Widget.extend({
         });
 
     },
-    getData :(url,param) => {
 
-        return new Promise(function(resolve, reject){
-            var xhr = $.ajax({
-                type: 'POST',
-                url:  url ,
-                dataType: 'json',
-                contentType : 'application/json;charset=UTF-8',
-                data: JSON.stringify(param),
-                timeout : 10000,
-                cache: false,
-                success: function (ret) {
-                    if(ret.msg === 'success'){
-                        resolve(ret);
-                    }  
-                },
-                error: function (ret) {
-                    console.log('fail');
-                    reject();
-                }
-            });
-        });
-    },
-    getInputFilters: () => {
-
-        let inputCollections = $('.panel-body').find('[data-key]');
-        let data = {};
-        for (let i = 0, len = inputCollections.length; i < len; i++) {
-            let val = '';
-            let ele = $(inputCollections[i]);
-            let key = ele.attr('data-key');
-            let isNum = ele.attr('is-num');
-
-            if(isNum){
-                val = parseInt(ele.attr('data-values')) || parseInt(ele.val()) 
-                      || parseInt(ele.find("option:selected").text())
-            }else{
-                val = ele.attr('data-values') || ele.val() || ele.find("option:selected").text();
-            }
-            
-            if (key && val) {
-                data[key] = val;
-            }
-        }
-        return data;
-    },
     methods:{
     	back : () => {
             window.history.back();

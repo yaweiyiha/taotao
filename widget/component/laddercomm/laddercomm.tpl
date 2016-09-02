@@ -19,7 +19,7 @@
 						<input type="text" readonly v-model="item.end">
 					</div>
 				</td>
-				<td width="10%">{{ unit }}</td>
+				<td width="10%">{{ unit || item.unit }}</td>
 				<td width="20%"><input type="text" v-model="item.proportion"></td>
 				<td width="5%">%</td>
 				<td width="15%" v-if="!readonly">
@@ -31,4 +31,5 @@
 		</tbody>
 	</table>
 	<button v-if="!readonly" class="custom-button mt10" @click="addRule">新增规则</button>
+	<textarea v-model="dataCollect"></textarea>
 </div>

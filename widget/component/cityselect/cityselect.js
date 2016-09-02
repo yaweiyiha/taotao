@@ -69,15 +69,12 @@ export default Vue.component('city-select', {
     },
     watch: {
         provinceSelected : function(){
-            console.log(this.provinceSelected);
-            console.log(this.get());
+
             if(!$.isArray(this.provinceSelected)){
                 this.getCity(this.provinceSelected);
             } 
         },
         citySelected :function(){
-            console.log(this.get());
-            console.log(this.citySelected);
             if(!$.isArray(this.citySelected)){
                 this.getArea(this.citySelected);
             }

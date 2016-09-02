@@ -57,7 +57,6 @@ class addProControl extends Control{
         me.getViews([widgets.topbanner],data.topbanner);
         // me.getViews([widgets.addform],data);
         me.getModel('productinfo', (model) => {
-        
         model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
             let dictData = {};
             $.extend(dictData, data);
@@ -81,7 +80,15 @@ class addProControl extends Control{
         // todo
         return {
             issureScale: data.product.issureScale,
+            arrTypeFk  : enums.arrTypeFk[data.product.arrTypeFk],
+            offeringSize : data.product.offeringSize,
+            expectedArr  : data.product.expectedArr,
+            selfDefinedProcess : data.product.selfDefinedProcess,
+            establishStatus : data.product.establishStatus,
+            riskRating : data.product.riskRating,
+
         }
+
     }
 }
 
