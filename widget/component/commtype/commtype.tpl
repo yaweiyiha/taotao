@@ -37,4 +37,8 @@
 	  	</div>
   	</div>
   	<ladder-comm :unit="StaffCommUnit" v-if="StaffCommType === '20'"></ladder-comm>	
+  	<div class="row">
+  		<button @click="getData">获取佣金设置数据</button>
+  	</div>
+
 </div>

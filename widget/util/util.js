@@ -1,6 +1,12 @@
 'use strict';
 
 var util = {
+    getCommTypeData: function (el) {
+        // param `el` is the commType wrapper jQuery element
+        let data = {};
+        data = el;
+        return data;
+    },
     isSupportCss: function (style, filter) {
         var testEle = document.createElement("div");
         var body = document.body;
