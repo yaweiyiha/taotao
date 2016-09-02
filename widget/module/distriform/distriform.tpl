@@ -130,7 +130,7 @@
       </div>
       <div class="tac">
           <template v-for="bt in buttonlist">
-              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" >{{bt.name}}</button> 
           </template> 
       </div>
   </div>

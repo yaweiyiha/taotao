@@ -17,8 +17,8 @@ var widgets  = {
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
         { widget: 'topbanner', data: {},container: '.topbanner-wrapper' },
-    addform : 
-        { widget: 'addform', data: {},container: '.form-wrapper' },
+    editform : 
+        { widget: 'editform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
@@ -55,16 +55,15 @@ class addProControl extends Control{
          */
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
-        // me.getViews([widgets.addform],data);
         me.getModel('productinfo', (model) => {
         model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
             let dictData = {};
             $.extend(dictData, data);
             dictData.item = me.processData(res.item);
-            me.getViews([me.widgets.addform], $.extend(dictData, data));
+            me.getViews([me.widgets.editform], $.extend(dictData, data));
             });
         });
-        // me.getViews([widgets.addform],data);
+        // me.getViews([widgets.editform],data);
 
         // me.getModel('table',(model) => {
             
@@ -84,9 +83,8 @@ class addProControl extends Control{
             offeringSize : data.product.offeringSize,
             expectedArr  : data.product.expectedArr,
             selfDefinedProcess : data.product.selfDefinedProcess,
-            establishStatus : data.product.establishStatus,
-            riskRating : data.product.riskRating,
-
+            establishStatus : enums.establishStatus[data.product.establishStatus],
+            riskRating : enums.riskRating[data.product.riskRating],
         }
 
     }

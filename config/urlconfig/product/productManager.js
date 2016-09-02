@@ -67,7 +67,7 @@ urlConfig['product/maintenance'] =
 			 			content: {
 				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
 				 			url: ['javascript:;'],
-				 			evt: ['dialog']
+				 			evt: ['errReasonDailog']
 			 			},
 			 		},
 			 		{

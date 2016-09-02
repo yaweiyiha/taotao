@@ -1,0 +1,183 @@
+.edit-widget-editform {
+	textarea {
+		border: 1px solid rgb(230, 230, 230);
+	}
+	.my-tabs {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 1px solid #eee;
+		margin-bottom: 10px;
+		.return {
+			position: relative;
+		    float: right;
+		    right: 53px;
+		    bottom: 9px;
+		    padding: 3px 10px;
+		}
+		.tac {
+			width: auto;
+		    display: inline-block;
+		    text-align: center;
+		    float: right;
+		    position: relative;
+    		bottom: 9px;
+    		right: 31px;
+		}
+		.primary {
+		    padding: 4px 17px;
+		}
+		.default {
+			border : 1px solid  #286ede;
+		    color : #286ede;
+		    background: #ffffff;
+		     padding: 4px 17px;
+
+		}
+		> li {
+			float: left;
+			height: 32px;
+			line-height: 32px;
+			padding-left: 15px;
+			padding-right: 30px;
+			position: relative;
+			background: white;
+			overflow: hidden;
+			border-left: 1px solid transparent;
+			a {
+				color: #333;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: none;
+				}
+			}
+
+			&.active {
+				top: 1px;
+				border-left: 1px solid #eee;
+
+				a {
+					color: #1b66cf;
+				}
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					height: 3px;
+					width: 100%;
+					background: #1b66cf;
+					left: 0;
+					top: 0;
+				}
+
+				&::after {
+					content: '';
+					display: block;
+					width: 22px;
+					height: 32px;
+					background: url(static/img/tab-active-bg.png) no-repeat;
+					position: absolute;
+					right: 0;
+					top: 0px;
+				}
+			}
+		}
+	}
+	.panel-heading {
+
+	}
+	.panel-body {
+		padding: 5px 27px;
+    	margin: 0 auto;
+		.title {
+			border-bottom: #f3f3f3 1px solid;
+		    margin-bottom: 27px;
+		    padding-bottom: 13px;
+			.section-title {
+				color : #286ede;
+				&:before{
+				    content: '';
+				    height: 15px;
+				    width: 3px;
+				    background: #286ede;
+				    display: inline-block;
+				    margin-right: 9px;
+				    position: relative;
+    				top: 2px;
+				}
+			}
+		}
+
+		.input-wrapper {
+			.unit {
+				position: absolute;
+				height: 34px;
+				line-height: 34px;
+				padding: 0 10px;
+				border-left: 1px dashed #eee;
+				right: 0;
+				top: 0;
+			}
+			.input-group-addon{
+				border : 0px;
+			    background-color : #ffffff;
+			    min-width: 105px;
+			    text-align: right;
+    		}
+			input {
+				border: 1px solid #e6e6e6;
+				border-top-right-radius: 3px;
+			    border-bottom-right-radius: 3px;
+				border-top-left-radius: 0;
+			    border-bottom-left-radius: 0;
+			}
+
+			.input-control{
+				display: block;
+			    width: 100%;
+			    height: 34px;
+			    padding: 6px 12px;
+			    font-size: 14px;
+			    line-height: 1.42857143;
+			    color: #555;
+			    background-color: #fff;
+			    border-radius: 2px !important;
+			}
+		}
+		.text-strong-red {
+			color : red;
+		}
+
+		.icon{
+			width: 20px;
+		    height: 20px;
+		    background: url('static/img/addicon.png') no-repeat;
+		    background-size: 18px 38px;
+		    background-position: 0px 2px;
+		    display: inline-block;
+		    position: relative;
+		    top: 4px;
+		    left: 6px;
+		  	cursor: pointer;
+		}
+
+		.radio-input {
+			margin-left : 16px;
+			&.first-child {
+				margin-left: 0px;
+			}
+		}
+
+
+	}
+		.bottom-button {
+		    text-align: center;
+		    display: inline-block;
+		    /* margin: 0 auto; */
+		    margin-left: 41%;
+		    padding: 7px 44px;
+		    margin-top: 26px;
+		}
+}

@@ -110,46 +110,21 @@ var addform = Widget.extend({
             });
         });
 
-        $('button[data-role="save"]').on('click',function(){
+        $('button').on('click',function(){
 
             let dataRole = $(this).attr('data-role');
-            if(dataRole == 'save' || dataRole == 'republic') {
+            if(dataRole == 'save' ) {
 
-                let filters = {};
-                let url  =  '';
-                filters = Object.assign(filters, Util.getInputFilters());
-                if(filters.name == "" || filters.name == undefined){
-                    //todo 保存的时候产品名字不能为空
-                    //return;
-                }
-                filters.categoryFk    = parseInt($(this).attr("pro"));
-                filters.fundTypeFk    = parseInt(filters.fundTypeFk);
-                filters.fundSubTypeFk = parseInt(filters.fundSubTypeFk);
+                let data = me.processAddProData();
+                data.product.categoryFk = parseInt($(this).attr("pro"));
+                Util.getData(me.data.saveUrl,data,'POST').then((res)=>{
+                    console.log(res);
+                });
+            }else if(dataRole == 'republic'){
+                let data = me.processAddProData();
+                data.product.categoryFk = parseInt($(this).attr("pro"));
 
-                if($("input[data-key='maturities']").val() === '' 
-                    || $("input[data-key='maturities']").val() === undefined){
-                    filters.unitFkMaturities= '';
-                }
-                if($("input[data-key='offeringSize']").val() === '' 
-                    || $("input[data-key='offeringSize']").val() === undefined){
-                    filters.unitFkOfferingSize = '';
-                }
-                if($("input[data-key='startingPrice']").val() === '' 
-                    || $("input[data-key='startingPrice']").val() === undefined){
-                    filters.unitFkStartingPrice = '';
-                }
-                if($("input[data-key='increasement']").val() === '' 
-                    || $("input[data-key='increasement']").val() === undefined ){
-                    filters.unitFkIncreasement = '';
-                }
-                if($("input[data-key='issureScale']").val() === '' 
-                    || $("input[data-key='issureScale']").val() === undefined){
-                    filters.unitFkIssureScale = '';
-                }
-                let obj  = {
-                    'product' : filters,
-                }
-                Util.getData(me.data.saveUrl,obj,'POST').then((res)=>{
+                Util.getData(me.data.publishUrl,data,'POST').then((res)=>{
                     console.log(res);
                 });
             }
@@ -161,7 +136,45 @@ var addform = Widget.extend({
         });
 
     },
+    processAddProData : function(){
 
+        let url  =  '';
+        let filters = {};
+
+        filters = Object.assign(filters, Util.getInputFilters());
+        if(filters.name == "" || filters.name == undefined){
+            //todo 
+            //return;
+        }
+
+        filters.fundTypeFk    = parseInt(filters.fundTypeFk);
+        filters.fundSubTypeFk = parseInt(filters.fundSubTypeFk);
+
+        if($("input[data-key='maturities']").val() === '' 
+            || $("input[data-key='maturities']").val() === undefined){
+            filters.unitFkMaturities= '';
+        }
+        if($("input[data-key='offeringSize']").val() === '' 
+            || $("input[data-key='offeringSize']").val() === undefined){
+            filters.unitFkOfferingSize = '';
+        }
+        if($("input[data-key='startingPrice']").val() === '' 
+            || $("input[data-key='startingPrice']").val() === undefined){
+            filters.unitFkStartingPrice = '';
+        }
+        if($("input[data-key='increasement']").val() === '' 
+            || $("input[data-key='increasement']").val() === undefined ){
+            filters.unitFkIncreasement = '';
+        }
+        if($("input[data-key='issureScale']").val() === '' 
+            || $("input[data-key='issureScale']").val() === undefined){
+            filters.unitFkIssureScale = '';
+        }
+        let data  = {
+            'product' : filters,
+        }
+        return  data;
+    },
     methods:{
     	back : () => {
             window.history.back();

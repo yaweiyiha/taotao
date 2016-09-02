@@ -135,6 +135,7 @@ fis.match('::package', {
             'widget/module/backtotop/backtotop.js',
             'widget/module/topbanner/topbanner.js',
             'widget/module/distriform/distriform.js',
+            'widget/module/editform/editform.js',
         ],
         'static/add_sync_0_pkg.js': [
             'controller/addProControl.js',

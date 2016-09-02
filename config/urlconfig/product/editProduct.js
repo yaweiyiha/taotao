@@ -12,8 +12,9 @@ urlConfig['fund/edit'] = {
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.distriSize, Dict.moneyUnit, Dict.yearIncome],
-					[Dict.saleSize, Dict.moneyUnit, Dict.interestRate],
+					// [Dict.distriSize, Dict.unitFkIssureScale, Dict.yearIncome],
+					[Dict.distriSize, Dict.unitFkIssureScale],
+					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.interestRate],
 					[Dict.soled]
 				],
 			},
@@ -36,11 +37,11 @@ urlConfig['fund/edit'] = {
 		]
 	],
 	'url': 'product/edit/',
+	'submitUrl' : 'product/edit/fundSave',
 	'buttons': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
-	'needback' : true
 }
 
 urlConfig['asset/edit'] = {
@@ -56,7 +57,8 @@ urlConfig['asset/edit'] = {
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.soled ,Dict.yearIncome],
+					// [Dict.soled ,Dict.yearIncome],
+					[Dict.soled ],
 				],
 			},
 			{	
@@ -75,11 +77,12 @@ urlConfig['asset/edit'] = {
 			},
 		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+	'buttons': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
 	'url': 'product/edit/',
+	'submitUrl' : 'product/edit/assetSave',
 }
 
 urlConfig['trust/edit'] = {
@@ -108,11 +111,12 @@ urlConfig['trust/edit'] = {
 			}
 		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+	'buttons': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
 	'url': 'product/edit/',
+	'submitUrl' : 'product/edit/trustSave',
 }
 
 
@@ -120,7 +124,7 @@ urlConfig['debtassgin/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '' }, 
-		'thirdTitle' : '编辑信托产品',
+		'thirdTitle' : '编辑股权转让产品',
 		'key' : '产品维护',
 	},
 	'forms' : [
@@ -141,11 +145,12 @@ urlConfig['debtassgin/edit'] = {
 			}
 		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+	'buttons': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
 	'url': 'product/edit/',
+	'submitUrl' : 'product/edit/vipChoicenessSave',
 }
 
 urlConfig['equityInvestment/edit'] = {
@@ -173,9 +178,10 @@ urlConfig['equityInvestment/edit'] = {
 			}
 		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
+	'buttons': [
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
 		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
 	],
 	'url': 'product/edit/',
+	'submitUrl' : 'product/edit/equityInvestmentSave'
 }

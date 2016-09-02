@@ -38,7 +38,7 @@ urlConfig['product/draft'] =
 					{
 			 			content: {
 				 			name: ['编辑'],
-				 			url: ['#distri/sign/reject/', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#addPro/sign/reject/', '{{ INTERFACE_DATA(id) }}']
 			 			}
 					}
 				],

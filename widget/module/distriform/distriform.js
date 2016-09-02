@@ -18,6 +18,7 @@ var distriform = Widget.extend({
     init : function(data){
 
         // console.log(data.forms);
+        debugger
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         this.render();
