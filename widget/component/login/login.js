@@ -8,7 +8,10 @@ require.loadCss({
     content: style
 });
 
-export default Vue.component('login', {
+
+
+
+var login = Vue.extend({
     template: tpl,
     data: () => ({
         username: '',
@@ -25,9 +28,12 @@ export default Vue.component('login', {
     methods: {
         login: function () {
             console.log(this.username, this.password, this.code);
+
         },
         refreshCode: function () {
             this.random = Math.random();
         }
     }
-});
+})
+
+export default Vue.component('login', login);

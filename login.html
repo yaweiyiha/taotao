@@ -1,3 +1,4 @@
+<%@ page language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,9 +30,12 @@
 <script type="text/javascript" src="widget/component/login/login.js"></script>
 <script type="text/javascript">
     var login = require('admin:widget/component/login/login');
+
+    // 创建根实例
     new Vue({
         el: $('body').get(0)
     });
+
     Waves.attach('.login-submit', ['waves-float', 'waves-light']);
     Waves.init();
 </script>

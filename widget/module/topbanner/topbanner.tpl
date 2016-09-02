@@ -20,7 +20,7 @@
                     <span v-if="index !== subFun.length - 1" class="spliter"></span>
                 </template>
         	</div>
-           <span v-if="drafts" class="spliter"></span>
+            <span v-if="drafts" class="spliter"></span>
             <div v-if="drafts" class="draft">
                 <a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
             </div>

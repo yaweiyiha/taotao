@@ -2,6 +2,9 @@
 	<div class="ui-widget-overlay ui-front"></div>
 	<div class="ui-dialog ui-widget ui-widget-content usersys-widget-dialog" tabindex="-1" role="dialog" aria-describedby="departmentSelectWin" aria-labelledby="ui-id-1">
 		<div class="ui-dialog-titlebar ui-widget-header rt">
+
+			<span class="icon icon-addpro"></span>
+
 			<span id="ui-id-1" class="ui-dialog-title">{{title}}</span>
 			
 			<span class="close-btn" @click="hide"></span><span class="ui-button-text"></span>

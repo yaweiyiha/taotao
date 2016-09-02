@@ -12,6 +12,7 @@ require.loadCss({
 var topbanner = Widget.extend({ 
 
     init : function(data){
+        console.log(JSON.stringify(data));
         var vm = this.display(data ,tpl ,'vue');
         this.bind();
     },
