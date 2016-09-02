@@ -15,48 +15,18 @@ export default Vue.component('ladder-comm', {
  		readonly: {
  			default: false
  		},
- 		originList: {
- 			default: () => [{
-			    "value1": 6,
-			    "operator1": "LE",
-			    "value2": null,
-			    "operator2": null,
-			    "measureUnitFk": 1100,
-			    "extraCommission": 2,
-			    "sorter": 0
-			  },
-			  {
-			    "value1": 6,
-			    "operator1": "GT",
-			    "value2": 12,
-			    "operator2": "LE",
-			    "measureUnitFk": 1100,
-			    "extraCommission": 4,
-			    "sorter": 1
-			  },
-			  {
-			    "value1": 12,
-			    "operator1": "GT",
-			    "value2": null,
-			    "operator2": null,
-			    "measureUnitFk": 1100,
-			    "extraCommission": 6,
-			    "sorter": 2
-			}]
+ 		latterData: {
+ 			default: () => []
+		},
+		leftContain: {
+			default: '0'
+		},
+		floatUpperLimit: {
+			default: '0'
 		}
  	},
  	data: () => ({
- 		list: [
-		    {
-		        start: '',
-		        end: '',
-		        proportion: ''
-		    }, {
-		        start: '',
-		        end: '',
-		        proportion: ''
-		    }
-		]
+ 		list: []
  	}),
  	ready: function () {
  		this.list = this.revertData();
@@ -70,10 +40,15 @@ export default Vue.component('ladder-comm', {
  					'万元': 1200,
  					'亿元': 1300
  				};
- 				cache.extraCommission = item.proportion;
+ 				if (this.floatUpperLimit === '1') {
+	 				cache.minExtraRate = +item.proportion;
+ 					cache.maxExtraRate = +item.upperProportion;
+ 				} else {
+	 				cache.extraRate = +item.proportion;
+ 				}
  				cache.measureUnitFk = this.unit ? dict[this.unit] : dict[item.unit];
  				cache.sorter = index;
- 				if (index === 0) {
+ 				if (index === 0 && item.start === '') {
  					cache.value1 = +item.end;
  					cache.operator1 = 'LE';
  					cache.value2 = null;
@@ -86,7 +61,7 @@ export default Vue.component('ladder-comm', {
  				} else {
  					cache.value1 = +item.start;
  					cache.operator1 = 'GT';
- 					cache.value2 = +item.start;
+ 					cache.value2 = +item.end;
  					cache.operator2 = 'LT';
  				}
  				return cache;
@@ -97,7 +72,22 @@ export default Vue.component('ladder-comm', {
  	},
  	methods: {
  		revertData: function () {
- 			return this.originList.map((item, index, list) => {
+ 			if (this.latterData.length === 0) {
+ 				return [
+				    {
+				        start: '',
+				        end: '',
+				        operator: '&lt;',
+				        proportion: ''
+				    }, {
+				        start: '',
+				        end: '',
+				        operator: '&gt;',
+				        proportion: ''
+				    }
+				]
+ 			}
+ 			return this.latterData.map((item, index, list) => {
  				let cache = {};
  				let dict = {
  					'1100': '元',
@@ -105,15 +95,26 @@ export default Vue.component('ladder-comm', {
  					'1300': '亿元'
  				};
  				cache.proportion = item.extraCommission;
+ 				cache.upperProportion = '';
  				cache.unit = dict['' + item.measureUnitFk];
- 				if (index === 0 || index === (list.length - 1)) {
- 					cache.start = '';
- 					cache.end = item.value1;
+ 				if (index !== list.length - 1) {
+	 				if (item.operator1 === 'GT' || item.operator2 === 'GT') {
+	 					cache.operator = '-';
+	 				} else {
+	 					cache.operator = item.operator1 === 'LE' ? '&lt;' : '&gt;'
+	 				}
+					if (item.operator1 === 'GT') {
+						cache.start = item.value1 ? '' + item.value1 : '';
+						cache.end = item.value2 ? '' + item.value2 : '';
+					} else {
+						cache.start = item.value2 ? '' + item.value2 : '';
+						cache.end = item.value1 ? '' + item.value1 : '';
+					}
  				} else {
- 					cache.start = item.value1;
- 					cache.end = item.value2;
+ 					cache.operator = '&gt;';
+					cache.start = '';
+					cache.end = '' + item.value1;
  				}
-
  				return cache;
  			});
  		},
@@ -122,11 +123,12 @@ export default Vue.component('ladder-comm', {
   			this.list[this.list.length - 1].end = this.list[this.list.length - 2].end;
  		},
  		addRule: function () {
- 			console.log(this.list.slice(0, this.list.length - 1).length);
- 			this.list = this.list.slice(0, this.list.length - 1).concat([
- 				{start: '', end: '', proportion: ''}
- 			]).concat([this.list.slice(-1)]);
- 			console.log(this.list.length);
+ 			let firstCut = this.list.slice(0, this.list.length - 1);
+ 			let addItem = {start: '', end: '', proportion: '', operator: '-'};
+ 			let prevItem = firstCut.slice(-1);
+ 			addItem.start = prevItem[0].end;
+
+ 			this.list = firstCut.concat(addItem).concat(this.list.slice(-1));
  			this.fixList();
  		},
  		removeRule: function (index, item) {
@@ -139,7 +141,6 @@ export default Vue.component('ladder-comm', {
  			} else {
 	 			this.list[index + 1].start = item.end;
  			}
- 			this.$log('list');
  		}
  	}
 });

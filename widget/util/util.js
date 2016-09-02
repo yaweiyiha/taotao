@@ -40,6 +40,37 @@ var util = {
         }
         return data;
     },
+    getYearRateData: (el)=> {
+        // param `el` is the commType wrapper jQuery element
+        let data = {};
+        
+        data.arrTypeFk = el.find('.YearRateType').val();
+        data.expectedArr = null;
+        data.fixMin = null;
+        data.minArr = null;
+        data.floatMax = null;
+        data.maxArr = null;
+        data.ladder = null;
+        if (data.arrTypeFk === '10') {
+            data.expectedArr = el.find('.fixedRate').val();
+        } else if (data.arrTypeFk === '20') {
+            if (el.find('.fixMin').val()) {
+                data.fixMin = '1';
+                data.minArr = el.find('.minArr').val();
+            } else {
+                data.fixMin = '0';
+            }
+            if (el.find('.floatMax').val()) {
+                data.floatMax = '1';
+                data.maxArr = el.find('.maxArr').val();
+            } else {
+                data.floatMax = '0';
+            }
+        } else if (data.arrTypeFk === '30' || data.arrTypeFk === '40') {
+            data.ladder = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
+        }
+        return data;
+    },
     getInputFilters: () => {
 
         let inputCollections = $('.panel-body').find('[data-key]');

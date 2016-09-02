@@ -54,6 +54,9 @@
                   <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
+                  <template v-if="li.type === 'year-rate'">
+                    <year-rate></year-rate>
+                  </template>
                   <template v-if="li.type === 'fundStrategy'">
                     <fund-strategy></fund-strategy>
                   </template>

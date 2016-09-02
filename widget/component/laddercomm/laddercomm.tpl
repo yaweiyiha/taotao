@@ -2,27 +2,46 @@
 	<table width="100%">
 		<tbody>
 			<tr v-for="(index, item) in list">
-				<td width="5%">{{ index }}.</td>
-				<td width="20%" v-if="index === 0 || index === (list.length - 1)"></td>
-				<td width="20%" v-else><input type="text" readonly v-model="item.start"></td>
-				<td width="5%">
-					<span v-if="index === 0">&lt;</span>
-					<span v-if="index === (list.length - 1)">&gt;</span>
-					<span v-if="index > 0 && index < (list.length - 1)">-</span>
+				<td>{{ index }}.</td>
+				<!-- <td width="20%" v-if="index === 0 || index === (list.length - 1)"></td>
+				<td width="20%" v-else><input type="text" readonly v-model="item.start"></td> -->
+				<td>
+					<template v-if="item.start !== ''">
+						<input type="text" readonly v-model="item.start">
+						<template v-if="index === 0">
+							<span>含</span>
+						</template>
+						<template v-else>
+							<span v-if="leftContain === '1'">含</span>
+							<span v-else>不含</span>
+						</template>
+					</template>
 				</td>
-				<td width="20%">
+				<td width="5%">
+					{{{ item.operator }}}
+					<span v-if="index === (list.length - 1) && leftContain === '1'">=</span>
+				</td>
+				<td>
 					<div  v-if="index < (list.length - 1)">
 						<input type="text" v-model="item.end" @blur="processData(index, item)" v-bind:readonly="readonly">
-						<span>含<span>
+						<span v-if="leftContain === '1'">不含</span>
+						<span v-else>含</span>
 					</div>
 					<div v-else>
 						<input type="text" readonly v-model="item.end">
+						<span v-if="leftContain === '1'">含</span>
+						<span v-else>不含</span>
 					</div>
 				</td>
-				<td width="10%">{{ unit || item.unit }}</td>
-				<td width="20%"><input type="text" v-model="item.proportion"></td>
-				<td width="5%">%</td>
-				<td width="15%" v-if="!readonly">
+				<td width="5%">{{ unit || item.unit }}</td>
+				<td>
+					<input type="text" v-model="item.proportion">%
+				</td>
+				<td v-if="floatUpperLimit === '1'" width="5%">-</td>
+				<td v-if="floatUpperLimit === '1'">
+					<input type="text" v-model="item.upperProportion">%
+				</td>
+				<td v-if="!readonly">
 					<div v-if="index > 0 && index < (list.length - 1)">
 						<a href="javascript:;" @click="removeRule(index, item)">移除</a>
 					</div>
