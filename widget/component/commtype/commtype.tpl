@@ -13,7 +13,7 @@
 	          </select>
 	      	</div>
 	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '2'">
+		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '10'">
 	      	<div class="form-group input-group w100">
 	          <div class="input-group-addon input-title">
 	          	佣金比例
@@ -23,7 +23,7 @@
 				<div class="unit">%</div>
 	      	</div>
 	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '3'">
+		<div class="col-md-6 input-wrapper rt" v-if="StaffCommType === '20'">
 	      	<div class="form-group input-group w100">
 	          <div class="input-group-addon input-title">
 	          	金额单位
@@ -36,5 +36,5 @@
 	      	</div>
 	  	</div>
   	</div>
-  	<ladder-comm :unit="StaffCommUnit" v-if="StaffCommType === '3'"></ladder-comm>	
+  	<ladder-comm :unit="StaffCommUnit" v-if="StaffCommType === '20'"></ladder-comm>	
 </div>
