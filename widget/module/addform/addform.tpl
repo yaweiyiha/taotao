@@ -60,6 +60,9 @@
                   <template v-if="li.type === 'fundStrategy'">
                     <fund-strategy></fund-strategy>
                   </template>
+                  <template v-if="li.type === 'editor'">
+                    <editor></editor>
+                  </template>
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
                     </div>

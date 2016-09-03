@@ -99,7 +99,8 @@ export default {
  	'financeAmount'  : { key :'issureScale' ,name : '融资金额', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入融资金额'},
  	'stockRight'     : { key :'equity' ,name : '股权', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入股权',isrequire : true},
  	'collarCast'     : { key :'collarCast' ,name : '领投人', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入领投人',isrequire : true}, 
- 	'collarCastNumber' : { key :'collarCastNumber' ,name : '身份证号', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入身份证号',isrequire : true}, 
+ 	'collarCastNumber' : { key :'collarCastNumber' ,name : '身份证号', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入身份证号'}, 
+ 	'collarCastDesc'  : {type: 'editor'},
  	'commissionType'   :  { type: 'CommType' },
  	'baseInput'  : (opts = {}) => ({ key :opts.key ,name : opts.name || '', readonly: opts.readonly || false, wrapperClass : 'col-md-6', type : 'input', value: opts.value || ''}),
  }

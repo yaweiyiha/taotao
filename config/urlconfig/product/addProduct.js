@@ -147,7 +147,7 @@ urlConfig['trust/add'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
@@ -287,7 +287,7 @@ urlConfig['debtassgin/add'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
@@ -337,7 +337,8 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '领头人',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.collarCast,elementDict.collarCastNumber ]
+					[	elementDict.collarCast, elementDict.collarCastNumber ]
+					// [   elementDict.collarCastDesc  ]
 				]
 			},
 			{	
@@ -355,7 +356,7 @@ urlConfig['equityInvestment/add'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],

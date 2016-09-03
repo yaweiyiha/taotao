@@ -1,7 +1,7 @@
 import Widget from 'static/js/widget.js';
 import cityselect from 'widget/component/cityselect/cityselect.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol';
-import Star from 'widget/component/star/star';
+import Star from   'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
 import formModel from 'model/formModel';
@@ -9,6 +9,7 @@ import CommType from 'widget/component/commtype/commtype';
 import YearRate from 'widget/component/yearrate/yearrate';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
+import editor from 'widget/component/editor/editor';
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
