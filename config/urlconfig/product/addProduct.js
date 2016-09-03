@@ -97,7 +97,7 @@ urlConfig['trust/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[	
-						elementDict.productName, elementDict.trustType 
+						elementDict.proName, elementDict.industryTypeFk 
 		            ],[
 		                elementDict.distributor, elementDict.hoster	
 					],[
@@ -114,13 +114,13 @@ urlConfig['trust/add'] =
 					[	
 						elementDict.foundStatus , elementDict.proStatus
 					],[	
-						elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.unitFkOfferingSize,
+						elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,
 					],
 					[	
-						elementDict.proTerm ,elementDict.unitFkMaturities,elementDict.purchaseAmount,elementDict.moneyUnit,
+						elementDict.proTerm ,elementDict.unitFkMaturities,
 					],
 					[	
-						elementDict.increasingAmount,elementDict.moneyUnit,
+						elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount,elementDict.unitFkIncreasement,
 					],[	
 						elementDict.buyBegintime ,elementDict.buyEndTime
 					],[	
@@ -135,6 +135,7 @@ urlConfig['trust/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
+					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
 					[	elementDict.yearRate	],
 				]
 			},
@@ -178,10 +179,10 @@ urlConfig['asset/add'] =
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.productName, elementDict.investType ],
+					[   elementDict.proName, elementDict.investModeFk ],
 					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.distriArea,elementDict.phone],
-					[   elementDict.fundLeader, elementDict.phone ]
+					[   elementDict.distriArea],
+					[   elementDict.investManager, elementDict.phone ]
 
 				],
 			},
@@ -191,10 +192,9 @@ urlConfig['asset/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
-					[	elementDict.distriSize ,elementDict.moneyUnit,elementDict.saleSize ,elementDict.moneyUnit,],
-					[	elementDict.proTerm ,elementDict.termUnit,elementDict.purchaseAmount,elementDict.moneyUnit],
-					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
-					[	elementDict.increasingAmount , elementDict.moneyUnit],
+					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
+					[	elementDict.proTerm ,elementDict.unitFkMaturities,],
+					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.buyBegintime ,elementDict.buyEndTime],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
@@ -209,7 +209,7 @@ urlConfig['asset/add'] =
 				'formlist'   : [
 					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
 					[	elementDict.yearRate	],
-					[   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
+					// [   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
 				]
 			},
 			{	
@@ -239,7 +239,7 @@ urlConfig['debtassgin/add'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增资管产品',
+		'thirdTitle' : '新增债券转让产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [
@@ -252,8 +252,8 @@ urlConfig['debtassgin/add'] =
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.productName, elementDict.distributor ],
-					[   elementDict.proTerm	,elementDict.termUnit],
+					[   elementDict.proName, elementDict.distributor ],
+					[   elementDict.proTerm	,elementDict.unitFkMaturities],
 				],
 			},
 
@@ -261,11 +261,9 @@ urlConfig['debtassgin/add'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
+				    [elementDict.distriSize,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,]
+					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.maxInvest , elementDict.moneyType],
-
-					[	elementDict.moneyType ,elementDict.riskRant],
-					[   elementDict.incomeRant ]
 				],
 			},
 			{	
@@ -273,6 +271,12 @@ urlConfig['debtassgin/add'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	elementDict.yearRate	],
+				]
+			},
+			{
+				'panelName' : '其他',
+				'formlist'   : [
+					[	elementDict.isRiskRating, elementDict.riskRant	],
 				]
 			},
 			{	
@@ -315,8 +319,8 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.productName, elementDict.distributor ],
-					[   elementDict.proArea , elementDict.financeAmount	],
+					[   elementDict.proName, elementDict.distributor ],
+					[   elementDict.proLocation , elementDict.financeAmount,elementDict.unitFkIssureScale	],
 					[   elementDict.stockRight ],
 				],
 			},
@@ -325,12 +329,16 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.purchaseAmount,elementDict.moneyUnit,elementDict.increasingAmount , elementDict.moneyUnit],
-					[	elementDict.maxInvest , elementDict.moneyType],
-
+					[	elementDict.saleSize ,elementDict.unitFkOfferingSize,elementDict.purchaseAmount,elementDict.unitFkStartingPrice],
 					[	elementDict.moneyType ,elementDict.riskRant],
-					[   elementDict.incomeRant ]
 				],
+			},
+			{	
+				'panelName' : '领头人',
+				'descTitle' : '(全部必填)',
+				'formlist'   : [
+					[	elementDict.collarCast,elementDict.collarCastNumber ]
+				]
 			},
 			{	
 				'panelName' : '收益信息',

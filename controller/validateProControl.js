@@ -18,8 +18,8 @@ var widgets  = {
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
         { widget: 'topbanner', data: {},container: '.topbanner-wrapper' },
-    addform : 
-        { widget: 'addform', data: {},container: '.form-wrapper' },
+    editform : 
+        { widget: 'editform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
@@ -61,7 +61,7 @@ class validateProControl extends Control{
                 let dictData = {};
                 $.extend(dictData, data);  
                 dictData.item = Util.processData(res.item);
-                me.getViews([me.widgets.addform], $.extend(dictData, data));
+                me.getViews([me.widgets.editform], $.extend(dictData, data));
             });
         });
 

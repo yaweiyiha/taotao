@@ -15,7 +15,7 @@ class  addProDialog{
             title : '新增产品',
             pros : [
                 {'name' : '基金' , 'url' : '#addPro/fund/add' },
-                {'name' : '资管' , 'url' : '#addPro/admin/add' },
+                {'name' : '资管' , 'url' : '#addPro/asset/add' },
                 {'name' : '信托' , 'url' : '#addPro/trust/add' },
                 {'name' : '债权转让' , 'url' : '#addPro/debtassgin/add' },
                 {'name' : '股权投资' , 'url' : '#addPro/equityInvestment/add' },
