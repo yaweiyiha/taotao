@@ -77,6 +77,7 @@
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
+
                       <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" > 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option  value="{{li.value[index]}}">{{option}}</option>
@@ -94,7 +95,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date></single-date>
+                      <single-date :key="li.key"></single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}

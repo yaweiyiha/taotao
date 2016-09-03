@@ -31,7 +31,7 @@ fis.media('xuxu').match('*', {
   
 });
 
-fis.match('*.{js,css,png,gif,woff}', {
+fis.media('xuxu').match('*.{js,css,png,gif,woff}', {
     url: '/admin$0'
 })
 

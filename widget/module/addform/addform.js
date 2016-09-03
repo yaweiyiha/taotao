@@ -9,6 +9,7 @@ import CommType from 'widget/component/commtype/commtype';
 import YearRate from 'widget/component/yearrate/yearrate';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
+import AlertDialog from "widget/classComponent/dialog/alert.js"
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -21,8 +22,28 @@ require.loadCss({
 var addform = Widget.extend({ 
 
     init : function(data){
-        this.data = data;
-        this.vm = this.display(data ,tpl ,'vue');
+        // set default
+        let defaultData = {
+            item: {
+                fundGenreAFk: '500',
+                fundGenreBFk: '700',
+                fundTypeFk: '60',
+                fundSubTypeFk: '100',
+                publisherFk: '',
+                custodianParty: '10',
+                establishStatus: '0',
+                salesStatusFk: '10',
+                unitFkIssureScale: '1100',
+                unitFkOfferingSize: '1100',
+                unitFkMaturities: '2100',
+                unitFkStartingPrice: '1100',
+                unitFkIncreasement: '1100',
+                currencies: '10',
+                riskRating: '30',
+            }
+        }
+        this.data = Object.assign(defaultData, data);
+        this.vm = this.display(this.data ,tpl ,'vue');
         this.render();
         this.bind();
         Waves.attach('button', ['waves-light']);
@@ -32,11 +53,17 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(){
+        let me = this;
         if($('select[data-key="publisherFk"]')){
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
 
+            let index = 0;
             for(key in publisherList){
+                if (index === 0) {
+                    me.vm.$set('item.publisherFk', key);
+                }
+                index++;
                 let option = `<option value="${key}">${publisherList[key]}</option>`;
                 publisherArr.push(option);
             }
@@ -46,6 +73,7 @@ var addform = Widget.extend({
     },
     bind: function () {
         let me = this;
+        let container = $(this.vm.$el);
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
@@ -112,21 +140,31 @@ var addform = Widget.extend({
         });
 
         $('button').on('click',function(){
-
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
-
+                if($(me.vm.$el).find('[data-key=name]').val() === '') {
+                    AlertDialog.show('请输入产品名称');
+                    return;
+                }
                 let data = me.processAddProData();
                 data.product.categoryFk = parseInt($(this).attr("pro"));
-                Util.getData(me.data.saveUrl,data,'POST').then((res)=>{
-                    console.log(res);
+                let saveUrl = Config.host + me.data.saveUrl;
+                Util.getData(saveUrl,data,'POST').then((res)=>{
+                    if (res.status === 1) {
+                        AlertDialog.show('保存成功');
+                    }
                 });
             }else if(dataRole == 'republic'){
+                if (!Util.validate(container)) {
+                    return;
+                }
                 let data = me.processAddProData();
                 data.product.categoryFk = parseInt($(this).attr("pro"));
-
-                Util.getData(me.data.publishUrl,data,'POST').then((res)=>{
-                    console.log(res);
+                let publishUrl = Config.host + me.data.publishUrl;
+                Util.getData(publishUrl,data,'POST').then((res)=>{
+                    if (res.status === 1) {
+                        AlertDialog.show('发布成功');
+                    }
                 });
             }
            
@@ -138,7 +176,8 @@ var addform = Widget.extend({
 
     },
     processAddProData : function(){
-
+        let me = this;
+        let container = $(this.vm.$el);
         let url  =  '';
         let filters = {};
 
@@ -174,6 +213,30 @@ var addform = Widget.extend({
         let data  = {
             'product' : filters,
         }
+        data.customElementsList = Util.getCustomElement(container.find('[data-role=addSelfEleContent]'));
+        
+        // get commission type info
+        let commTypeContainer = container.find('.admin-widget-commtype');
+        if (commTypeContainer.size()) {
+            let commTypeData = Util.getCommTypeData(commTypeContainer);
+            data.product.commissionTypeFk = commTypeData.commissionTypeFk;
+            data.product.baseCommission = commTypeData.baseCommission;
+            data.productCommissionList = commTypeData.productCommissionList
+        }
+
+        // get year rate info
+        let yearRateContainer = container.find('.admin-widget-yearrate');
+        if (yearRateContainer.size()) {
+            let yearRateData = Util.getYearRateData(yearRateContainer);
+            data.product.arrTypeFk = yearRateData.arrTypeFk;
+            data.product.expectedArr = yearRateData.expectedArr;
+            data.product.fixMin = yearRateData.fixMin;
+            data.product.minArr = yearRateData.minArr;
+            data.product.floatMax = yearRateData.floatMax;
+            data.product.maxArr = yearRateData.maxArr;
+            data.productLadderRates = yearRateData.productLadderRates
+        }
+
         return  data;
     },
     methods:{

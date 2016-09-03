@@ -12,8 +12,9 @@ require.loadCss({
 export default Vue.component('comm-type', {
  	template: tpl,
  	data: () => ({
- 		StaffCommType: '-1',
- 		StaffCommUnit: '元',
+ 		commissionTypeFk: '-1',
+ 		CommUnit: '元',
+ 		baseCommission: '0',
  		latterData: [{
 		    "value1": 6,
 		    "operator1": "LE",

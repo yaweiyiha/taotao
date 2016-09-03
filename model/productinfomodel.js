@@ -20,7 +20,7 @@ class ProductInfoModel extends Model{
     getData(url, param) {
         var me = this;
         //url = window.Config.host + url + param.id;
-         url = url +  param.id;
+         url = Config.host + url +  param.id;
         return new Promise(function(resolve, reject){
             // test data
             // resolve(TableData);

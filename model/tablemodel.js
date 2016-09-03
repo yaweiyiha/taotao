@@ -19,6 +19,8 @@ class tableModel extends Model{
      */
     getData(url,param) {
         var me = this;
+        url = Config.host + url;
+
         return new Promise(function(resolve, reject){
             // test data
             // resolve(TableData);
