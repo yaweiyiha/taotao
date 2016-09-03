@@ -20,7 +20,7 @@ urlConfig['fund/add'] =
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.yearRate	],
+
 					[   elementDict.proName, elementDict.fundType,elementDict.fundTypeUnit	],
 					[   elementDict.fundStrategy],
 					[   elementDict.distributor, elementDict.hoster	],
@@ -47,11 +47,9 @@ urlConfig['fund/add'] =
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
-				// 'formlist'   : [
-				// 	[	
-				// 		elementDict.yearIncome
-				// 	]
-				// ]
+				'formlist'   : [
+					[	elementDict.yearRate	],
+				]
 			},
 			{	
 				'panelName' : '添加自定义要素',
@@ -137,9 +135,7 @@ urlConfig['trust/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	
-						elementDict.yearIncome
-					]
+					[	elementDict.yearRate	],
 				]
 			},
 			{	
@@ -212,7 +208,7 @@ urlConfig['asset/add'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
-					[	elementDict.yearIncome ],
+					[	elementDict.yearRate	],
 					[   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
 				]
 			},
@@ -276,7 +272,7 @@ urlConfig['debtassgin/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.yearIncome ]
+					[	elementDict.yearRate	],
 				]
 			},
 			{	

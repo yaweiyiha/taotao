@@ -6,6 +6,7 @@
  * @require.async admin:controller/distriControl.js
  * @require.async admin:controller/commsetControl.js
  * @require.async asset:controller/loginControl.js
+ * @require.async asset:controller/validateProControl.js
  */
 
 import Url from 'widget/util/url.js'
@@ -44,8 +45,6 @@ class Router {
         window._APP_HASH._uri_ = page;
         window._APP_HASH._page_ = hash;
         let configData = urlConfig[page] || {};
-
-        console.log(JSON.stringify(page));
         
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');

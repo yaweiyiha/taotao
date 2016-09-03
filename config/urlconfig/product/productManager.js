@@ -13,7 +13,7 @@ urlConfig['product/maintenance'] =
 		'formlist' :[
 			[ 	
 				
-				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
+				{ key :'name' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
 				{ key :'beginTime' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
 				// { key :'orderNumber' ,name : '上架时间', wrapperClass : 'col-sm-4' ,   type : 'input'},
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
@@ -59,7 +59,7 @@ urlConfig['product/maintenance'] =
 			 			condition: '{{ equal(statusId, 20) }}',
 			 			content: {
 				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
-				 			url: ['#addPro/', '{{ DICT(categoryId, pageDict)}}', '/add?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#validatePro/', '{{ DICT(categoryId, pageDict)}}', '/validate?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 			 		},
 			 		{
@@ -97,6 +97,5 @@ urlConfig['product/maintenance'] =
 			options : ['全部','待审核','审核失败','审核通过'] , values: [-1, 10, 30, 40, 60, 70],type : 'filter'},	
 		{ key :'selectedDeptIds', name : '上下架状态', wrapperClass: 'col-md-6',
 		  options : ['全部','上架','下架'] , values: [-1, 10, 30, 40, 60, 70],type : 'filter',},
-		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 	]
 }

@@ -118,6 +118,7 @@ fis.match('::package', {
         ],
         'static/center_sync_0_pkg.js': [
             'controller/mainControl.js',
+            'controller/validateProControl.js',
             'static/js/datetime/**.js',
             'static/js/ztree/**.js',
             'model/**.js',
@@ -139,6 +140,7 @@ fis.match('::package', {
         ],
         'static/add_sync_0_pkg.js': [
             'controller/addProControl.js',
+
             'widget/module/header/header.js',
             'widget/module/form/form.js',
             'widget/module/menu/menu.js',

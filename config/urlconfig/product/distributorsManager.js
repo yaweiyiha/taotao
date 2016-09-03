@@ -30,7 +30,6 @@ urlConfig['distributors/maintenance'] =
 			{ name :'创建者', width:"8%" ,key: 'creatorName',type:'nomal'},
 			{ name :'创建时间', width:"8%" ,key : 'createTime',type:'time'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
-
 		],
 		'operater' :{
 			statusDict: {
@@ -42,7 +41,7 @@ urlConfig['distributors/maintenance'] =
 					{
 			 			content: {
 				 			name: ['详情'],
-				 			url: ['#addPro/distributor/view/?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#addPro/distributor/view?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 					}
 				],
@@ -50,7 +49,7 @@ urlConfig['distributors/maintenance'] =
 					{
 			 			content: {
 				 			name: ['编辑'],
-				 			url: ['#addPro/distributor/edit/?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#addPro/distributor/edit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 					}
 				],
