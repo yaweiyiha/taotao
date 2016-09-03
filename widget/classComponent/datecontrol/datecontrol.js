@@ -12,6 +12,7 @@ require.loadCss({
 export default Vue.component('date-control', {
   
     template: tpl,
+    props: ['startkey','endkey'],
     data: function () {
         return {
             beginTime : '',
@@ -38,6 +39,7 @@ export default Vue.component('date-control', {
             startView: 2,
             minView: 2
         });
+
     },
     methods:{
 

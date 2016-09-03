@@ -12,7 +12,7 @@ urlConfig['distripro/report'] =
 		'formlist' :[
 			[ 	
 				
-				{ key :'orderNumber' ,name : '产品名称', wrapperClass : 'col-sm-3 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
+				{ key :'name' ,name : '产品名称', wrapperClass: 'col-sm-3' ,type : 'select',options : []},
 				{ key :'distributor' ,name : '分销方', wrapperClass: 'col-sm-3' ,type : 'select',
 				  options: ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险']},
 				{ key :'beginTime' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
@@ -24,22 +24,14 @@ urlConfig['distripro/report'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'订单号', width:"15%" ,key : 'auditStatus',classList: 'sorting_disabled'},
-			{ name :'下单时间', width:"10%" ,key : 'available' ,classList:'sorting_desc'},
-			{ name :'产品名称', width:"10%" ,key : 'availableStatus',classList:'sorting_disabled'},
-			{ name :'成交金额(元)', width:"15%" ,key : 'dateOfUpdate',classList:'sorting_disabled'},
-			{ name :'类型', width:"10%" ,key : 'id',classList:'sorting_disabled'},
-			{ name :'已审核', width:"10%",key : 'name' ,classList:'sorting_disabled'},
-			{ name :'待审核', width:"10%" ,key : 'saleStatus',classList:'sorting_disabled'},
-			{ name :'支付方式', width:"10%" ,key : 'sales_status_fk',classList:'sorting_disabled'},
-			{ name :'操作栏', width:"10%" ,key: 'startingPrice',classList:'sorting_disabled'},
+			{ name :'订单号' ,  width:"15%" ,key : 'id',           type: 'nomal'},
+			{ name :'下单日期', width:"10%" ,key : 'createTime' ,  type:'time' },
+			{ name :'投资人',   width:"10%" ,key : 'investorName', type:'nomal'},
+			{ name :'投资金额', width:"15%" ,key : 'totalAmount',  type:'nomal'},
+			{ name :'支付方式', width:"10%" ,key : 'paymentType',  type:'nomal'},
+			{ name :'佣金',     width:"10%", key : 'commission' ,  type:'nomal'},
 		],
-		// 'url' : "/admin/sales/searchSalesOrder/search?orderStatus=REVIEWING",
-		'url': '/test/data/distributManage.js',
-		'param' : {
-			 draw : 1 ,orderStatus :"REVIEWING" ,pageNow : 1, pageSize : 10,
-			 sortString : "dateCreate.desc",
-		}
+		'url': 'report/agentsales/list',
 	},
 	'topbanner' : {
 		'title' : '报表管理',

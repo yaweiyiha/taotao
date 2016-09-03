@@ -58,7 +58,7 @@ urlConfig['distributors/maintenance'] =
 			 			content: {
 				 			name: ['{{ DICT(status, statusDict) }}'],
 				 			url: ['javascript:;'],
-				 			evt: ['statusChange']
+				 			evt: ['statusDistriChange']
 			 			},
 					}
 				]

@@ -60,7 +60,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <date-control></date-control>
+                    <date-control :startkey="li.startkey" :endkey="li.endkey"></date-control>
                   </div>
                   <div  v-if="li.type === 'singledate'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}

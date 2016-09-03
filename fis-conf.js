@@ -31,6 +31,18 @@ fis.media('xuxu').match('*', {
   
 });
 
+fis.media('remote').match('*', {
+    deploy: fis.plugin('http-push', {
+        receiver: 'http://localhost/receiver.php',
+        to: 'D:/assetarr/fundmarket/admin/src/main/webapp'
+    }),
+  
+});
+
+fis.media('remote').match('*.{js,css,png,gif,woff}', {
+    url: '/admin$0'
+})
+
 fis.media('xuxu').match('*.{js,css,png,gif,woff}', {
     url: '/admin$0'
 })

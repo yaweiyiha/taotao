@@ -3,6 +3,7 @@ import table from 'widget/module/table/table.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import cityselect from 'widget/component/cityselect/cityselect.js';
 import dialog from 'widget/classComponent/dialog/dialog.js';
+import Util from 'widget/util/util';
 
 var style = __inline('./form.inline.less');
 var tpl = __inline('./form.tmpl');
@@ -58,6 +59,19 @@ var form = Widget.extend({
                  }  
             });
         }
+        if($(".select[data-key='name']")){
+
+            let proNameEle = $(".select[data-key='name']");
+            let publisherArr   =  [];
+            Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
+                res.forEach(function(item){
+                    let option = `<option value="${item.key}">${item.productName}</option>`;
+                    publisherArr.push(option);
+                })
+            })
+            proNameEle.append(publisherArr);
+        }        
+
     },
 
     getInputFilters: () => {
@@ -145,6 +159,7 @@ var form = Widget.extend({
                 var key = ele.val('');
             }
         });
+
     },
     updateTable : function(data){
         listener.trigger('page', 'tableUpdate', data);

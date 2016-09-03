@@ -8,15 +8,15 @@ urlConfig['sign/validate'] =
 		'subtitle' : {'name': '产品维护', url : '' }, 
 		'thirdTitle' : '新增基金产品',
 		'key' : '产品维护',
-	},
+	},	
 	'forms' : [
 			{	
 				'panelName' : '线上申请内容',
 				'formlist'   : [
 					[ Dict.appProName ],
-					[ Dict.appDistri ],
-					[ Dict.appTime ],
-					[ Dict.appAmount ],
+					[ Dict.appDistri  ],
+					[ Dict.appTime    ],
+					[ Dict.appAmount  ],
 				 ],
 			},
 

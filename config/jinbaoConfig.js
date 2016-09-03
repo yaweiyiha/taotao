@@ -1,8 +1,9 @@
 window.Config = {
 	//host : "http://qikun.bravowhale-dev.com:8118/admin/masterdate/",
 	// host : "http://local/admin/",
-	host : "http://10.66.19.254:8080/admin/",
+	//host : "http://10.66.19.254:8080/admin/",
 	 // host : 'http://10.66.19.249:8082/admin/'
+	 host : '',
 	//dephost : 'http://qikun.bravowhale-dev.com:8118/admin/',
 }
 

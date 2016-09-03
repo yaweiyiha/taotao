@@ -250,8 +250,7 @@ var table = Widget.extend({
                 $(this).addClass('sorting_asc');
             });
         });
-        $('a[data-evt=statusChange]').on('click',function(){
-
+        $('a[data-evt=statusDistriChange]').on('click',function(){
             let target = $(this);
             let id = $(this).attr('data-param');
             let value = parseInt($(this).attr('value'));

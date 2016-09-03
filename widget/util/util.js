@@ -1,6 +1,7 @@
 import AlertDialog from 'widget/classComponent/dialog/alert'
 
 var util = {
+    
     getData :(url,param,methods) => {
 
         return new Promise(function(resolve, reject){

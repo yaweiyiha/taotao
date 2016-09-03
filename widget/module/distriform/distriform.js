@@ -15,7 +15,7 @@ require.loadCss({
 });
 
 var distriform = Widget.extend({ 
-
+    
     init : function(data){
 
         this.vm = this.display(data ,tpl ,'vue');
@@ -52,16 +52,22 @@ var distriform = Widget.extend({
         let data = new FormData();
         // add attachment file data
         let files = $('.attachment', me.vm.$el)[0].files;
-        // console.log(fileles);
-        console.log(Util.getCommTypeData($('.admin-widget-commtype')));
+        let startTime = $('input[data-key="offlineStartDate"]').val();
+        let endTime = $('input[data-key="offlineEndDate"]').val();
+        var obj = Util.getCommTypeData($('.admin-widget-commtype'));
+        console.log(startTime,endTime,obj);
 
         data.append('id', _APP_HASH.id);
-        data.append('commissionType', 10);
-        data.append('fixedCommission', 0.02);
+        data.append('commissionType', obj.commissionTypeFk);
+        if(obj.commissionTypeFk == 10){
+            data.append('fixedCommission', (obj.baseCommission)/100);
+        }else if(obj.commissionTypeFk == 20){
+            data.append('floatingCommission' , JSON.stringify(obj.productCommissionList));
+        }
         data.append('attachment', files[0]);
-        data.append('offlineStartDate', '2016-08-19');
-        data.append('offlineEndDate', '2016-08-29');
-        return ;
+        data.append('offlineStartDate', startTime);
+        data.append('offlineEndDate', endTime);
+
         $.ajax({
             url: 'agentsales/approve',
             data: data,
@@ -71,7 +77,8 @@ var distriform = Widget.extend({
             type: 'POST',
             success: function(data){
                 if(data.mgs === 'success') {
-                    history.back();
+                  debugger
+                    window.location.href = "#main/distribut/maintenance";
                 }
             }
         });

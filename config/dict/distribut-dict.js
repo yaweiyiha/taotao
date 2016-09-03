@@ -1,6 +1,6 @@
 export default {
 	'commissionType'   :  { type: 'CommType' },
- 	'consignmentTime'  : { key :['offlineStartDate','offlineEndDate'], name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time'},
+ 	'consignmentTime'  : { startkey :'offlineStartDate',endkey :'offlineEndDate', name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time'},
  	'uploadContract'   : { key :'productName', name : '上传合同影印件', wrapperClass : 'col-md-5' , type : 'button' ,value : '添加图片' ,icon : 'addImg'},
  	'appProName'  :   { key :'productName', name : '申请代销产品名称',value : '', wrapperClass : 'col-md-2' , type : 'text'},
  	'appDistri'  :   { key :'agentName', name : '申请分销商',value : '', wrapperClass : 'col-md-2' , type : 'text'},
