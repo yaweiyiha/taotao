@@ -8,6 +8,7 @@ require.loadCss({
 
 export default Vue.component('single-date', {
  	template: tpl,
+    props: ['key'],
     data: function () {
         return {
             time : '',

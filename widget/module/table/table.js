@@ -245,7 +245,7 @@ var table = Widget.extend({
                 sortString : code + "." + order
             }
             let model = new tableModel();
-            model.getData(me.data.url,param).then((res) => {
+            model.getData(url, param).then((res) => {
                 me.vm.data = res.data;
                 $(this).addClass('sorting_asc');
             });
