@@ -92,7 +92,7 @@ export default {
 					   options : ['信托贷款','股权投资','权益投资','证券投资','组合运用','其他投资','量化对冲投资','结构化投资','海外投资'],
 					   value : [10,20,30,40,50,60,70,80,90] , isNum : 1 }, 
 	'investManager' : { key :'investManager' ,name : '投资经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入投资经理'},
- 	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked'  },{'name' : '关闭'} ] },
+ 	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-4' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked'  },{'name' : '关闭'} ] },
  	'proLocation'   : { key :'locationFk' ,name : '项目所在地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入投资经理'},
  	'proDistriLocation'   : { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入投资经理'},
  	'financeAmount'  : { key :'issureScale' ,name : '融资金额', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入融资金额'},

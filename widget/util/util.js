@@ -192,7 +192,8 @@ var util = {
             distributionWayFk  : toString(data.product.distributionWayFk),
             currencies         : toString(data.product.currencies),
             arrRank            : toNumber(data.product.arrRank),
-
+            collarCast         : data.product.collarCast,
+            collarCastNumber   : data.product.collarCastNumber,
         }
     }
 };

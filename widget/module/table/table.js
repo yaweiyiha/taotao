@@ -164,8 +164,6 @@ var table = Widget.extend({
         
         data.items.forEach(function (dataItem) {
             dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
-            // build product detail url
-            // dataItem['_detailUrl_'] = `${Config.root}addPro/${me.productDict[dataItem.categoryId]}/detail?id=${dataItem.id}`;
         
             if(data.hasProductUrl){
     

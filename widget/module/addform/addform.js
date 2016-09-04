@@ -173,6 +173,7 @@ var addform = Widget.extend({
                 Util.getData(saveUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {
                         AlertDialog.show('保存成功');
+                        window.location.href = '#main/product/maintenance';
                     }
                 });
             }else if(dataRole == 'republic'){
@@ -185,6 +186,7 @@ var addform = Widget.extend({
                 Util.getData(publishUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {
                         AlertDialog.show('发布成功');
+                        window.location.href = '#main/product/maintenance';
                     }
                 });
             }
