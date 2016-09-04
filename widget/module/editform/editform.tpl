@@ -51,6 +51,18 @@
                   <div v-if="li.type === 'CommType'">
                     <comm-type></comm-type>
                   </div>
+                  <template v-if="li.type === 'year-rate'">
+                      <year-rate
+                        :arr-type-fk="item.arrTypeFk"
+                        :expected-arr="item.product.expectedArr"
+                        :fix-min="item.product.fixMin"
+                        :min-arr="item.product.minArr"
+                        :float-max="item.product.floatMax"
+                        :max-arr="item.product.maxArr"
+                        :latter-data="item.productLadderRates"
+                      >
+                      </year-rate>
+                  </template>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
@@ -104,7 +116,7 @@
           </div>
         </template>
       </template>
-      <div>
+      <div class="tac">
           <template v-for="bt in buttons">
               <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
