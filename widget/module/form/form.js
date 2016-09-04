@@ -4,6 +4,7 @@ import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
 import cityselect from 'widget/component/cityselect/cityselect.js';
 import dialog from 'widget/classComponent/dialog/dialog.js';
 import Util from 'widget/util/util';
+import productDistri from 'widget/component/productDistri/productDistri'
 
 var style = __inline('./form.inline.less');
 var tpl = __inline('./form.tmpl');
@@ -43,6 +44,12 @@ var form = Widget.extend({
                 el: $('.date-control', this._containerDom_).get(0)
             });
         }
+        if($('.productDistri').length !== 0){
+
+            new Vue({
+                el: $('.productDistri', this._containerDom_).get(0)
+            });
+        }
 
         if($('.time').length !== 0){
             var container = $(this);
@@ -59,18 +66,20 @@ var form = Widget.extend({
                  }  
             });
         }
-        if($(".select[data-key='name']")){
+        // if($("select[data-key='name']")){
 
-            let proNameEle = $(".select[data-key='name']");
-            let publisherArr   =  [];
-            Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
-                res.forEach(function(item){
-                    let option = `<option value="${item.key}">${item.productName}</option>`;
-                    publisherArr.push(option);
-                })
-            })
-            proNameEle.append(publisherArr);
-        }        
+        //     let proNameEle = $("select[data-key='name']");
+        //     let publisherArr   =  [];
+        //     Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
+
+        //         res.forEach(function(item){
+        //             let option = `<option value="${item.productId}">${item.productName}</option>`;
+        //             publisherArr.push(option);
+        //         })
+        //         proNameEle.append(publisherArr);
+        //     })
+            
+        // }        
 
     },
 

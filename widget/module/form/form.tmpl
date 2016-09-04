@@ -61,10 +61,15 @@
                <div class="input-group-addon input-title" ><%-item.name%></div>
                 <city-select key="code"></city-select>
               </div>
-            <%} else if (item.type === 'button') {%>
+            <%}  else if (item.type === 'productDistri') {%>
+              <div class="form-group input-group">
+                <product-distri key="code"></product-distri>
+              </div>
+            <%}else if (item.type === 'button') {%>
                 <button class="<%-item.classList%> custom-button" data-role="<%-item.evt%>"><%-item.name%></button>
 
             <%}%>
+
           </div>
         <%}%>
       </div>

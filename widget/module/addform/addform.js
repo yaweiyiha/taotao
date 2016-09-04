@@ -66,6 +66,7 @@ var addform = Widget.extend({
             let publisherArr   =  [];
 
             let index = 0;
+
             for(key in publisherList){
                 if (index === 0) {
                     me.vm.$set('item.publisherFk', key);

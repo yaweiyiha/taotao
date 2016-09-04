@@ -12,11 +12,14 @@ urlConfig['distributors/maintenance'] =
 
 		'formlist' :[
 			[ 	
-				{ key :'name' ,name : '发行商名称', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商名称关键字'},
-				{ key :'telephone' ,name : '发行商电话', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商电话关键字'},
-				{ key :'address' ,name : '发行商地址', wrapperClass : 'col-sm-3' ,   type : 'input' ,placeholder : '请输入要搜索的发行商地址关键字'},
-				{ name : '搜索', classList : '',type : 'button', evt : 'submit'},
+				{ key :'name' ,name : '发行商名称', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商名称关键字'},
+				{ key :'telephone' ,name : '发行商电话', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商电话关键字'},
+				{ key :'address' ,name : '发行商地址', wrapperClass : 'col-sm-4' ,   type : 'input' ,placeholder : '请输入要搜索的发行商地址关键字'},
+				
 			],
+			[
+				{ name : '搜索', classList : '',type : 'button', evt : 'submit'},
+			]
 		],
 
 		'type' : 'effective',
@@ -59,6 +62,8 @@ urlConfig['distributors/maintenance'] =
 				 			name: ['{{ DICT(status, statusDict) }}'],
 				 			url: ['javascript:;'],
 				 			evt: ['statusDistriChange'],
+				 			par: [' {{ INTERFACE_DATA(id) }}'],
+				 			val: [' {{ INTERFACE_DATA(status) }}'],
 			 			},
 					}
 				]
@@ -74,5 +79,9 @@ urlConfig['distributors/maintenance'] =
 		'subtitle' : {name : '查看' ,url : ''},
 		'key' : '产品维护',
 		'subFun' : [{'key' : '新增发行商' , url :'#addPro/distributor/add' ,code : 'add'}],
-	}
+	},
+	'filters' : [
+		{ key :'status', name : '只看', wrapperClass : 'col-sm-6' , 
+		  	options : ['全部','停用','启用'], values: [-1, 0, 1], type : 'filter' },
+	],
 }

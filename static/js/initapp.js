@@ -48,7 +48,7 @@ if (URL_MODE === 'pushstate') {
 let getEnums = () => {
 
      Util.getData(`${Config.host}product/maintenance/enums` ,'', 'GET').then((res) => {
-        // window.enums = res.item;
+         window.enums = res.item;
     });
 }
 

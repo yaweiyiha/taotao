@@ -11,10 +11,7 @@ urlConfig['distripro/report'] =
 		},
 		'formlist' :[
 			[ 	
-				
-				{ key :'name' ,name : '产品名称', wrapperClass: 'col-sm-3' ,type : 'select',options : []},
-				{ key :'distributor' ,name : '分销方', wrapperClass: 'col-sm-3' ,type : 'select',
-				  options: ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险']},
+				{ type : 'productDistri',wrapperClass: 'productDistri col-sm-5'},
 				{ key :'beginTime' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
 				// { key :'orderNumber' ,name : '上架时间', wrapperClass : 'col-sm-4' ,   type : 'input'},
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
@@ -31,7 +28,7 @@ urlConfig['distripro/report'] =
 			{ name :'支付方式', width:"10%" ,key : 'paymentType',  type:'nomal'},
 			{ name :'佣金',     width:"10%", key : 'commission' ,  type:'nomal'},
 		],
-		'url': 'report/agentsales/list',
+		// 'url': 'report/agentsales/list',
 	},
 	'topbanner' : {
 		'title' : '报表管理',

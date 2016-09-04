@@ -3,7 +3,7 @@ import AlertDialog from 'widget/classComponent/dialog/alert'
 var util = {
     
     getData :(url,param,methods) => {
-
+ 
         return new Promise(function(resolve, reject){
             var xhr = $.ajax({
                 type: methods,
@@ -15,6 +15,10 @@ var util = {
                 cache: false,
                 success: function (ret) {
                     if(ret.msg === 'success'){
+                        resolve(ret);
+                    }
+
+                    if(ret){
                         resolve(ret);
                     }  
                 },
