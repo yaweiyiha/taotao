@@ -18,4 +18,5 @@
 			<option value="{{pr.code}}" >{{pr.name}}</option>
 		</template>
 	</select>
+	<textarea v-model="output"></textarea>
 </div>

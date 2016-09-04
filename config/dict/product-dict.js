@@ -51,8 +51,6 @@ export default {
  	
  	'industryTypeFk': { key :'industryTypeFk' ,name : '信托类型', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['政信类','金融类','基础设施','工商企业','房地产','其他'], value: ['10', '20', '30', '40', '50', '60'], isrequire : true},
- 	'distriArea' 	: { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'select', 
-					   options : ['发行商A','发行商B','发行商C','新增发行商'],isrequire : true},
  	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'input', placeholer : "请输入认购费"},
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'input', placeholer : "请输入管理费"},
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),

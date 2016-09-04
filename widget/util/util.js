@@ -140,6 +140,9 @@ var util = {
         let toString = (val) => {
             return val === null ? undefined : '' + val;
         }
+        let toNumber = (val) => {
+            return val === null ? undefined : +val;
+        }
         return {
             name               :  data.product.name,
             fundGenreAFk       :  toString(data.product.fundGenreAFk), 
@@ -184,6 +187,7 @@ var util = {
             custodianType      : toString(data.product.custodianType),
             distributionWayFk  : toString(data.product.distributionWayFk),
             currencies         : toString(data.product.currencies),
+            arrRank            : toNumber(data.product.arrRank),
 
         }
     }

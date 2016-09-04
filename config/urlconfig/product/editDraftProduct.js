@@ -103,7 +103,7 @@ urlConfig['trust/draftedit'] =
 		            ],[
 		                elementDict.distributor, elementDict.hoster	
 					],[
-						elementDict.distriArea,elementDict.phone
+						elementDict.proDistriLocation,elementDict.phone
 					]
 
 				],
@@ -184,7 +184,7 @@ urlConfig['asset/draftedit'] =
 				'formlist'   : [
 					[   elementDict.proName, elementDict.investModeFk ],
 					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.distriArea],
+					[   elementDict.proDistriLocation],
 					[   elementDict.investManager, elementDict.phone ]
 
 				],

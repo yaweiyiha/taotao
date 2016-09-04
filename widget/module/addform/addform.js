@@ -48,6 +48,7 @@ var addform = Widget.extend({
             custodianType: '10',
             distributionWayFk: '90',
             currencies: '10',
+            arrRank: 0,
         }
 
         data.item = Object.assign({}, defaultData, data.item);
@@ -194,7 +195,9 @@ var addform = Widget.extend({
         });
 
         $(".city-select").on('click',function(){
-            citySelectDialog.show();
+            citySelectDialog.show({
+                onConfirm: (data) => $(this).val(data.city)
+            });
         })
 
     },
@@ -233,6 +236,10 @@ var addform = Widget.extend({
             || $("input[data-key='issureScale']").val() === undefined){
             filters.unitFkIssureScale = '';
         }
+        if ($('.admin-widget-star').size()) {
+            filters.arrRank = +$('.admin-widget-star').attr('data-value');
+        }
+
         let data  = {
             'product' : filters,
         }

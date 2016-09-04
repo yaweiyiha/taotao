@@ -10,18 +10,20 @@ require.loadCss({
 
 class  citySelectDialog{
 	
-	show(){
+	show(opts){
 
-        let opts = {
+        let data = {
             type  : 'citySelect',
             title : '选择地区',
-            buttons : [ {'name' : '确认' , 'type' : '关闭' },
-                        {'name' : '取消' , 'type' : '保存' }],
+            buttons : [
+                {'name' : '确认' , 'type' : 'comfirm' },
+                {'name' : '取消' , 'type' : 'cancel' }
+            ],
         }
 
 		vm = new Vue({
             el :'.dialog-wrapper',
-            data: opts,
+            data: data,
             template: tpl,
             replace : false,
             methods: {
@@ -33,7 +35,17 @@ class  citySelectDialog{
                 },
                 cancel: () => {
                     vm.hide();
-                }
+                },
+                confirm: () => {
+                    let ouput = {};
+
+                    if ($('.admin-widget-cityselect', this.$el).size()) {
+                        ouput.city = $('.admin-widget-cityselect textarea', this.$el).val();
+                    }
+
+                    opts.onConfirm && opts.onConfirm(ouput);
+                    vm.hide();
+                },
             }
         });
 
