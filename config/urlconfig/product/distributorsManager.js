@@ -18,7 +18,7 @@ urlConfig['distributors/maintenance'] =
 				
 			],
 			[
-				{ name : '搜索', classList : '',type : 'button', evt : 'submit'},
+				{ name : '搜索', wrapperClass: 'tac', classList : '',type : 'button', evt : 'submit'},
 			]
 		],
 

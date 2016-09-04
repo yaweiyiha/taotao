@@ -8,6 +8,7 @@ import formModel from 'model/formModel';
 import CommType from 'widget/component/commtype/commtype';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
+import YearRate from 'widget/component/yearrate/yearrate';
 
 let style = __inline('./editform.inline.less');
 let tpl = __inline('./editform.tpl');

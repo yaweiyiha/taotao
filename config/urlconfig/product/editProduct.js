@@ -9,13 +9,13 @@ urlConfig['fund/edit'] = {
 	'forms' : [
 		[
 			{	
-				'panelName' : '基本信息',
+				'panelName' : '销售信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					// [Dict.distriSize, Dict.unitFkIssureScale, Dict.yearIncome],
-					[Dict.distriSize, Dict.unitFkIssureScale],
-					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.interestRate],
-					[Dict.soled]
+					[Dict.distriSize, Dict.unitFkIssureScale, Dict.interestRate],
+					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.soled],
+					[Dict.yearRate]
 				],
 			},
 			{	

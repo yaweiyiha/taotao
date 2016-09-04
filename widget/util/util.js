@@ -98,7 +98,7 @@ var util = {
     },
     validate: (layer) => {
         let valid = true;
-
+        layer.find('.tips').remove();
         let eles = layer.find('[data-valide]');
         eles.toArray().forEach((item) => {
             item = $(item);
@@ -113,6 +113,11 @@ var util = {
                 if (item.val() === '') {
                     valid = false;
                     parentNode.append(`<p class="tips">${item.attr('data-des')}必填</p>`);
+                } else if (item.attr('data-reg')) {
+                    let reg = new RegExp(item.reg);
+                    if (reg.test(item.val())) {
+                        parentNode.append(`<p class="tips">${item.attr('data-des')}${item.attr('data-regerror')}</p>`);
+                    }
                 }
             }
         });

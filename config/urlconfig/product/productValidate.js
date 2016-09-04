@@ -13,6 +13,9 @@ urlConfig['fund/validate'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 
 		[
@@ -90,6 +93,9 @@ urlConfig['trust/validate'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 		[
 			{	
@@ -141,6 +147,11 @@ urlConfig['trust/validate'] =
 			{	
 				'panelName' : '添加自定义要素',
 				'subFun' : 'addSelfEle',
+			},
+			{
+				'formlist': [
+					[	elementDict.verifyConfirm	]
+				]
 			}
 		],
 		[
@@ -173,6 +184,9 @@ urlConfig['asset/validate'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 		[
 			{	
@@ -216,6 +230,11 @@ urlConfig['asset/validate'] =
 			{	
 				'panelName' : '添加自定义要素',
 				'subFun' : 'addSelfEle',
+			},
+			{
+				'formlist': [
+					[	elementDict.verifyConfirm	]
+				]
 			}
 		],
 		[
@@ -248,6 +267,9 @@ urlConfig['debtassgin/validate'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 		[
 			{	
@@ -280,6 +302,11 @@ urlConfig['debtassgin/validate'] =
 			{	
 				'panelName' : '添加自定义要素',
 				'subFun' : 'addSelfEle',
+			},
+			{
+				'formlist': [
+					[	elementDict.verifyConfirm	]
+				]
 			}
 		],
 		[
@@ -312,6 +339,9 @@ urlConfig['equityInvestment/validate'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 		[
 			{	
@@ -345,6 +375,11 @@ urlConfig['equityInvestment/validate'] =
 			{	
 				'panelName' : '添加自定义要素',
 				'subFun' : 'addSelfEle',
+			},
+			{
+				'formlist': [
+					[	elementDict.verifyConfirm	]
+				]
 			}
 		],
 		[
