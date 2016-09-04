@@ -335,7 +335,7 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '领头人',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.collarCast, elementDict.collarCastNumber ]
+					[	elementDict.collarCast, elementDict.collarCastNumber ],
 					[   elementDict.collarCastDesc  ]
 				]
 			},
