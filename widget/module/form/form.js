@@ -19,8 +19,8 @@ var form = Widget.extend({
 
         this._filters_ = {};
         this.localData = {};
-    	let res  = this.processData(data);
-        this.eles = this.display(res, tpl, 'native');
+    	this.data = data;
+        this.eles = this.display(data, tpl, 'native');
         this.render();
         this.bind();
         Waves.attach('button', ['waves-float', 'waves-light']);
@@ -132,9 +132,8 @@ var form = Widget.extend({
             let url     =  me.data.url;
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
+
             let filters =  inputFilters && $.extend(inputFilters,filter);
-
-
             me._filters_ = Object.assign(me._filters_, $.extend(filters,alwaysParam));
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
@@ -158,6 +157,15 @@ var form = Widget.extend({
                 var ele = $(inputCollections[i]);
                 var key = ele.val('');
             }
+        });
+
+        $('input').keyup( function () {
+
+            if($(this).val() === '' || $(this).val() === undefined){
+                    me._filters_ = {};
+                    me.updateTable(me.data);
+ 
+            } 
         });
 
     },

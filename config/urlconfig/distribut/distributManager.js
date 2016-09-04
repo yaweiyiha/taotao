@@ -54,14 +54,14 @@ urlConfig['distribut/maintenance'] =
 			 			condition: '{{ equal(applyState, 20) }}',
 			 			content: {
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
-				 			url: ['#distri/sign/reject/?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#distri/sign/reject?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 		    		},
 		    		{
 			 			condition: '{{ equal(applyState, 30) }}',
 			 			content: {
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
-				 			url: ['#distri/sign/reject/?id=', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#distri/sign/reject?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 		    		},
 		    		{

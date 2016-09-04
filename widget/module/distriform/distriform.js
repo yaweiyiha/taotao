@@ -86,9 +86,7 @@ var distriform = Widget.extend({
         });
       });
 
-      $(this.vm.$el).on('click', '.attachment-view-wrapper .close-btn', function () {
-        $(this).parents('.attachment-view-wrapper').hide();
-      });
+
       //拒绝签约
       $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
         $.ajax({
@@ -104,6 +102,10 @@ var distriform = Widget.extend({
               }
             }
         });
+      });
+
+      $(this.vm.$el).on('click', '.attachment-view-wrapper .close-btn', function () {
+        $(this).parents('.attachment-view-wrapper').hide();
       });
       
     },
