@@ -3,7 +3,7 @@ window.Config = {
 	// host : "http://local/admin/",
 	//host : "http://10.66.19.254:8080/admin/",
 	 // host : 'http://10.66.19.249:8082/admin/'
-	 host : '',
+	 host : 'http://192.168.1.3:8080/admin/',
 	//dephost : 'http://qikun.bravowhale-dev.com:8118/admin/',
 }
 

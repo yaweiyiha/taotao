@@ -18,8 +18,8 @@ var widgets  = {
         { widget: 'header',data: { username : 'yaweiyihan'},container: '.header-box' },
     topbanner : 
         { widget: 'topbanner', data: {},container: '.topbanner-wrapper' },
-    editform : 
-        { widget: 'editform', data: {},container: '.form-wrapper' },
+    addform : 
+        { widget: 'addform', data: {},container: '.form-wrapper' },
     menu : 
         { widget: 'menu', container: '.menu-box' },
     backtotop : 
@@ -59,9 +59,9 @@ class validateProControl extends Control{
         me.getModel('productinfo', (model) => {
             model.getData(data.detailUrl, {id: _APP_HASH.id}).then((res) => {
                 let dictData = {};
-                $.extend(dictData, data);  
-                dictData.item = Util.processData(res.item);
-                me.getViews([me.widgets.editform], $.extend(dictData, data));
+
+                dictData.item = $.extend(res.item, Util.processData(res.item));
+                me.getViews([me.widgets.addform], $.extend(dictData, data));
             });
         });
 

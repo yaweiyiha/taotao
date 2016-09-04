@@ -7,6 +7,7 @@ import commset from  'widget/component/productcommset/productcommset';
 import formModel from 'model/formModel';
 import CommType from 'widget/component/commtype/commtype';
 import YearRate from 'widget/component/yearrate/yearrate';
+import VerifyConfirm from 'widget/component/verifyconfirm/verifyconfirm';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
 import editor from 'widget/component/editor/editor';
@@ -25,26 +26,29 @@ var addform = Widget.extend({
     init : function(data){
         // set default
         let defaultData = {
-            item: {
-                fundGenreAFk: '500',
-                fundGenreBFk: '700',
-                fundTypeFk: '60',
-                fundSubTypeFk: '100',
-                publisherFk: '',
-                custodianParty: '10',
-                establishStatus: '0',
-                salesStatusFk: '10',
-                unitFkIssureScale: '1100',
-                unitFkOfferingSize: '1100',
-                unitFkMaturities: '2100',
-                unitFkStartingPrice: '1100',
-                unitFkIncreasement: '1100',
-                currencies: '10',
-                riskRating: '30',
-            }
+            fundGenreAFk: '500',
+            fundGenreBFk: '700',
+            fundTypeFk: '60',
+            fundSubTypeFk: '100',
+            publisherFk: '',
+            custodianParty: '10',
+            establishStatus: '0',
+            salesStatusFk: '10',
+            unitFkIssureScale: '1100',
+            unitFkOfferingSize: '1100',
+            unitFkMaturities: '2100',
+            unitFkStartingPrice: '1100',
+            unitFkIncreasement: '1100',
+            currencies: '10',
+            riskRating: '30',
+            arrTypeFk: '0'
         }
-        this.data = Object.assign(defaultData, data);
+
+        data.item = Object.assign({}, defaultData, data.item);
+
+        this.data = data;
         this.vm = this.display(this.data ,tpl ,'vue');
+
         this.render();
         this.bind();
         Waves.attach('button', ['waves-light']);
@@ -70,6 +74,19 @@ var addform = Widget.extend({
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
+
+        // add pass radios select in validate page
+        // (function () {
+        //     let html = [];
+        //     html.push('<div class="verify-status-box">');
+        //     html.push('<label><input type="radio" name="verifyStatus" value="40" checked="true">  通过</label>');
+        //     html.push('<label><input type="radio" name="verifyStatus" value="30">  不通过</label>');
+        //     html.push('</div>');
+
+        //     if (/\/validate$/.test(_APP_HASH._uri_)) {
+        //         $('.buttons-wrapper').prepend($(html.join('')));
+        //     }
+        // })();
     },
     bind: function () {
         let me = this;
@@ -235,6 +252,10 @@ var addform = Widget.extend({
             data.product.floatMax = yearRateData.floatMax;
             data.product.maxArr = yearRateData.maxArr;
             data.productLadderRates = yearRateData.productLadderRates
+        }
+
+        if (/\/draftedit$/.test(_APP_HASH._uri_)) {
+            data.product.id = _APP_HASH.id
         }
 
         return  data;
