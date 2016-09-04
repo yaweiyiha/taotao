@@ -60,7 +60,7 @@ class addProControl extends Control{
         if( data.url !== '' &&  data.url !== undefined){
             let param = _APP_HASH.id;
             let url = Config.host + data.url + '?id=' + param;
-            if (/\/draftedit$/.test(_APP_HASH._uri_)) {
+            if (/\/(draftedit)|(detail)$/.test(_APP_HASH._uri_)) {
                 url = Config.host + data.url + '/' + param;
             }
             me.getModel('distri',(model) => {            

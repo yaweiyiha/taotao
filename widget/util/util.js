@@ -180,6 +180,11 @@ var util = {
             unitFkOfferingSize : toString(data.product.unitFkOfferingSize),
             commissionTypeFk   : toString(data.product.commissionTypeFk),
             baseCommission     : toString(data.product.baseCommission),
+            industryTypeFk     : toString(data.product.industryTypeFk),
+            custodianType      : toString(data.product.custodianType),
+            distributionWayFk  : toString(data.product.distributionWayFk),
+            currencies         : toString(data.product.currencies),
+
         }
     }
 };

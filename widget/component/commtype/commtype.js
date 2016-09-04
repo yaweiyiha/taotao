@@ -14,17 +14,28 @@ export default Vue.component('comm-type', {
  	props: {
  		commissionTypeFk: {default: '-1'},
  		baseCommission: {default: ''},
- 		latterData: []
+ 		latterData: {default: []},
+ 		CommUnit: {default: '元'}
+
  	},
- 	computed: {
- 		CommUnit: function () {
+ 	watch: {
+ 		latterData: function () {
  			if (this.latterData.length) {
- 				return this.unitDict['' + this.latterData[0].measureUnitFk];
+ 				this.CommUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
  			} else {
- 				return '元';
+ 				this.CommUnit = '元';
  			}
  		}
  	},
+ 	// computed: {
+ 	// 	CommUnit: function () {
+ 	// 		if (this.latterData.length) {
+ 	// 			return this.unitDict['' + this.latterData[0].measureUnitFk];
+ 	// 		} else {
+ 	// 			return '元';
+ 	// 		}
+ 	// 	}
+ 	// },
  	data: () => ({
  		unitDict: {
  			'1100': '元',

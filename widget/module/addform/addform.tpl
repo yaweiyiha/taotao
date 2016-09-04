@@ -18,7 +18,7 @@
     <div class="panel">
       
       <template v-for = "(index,form) in forms">
-        <div class="panel-body"  form-index= '{{index}}' v-bind:class="{'none' : index === 1 }">
+        <div class="panel-body"  form-index= '{{index}}' v-bind:class="{ 'none' : index > 0 }">
           <div v-for = "panel in form" class="sub-panel" >
               <div class="row title" v-if="panel.panelName">
                   <div>

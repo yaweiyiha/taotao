@@ -125,16 +125,15 @@ var form = Widget.extend({
         $('.form-wrapper').on('click', '.filters-item .option-item', function () {
 
             let filter  = {};
-
             let key     =  $(this).parents('.options').attr("data-key");
             let value   =  $(this).attr("data-value");
             filter[key] =  value;
             let url     =  me.data.url;
-            let alwaysParam   =  me.data.alwaysParam;
+
             let inputFilters = me.getInputFilters();
 
             let filters =  inputFilters && $.extend(inputFilters,filter);
-            me._filters_ = Object.assign(me._filters_, $.extend(filters,alwaysParam));
+            me._filters_ = Object.assign(me._filters_, filters);
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
 
@@ -159,12 +158,11 @@ var form = Widget.extend({
             }
         });
 
-        $('input').keyup( function () {
+        $('input:text').keyup( function () {
 
             if($(this).val() === '' || $(this).val() === undefined){
                     me._filters_ = {};
                     me.updateTable(me.data);
- 
             } 
         });
 

@@ -154,12 +154,11 @@ urlConfig['trust/add'] =
 
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :40 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :40 },
 	],
-	'needback' : true
-
-
+	'saveUrl'    : 'product/save',
+	'publishUrl' : 'product/publish',
 }
 urlConfig['asset/add'] =
 {
@@ -220,18 +219,17 @@ urlConfig['asset/add'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
-
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :30 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :30 },
 	],
-	'needback' : true
-
+	'saveUrl'    : 'product/save',
+	'publishUrl' : 'product/publish',
 }
 
 urlConfig['debtassgin/add'] =
@@ -294,11 +292,11 @@ urlConfig['debtassgin/add'] =
 
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :60 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :60 },
 	],
-	'needback' : true
-
+	'saveUrl'    : 'product/save',
+	'publishUrl' : 'product/publish',
 }
 
 urlConfig['equityInvestment/add'] =
@@ -345,7 +343,7 @@ urlConfig['equityInvestment/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.yearIncome ]
+					[	elementDict.yearRate ]
 				]
 			},
 			{	
@@ -362,11 +360,11 @@ urlConfig['equityInvestment/add'] =
 		],
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save'},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :70 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :70 },
 	],
-	'needback' : true
-
+	'saveUrl'    : 'product/save',
+	'publishUrl' : 'product/publish',
 }
 
 

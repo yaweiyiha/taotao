@@ -22,7 +22,8 @@ export default Vue.component('single-date', {
             todayBtn: true,     
             todayHighlight: 1,
             startView: 2,
-            minView: 2
+            minView: 2,
+            container: '.cnt-box'
         });
     }
 });
