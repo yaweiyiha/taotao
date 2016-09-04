@@ -4,6 +4,7 @@ import datetime from 'widget/filter/datetime.js';
 import productCategory from 'widget/filter/productCategory.js'
 import applyState from 'widget/filter/applyState.js'
 import distributorStatus from 'widget/filter/distributorStatus.js'
+import AlertDialog from "widget/classComponent/dialog/alert.js"
 
 var style = __inline('./table.inline.less');
 var tpl = __inline('./table.tpl');
@@ -131,6 +132,18 @@ var table = Widget.extend({
                     parseItem.url = _parse(item.content.url);
                     if (item.content.evt && item.content.evt.length) {
                         parseItem.evt = _parse(item.content.evt);
+                    } else {
+                        parseItem.evt = '';
+                    }
+                    if (item.content.val && item.content.val.length) {
+                        parseItem.val = _parse(item.content.val);
+                    } else {
+                        parseItem.val = '';
+                    }
+                    if (item.content.par && item.content.par.length) {
+                        parseItem.par = _parse(item.content.par);
+                    } else {
+                        parseItem.par = '';
                     }
                 }
             });
@@ -178,6 +191,11 @@ var table = Widget.extend({
                 $(this).addClass('sorting_asc');
             });
         });
+
+        $(me.vm.$el).on('click', 'a[data-evt=errReasonDailog]', function () {
+            AlertDialog.show($(this).attr('value'));
+        });
+
         $('a[data-evt=statusDistriChange]').on('click',function(){
             let target = $(this);
             let id = $(this).attr('data-param');

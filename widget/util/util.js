@@ -43,7 +43,7 @@ var util = {
         // param `el` is the commType wrapper jQuery element
         let data = {};
         
-        data.arrTypeFk = +el.find('.YearRateType').val();
+        data.arrTypeFk = +el.find('.arrTypeFk').val();
         data.expectedArr = null;
         data.fixMin = null;
         data.minArr = null;
@@ -51,7 +51,7 @@ var util = {
         data.maxArr = null;
         data.productLadderRates = null;
         if (data.arrTypeFk === 10) {
-            data.expectedArr = el.find('.fixedRate').val();
+            data.expectedArr = el.find('.expectedArr').val();
         } else if (data.arrTypeFk === 20) {
             if (el.find('.fixMin').val()) {
                 data.fixMin = 1;
@@ -137,22 +137,25 @@ var util = {
 
     },
     processData: (data) => {
+        let toString = (val) => {
+            return val === null ? undefined : '' + val;
+        }
         return {
             name               :  data.product.name,
-            fundGenreAFk       :  ''+data.product.fundGenreAFk, 
-            fundGenreBFk       :  ''+data.product.fundGenreBFk, 
-            fundTypeFk         :  ''+data.product.fundTypeFk, 
-            fundSubTypeFk      :  ''+data.product.fundSubTypeFk,
-            publisherFk        :  ''+data.product.publisherFk,
-            custodianParty     :  ''+data.product.custodianParty,
+            fundGenreAFk       :  toString(data.product.fundGenreAFk), 
+            fundGenreBFk       :  toString(data.product.fundGenreBFk), 
+            fundTypeFk         :  toString(data.product.fundTypeFk), 
+            fundSubTypeFk      :  toString(data.product.fundSubTypeFk),
+            publisherFk        :  toString(data.product.publisherFk),
+            custodianParty     :  toString(data.product.custodianParty),
             fundManager        :  data.product.fundManager,
             fundManagerCompany :  data.product.fundManagerCompany,
             fundCustodianCharges: data.product.fundCustodianCharges,
             serviceTel         :  data.product.serviceTel,
             maturities         :  data.product.maturities,
-            unitFkMaturities   :  ''+data.product.unitFkMaturities,
+            unitFkMaturities   :  toString(data.product.unitFkMaturities),
             startingPrice      :  data.product.startingPrice,
-            unitFkStartingPrice:  ''+data.product.unitFkStartingPrice,
+            unitFkStartingPrice:  toString(data.product.unitFkStartingPrice),
             increasement       :  data.product.increasement,
             unitFkIncreasement :  data.product.unitFkIncreasement,
             subscribeFee       :  data.product.subscribeFee,
@@ -164,17 +167,19 @@ var util = {
             //币种
             currencies         :  data.product.currencies,
 
-            issureScale        :  ''+data.product.issureScale,
-            arrTypeFk          :  ''+data.product.arrTypeFk,
-            offeringSize       :  ''+data.product.offeringSize,
-            expectedArr        : ''+data.product.expectedArr,
-            selfDefinedProcess : ''+data.product.selfDefinedProcess,
-            establishStatus    : ''+data.product.establishStatus,
-            riskRating         : ''+data.product.riskRating,
-            salesStatusFk      : ''+data.product.salesStatusFk,
-            unitFkIssureScale  : ''+data.product.unitFkIssureScale, 
-            unitFkOfferingSize : ''+data.product.unitFkOfferingSize,
-            unitFkOfferingSize : ''+data.product.unitFkOfferingSize,
+            issureScale        :  toString(data.product.issureScale),
+            arrTypeFk          :  toString(data.product.arrTypeFk),
+            offeringSize       :  toString(data.product.offeringSize),
+            expectedArr        : toString(data.product.expectedArr),
+            selfDefinedProcess : toString(data.product.selfDefinedProcess),
+            establishStatus    : toString(data.product.establishStatus),
+            riskRating         : toString(data.product.riskRating),
+            salesStatusFk      : toString(data.product.salesStatusFk),
+            unitFkIssureScale  : toString(data.product.unitFkIssureScale), 
+            unitFkOfferingSize : toString(data.product.unitFkOfferingSize),
+            unitFkOfferingSize : toString(data.product.unitFkOfferingSize),
+            commissionTypeFk   : toString(data.product.commissionTypeFk),
+            baseCommission     : toString(data.product.baseCommission),
         }
     }
 };

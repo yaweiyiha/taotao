@@ -30,7 +30,7 @@ class distriModel extends Model{
                 contentType : 'application/json;charset=UTF-8',
                 data: JSON.stringify(param),
                 timeout : 10000,
-                cache: false,
+                cache: true,
                 success: function (ret) {
                     if(ret.msg === 'success'){
                         resolve(ret);

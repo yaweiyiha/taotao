@@ -33,12 +33,19 @@ urlConfig['product/draft'] =
 		 },
 		'alwaysParam' : {"exclude": 0 ,'statusId' : 10},
 		'operater' : {
+		 	pageDict: {
+		 		'10': 'fund',
+		 		'30': 'asset',
+		 		'40': 'trust',
+		 		'60': 'debtassgin',
+		 		'70': 'equityInvestment'
+		 	},
 			operaterList: [
 				[
 					{
 			 			content: {
 				 			name: ['编辑'],
-				 			url: ['#addPro/sign/reject/', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#addPro/', '{{ DICT(categoryId, pageDict)}}', '/draftedit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			}
 					}
 				],
@@ -46,7 +53,7 @@ urlConfig['product/draft'] =
 					{
 			 			content: {
 				 			name: ['提交审核'],
-				 			url: ['#distri/sign/reject/', '{{ INTERFACE_DATA(id) }}']
+				 			url: ['#distri/sign/draftedit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			}
 					}
 				]

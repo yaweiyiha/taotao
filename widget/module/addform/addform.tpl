@@ -51,11 +51,23 @@
           <div class="row ">
             <template v-for="li in list">
                 <div class="{{li.wrapperClass || ''}} input-wrapper rt">
+                  <template v-if="li.type === 'verify-confirm'">
+                    <verify-confirm></verify-confirm>
+                  </template>
                   <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
                   <template v-if="li.type === 'year-rate'">
-                    <year-rate></year-rate>
+                      <year-rate
+                        :arr-type-fk="item.arrTypeFk"
+                        :expected-arr="item.product.expectedArr"
+                        :fix-min="item.product.fixMin"
+                        :min-arr="item.product.minArr"
+                        :float-max="item.product.floatMax"
+                        :max-arr="item.product.maxArr"
+                        :latter-data="item.productLadderRates"
+                      >
+                      </year-rate>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
                     <fund-strategy></fund-strategy>
@@ -75,7 +87,12 @@
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'CommType'">
-                    <comm-type></comm-type>
+                    <comm-type
+                      :commission-type-fk="item.commissionTypeFk"
+                      :base-commission="item.baseCommission"
+                      :latter-data="item.productCommissionList"
+                    >
+                    </comm-type>
                   </div>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
@@ -131,7 +148,7 @@
           </div>
         </template>
       </template>
-      <div>
+      <div class="buttons-wrapper">
           <template v-for="bt in buttons">
               <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 

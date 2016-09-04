@@ -58,18 +58,21 @@ class addProControl extends Control{
         me.getViews([widgets.topbanner],data.topbanner);
         // me.getViews([widgets.addform],data);
         if( data.url !== '' &&  data.url !== undefined){
-            let param = location.href.split('?')[1];
-            let url = data.url + '?' + param;
-            me.getModel('distri',(model) => {
-            
-            model.getData(url).then((res) => {
-                if(data.useProcessData){
-                    let dictData = {};
-                    $.extend(dictData, data);  
-                    dictData.item = Util.processData(res.item);
-                }
+            let param = _APP_HASH.id;
+            let url = Config.host + data.url + '?id=' + param;
+            if (/\/draftedit$/.test(_APP_HASH._uri_)) {
+                url = Config.host + data.url + '/' + param;
+            }
+            me.getModel('distri',(model) => {            
+                model.getData(url).then((res) => {
+                    if(data.useProcessData){
+                        let dictData = {};
 
-                me.getViews([me.widgets.addform], $.extend(res,data));
+                        dictData.item = $.extend(res.item, Util.processData(res.item));
+                        me.getViews([me.widgets.addform], $.extend(dictData, data));
+                    } else {
+                        me.getViews([me.widgets.addform], $.extend(res,data));
+                    }
                 });
             });
         }else{
