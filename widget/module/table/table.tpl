@@ -34,7 +34,10 @@
     		<template v-for="item in items">
 				<tr role="row">
 					<template v-for="(i,t) in tables">
-                        <td v-if="t.type === 'nomal'" >{{item[t.key]}}</td>
+                        <td v-if="t.type === 'nomal'" >
+                            <a v-if="t.key === 'name'" href="{{item._detailUrl_}}">{{item[t.key]}}</a>
+                            <span v-else>{{item[t.key]}}</span>
+                        </td>
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>

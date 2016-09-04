@@ -1,7 +1,7 @@
 
 import elementDict from 'config/dict/product-dict'
 
-urlConfig['fund/draftedit'] =
+urlConfig['fund/detail'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
@@ -11,8 +11,12 @@ urlConfig['fund/draftedit'] =
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'CommiSet', value: '佣金设置' },
+		{ key: 'Detail', value: '发行商信息' },
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 
 		[
@@ -63,20 +67,21 @@ urlConfig['fund/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '基本信息',
+				'formlist'   : [
+					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+				],
+			},
+		]
 	],
-	'buttonlist': [
-		{name : '发布',classList : 'primary',type : 'button',evt:'republic' ,'productCategories' :10 },
-		{name : '保存',classList : 'default ml10', type : 'button', evt : 'save' ,'productCategories':10},
-
-	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url': 'product/detail',
 	'useProcessData' : true
-
 }
 
-urlConfig['trust/draftedit'] =
+urlConfig['trust/detail'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
@@ -88,9 +93,13 @@ urlConfig['trust/draftedit'] =
 			{'key' : '发布' , evt :'republic'},
 		],
 	},
+	'options' : {
+		disable: true
+	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'Detail', value: '发行商信息' },
 	],
 	'forms' : [
 		[
@@ -103,7 +112,7 @@ urlConfig['trust/draftedit'] =
 		            ],[
 		                elementDict.distributor, elementDict.hoster	
 					],[
-						elementDict.proDistriLocation,elementDict.phone
+						elementDict.distriArea,elementDict.phone
 					]
 
 				],
@@ -153,18 +162,20 @@ urlConfig['trust/draftedit'] =
 				],
 			},
 		],
-
+		[
+			{	
+				'panelName' : '基本信息',
+				'formlist'   : [
+					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+				],
+			},
+		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :40},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :40},
-	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url': 'product/detail',
 	'useProcessData' : true
 }
-urlConfig['asset/draftedit'] =
+urlConfig['asset/detail'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
@@ -172,9 +183,13 @@ urlConfig['asset/draftedit'] =
 		'thirdTitle' : '新增资管产品',
 		'key' : '产品维护',
 	},
+	'options' : {
+		disable: true
+	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'Detail', value: '发行商信息' },
 	],
 	'forms' : [
 		[
@@ -184,7 +199,7 @@ urlConfig['asset/draftedit'] =
 				'formlist'   : [
 					[   elementDict.proName, elementDict.investModeFk ],
 					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.proDistriLocation],
+					[   elementDict.distriArea],
 					[   elementDict.investManager, elementDict.phone ]
 
 				],
@@ -227,18 +242,22 @@ urlConfig['asset/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '基本信息',
+				'formlist'   : [
+					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+				],
+			},
+		]
+
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :30},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :30},
-	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url': 'product/detail',
 	'useProcessData' : true
 }
 
-urlConfig['debtassgin/draftedit'] =
+urlConfig['debtassgin/detail'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
@@ -246,9 +265,13 @@ urlConfig['debtassgin/draftedit'] =
 		'thirdTitle' : '新增债券转让产品',
 		'key' : '产品维护',
 	},
+	'options' : {
+		disable: true
+	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'Detail', value: '发行商信息' },
 	],
 	'forms' : [
 		[
@@ -295,19 +318,22 @@ urlConfig['debtassgin/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '基本信息',
+				'formlist'   : [
+					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+				],
+			},
+		]
 
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :60},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :60},
-	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url': 'product/detail',
 	'useProcessData' : true
 }
 
-urlConfig['equityInvestment/draftedit'] =
+urlConfig['equityInvestment/detail'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
@@ -318,7 +344,11 @@ urlConfig['equityInvestment/draftedit'] =
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'Detail', value: '发行商信息' },
 	],
+	'options' : {
+		disable: true
+	},
 	'forms' : [
 		[
 			{	
@@ -366,15 +396,16 @@ urlConfig['equityInvestment/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '基本信息',
+				'formlist'   : [
+					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+				],
+			},
+		]
 	],
-	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :70},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :70},
-	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url': 'product/detail',
 	'useProcessData' : true
 }
-
-

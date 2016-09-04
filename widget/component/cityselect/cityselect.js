@@ -31,6 +31,19 @@ export default Vue.component('city-select', {
     ready: function(){
         this.getProvince();
     },
+    computed: {
+        output: function () {
+            // return [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ');
+            let result = '';
+            this.subarea.forEach((item) => {
+                if (item.code === this.areaSelected) {
+                    result = item.fullName;
+                }
+            });
+
+            return result;
+        }
+    },
     methods:{
         getProvince :function(){
             var me = this;
@@ -60,7 +73,8 @@ export default Vue.component('city-select', {
                     
                     let obj = {
                         name : li[name],
-                        code : li[id]
+                        code : li[id],
+                        fullName: li.fullName
                     }
                     arr.push(obj)
                 });

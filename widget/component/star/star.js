@@ -9,26 +9,34 @@ require.loadCss({
 export default Vue.component('star', {
  	template: tpl,
  	props: {
- 		total: {
- 			type: Number,
- 			default: 5
- 		}
+ 		score: {default: 0}
  	},
  	data: () => ({
- 		score: -1,
- 		stars: new Array(5).fill({
- 			selected: true
- 		})
+ 		stars: [{selected: false}, {selected: false}, {selected: false}, {selected: false}, {selected: false}]
  	}),
+ 	ready: function () {
+		this.stars.forEach((star, index) => {
+			if (this.score > index) {
+				star.selected = true;
+			} else {
+				star.selected = false;
+			}
+		});
+ 	},
+ 	watch: {
+ 		score: function (val) {
+ 			this.stars.forEach((star, index) => {
+ 				if (val > index) {
+ 					star.selected = true;
+ 				} else {
+ 					star.selected = false;
+ 				}
+ 			});
+ 		}
+ 	},
  	methods: {
- 		mouseOver: function (curIndex) {
- 			this.stars = new Array(curIndex + 1).fill({
-	 			selected: true
-	 		}).concat(new Array(4 - curIndex).fill({
-	 			selected: false
-	 		}));
-
-	 		console.log(this.stars);
+ 		selectStar: function (curIndex) {
+ 			this.score = curIndex + 1;
  		}
  	},
  	computed: {

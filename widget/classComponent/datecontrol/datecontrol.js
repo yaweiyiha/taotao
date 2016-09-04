@@ -28,7 +28,8 @@ export default Vue.component('date-control', {
             todayBtn: true,     
             todayHighlight: 1,
             startView: 2,
-            minView: 2
+            minView: 2,
+            container: '.cnt-box'
         });
         $('.endTime').datetimepicker({
             language : 'zh-CN',
@@ -37,7 +38,8 @@ export default Vue.component('date-control', {
             todayBtn: true,     
             todayHighlight: 1,
             startView: 2,
-            minView: 2
+            minView: 2,
+            container: '.cnt-box'
         });
 
     },

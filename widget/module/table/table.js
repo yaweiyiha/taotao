@@ -27,12 +27,17 @@ var table = Widget.extend({
         this._initData_ = Object.assign({}, data);
 
         let myData = $.extend(data, this.processData(data));
-
         // console.log(myData);
         // filters store
         this._params_ = {};
         this._params_.url = data.url;
-        this._params_.filters = data.filters || {pageSize: 10};
+        this._params_.filters = Object.assign({pageSize: 10}, data.filters);
+        if (this._initData_.param.exclude === 1) {
+            this._params_.filters.exclude = 1;
+        }
+        if (this._initData_.param.pageSize) {
+            this._params_.filters.pageSize = this._initData_.param.pageSize;
+        }
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();
@@ -160,9 +165,18 @@ var table = Widget.extend({
 
         data.items.forEach(function (dataItem) {
             dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
+            // build product detail url
+            // dataItem['_detailUrl_'] = `${Config.root}addPro/${me.productDict[dataItem.categoryId]}/detail?id=${dataItem.id}`;
+            dataItem['_detailUrl_'] = `#addPro/${me.productDict[dataItem.categoryId]}/detail?id=${dataItem.id}`;
         });
-        return  data;
-
+        return data;
+    },
+    productDict: {
+        10: "fund",
+        30: "asset",
+        40: "trust",
+        60: "debtassgin",
+        70: "equityInvestment"        
     },
     bind: function(){
         var me = this;

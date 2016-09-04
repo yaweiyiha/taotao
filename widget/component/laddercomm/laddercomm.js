@@ -48,6 +48,7 @@ export default Vue.component('ladder-comm', {
  				}
  				cache.measureUnitFk = this.unit ? dict[this.unit] : dict[item.unit];
  				cache.sorter = index;
+ 				cache.isValid = 1;
  				if (index === 0 && item.start === '') {
  					cache.value1 = +item.end;
  					cache.operator1 = 'LE';
@@ -72,7 +73,7 @@ export default Vue.component('ladder-comm', {
  	},
  	methods: {
  		revertData: function () {
- 			if (this.latterData.length === 0) {
+ 			if (!this.latterData ||this.latterData.length === 0) {
  				return [
 				    {
 				        start: '',

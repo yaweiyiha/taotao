@@ -43,7 +43,12 @@ var addform = Widget.extend({
             unitFkIncreasement: '1100',
             currencies: '10',
             riskRating: '30',
-            arrTypeFk: '0'
+            arrTypeFk: '0',
+            industryTypeFk: '10',
+            custodianType: '10',
+            distributionWayFk: '90',
+            currencies: '10',
+            arrRank: 0,
         }
 
         data.item = Object.assign({}, defaultData, data.item);
@@ -60,6 +65,10 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(){
+        if (this.data.options && this.data.options.disable === true) {
+            $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled',true);
+            // $('select', this.vm.$el).prop('disabled', 'disabled');
+        }
         let me = this;
         if($('select[data-key="publisherFk"]')){
             let publisherList  = enums.publisherFk;
@@ -97,18 +106,10 @@ var addform = Widget.extend({
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
     		$(this).addClass('active');
-            let curIndex = parseInt($(this).attr("tab-index"));
-            let perIndex = curIndex ? curIndex - 1 : curIndex + 1 ;
-            let curPanel = $('.panel-body[form-index="'+ curIndex +'"]');
-            let perPanel = $('.panel-body[form-index="'+ perIndex +'"]');
-            if(curPanel.hasClass('none')){
-                perPanel.addClass('none');
-                curPanel.removeClass('none');
-            }else{
-                curPanel.addClass('none');
-                perPanel.removeClass('none');
-            }
-            
+            let curIndex = $(this).attr("tab-index");
+
+            $('.panel-body[form-index]', me.vm.$el).addClass("none");
+            $('.panel-body[form-index='+ curIndex +']', me.vm.$el).removeClass('none');            
     	});
         $(this.vm.$el).on('click', '[data-role=addSelfEle]', function () {
             let target = $('[data-role=addSelfEleContent]');
@@ -195,7 +196,9 @@ var addform = Widget.extend({
         });
 
         $(".city-select").on('click',function(){
-            citySelectDialog.show();
+            citySelectDialog.show({
+                onConfirm: (data) => $(this).val(data.city)
+            });
         })
 
     },
@@ -234,6 +237,10 @@ var addform = Widget.extend({
             || $("input[data-key='issureScale']").val() === undefined){
             filters.unitFkIssureScale = '';
         }
+        if ($('.admin-widget-star').size()) {
+            filters.arrRank = +$('.admin-widget-star').attr('data-value');
+        }
+
         let data  = {
             'product' : filters,
         }

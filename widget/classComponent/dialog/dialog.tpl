@@ -71,15 +71,15 @@
 			</template>
 		</div>
 		<div v-if="type === 'citySelect'" class="modal-body text-center add-pro" >
-			<city-select key="code"></city-select> 
+			<city-select></city-select> 
 		</div>
-		<div  v-if="buttons.length !== 0" class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+		<div v-if="buttons.length" class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
 			<div class="ui-dialog-buttonset">
 				<template  v-for= "button in buttons">
-					<button v-if="button.type === 'cancel'" type="button" class="custom-button" role="button" aria-disabled="false"      @click="cancel">
+					<button v-if="button.type === 'cancel'" type="button" class="custom-button default" role="button" aria-disabled="false"  @click="cancel">
 						<span class="ui-button-text">{{ button.name }}</span>
 					</button>
-					<button v-if="button.type === 'confirm'" type="button" class="custom-button" role="button" aria-disabled="false"      @click="confirm">
+					<button v-if="button.type === 'comfirm'" type="button" class="custom-button" role="button" aria-disabled="false"      @click="confirm">
 						<span class="ui-button-text">{{ button.name }}</span>
 					</button>
 

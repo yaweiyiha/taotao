@@ -12,7 +12,6 @@ require.loadCss({
 class Dialog{
 
     show(opts){
-
         vm = new Vue({
             el :'.dialog-wrapper',
             data: opts,
@@ -26,7 +25,7 @@ class Dialog{
                     vm.$el.hidden = true
                 },
                 confirm: () => {
-                    this.opts.onConfirm && this.opts.onConfirm();
+                    this.opts.onConfirm && this.opts.onConfirm(ouput);
                     vm.hide();
                 },
                 cancel: () => {
