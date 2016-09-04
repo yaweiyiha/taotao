@@ -69,7 +69,6 @@ var addform = Widget.extend({
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
-        
         }
     },
     bind: function () {

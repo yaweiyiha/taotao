@@ -5,6 +5,7 @@ import Star from 'widget/component/star/star';
 import CommType from 'widget/component/commtype/commtype';
 import singledate from  'widget/component/singledate/singledate';
 import Util from  'widget/util/util';
+import datetime from 'widget/filter/datetime.js';
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -48,6 +49,8 @@ var distriform = Widget.extend({
         me.previewImage(this, imageContainer.get(0));
       });
 
+
+      //完成签约
       $(this.vm.$el).on('click' ,'[data-role=finishSigned]', function () {
         let data = new FormData();
         // add attachment file data
@@ -55,7 +58,6 @@ var distriform = Widget.extend({
         let startTime = $('input[data-key="offlineStartDate"]').val();
         let endTime = $('input[data-key="offlineEndDate"]').val();
         var obj = Util.getCommTypeData($('.admin-widget-commtype'));
-        console.log(startTime,endTime,obj);
 
         data.append('id', _APP_HASH.id);
         data.append('commissionType', obj.commissionTypeFk);
@@ -87,7 +89,7 @@ var distriform = Widget.extend({
       $(this.vm.$el).on('click', '.attachment-view-wrapper .close-btn', function () {
         $(this).parents('.attachment-view-wrapper').hide();
       });
-
+      //拒绝签约
       $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
         $.ajax({
             url: 'agentsales/reject',
@@ -167,6 +169,9 @@ var distriform = Widget.extend({
         param.left = Math.round((maxWidth - param.width) / 2);
         param.top = Math.round((maxHeight - param.height) / 2);
         return param;
+    },
+    filters : {
+        datetime : datetime ,
     },
     methods:{
         back : () => {

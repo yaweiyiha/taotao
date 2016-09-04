@@ -95,6 +95,7 @@ var table = Widget.extend({
             let cache = [];
             list.forEach(function (item) {
                 let res = me._parseOperaterItem(item);
+
                 if (res.type === 'string') {
                     cache.push(res.value);
                 } else if (res.type === 'expression') {
@@ -147,79 +148,6 @@ var table = Widget.extend({
         data.items.forEach(function (dataItem) {
             dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
         });
-        // if(data.tableFilter){
-        //     let filterKey  =  data.tableFilter.key;
-        //     let filterVal  =  data.tableFilter.value;
-        //     let indexArr   =  [];
-        //     tableData.forEach(function(item){
-        //         if(item[filterKey] === filterVal){
-        //             indexArr.push($.inArray(item,tableData));
-        //         }
-        //     });
-
-        //     indexArr.forEach(function(pos,index){
-        
-        //         if(index !== 0){
-        //             pos = pos -index 
-        //         } 
-        //         tableData.splice(pos,1);
-        //     });
-        // }
-        // if(data.operater ){
-        //     let operater = data.operater;
-            
-        //     let operaterList = operater.operaterList;
-        //     if(data.operater.type === 'non-fixed'){
-
-        //         let bindKey = operater.bindKey;
-        //         let param = operater.param;
-
-        //         tableData.forEach(function(item){
-        //             let state = item[bindKey];
-        //             item['operater'] = [];
-        //             let operaterObj = {
-        //                 name : operaterList[state].name,
-        //                 url  : operaterList[state].url + "?" + param + "="+ item[param]
-        //             } 
-        //             item['operater'].push(operaterObj);
-        //         });
-                
-        //     }else if (data.operater.type === 'fixed'){
-        //         let param = operater.param;
-        //         tableData.forEach(function(item){
-        //             let name = '';
-        //             let url = '';
-        //             let evt = '';
-        //             let bindKey = '';
-        //             let operaterObj = {};
-        //             let val    = '';
-        //             item['operater'] = [];
-
-        //             operaterList.forEach(function(op){
-        //                 name    = op.name;
-        //                 url     = op.url ? op.url + "?" + param + "="+ item[param]: 'javascript:void(0)';
-        //                 bindKey = op.bindKey ? op.bindKey : '';
-
-        //                 if(bindKey){
-        //                     let key = item[bindKey];
-        //                     let pos = op.value.indexOf(key);
-        //                     name = op.name[pos];
-        //                     evt = op.evt;
-        //                     val = key;
-        //                 }
-        //                 operaterObj = {
-        //                     name : name,
-        //                     url  : url ,
-        //                     evt :  evt , 
-        //                     val : val ,
-        //                     par  : item[param],
-        //                 } 
-        //                 item['operater'].push(operaterObj);
-        //             })
-        //         });
-        //     }
-
-        // }
         return  data;
 
     },

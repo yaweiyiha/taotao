@@ -63,9 +63,12 @@ class addProControl extends Control{
             me.getModel('distri',(model) => {
             
             model.getData(url).then((res) => {
-                let dictData = {};
-                $.extend(dictData, data);  
-                dictData.item = Util.processData(res.item);
+                if(data.useProcessData){
+                    let dictData = {};
+                    $.extend(dictData, data);  
+                    dictData.item = Util.processData(res.item);
+                }
+
                 me.getViews([me.widgets.addform], $.extend(res,data));
                 });
             });

@@ -76,4 +76,5 @@ urlConfig['distributor/edit'] =
 	'url' : 'publisher/detail',
 	'submiturl' : 'publisher/edit',
 	'param' : 'id',
+	'useProcessData' : false,
 }

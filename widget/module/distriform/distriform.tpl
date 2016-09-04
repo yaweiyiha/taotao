@@ -32,7 +32,20 @@
                     </div>
                   </div>
                   <div v-if="li.type === 'textList'" class="form-group input-group text">
-                    <div v-for="text in li.textArr" class="input-title" v-bind:style="text.selfStyle">{{text.name}} : {{item[text.key]}}
+                    <div v-for="text in li.textArr" class="input-title" v-bind:style="text.selfStyle">
+                        <span v-if="text.subtype =='singleTime'">
+                             {{text.name}} : {{item[text.key] | datetime}}
+                        </span>
+                        <span v-if="text.subtype =='doubleTime'">
+                             {{text.name}} : {{item[text.key[0]] | datetime}} 至 {{item[text.key[1]] | datetime}}
+                        </span>
+                        <span v-if="text.subtype =='percent'">
+                             {{text.name}} : {{item[text.key]}} %
+                        </span>
+                        <span v-if ="text.subtype =='text' ">
+                             {{text.name}} : {{item[text.key]}}
+                        </span>
+
                     </div>
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">
