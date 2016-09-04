@@ -25,7 +25,7 @@ urlConfig['distribut/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'nomal'},
+			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'pro'},
 			{ name :'申请方', width:"8%" ,key : 'agentName',type: 'nomal'},	
 			{ name :'类型', width:"8%" ,key : 'productCategory', type: 'productCategory' },
 			{ name :'申请额度', width:"8%" ,key: 'applyQuota',type: 'nomal' },
@@ -34,6 +34,7 @@ urlConfig['distribut/maintenance'] =
 			{ name :'状态', width:"8%" ,key: 'applyState',type: 'applyState'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
+		'hasProductUrl' : true,
 		'operater' : {
 		    applyStateDict: {
 		 		'10': '签约审核',

@@ -18,15 +18,11 @@ urlConfig['product/maintenance'] =
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
 			],
 		],
-		'buttonlist': [
-			{name : '搜索', classList : 'btn btn-primary search',type : 'button', evt : 'submit'},
-			{name : '重置搜索条件', classList : 'btn btn-primary search',type : 'button',evt:'clearInput'},
-		],
 
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'产品名称', width:"8%" ,key : 'name' ,type:'nomal'},
+			{ name :'产品名称', width:"8%" ,key : 'name' ,type:'pro'},
 			{ name :'类型', width:"8%" ,key : 'categoryName',type:'nomal'},
 			{ name :'产品状态', width:"8%",key : 'salesStatusName' ,type:'nomal'},
 			{ name :'上下架状态', width:"8%" ,key : 'availableName',type:'nomal'},
@@ -34,6 +30,7 @@ urlConfig['product/maintenance'] =
 			{ name :'审核状态', width:"8%" ,key: 'statusName',type:'nomal'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
+		'hasProductUrl' : true,
 		'tableFilter' : { 'key' : 'statusId', 'value' : 10  }, 
 		'url' : "product/maintenance/list",
 		'param' : { 
@@ -97,5 +94,6 @@ urlConfig['product/maintenance'] =
 			options : ['全部','待审核','审核失败','审核通过'] , values: [-1, 20, 30, 40],type : 'filter'},	
 		{ key :'available', name : '上下架状态', wrapperClass: 'col-md-6',
 		  options : ['全部','上架','下架'] , values: [-1, 10, 20],type : 'filter',},
-	]
+	],
+	
 }

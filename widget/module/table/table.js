@@ -25,7 +25,6 @@ var table = Widget.extend({
     }, 
     init: function (data) {
         this._initData_ = Object.assign({}, data);
-
         let myData = $.extend(data, this.processData(data));
         // console.log(myData);
         // filters store
@@ -162,12 +161,18 @@ var table = Widget.extend({
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
         let tableData = data.items;
-
+        
         data.items.forEach(function (dataItem) {
             dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
             // build product detail url
             // dataItem['_detailUrl_'] = `${Config.root}addPro/${me.productDict[dataItem.categoryId]}/detail?id=${dataItem.id}`;
-            dataItem['_detailUrl_'] = `#addPro/${me.productDict[dataItem.categoryId]}/detail?id=${dataItem.id}`;
+        
+            if(data.hasProductUrl){
+    
+                let key = dataItem.categoryId || dataItem.productCategory;
+                dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
+            }
+            
         });
         return data;
     },
