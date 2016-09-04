@@ -3,7 +3,7 @@
 	<div class="ui-dialog ui-widget ui-widget-content usersys-widget-dialog" tabindex="-1" role="dialog" aria-describedby="departmentSelectWin" aria-labelledby="ui-id-1">
 		<div class="ui-dialog-titlebar ui-widget-header rt">
 
-			<span class="icon icon-addpro"></span>
+			<span v-if="type === 'addPro'" class="icon icon-addpro"></span>
 
 			<span id="ui-id-1" class="ui-dialog-title">{{title}}</span>
 			
@@ -69,6 +69,9 @@
 			<template v-for="pro in pros">
 				<a href="{{pro.url}}" class="add-pro-item" @click="hide"><span>{{pro.name}}</span></a>
 			</template>
+		</div>
+		<div v-if="type === 'citySelect'" class="modal-body text-center add-pro" >
+			<city-select key="code"></city-select> 
 		</div>
 		<div  v-if="buttons.length !== 0" class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
 			<div class="ui-dialog-buttonset">

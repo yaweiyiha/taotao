@@ -128,7 +128,8 @@
                    <div class="input-group-addon input-title" >{{li.name}}
                       <span v-if="li.isrequire" class="text-strong-red">*</span>
                    </div>
-                    <city-select key="code"></city-select>
+                     <input type="text" class="city-select input-control">
+ <!--                    <city-select key="code"></city-select> -->
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}

@@ -11,7 +11,9 @@ import VerifyConfirm from 'widget/component/verifyconfirm/verifyconfirm';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
 import editor from 'widget/component/editor/editor';
-import AlertDialog from "widget/classComponent/dialog/alert.js"
+import AlertDialog from "widget/classComponent/dialog/alert"
+import citySelectDialog from "widget/classComponent/dialog/citySelectDialog"
+
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -190,6 +192,10 @@ var addform = Widget.extend({
         $('button[data-role="republic"]').on('click',function () {
             validate($('body'));
         });
+
+        $(".city-select").on('click',function(){
+            citySelectDialog.show();
+        })
 
     },
     processAddProData : function(){

@@ -6,11 +6,11 @@ class areaModel extends Model{
 
     getData(dataKey = '',opt) {
     	var Dict = {
-    		'province' : 'listProvinces',
-            'city' : 'listByProvinceCode/',
-            'subarea' : 'listByCityCode/'
+    		'province' : 'area/provinces',
+            'city' : 'area/cities/',
+            'subarea' : 'area/districts/'
     	}
-        var opt = opt || '';
+        var opt =  opt || '';
     	var url = Config['host'] + Dict[dataKey] + opt ;
         return new Promise(function(resolve, reject){
             var xhr = $.ajax({
@@ -20,8 +20,8 @@ class areaModel extends Model{
                 dataType: 'json',
                 cache: false,
                 success: function (ret) {
-                    if (ret.status === 'S') {
-                        resolve(ret.list);
+                    if (ret.status === 1) {
+                        resolve(ret.items);
                     } else {
                         reject();
                     }

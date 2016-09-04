@@ -40,19 +40,22 @@ export default Vue.component('city-select', {
         },
         getCity : function(provinceCode = -1){
             var me = this;
-            let param = [key ,code,arr,name ,code] 
-                      = ['city',provinceCode,me.city ,'cityName','id'];
+            let urlparam = `?provinceCode=${provinceCode}`;
+            let param = [key ,urlparam,arr,name ,code] 
+                      = ['city',urlparam,me.city ,'cityName','id'];
             me.getData(...param);
         },
         getArea :function(cityCode = -1){
             var me = this;
-            let param = [key ,code,arr,name ,code] 
-                      = ['subarea',cityCode,me.subarea ,'name','id'];
+            let urlparam = `?cityCode=${cityCode}`;
+            let param = [key ,urlparam,arr,name ,code] 
+                      = ['subarea',urlparam,me.subarea ,'name','id'];
             me.getData(...param);         
         },
         getData :function( key,code, arr ,name,id ){
-            
+
             this.area.getData(key,code).then(function(data){
+
                 data.forEach(function(li){
                     
                     let obj = {
