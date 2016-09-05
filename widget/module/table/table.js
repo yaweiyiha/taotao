@@ -25,6 +25,14 @@ var table = Widget.extend({
     }, 
     init: function (data) {
 
+        var arrPermissions = _permissions.split(',');
+        
+        if($.inArray("product:edit",arrPermissions) != -1){
+            
+        }else{
+            delete data.operater.statusIdDict[40];
+        }
+
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
         this._params_ = {};
