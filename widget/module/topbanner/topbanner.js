@@ -10,7 +10,6 @@ require.loadCss({
 });
 
 var topbanner = Widget.extend({ 
-
     init : function(data){
         //console.log(JSON.stringify(data.subFun));
         //索引

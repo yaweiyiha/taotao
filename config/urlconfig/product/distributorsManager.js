@@ -46,6 +46,7 @@ urlConfig['distributors/maintenance'] =
 				 			name: ['详情'],
 				 			url: ['#addPro/distributor/view?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
+			 			mark: 'publisher:detail'
 					}
 				],
 				[
@@ -54,6 +55,7 @@ urlConfig['distributors/maintenance'] =
 				 			name: ['编辑'],
 				 			url: ['#addPro/distributor/edit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
+			 			mark: 'publisher:edit'
 					}
 				],
 				[
@@ -65,6 +67,7 @@ urlConfig['distributors/maintenance'] =
 				 			par: [' {{ INTERFACE_DATA(id) }}'],
 				 			val: [' {{ INTERFACE_DATA(status) }}'],
 			 			},
+			 			mark: 'publisher:status'
 					}
 				]
 			]
@@ -78,7 +81,7 @@ urlConfig['distributors/maintenance'] =
 		'title' : '发行商管理',
 		'subtitle' : {name : '查看' ,url : ''},
 		'key' : '产品维护',
-		'subFun' : [{'key' : '新增发行商' , url :'#addPro/distributor/add' ,code : 'add'}],
+		'subFun' : [{'key' : '新增发行商' , url :'#addPro/distributor/add' ,code : 'add', mark: 'publisher:create'}],
 	},
 	'filters' : [
 		{ key :'status', name : '只看', wrapperClass : 'col-sm-6' , 

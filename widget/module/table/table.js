@@ -24,14 +24,48 @@ var table = Widget.extend({
         totolSize: '0',
     }, 
     init: function (data) {
-        //console.log(JSON.stringify(data.operater.statusIdDict));
+        //console.log(JSON.stringify(data.operater));
+        //索引
+        Array.prototype.indexOf = function(val) { 
+            for (var i = 0; i < this.length; i++) { 
+                if (this[i] == val) return i; 
+            } 
+            return -1; 
+        };
+        //删除
+        Array.prototype.remove = function(val) { 
+            var index = this.indexOf(val); 
+            if (index > -1) { 
+                this.splice(index, 1); 
+            } 
+        };
         var arrPermissions = _permissions.split(',');
+        //console.log(JSON.stringify(arrPermissions));
         
-        if($.inArray("product:edit",arrPermissions) != -1){
+        //产品编辑权限，发行商详情权限，发行商编辑权限，发行商状态改变权限，分销签约审核权限，查看签约状态权限
+        if(data.operater.operaterList){
+            for(var i=0; i<data.operater.operaterList.length; i++){
+                for(var j=0; j<data.operater.operaterList[i].length; j++){
+                    if(data.operater.operaterList[i][j].mark){
+                        if($.inArray(data.operater.operaterList[i][j].mark,arrPermissions) != -1){
+                            //console.log($.inArray(data.operater.operaterList[i][j].mark,arrPermissions));
+                        }else{
+                            data.operater.operaterList[i].remove(data.operater.operaterList[i][j]);
+                        }
+                    }
+                }
+            } 
+        }
+        
+        
+        //产品编辑权限
+        //console.log(JSON.stringify(data.operater.statusIdDict));
+        /*if($.inArray("product:edit",arrPermissions) != -1){
             //console.log($.inArray("product:edit",arrPermissions));
         }else{
             delete data.operater.statusIdDict[40];
-        }
+        }*/
+
 
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
@@ -46,6 +80,8 @@ var table = Widget.extend({
         if (this._initData_.param.pageSize) {
             this._params_.filters.pageSize = this._initData_.param.pageSize;
         }
+
+        //console.log(JSON.stringify(myData));
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();

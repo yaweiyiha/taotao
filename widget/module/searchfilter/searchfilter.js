@@ -14,7 +14,7 @@ require.loadCss({
 
 var searchfilter = Widget.extend({ 
     init : function(data){
-        console.log(JSON.stringify(data.filters));
+        //console.log(JSON.stringify(data.filters));
         //索引
         Array.prototype.indexOf = function(val) { 
             for (var i = 0; i < this.length; i++) { 
