@@ -31,18 +31,18 @@ var topbanner = Widget.extend({
         };
 
         let res  = this.processData(data);
-        // arrPermissions = _permissions.split(',');
-        // if(res.subFun){
-        //     for(var i=0; i<res.subFun.length; i++){
-        //         if(res.subFun[i].mark){
-        //             if($.inArray(res.subFun[i].mark,arrPermissions) != -1){
-        //                 //console.log($.inArray(res.subFun[i].mark,arrPermissions));
-        //             }else{
-        //                 res.subFun.remove(res.subFun[i]);
-        //             }
-        //         }
-        //     } 
-        // }
+        arrPermissions = _permissions.split(',');
+        if(res.subFun){
+            for(var i=res.subFun.length-1; i>=0; i--){
+                if(res.subFun[i].mark){
+                    if($.inArray(res.subFun[i].mark,arrPermissions) != -1){
+                        //console.log($.inArray(res.subFun[i].mark,arrPermissions));
+                    }else{
+                        res.subFun.remove(res.subFun[i]);
+                    }
+                }
+            } 
+        }
 
         //数据展示
         var vm = this.display(res ,tpl ,'vue');
@@ -61,12 +61,12 @@ var topbanner = Widget.extend({
                 $('.spliter').hide();
             }
         }
-        // if($.inArray('product:draft',arrPermissions) != -1){
-        //     //console.log($.inArray('product:draft',arrPermissions));
-        // }else{
-        //     $('.spliter').hide();
-        //     $('.draft').remove();
-        // }
+        if($.inArray('product:draft',arrPermissions) != -1){
+            //console.log($.inArray('product:draft',arrPermissions));
+        }else{
+            $('.spliter').hide();
+            $('.draft').remove();
+        }
         
     },
     bind : function(){

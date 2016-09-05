@@ -29,21 +29,23 @@ var menu = Widget.extend({
 				this.splice(index, 1); 
 			} 
 		};
-    	
-    	var arrPermissions = _permissions.split(',');
+
+    	this.arrPermissions = [];
+        if (typeof _permissions !== 'undefined') {
+            this.arrPermissions = _permissions.split(',');
+        }
     	
     	if(data.menus){
     		for(var i=0;i<data.menus.length;i++){
     			if(data.menus[i].level2List){
-		    		for(var j=0;j<data.menus[i].level2List.length;j++){
+		    		for(var j=data.menus[i].level2List.length-1; j>=0; j--){
 		    			if(data.menus[i].level2List[j].mark){
-		    				if($.inArray(data.menus[i].level2List[j].mark,arrPermissions) != -1){
+		    				if($.inArray(data.menus[i].level2List[j].mark,this.arrPermissions) != -1){
 								//console.log($.inArray(data.menus[i].level2List[j].mark,arrPermissions));
 							}else{
 								data.menus[i].level2List.remove(data.menus[i].level2List[j]);
 							}
 		    			}
-				    	
 		    		}
 		    	}
 	    	}

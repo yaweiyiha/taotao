@@ -39,6 +39,7 @@ urlConfig['distripro/report'] =
 				 			name: ['详情'],
 				 			url: ['#distri/order/detail?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
+			 			mark: 'salesreport:orderdetail'
 		    		},
 		    	]
 		    ]

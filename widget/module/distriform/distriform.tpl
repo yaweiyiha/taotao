@@ -28,7 +28,9 @@
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{item[li.key]}}
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} :
+                    <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
+                    <span v-else>{{item[li.key]}}</span>
                     </div>
                   </div>
                   <div v-if="li.type === 'textList'" class="form-group input-group text">
@@ -70,7 +72,7 @@
                   <div v-if="li.type === 'img'" class="form-group input-group image" v-bind:style="li.selfStyle">
                       <div class="input-title" >{{li.name}}
                       </div>
-                      <img v-bind:src="li.src" alt="">
+                      <img v-bind:src="item[li.key]" alt="">
                   </div> 
                   <div  v-if="li.type === 'time'" class="form-group input-group time">
                     <div class="input-group-addon input-title" >{{li.name}}

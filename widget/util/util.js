@@ -1,7 +1,24 @@
 import AlertDialog from 'widget/classComponent/dialog/alert'
 
 var util = {
-    
+    cameCase: (str) => {
+        return str.replace(/(\w)/,function(v){return v.toUpperCase()});
+    },
+    flatData: function (data, prefixKey = '') {
+        let res = {};
+        for(let i in data) {
+            if (data.hasOwnProperty(i)) {
+                if (typeof data[i] === 'object') {
+                    let tmp = $.extend(true, {}, data[i]);
+                    res = $.extend(true, res, this.flatData(tmp, i));
+                } else if (typeof data[i] !== 'function') {
+                    res[prefixKey + this.cameCase(i)] = data[i];
+                }
+            }
+        }
+
+        return res;
+    },
     getData :(url,param,methods) => {
  
         return new Promise(function(resolve, reject){
