@@ -46,6 +46,10 @@ class MainControl extends Control{
         me.getViews([widgets.form],data.form);
         data.filters &&  me.getViews([widgets.searchfilter],{filters: data.filters});
 
+        if(data.form.showTable){
+             me.getViews([me.widgets.table],data.form);
+        }
+
         if(data.form.url !== '' && data.form.url !== undefined){
             me.getModel('table',(model) => {
                 model.getData(data.form.url,data.form.param).then((res) => {

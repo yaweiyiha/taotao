@@ -22,7 +22,7 @@
 		</div>
 	</div> -->
 
-	<table class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
+	<table  v-if="items" class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
 		<thead>
 			<tr role="row" >
 				<template  v-for="item in tables">
@@ -38,7 +38,7 @@
                             {{item[t.key]}}
                         </td>
                         <td v-if="t.type === 'pro'">
-                            <a  v-if="item._detailUrl_" href="{{item._detailUrl_}}">{{item[t.key]}}</a>
+                            <a v-if="item._detailUrl_" href="{{item._detailUrl_}}">{{item[t.key]}}</a>
                         </td>
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
@@ -56,7 +56,7 @@
 		</template>
         </tbody>
     </table>	
-    <div class="row">
+    <div  v-if="items" class="row">
     	<div class="col-sm-5">
     		<div class="dataTables_info" id="tp_info" role="status" aria-live="polite">第 {{pageNo}} 页 ( 总共 {{totalPages}} 页，{{totalSize}}条记录 )</div>
     	</div>

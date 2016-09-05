@@ -24,22 +24,24 @@ var table = Widget.extend({
         totolSize: '0',
     }, 
     init: function (data) {
+
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
-        // console.log(myData);
-        // filters store
         this._params_ = {};
         this._params_.url = data.url;
         this._params_.filters = Object.assign({pageSize: 10}, data.filters);
-        if (this._initData_.param.exclude === 1) {
+        if (this._initData_.param && 
+            this._initData_.param.exclude === 1) {
             this._params_.filters.exclude = 1;
         }
-        if (this._initData_.param.pageSize) {
+        if (this._initData_.param &&
+            this._initData_.param.pageSize) {
             this._params_.filters.pageSize = this._initData_.param.pageSize;
         }
 
         this.vm = this.display(myData, tpl ,'vue');
         this.bind();
+
     },
     calculateIndexes: function (current, length, displayLength) {
         // current，当前页码，计算出来的页码尽可能将这个页码放到中间。
@@ -123,7 +125,8 @@ var table = Widget.extend({
                 return ('' + dataItem[res.params[0]]) === res.params[1];
             }
         }
-        operater.operaterList.forEach(function (condition) {
+        if(operater && operater.operaterList){
+            operater.operaterList.forEach(function (condition) {
             let parseItem = {};
             condition.forEach(function(item) {
                 let continueFlag = false;
@@ -151,8 +154,10 @@ var table = Widget.extend({
                     }
                 }
             });
-            parseList.push(parseItem);
+                parseList.push(parseItem);
         });
+    }
+
 
         return parseList;
     },
@@ -160,18 +165,20 @@ var table = Widget.extend({
         let me = this;
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
-        let tableData = data.items;
-        
-        data.items.forEach(function (dataItem) {
-            dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
-        
-            if(data.hasProductUrl){
     
-                let key = dataItem.categoryId || dataItem.productCategory;
-                dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
-            }
+        if(data.items){
+            data.items.forEach(function (dataItem) {
+                dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
             
-        });
+                if(data.hasProductUrl){
+        
+                    let key = dataItem.categoryId || dataItem.productCategory;
+                    dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
+                }
+                
+            });
+        }
+
         return data;
     },
     productDict: {
@@ -260,8 +267,10 @@ var table = Widget.extend({
     },
     updateTableData: function (data) {
         var me = this;
+        debugger
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
+            debugger
             if (res.msg === 'success') {
                 let totalPages = Math.ceil(res.totalSize / res.pageSize);
                 let pages = me.calculateIndexes(res.pageNo, totalPages, 5);

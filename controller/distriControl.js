@@ -66,13 +66,12 @@ class distriControl extends Control{
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
         // 
-        if( data.url !== '' &&  data.url !== undefined){
+        if( data.url !== '' &&  data.url !== undefined ){
             let param = location.href.split('?')[1];
             let url =  data.url + '?' + param;
             me.getModel('distri',(model) => {
-            
-            model.getData(url).then((res) => {
-                me.getViews([me.widgets.distriform], $.extend(res,data));
+                model.getData(url).then((res) => {
+                    me.getViews([me.widgets.distriform], $.extend(res,data));
                 });
             });
         }else{

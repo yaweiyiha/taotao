@@ -149,12 +149,12 @@ var form = Widget.extend({
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
 
-            
             let alwaysParam   =  me.data.alwaysParam;
             me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
-            let url = me.data.url ; 
+            let url = me.data.url ||  me.data.submitUrl; 
 
             data = $.extend({param: me._filters_},{url : url});
+            debugger
             me.updateTable(data);
 
         });

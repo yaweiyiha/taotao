@@ -15,6 +15,7 @@ export default Vue.component('product-distri', {
             productselect : '',
             products      : [],
             distributors  : [],
+            productRes  : [],
         }
     },
     ready: function(){
@@ -24,57 +25,39 @@ export default Vue.component('product-distri', {
         getProductors :function(){
         	let me = this;
             Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
+                res = res.items;
+                me.productRes = res;
                 res.forEach(function(item){
                 	let obj = {
                 		productId : item.productId,
                 		productName : item.productName,
                 	}
                 	me.products.push(obj);
-
                 })
-                me.distributors.push(res[0].agentSalesList);
+                res[0].agentSalesList.forEach(function(item){
+                    me.distributors.push(item);
+                });
             })
         },
-        getDistributors : function(provinceCode = -1){
+        getDistributors : function(productselect = -1){
+            let me = this;
+            // debugger
+            me.distributors.length = 0;
+            me.productRes.forEach(function(pro){
+                if(pro.productId == productselect){
+                    pro.agentSalesList.forEach(function(agentSale){
 
+                        me.distributors.push(agentSale);
+                    });
+                }
+            })
         },
-        getArea :function(cityCode = -1){
-            var me = this;
-            let urlparam = `?cityCode=${cityCode}`;
-            let param = [key ,urlparam,arr,name ,code] 
-                      = ['subarea',urlparam,me.subarea ,'name','id'];
-            me.getData(...param);         
-        },
-        getData :function( key,code, arr ,name,id ){
-
-            this.area.getData(key,code).then(function(data){
-
-                data.forEach(function(li){
-                    
-                    let obj = {
-                        name : li[name],
-                        code : li[id]
-                    }
-                    arr.push(obj)
-                });
-            });
-        },
-        get : function(){
-            return this.areaSelected || this.citySelected || this.provinceSelected;
-        }
+      
     },
     watch: {
-        provinceSelected : function(){
-
-            if(!$.isArray(this.provinceSelected)){
-                this.getCity(this.provinceSelected);
-            } 
-        },
-        citySelected :function(){
-            if(!$.isArray(this.citySelected)){
-                this.getArea(this.citySelected);
-            }
-        },
+        productselect : function(){
+            this.getDistributors(this.productselect);
+        }
 
     }
 });
