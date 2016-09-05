@@ -81,13 +81,14 @@ var addform = Widget.extend({
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
-            if (this.data.options && this.data.options.disable === true) {
-                $('input', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
-                setTimeout(() => {
-                    $('select').attr('disabled', true);
-                }, 1200);
-                $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
-            }
+        }
+
+        if (this.data.options && this.data.options.disable === true) {
+            $('input', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
+            setTimeout(() => {
+                $('select', this.vm.$el).attr('disabled', true);
+            }, 1300);
+            $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
         }
 
         // add pass radios select in validate page

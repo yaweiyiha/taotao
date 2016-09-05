@@ -37,7 +37,7 @@ export default Vue.component('star', {
  	},
  	methods: {
  		selectStar: function (curIndex) {
- 			if (!disable) {
+ 			if (!this.disable) {
 	 			this.score = curIndex + 1;
  			}
  		}
