@@ -12,6 +12,43 @@ require.loadCss({
 var menu = Widget.extend({
     
     init: function (data) {
+    	//console.log(JSON.stringify(data.menus));
+
+    	//索引
+		Array.prototype.indexOf = function(val) { 
+			for (var i = 0; i < this.length; i++) { 
+				if (this[i] == val) return i; 
+			} 
+			return -1; 
+		};
+
+		//删除
+		Array.prototype.remove = function(val) { 
+			var index = this.indexOf(val); 
+			if (index > -1) { 
+				this.splice(index, 1); 
+			} 
+		};
+    	
+    	var arrPermissions = _permissions.split(',');
+    	if(data.menus){
+    		for(var i=0;i<data.menus.length;i++){
+    			if(data.menus[i].level2List){
+		    		for(var j=0;j<data.menus[i].level2List.length;j++){
+		    			if(data.menus[i].level2List[j].mark){
+		    				if($.inArray(data.menus[i].level2List[j].mark,arrPermissions) != -1){
+								//console.log($.inArray(data.menus[i].level2List[j].mark,arrPermissions));
+							}else{
+								data.menus[i].level2List.remove(data.menus[i].level2List[j]);
+							}
+		    			}
+				    	
+		    		}
+		    	}
+	    	}
+    	}
+
+    	//展示菜单栏
 		this.display(data, tpl); 
 	    Waves.attach('.waves', ['waves-block', 'waves-classic']);
 		Waves.init();
