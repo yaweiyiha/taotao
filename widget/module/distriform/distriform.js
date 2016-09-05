@@ -8,6 +8,7 @@ import Util from  'widget/util/util';
 import datetime from 'widget/filter/datetime';
 import commisionType from 'widget/filter/commisionType';
 import applyStates from 'widget/filter/applyStates';
+import InputeDialog from 'widget/classComponent/dialog/inputeDialog';
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -89,18 +90,24 @@ var distriform = Widget.extend({
 
       //拒绝签约
       $(this.vm.$el).on('click' ,'[data-role=rejectSigned]', function () {
-        $.ajax({
-            url: 'agentsales/reject',
-            data: {
-              id: _APP_HASH.id,
-              rejectReason: 'just for test'
-            },
-            type: 'POST',
-            success: function(data){
-              if (data.msg === 'success') {
-                window.location.href = "#main/distribut/maintenance";
-              }
-            }
+        InputeDialog.show({
+          onConfirm: (reason) => {
+            $.ajax({
+                url: `${Config.host}agentsales/reject`,
+                data: {
+                  id: _APP_HASH.id,
+                  rejectReason: reason
+                },
+                type: 'POST',
+                success: function(data){
+                  if (data.msg === 'success') {
+                    window.location.href = "#main/distribut/maintenance";
+                  }
+                }
+            });
+          },
+          title: "请输入拒绝原因",
+          require: true
         });
       });
 

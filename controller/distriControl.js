@@ -67,7 +67,10 @@ class distriControl extends Control{
         me.getViews([widgets.topbanner],data.topbanner);
         // 
         if( data.url !== '' &&  data.url !== undefined){
-            let url =  `${Config.host}${data.url}?id=${_APP_HASH.id}`;
+            let url =  `${Config.host}${data.url}/id=${_APP_HASH.id}`;
+            if (_APP_HASH._uri_ === 'sign/validate') {
+                url =  `${Config.host}${data.url}?id=${_APP_HASH.id}`;
+            }
             me.getModel('distri', (model) => {
             
             model.getData(url).then((res) => {

@@ -97,8 +97,7 @@
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
-
-                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" > 
+                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" disabled="disabled" > 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option  value="{{li.value[index]}}">{{option}}</option>
                         </template>
@@ -115,7 +114,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date :key="li.key"></single-date>
+                      <single-date :key="li.key" :placeholder="li.placeholder"></single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}
@@ -128,7 +127,7 @@
                    <div class="input-group-addon input-title" >{{li.name}}
                       <span v-if="li.isrequire" class="text-strong-red">*</span>
                    </div>
-                     <input type="text" class="city-select input-control">
+                     <input type="text" class="city-select input-control" placeholder="{{li.placeholder}}">
  <!--                    <city-select key="code"></city-select> -->
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
@@ -141,7 +140,7 @@
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}</div>
-                    <star :score="item.arrRank"></star>
+                    <star :score="item.arrRank" :disable="options.disable"></star>
                   </div>
               </div>
             </template>

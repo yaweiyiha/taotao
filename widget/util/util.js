@@ -216,6 +216,9 @@ var util = {
             arrRank            : toNumber(data.product.arrRank),
             collarCast         : data.product.collarCast,
             collarCastNumber   : data.product.collarCastNumber,
+            fullName: data.publisher.fullName,
+            telephone: data.publisher.telephone,
+            address: data.publisher.address,
         }
     }
 };

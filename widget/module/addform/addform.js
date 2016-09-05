@@ -65,11 +65,6 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(){
-        if (this.data.options && this.data.options.disable === true) {
-            $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled',true);
-            $('select', this.vm.$el).prop('disabled', 'disabled');
-            $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
-        }
         let me = this;
         if($('select[data-key="publisherFk"]')){
             let publisherList  = enums.publisherFk;
@@ -86,6 +81,13 @@ var addform = Widget.extend({
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
+            if (this.data.options && this.data.options.disable === true) {
+                $('input', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
+                setTimeout(() => {
+                    $('select').attr('disabled', true);
+                }, 1200);
+                $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
+            }
         }
 
         // add pass radios select in validate page

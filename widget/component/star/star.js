@@ -9,7 +9,8 @@ require.loadCss({
 export default Vue.component('star', {
  	template: tpl,
  	props: {
- 		score: {default: 0}
+ 		score: {default: 0},
+ 		disable: {default: false}
  	},
  	data: () => ({
  		stars: [{selected: false}, {selected: false}, {selected: false}, {selected: false}, {selected: false}]
@@ -36,7 +37,9 @@ export default Vue.component('star', {
  	},
  	methods: {
  		selectStar: function (curIndex) {
- 			this.score = curIndex + 1;
+ 			if (!disable) {
+	 			this.score = curIndex + 1;
+ 			}
  		}
  	},
  	computed: {

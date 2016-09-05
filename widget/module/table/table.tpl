@@ -61,7 +61,7 @@
     	<div class="col-sm-5">
     		<div class="dataTables_info" id="tp_info" role="status" aria-live="polite">第 {{pageNo}} 页 ( 总共 {{totalPages}} 页，{{totalSize}}条记录 )</div>
     	</div>
-    	<div class="col-sm-7">
+    	<div class="col-sm-7" v-if="totalPages > 0">
     		<div class="dataTables_paginate paging_full_numbers" id="tp_paginate">
     			<ul class="pagination">
                     <!-- 首页 -->
@@ -77,7 +77,7 @@
                         <a href="javascript:;" aria-controls="tp" data-dt-idx="1" tabindex="0">«</a>
                     </li>
                     <li v-else class="paginate_button previous">
-                        <a href="#" aria-controls="tp" data-dt-idx="1" tabindex="0" @click="changePage(pageNo - 1)">«</a>
+                        <a href="javascript:;" aria-controls="tp" data-dt-idx="1" tabindex="0" @click="changePage(pageNo - 1)">«</a>
                     </li>
 
                     <!-- 中间页 -->

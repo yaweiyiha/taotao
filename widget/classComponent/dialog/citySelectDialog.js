@@ -37,13 +37,13 @@ class  citySelectDialog{
                     vm.hide();
                 },
                 confirm: () => {
-                    let ouput = {};
+                    let output = {};
 
                     if ($('.admin-widget-cityselect', this.$el).size()) {
-                        ouput.city = $('.admin-widget-cityselect textarea', this.$el).val();
+                        output.city = $('.admin-widget-cityselect textarea.output', this.$el).val();
                     }
 
-                    opts.onConfirm && opts.onConfirm(ouput);
+                    opts.onConfirm && opts.onConfirm(output);
                     vm.hide();
                 },
             }

@@ -21,7 +21,7 @@ export default Vue.component('date-control', {
         }
     },
     ready: function(){
-        $('.beginTime').datetimepicker({
+        $('.beginTime', this.$el).datetimepicker({
             language : 'zh-CN',
             format: 'yyyy-mm-dd',
             autoclose: true,
@@ -29,9 +29,9 @@ export default Vue.component('date-control', {
             todayHighlight: 1,
             startView: 2,
             minView: 2,
-            container: '.cnt-box'
+            container: '.cnt-box',
         });
-        $('.endTime').datetimepicker({
+        $('.endTime', this.$el).datetimepicker({
             language : 'zh-CN',
             format: 'yyyy-mm-dd',
             autoclose: true,
@@ -52,6 +52,7 @@ export default Vue.component('date-control', {
         },
         endTime : function () {
             if(this.endTime < this.beginTime){
+                this.endTime = '';
                 alertDialog.show("起始时间不能大于结束时间。");
             }
         }

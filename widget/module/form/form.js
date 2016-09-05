@@ -90,8 +90,8 @@ var form = Widget.extend({
             var ele = $(inputCollections[i]);
             var key = ele.attr('data-key');
             var val = ele.attr('data-values') || ele.val();
-            if (key && val) {
-                data[key] = val;
+            if (key) {
+                data[key] = val || '';
             }
         }
 
@@ -140,7 +140,6 @@ var form = Widget.extend({
             let url     =  me.data.url;
 
             let inputFilters = me.getInputFilters();
-
             let filters =  inputFilters && $.extend(inputFilters,filter);
             me._filters_ = Object.assign(me._filters_, filters);
             data = $.extend({param: me._filters_},{url : url});
@@ -148,9 +147,7 @@ var form = Widget.extend({
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-
             let alwaysParam   =  me.data.alwaysParam;
-            let inputFilters = me.getInputFilters()
 
             me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
             let url = me.data.url ||  me.data.submitUrl; 
@@ -168,13 +165,13 @@ var form = Widget.extend({
             }
         });
 
-        $('input:text').keyup( function () {
+        // $('input:text').keyup( function () {
 
-            if($(this).val() === '' || $(this).val() === undefined){
-                    me._filters_ = {};
-                    me.updateTable(me.data);
-            } 
-        });
+        //     if($(this).val() === '' || $(this).val() === undefined){
+        //             me._filters_ = {};
+        //             me.updateTable(me.data);
+        //     } 
+        // });
 
     },
     updateTable : function(data){
