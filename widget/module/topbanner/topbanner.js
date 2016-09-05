@@ -11,6 +11,8 @@ require.loadCss({
 
 var topbanner = Widget.extend({ 
     init : function(data){
+
+        var vm = this.display(data ,tpl ,'vue');
         //console.log(JSON.stringify(data.subFun));
         //索引
         Array.prototype.indexOf = function(val) { 

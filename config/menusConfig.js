@@ -26,7 +26,7 @@ window.menusConfig = {
 			name: '报表管理',
 			level2List: [
 				{ name:'分销产品销售报表', url:'#main/distripro/report', mark:"salesreport:list" },
-				{ name:'产品进度状态表', url:'#main/schedule/report', mark:"" },
+
 			]
 		}
 	]

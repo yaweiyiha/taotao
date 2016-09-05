@@ -11,9 +11,6 @@
             <div class="arrow" v-bind:class="{ 'down': showMenu }"></div>
             <ul class="user-menu" v-show="showMenu">
                 <li>
-                    <i class="icon-edit"></i>修改密码
-                </li>
-                <li>
                     <a href="logout" onclick="javascript:sessionStorage.clear();">
                         <i class="icon-off"></i>退出
                     </a>

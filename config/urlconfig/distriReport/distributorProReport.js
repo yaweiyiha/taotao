@@ -12,7 +12,7 @@ urlConfig['distripro/report'] =
 		'formlist' :[
 			[ 	
 				{ type : 'productDistri',wrapperClass: 'productDistri col-sm-5'},
-				{ key :'beginTime' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
+				{ startkey :'startDate' ,endkey: 'endDate' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
 				// { key :'orderNumber' ,name : '上架时间', wrapperClass : 'col-sm-4' ,   type : 'input'},
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
 			],
@@ -27,8 +27,22 @@ urlConfig['distripro/report'] =
 			{ name :'投资金额', width:"15%" ,key : 'totalAmount',  type:'nomal'},
 			{ name :'支付方式', width:"10%" ,key : 'paymentType',  type:'nomal'},
 			{ name :'佣金',     width:"10%", key : 'commission' ,  type:'nomal'},
+			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
-		// 'url': 'report/agentsales/list',
+		'showTable' : true,
+		'submitUrl': 'report/agentsales/list',
+		'operater' : {
+		    operaterList: [
+		    	[
+		    		{
+			 			content: {
+				 			name: ['详情'],
+				 			url: ['#distri/order/detail?id=', '{{ INTERFACE_DATA(id) }}']
+			 			},
+		    		},
+		    	]
+		    ]
+		},
 	},
 	'topbanner' : {
 		'title' : '报表管理',
