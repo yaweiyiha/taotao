@@ -40,13 +40,12 @@ var table = Widget.extend({
             } 
         };
 
-        // var arrPermissions = _permissions.split(',');
-        
-        // if($.inArray("product:edit",arrPermissions) !== -1){
+        /*var arrPermissions = _permissions.split(','); 
+        if($.inArray("product:edit",arrPermissions) !== -1){
 
-        // }else{
-        //     delete data.operater.statusIdDict[40];
-        // }
+        }else{
+            delete data.operater.statusIdDict[40];
+        }*/
 
         var arrPermissions = _permissions.split(',');
         //console.log(JSON.stringify(arrPermissions));
