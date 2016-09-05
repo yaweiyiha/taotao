@@ -47,8 +47,8 @@ var table = Widget.extend({
             delete data.operater.statusIdDict[40];
         }*/
 
-        // var arrPermissions = _permissions.split(',');
-        // //console.log(JSON.stringify(arrPermissions));
+        var arrPermissions = _permissions.split(',');
+        //console.log(JSON.stringify(arrPermissions));
         
         //产品审核权限，产品编辑权限，发行商详情权限，发行商编辑权限，发行商状态改变权限，分销签约审核权限，查看签约状态权限
         if(data.operater.operaterList){
@@ -68,6 +68,8 @@ var table = Widget.extend({
 
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
+        //console.log(JSON.stringify(this.processData(data).items));
+
         this._params_ = {};
         this._params_.url = data.url;
         this._params_.filters = Object.assign({pageSize: 10}, data.filters);
@@ -80,9 +82,8 @@ var table = Widget.extend({
             this._params_.filters.pageSize = this._initData_.param.pageSize;
         }
 
-        //console.log(JSON.stringify(myData));
-
         this.vm = this.display(myData, tpl ,'vue');
+
         this.bind();
 
     },
@@ -208,15 +209,13 @@ var table = Widget.extend({
         let me = this;
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
-    
         if(data.items){
             data.items.forEach(function (dataItem) {
                 dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
-            
                 if(data.hasProductUrl){
-        
                     let key = dataItem.categoryId || dataItem.productCategory;
                     dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
+                    
                 }
                 
             });
