@@ -16,22 +16,22 @@ var searchfilter = Widget.extend({
     init : function(data){
         //console.log(JSON.stringify(data.filters));
         //索引
-        Array.prototype.indexOf = function(val) { 
+       /* Array.prototype.indexOf = function(val) { 
             for (var i = 0; i < this.length; i++) { 
                 if (this[i] == val) return i; 
             } 
             return -1; 
-        };
+        };*/
 
         //删除
-        Array.prototype.remove = function(val) { 
+        /*Array.prototype.remove = function(val) { 
             var index = this.indexOf(val); 
             if (index > -1) { 
                 this.splice(index, 1); 
             } 
-        };
+        };*/
 
-        var arrPermissions = _permissions.split(',');
+        /*var arrPermissions = _permissions.split(',');
         
         if(data.filters){
             for(var i=0; i<data.filters.length; i++){
@@ -43,7 +43,7 @@ var searchfilter = Widget.extend({
                     }
                 }
             }  
-        }
+        }*/
 
         //展示数据
         this.vm = this.display(data ,tpl ,'vue');
