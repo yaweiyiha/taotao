@@ -58,11 +58,11 @@ urlConfig['sign/done'] =
 				'formlist'   : [
 					[ Dict.textList([
 						{name : '申请代销产品名称' , key : 'productName' ,subtype : 'text'},	
-						{name : '发行公司' ,key : 'publisherName' ,subtype : 'text'},	
+						{name : '发行公司' ,key : 'agentName' ,subtype : 'text'},	
 						{name : '佣金类型' ,key : 'commisionType',subtype : 'text'},	
 						{name : '佣金比例' ,key : 'fixedCommission',subtype : 'percent'},	
 						{name : '代销时间' ,key : ['applyStartDate','applyEndDate']  ,subtype:'doubleTime' },	
-						{name : '代销额度' ,key : 'applyQuota',subtype: 'text' },	
+						{name : '代销额度' ,key : 'applyQuota',subtype: 'applyQuota' },	
 						{name : '申请代销时间 ' ,key : 'createTime' ,subtype: 'singleTime'},	
 					])  , Dict.contractCopy ]
 				 ],

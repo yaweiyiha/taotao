@@ -28,7 +28,7 @@ urlConfig['distribut/maintenance'] =
 			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'pro'},
 			{ name :'申请方', width:"8%" ,key : 'agentName',type: 'nomal'},	
 			{ name :'类型', width:"8%" ,key : 'productCategory', type: 'productCategory' },
-			{ name :'申请额度', width:"8%" ,key: 'applyQuota',type: 'nomal' },
+			{ name :'申请额度', width:"8%" ,key: 'applyQuota',type: 'applyQuota' },
 			{ name :'申请代销开始日', width:"8%" ,key: 'updateTime' ,  type: 'time' },
 			{ name :'申请代销结束日', width:"8%" ,key: 'applyEndDate', type: 'time'},
 			{ name :'状态', width:"8%" ,key: 'applyState',type: 'applyState'},

@@ -48,23 +48,23 @@ var table = Widget.extend({
         //     delete data.operater.statusIdDict[40];
         // }
 
-        var arrPermissions = _permissions.split(',');
-        //console.log(JSON.stringify(arrPermissions));
+        // var arrPermissions = _permissions.split(',');
+        // //console.log(JSON.stringify(arrPermissions));
         
-        //产品编辑权限，发行商详情权限，发行商编辑权限，发行商状态改变权限，分销签约审核权限，查看签约状态权限
-        if(data.operater.operaterList){
-            for(var i=0; i<data.operater.operaterList.length; i++){
-                for(var j=0; j<data.operater.operaterList[i].length; j++){
-                    if(data.operater.operaterList[i][j].mark){
-                        if($.inArray(data.operater.operaterList[i][j].mark,arrPermissions) != -1){
-                            //console.log($.inArray(data.operater.operaterList[i][j].mark,arrPermissions));
-                        }else{
-                            data.operater.operaterList[i].remove(data.operater.operaterList[i][j]);
-                        }
-                    }
-                }
-            } 
-        }
+        // //产品编辑权限，发行商详情权限，发行商编辑权限，发行商状态改变权限，分销签约审核权限，查看签约状态权限
+        // if(data.operater.operaterList){
+        //     for(var i=0; i<data.operater.operaterList.length; i++){
+        //         for(var j=0; j<data.operater.operaterList[i].length; j++){
+        //             if(data.operater.operaterList[i][j].mark){
+        //                 if($.inArray(data.operater.operaterList[i][j].mark,arrPermissions) != -1){
+        //                     //console.log($.inArray(data.operater.operaterList[i][j].mark,arrPermissions));
+        //                 }else{
+        //                     data.operater.operaterList[i].remove(data.operater.operaterList[i][j]);
+        //                 }
+        //             }
+        //         }
+        //     } 
+        // }
 
 
         this._initData_ = Object.assign({}, data);
