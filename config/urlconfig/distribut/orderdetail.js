@@ -11,25 +11,24 @@ urlConfig['order/detail'] =
 			{	
 				'panelName' : '订单信息',
 				'formlist'   : [
-					[   Dict.baseText('下单时间', '' ,'orderCreateTimeValue'),
-						Dict.baseText('订单号', '','orderNo'),
+					[   Dict.baseDateText('下单时间', 'orderInfoOrderCreateTimeValue'),
+						Dict.baseText('订单号', 'orderInfoOrderNo'),
 					  
 				 	],
 				 	[ 
-				 		Dict.baseText('订单金额', '','totalAmount'),
-					    Dict.baseText('认购金额', '','orderAmount')
+				 		Dict.baseText('订单金额', 'orderInfoTotalAmount'),
+					    Dict.baseText('认购金额', 'orderInfoOrderAmount')
 				 	],
 				 ]
 			},
 			{	
 				'panelName' : '产品信息',
 				'formlist'   : [
-					[ 	Dict.baseText('产品名称', '','productName'),
-						Dict.baseText('认购金额', '' ,'orderAmount'),
+					[ 	Dict.baseText('产品名称', 'orderInfoProductName'),
+						Dict.baseText('认购金额', 'orderInfoOrderAmount'),
 					  
 				 	],[
-					 	 Dict.baseText('期限', '' ,'productTerm'),
-
+					 	 Dict.baseText('期限', 'orderInfoProductTerm'),
 				 	],				 
 				 ],
 			},
@@ -37,33 +36,33 @@ urlConfig['order/detail'] =
 				'panelName' : '投资人基本信息',
 				'formlist'   : [
 					[	
-						Dict.baseText('姓名', '' ,'name'),
-						Dict.baseText('性别', ''),
+						Dict.baseText('姓名' ,'investorName'),
+						Dict.baseText('性别', 'investorGender'),
 				 	],[
-					  	Dict.baseText('出生日期', ''),
-					  	Dict.baseText('手机', ''),
+					  	Dict.baseDateText('出生日期', 'investorDateOfBirth'),
+					  	Dict.baseText('手机', 'investorCellPhone'),
 	
 				 	],[
-				 		Dict.baseText('国籍', ''),
-					  	Dict.baseText('学历', '')
+				 		Dict.baseText('国籍', 'investorNationalityName'),
+					  	Dict.baseText('学历', 'investorDiplomaName')
 				 	],[
-				 		Dict.baseText('证件类型', ''),
-					  	Dict.baseText('证件号码', '')
+				 		Dict.baseText('证件类型', 'investorIdTypeName'),
+					  	Dict.baseText('证件号码', 'investorIdNumber')
 				 	],[
-				 		Dict.baseText('证件到期日', ''),
+				 		Dict.baseDateText('证件到期日', 'investorIdNumberExpiredDate'),
 
 				 	],[
-				 		Dict.baseText('联系地址', ''),
-					  	Dict.baseText('邮政编码', '')
+				 		Dict.baseText('联系地址', 'investorContactAddress'),
+					  	Dict.baseText('邮政编码', 'investorPostalCode')
 				 	],[
-				 		Dict.baseText('工作单位', ''),
+				 		Dict.baseText('工作单位', 'investorWorkPlace'),
 					  	Dict.baseText('第三方认证', '')
 				 	],[
-				 		Dict.baseText('职业', ''),
-					  	Dict.baseText('居住地址', '')
+				 		Dict.baseText('职业', 'investorOccupationName'),
+					  	Dict.baseText('居住地址', 'investorResidentialAddressArea')
 				 	],[
-				 		Dict.baseText('职务', ''),
-					  	Dict.baseText('固定电话', '')
+				 		Dict.baseText('职务', 'investorPosition'),
+					  	Dict.baseText('固定电话', 'investorTelephone')
 				 	]	 
 				 ],
 			},
@@ -71,38 +70,36 @@ urlConfig['order/detail'] =
 				'panelName' : '紧急情况',
 				'formlist'   : [
 					[	
-						Dict.baseText('紧急联系人姓名', '' ,'name'),
-						Dict.baseText('紧急联系人关系', ''),
+						Dict.baseText('紧急联系人姓名', 'orderInfoEmergencyName'),
+						Dict.baseText('紧急联系人关系', 'orderInfoEmergencyRelation'),
 				 	],[
-					  	Dict.baseText('紧急联系人证件类型', ''),
-					  	Dict.baseText('紧急联系人证件号码', ''),
+					  	Dict.baseText('紧急联系人证件类型', 'orderInfoEmergencyIdType'),
+					  	Dict.baseText('紧急联系人证件号码', 'orderInfoEmergencyIdNumber'),
 	
 				 	],[
-				 		Dict.baseText('持卡人姓名', ''),
+				 		Dict.baseText('持卡人姓名', 'paymentBankCardOwner'),
 				 	],[
-				 		Dict.baseText('银行名称', ''),
-					  	Dict.baseText('卡号', '')
+				 		Dict.baseText('银行名称', 'paymentBankBankName'),
+					  	Dict.baseText('卡号', 'paymentBankCardNumber')
 				 	],[
-				 		Dict.baseText('开卡地区', ''),
-				 		Dict.baseText('支行信息', ''),
+				 		Dict.baseText('开卡地区', 'paymentBankAreaFullName'),
+				 		Dict.baseText('支行信息', 'paymentBankAccountBranch'),
 
 				 	] 
 				 ],
 			},
-
-
 			{	
 				'panelName' : '汇款银行卡',
 				'formlist'   : [
 					[	
-						Dict.baseText('持卡人姓名', '' ,'name'),
+						Dict.baseText('持卡人姓名', 'paymentBankCardOwner'),
 				 	],[
-					  	Dict.baseText('银行名称', ''),
-					  	Dict.baseText('卡号', ''),
+					  	Dict.baseText('银行名称', 'paymentBankBankName'),
+					  	Dict.baseText('卡号', 'paymentBankCardNumber'),
 	
 				 	],[
-				 		Dict.baseText('开卡地区', ''),
-				 		Dict.baseText('支行信息', ''),
+				 		Dict.baseText('开卡地区', 'paymentBankAreaFullName'),
+				 		Dict.baseText('支行信息', 'paymentBankAccountBranch'),
 				 	]
 				 ],
 			},
@@ -124,5 +121,4 @@ urlConfig['order/detail'] =
 		{name : '返回',classList : 'primary', type : 'button', evt : 'back' },
 	],
 	'url' : 'report/agentsales/detail'
-
 }

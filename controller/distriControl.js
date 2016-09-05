@@ -7,7 +7,7 @@
 **/
 import Control from 'static/js/controller.js';
 import mainPageStructure  from 'config/pageStructure.js';
-
+import Util from 'widget/util/util'
 /**
  * mainPage own css
  */
@@ -66,12 +66,14 @@ class distriControl extends Control{
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
         // 
-        if( data.url !== '' &&  data.url !== undefined ){
-            let param = location.href.split('?')[1];
-            let url =  data.url + '?' + param;
-            me.getModel('distri',(model) => {
-                model.getData(url).then((res) => {
-                    me.getViews([me.widgets.distriform], $.extend(res,data));
+        if( data.url !== '' &&  data.url !== undefined){
+            let url =  `${Config.host}${data.url}/id=${_APP_HASH.id}`;
+            me.getModel('distri', (model) => {
+            
+            model.getData(url).then((res) => {
+                let dictData = {};
+                dictData.item = $.extend(res.item, me.processData(res.item));
+                me.getViews([me.widgets.distriform], $.extend(dictData,data));
                 });
             });
         }else{
@@ -80,6 +82,12 @@ class distriControl extends Control{
 
 
         listener.trigger('page', 'loaded', {info: 'load success'});
+    }
+
+    processData (data) {
+        let res = Util.flatData(data);
+
+        return res;
     }
 }
 
