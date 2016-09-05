@@ -42,7 +42,10 @@
                              {{text.name}} : {{item[text.key[0]] | datetime}} 至 {{item[text.key[1]] | datetime}}
                         </span>
                         <span v-if="text.subtype =='percent'">
-                             {{text.name}} : {{item[text.key]}} %
+                             {{text.name}} : {{item[text.key]}} <span v-if="item[text.key]">%</span>
+                        </span>
+                        <span v-if="text.subtype =='applyQuota'">
+                             {{text.name}} : {{item[text.key]}} <span v-if="item[text.key]">元</span>
                         </span>
                         <span v-if ="text.subtype =='text' ">
                              {{text.name}} : {{item[text.key]}}

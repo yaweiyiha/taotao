@@ -31,7 +31,7 @@ export default {
 					    options : ['万元','元','亿']},
 
 	'saleSize' 		:  { key :'offeringSize' , reg: '^\d+\.?\d*$', regError: '需要为数字', name : '可销售份额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入发行规模',isrequire : true}, 				 
- 	'proTerm' 		:  { key :'maturities' ,name : '产品期限', wrapperClass : 'col-md-4 prn' ,   brd : true,  type : 'input',placeholder : '请输入发行规模' , options : ['无']},
+ 	'proTerm' 		:  { key :'maturities' ,name : '产品期限', wrapperClass : 'col-md-4 prn' ,   brd : true,  type : 'input',placeholder : '请输入发行规模' , options : ['无'],isrequire : true},
  	'unitFkMaturities' 	    :  { key :'unitFkMaturities' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['天','自然月','自然季','自然年','非固定期限（不赎回则一直持有）','无', '不限期（前台投资人自选期限）'],value : [2100,2200,2300,2400,-3,-2,-1] , isNum : 1 },
  	'distriDate' 	:  { key :'dateRelease' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate'},
