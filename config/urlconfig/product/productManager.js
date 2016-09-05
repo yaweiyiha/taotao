@@ -57,7 +57,10 @@ urlConfig['product/maintenance'] =
 				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
 				 			url: ['#validatePro/', '{{ DICT(categoryId, pageDict)}}', '/validate?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
-			 		},
+			 			mark: 'product:audit'
+			 		}
+			 	],
+			 	[
 			 		{
 			 			condition: '{{ equal(statusId, 30) }}',
 			 			content: {
@@ -66,13 +69,17 @@ urlConfig['product/maintenance'] =
 				 			evt: ['errReasonDailog'],
 				 			val: ['{{ INTERFACE_DATA(verifyDenyReason) }}']
 			 			},
-			 		},
+			 			mark: ''
+			 		}
+			 	],
+			 	[
 			 		{
 			 			condition: '{{ equal(statusId, 40) }}',
 			 			content: {
 				 			name: ['{{ DICT(statusId, statusIdDict) }}'],
 				 			url: ['#editPro/', '{{ DICT(categoryId, pageDict)}}', '/edit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
+			 			mark: 'product:edit'
 			 		}		 		
 		 		]
 		 	]

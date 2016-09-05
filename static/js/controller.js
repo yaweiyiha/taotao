@@ -92,7 +92,7 @@ export default class Control{
      * @return {Object}
      */
     createPageStructure(structure = '', widgets = [], container = '#main') {
-        console.log(container);
+        //console.log(container);
         container = $(container);
         container.empty();
 

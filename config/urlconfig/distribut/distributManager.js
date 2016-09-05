@@ -50,27 +50,37 @@ urlConfig['distribut/maintenance'] =
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
 				 			url: ['#distri/sign/validate?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
-		    		},
+			 			mark: 'agentsales:audit'
+		    		}
+		    	],
+		    	[
 		    		{
 			 			condition: '{{ equal(applyState, 20) }}',
 			 			content: {
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
 				 			url: ['#distri/sign/reject?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
-		    		},
+			 			mark: 'agentsales:detail'
+		    		}
+		    	],
+		    	[
 		    		{
 			 			condition: '{{ equal(applyState, 30) }}',
 			 			content: {
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
 				 			url: ['#distri/sign/reject?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
-		    		},
+			 			mark: 'agentsales:detail'
+		    		}
+		    	],
+		    	[
 		    		{
 			 			condition: '{{ equal(applyState, 40) }}',
 			 			content: {
 				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
 				 			url: ['#distri/sign/done?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
+			 			mark: 'agentsales:detail'
 		    		}
 		    	]
 		    ]
