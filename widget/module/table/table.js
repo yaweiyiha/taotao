@@ -24,6 +24,15 @@ var table = Widget.extend({
         totolSize: '0',
     }, 
     init: function (data) {
+        //console.log(JSON.stringify(data.operater.statusIdDict));
+        var arrPermissions = _permissions.split(',');
+        
+        if($.inArray("product:edit",arrPermissions) != -1){
+            //console.log($.inArray("product:edit",arrPermissions));
+        }else{
+            delete data.operater.statusIdDict[40];
+        }
+
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
         // console.log(myData);
