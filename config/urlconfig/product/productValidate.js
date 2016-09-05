@@ -157,7 +157,7 @@ urlConfig['trust/validate'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
@@ -240,7 +240,7 @@ urlConfig['asset/validate'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
@@ -312,7 +312,7 @@ urlConfig['debtassgin/validate'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],
@@ -385,7 +385,7 @@ urlConfig['equityInvestment/validate'] =
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.productCommSet ],
+					[	elementDict.commissionType ],
 				],
 			},
 		],

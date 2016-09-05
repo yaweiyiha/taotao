@@ -29,6 +29,7 @@ urlConfig['distripro/report'] =
 			{ name :'佣金',     width:"10%", key : 'commission' ,  type:'nomal'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
+		'page': 'report',
 		'showTable' : true,
 		'submitUrl': 'report/agentsales/list',
 		'operater' : {
@@ -55,5 +56,7 @@ urlConfig['distripro/report'] =
 	// 		options : ['钱橙','环球财富','祥云资产管理','资管','信托','会员精选','股权投资','海外保险'] ,type : 'filter' },
 	// 	// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 	// ],
-	'needback' : false
+	'needback' : false,
+
+
 }

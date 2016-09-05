@@ -29,8 +29,31 @@
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} :
-                    <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
+
+      <!--               <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
                     <span v-else>{{item[li.key]}}</span>
+ -->
+                        <span v-if="li.subtype =='singleTime'">
+                              {{item[li.key] | datetime}}
+                        </span>
+                        <span v-if="li.subtype =='doubleTime'">
+                              {{item[li.key[0]] | datetime}} 至 {{item[li.key[1]] | datetime}}
+                        </span>
+                        <span v-if="li.subtype =='percent'">
+                              {{item[li.key]}} <span v-if="item[li.key].toString()">%</span>
+                        </span>
+                        <span v-if="li.subtype =='applyQuota'">
+                              {{item[li.key]}} <span v-if="item[li.key]">元</span>
+                        </span>
+                        <span v-if="li.subtype =='commisionType'">
+                              {{item[li.key] | commisionType}} 
+                        </span>
+                        <span v-if="li.subtype =='applyState'">
+                              {{item[li.key] | applyStates}} 
+                        </span>
+                        <span v-if ="li.subtype =='text' ">
+                             {{item[li.key]}}
+                        </span>
                     </div>
                   </div>
                   <div v-if="li.type === 'textList'" class="form-group input-group text">
@@ -42,15 +65,17 @@
                              {{text.name}} : {{item[text.key[0]] | datetime}} 至 {{item[text.key[1]] | datetime}}
                         </span>
                         <span v-if="text.subtype =='percent'">
-                             {{text.name}} : {{item[text.key]}} <span v-if="item[text.key]">%</span>
+                             {{text.name}} : {{item[text.key]}} <span v-if="item[text.key].toString()">%</span>
                         </span>
                         <span v-if="text.subtype =='applyQuota'">
                              {{text.name}} : {{item[text.key]}} <span v-if="item[text.key]">元</span>
                         </span>
+                        <span v-if="text.subtype =='commisionType'">
+                             {{text.name}} : {{item[text.key] | commisionType}} 
+                        </span>
                         <span v-if ="text.subtype =='text' ">
                              {{text.name}} : {{item[text.key]}}
                         </span>
-
                     </div>
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">

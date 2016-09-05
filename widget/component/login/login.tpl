@@ -2,7 +2,7 @@
 <div class="asset-widget-login">
 	<div class="header">
 		<div class="logo"></div>
-		<h1>资产集市</h1>
+		<h1>祺鲲资产集市</h1>
 	</div>
 	<div class="form">
 		<form name="loginform" action="login" method="post" enctype="x-www-form-urlencoded">

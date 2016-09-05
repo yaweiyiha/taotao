@@ -4,9 +4,9 @@ import Dict from 'config/dict/distribut-dict'
 urlConfig['sign/validate'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
-		'thirdTitle' : '新增基金产品',
+		'title' : '分销管理',
+		'subtitle' : {'name': '分销签约管理', url : '#main/distribut/maintenance' }, 
+		'thirdTitle' : '签约审核',
 		'key' : '产品维护',
 	},	
 	'forms' : [
@@ -49,7 +49,7 @@ urlConfig['sign/done'] =
 {
 	'topbanner' : {
 		'title' : '分销管理',
-		'subtitle' : {'name': '分销签约管理', url : '' }, 
+		'subtitle' : {'name': '分销签约管理', url : '#main/distribut/maintenance' }, 
 		'thirdTitle' : '代销已签约',
 	},
 	'forms' : [
@@ -59,7 +59,7 @@ urlConfig['sign/done'] =
 					[ Dict.textList([
 						{name : '申请代销产品名称' , key : 'productName' ,subtype : 'text'},	
 						{name : '发行公司' ,key : 'agentName' ,subtype : 'text'},	
-						{name : '佣金类型' ,key : 'commisionType',subtype : 'text'},	
+						{name : '佣金类型' ,key : 'commisionType',subtype : 'commisionType'},	
 						{name : '佣金比例' ,key : 'fixedCommission',subtype : 'percent'},	
 						{name : '代销时间' ,key : ['applyStartDate','applyEndDate']  ,subtype:'doubleTime' },	
 						{name : '代销额度' ,key : 'applyQuota',subtype: 'applyQuota' },	
@@ -76,24 +76,24 @@ urlConfig['sign/reject'] =
 {
 	'topbanner' : {
 		'title' : '分销管理',
-		'subtitle' : {'name': '分销签约管理', url : '' }, 
+		'subtitle' : {'name': '分销签约管理', url : '#main/distribut/maintenance' }, 
 		'thirdTitle' : '拒绝代销签约',
 	},
 	'forms' : [
 			{	
-				'panelName' : '基本信息',
+				'panelName' : '线上申请内容',
 				'formlist'   : [
-					[ Dict.baseText('申请代销产品名称','','productName')],
-					[ Dict.baseText('申请分销商','','productName')],
-					[ Dict.baseText('申请代销时间','')],
-					[ Dict.baseText('申请代销额度','','applyQuota')],
+					[ Dict.baseText('申请代销产品名称','productName','','text')],
+					[ Dict.baseText('申请分销商','agentName','','text')],
+					[ Dict.baseText('申请代销时间' ,['applyStartDate','applyEndDate'],'','doubleTime')],
+					[ Dict.baseText('申请代销额度','applyQuota','','applyQuota')],
 				 ],
 			},
 			{	
-				'panelName' : '支付信息',
+				'panelName' : '状态',
 				'formlist'   : [
-					[ Dict.baseText('签约状态','','applyState')],
-					[ Dict.baseText('拒绝原因','','rejectReason')],
+					[ Dict.baseText('签约状态','applyState','','applyState')],
+					[ Dict.baseText('拒绝原因','rejectReason','','rejectReason')],
 				 ],
 			},
 	],

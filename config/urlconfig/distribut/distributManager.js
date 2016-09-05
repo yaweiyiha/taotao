@@ -38,7 +38,6 @@ urlConfig['distribut/maintenance'] =
 		'operater' : {
 		    applyStateDict: {
 		 		'10': '签约审核',
-		 		'20': '查看签约状态',
 		 		'30': '查看签约状态',
 		 		'40': '查看签约状态'
 		    },
@@ -51,16 +50,6 @@ urlConfig['distribut/maintenance'] =
 				 			url: ['#distri/sign/validate?id=', '{{ INTERFACE_DATA(id) }}']
 			 			},
 			 			mark: 'agentsales:audit'
-		    		}
-		    	],
-		    	[
-		    		{
-			 			condition: '{{ equal(applyState, 20) }}',
-			 			content: {
-				 			name: ['{{ DICT(applyState, applyStateDict) }}'],
-				 			url: ['#distri/sign/reject?id=', '{{ INTERFACE_DATA(id) }}']
-			 			},
-			 			mark: 'agentsales:detail'
 		    		}
 		    	],
 		    	[
@@ -97,7 +86,7 @@ urlConfig['distribut/maintenance'] =
 	},
 	'filters' : [
 		{ key :'productCategoryId', name : '类型', wrapperClass : 'col-sm-6' , 
-		  	options : ['全部','基金','资管','信托','债券转让','股权投资'], values: [-1, 10, 30, 40, 60, 70], type : 'filter' },
+		  	options : ['全部','基金','资管','信托','债权转让','股权投资'], values: [-1, 10, 30, 40, 60, 70], type : 'filter' },
 		{ key :'applyState', name : '状态',  wrapperClass : 'col-md-6',
 			options : ['全部','代销已签约','签约审核','对方取消申请','拒绝签约'], values: [-1, 40, 10, 20, 30] ,type : 'filter'},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},

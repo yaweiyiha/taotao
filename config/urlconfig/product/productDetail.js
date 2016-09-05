@@ -262,7 +262,7 @@ urlConfig['debtassgin/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '债券转让产品详情',
+		'thirdTitle' : '债权转让产品详情',
 		'key' : '产品维护',
 	},
 	'options' : {

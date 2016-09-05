@@ -237,7 +237,7 @@ urlConfig['debtassgin/add'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增债券转让产品',
+		'thirdTitle' : '新增债权转让产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [

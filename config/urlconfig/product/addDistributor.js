@@ -4,7 +4,7 @@ urlConfig['distributor/add'] =
 {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增发行商',
 		'key' : '产品维护',
 	},
@@ -32,7 +32,7 @@ urlConfig['distributor/view'] =
 {
 	'topbanner' : {
 		'title' : '发行商管理',
-		'subtitle' : {'name': '查看', url : '' }, 
+		'subtitle' : {'name': '查看', url : '#main/distributors/maintenance' }, 
 		'thirdTitle' : '发行商查看',
 		'key' : '产品维护',
 	},
@@ -55,7 +55,7 @@ urlConfig['distributor/edit'] =
 {
 	'topbanner' : {
 		'title' : '发行商管理',
-		'subtitle' : {'name': '查看', url : '' }, 
+		'subtitle' : {'name': '查看', url : '#main/distributors/maintenance' }, 
 		'thirdTitle' : '发行商查看',
 		'key' : '产品维护',
 	},
@@ -71,10 +71,11 @@ urlConfig['distributor/edit'] =
 		]
 	],
 	'buttons': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
+		{name : '保存',classList : 'primary', type : 'button', evt : 'submit' ,},
 	],
 	'url' : 'publisher/detail',
 	'submiturl' : 'publisher/edit',
+	 'backPage' : "#main/distributors/maintenance",
 	'param' : 'id',
 	'useProcessData' : false,
 }

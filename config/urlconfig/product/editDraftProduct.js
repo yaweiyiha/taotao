@@ -6,7 +6,7 @@ urlConfig['fund/draftedit'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增基金产品',
+		'thirdTitle' : '编辑基金产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [
@@ -81,7 +81,7 @@ urlConfig['trust/draftedit'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增信托产品',
+		'thirdTitle' : '编辑信托产品',
 		'key' : '产品维护',
 		'subFun' : [
 			{'key' : '保存' , evt :'save'},
@@ -169,7 +169,7 @@ urlConfig['asset/draftedit'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增资管产品',
+		'thirdTitle' : '编辑资管产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [
@@ -243,7 +243,7 @@ urlConfig['debtassgin/draftedit'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增债券转让产品',
+		'thirdTitle' : '编辑债权转让产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [
@@ -312,7 +312,7 @@ urlConfig['equityInvestment/draftedit'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增股权投资产品',
+		'thirdTitle' : '编辑股权投资产品',
 		'key' : '产品维护',
 	},
 	'tabs' : [

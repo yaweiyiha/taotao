@@ -150,9 +150,11 @@ var form = Widget.extend({
         $('.panel-body').on('click', '[data-role=submit]', function () {
 
             let alwaysParam   =  me.data.alwaysParam;
+            let inputFilters = me.getInputFilters()
+
             me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
             let url = me.data.url ||  me.data.submitUrl; 
-
+            me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
 

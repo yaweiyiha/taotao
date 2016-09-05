@@ -23,6 +23,7 @@ urlConfig['product/draft'] =
 		'host' : 'index.html#main/',
 		'tables' : [
 			{ name :'产品名称', width:"8%" ,key : 'name' ,type:'nomal'},
+			{ name :'提交人', width:"8%" ,key : 'categoryName',type:'nomal'},
 			{ name :'类型', width:"8%" ,key : 'categoryName',type:'nomal'},
 			{ name :'产品状态', width:"8%",key : 'salesStatusName' ,type:'nomal'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},

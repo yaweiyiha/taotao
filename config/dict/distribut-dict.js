@@ -20,6 +20,6 @@ export default {
  	'transferCertificate'  :   { key :'posUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
 
  	'baseDateText'  : (name, key = '', value = '') => ({ key :key, name : name , value: value, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
- 	'baseText'  : (name, key = '', value = '') => ({ key :key, name : name , value: value, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
+ 	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),
  }

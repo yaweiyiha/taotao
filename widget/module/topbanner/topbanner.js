@@ -30,7 +30,7 @@ var topbanner = Widget.extend({
             } 
         };
 
-        let res  = this.processData(data);
+         let res  = this.processData(data);
         arrPermissions = _permissions.split(',');
         if(res.subFun){
             for(var i=res.subFun.length-1; i>=0; i--){

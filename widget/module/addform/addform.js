@@ -157,7 +157,7 @@ var addform = Widget.extend({
 
             let model = new formModel();
             model.getData(url,data,'POST').then((res) => {
-                window.history.back();
+                window.location.href = me.data.backPage;
             });
         });
 

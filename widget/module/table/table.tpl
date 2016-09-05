@@ -35,7 +35,7 @@
 				<tr role="row">
 					<template v-for="(i,t) in tables">
                         <td v-if="t.type === 'nomal'" >
-                            {{item[t.key]}}
+                            <span v-if="item[t.key]">{{item[t.key]}}</span>
                         </td>
                         <td v-if="t.type === 'pro'">
                             <a v-if="item._detailUrl_" href="{{item._detailUrl_}}" class="detailUrl">{{item[t.key]}}</a>
@@ -138,4 +138,12 @@
     		</div>
     	</div>
     </div>
+    <div class="report-item">
+        <div v-if="page=='report' && extraInfo "  >
+            <span>总投资金额：{{extraInfo.totalInvestmentAmount}}万</span>   
+            <span>总佣金：{{extraInfo.totalCommission}}万</span>
+            <button class="custom-button loadDownExcel" >下载Excel</button>
+        </div>
+    </div>
+
 </div>

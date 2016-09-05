@@ -40,7 +40,7 @@ class Router {
         let uriParams = Url.getUriParams();
         // let params = Url.getParams();
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
-        let page = uriParams.join('/') || 'distribut/maintenance';
+        let page = uriParams.join('/') || 'product/maintenance';
         window._APP_HASH = Url.urlToJSON();
         window._APP_HASH._uri_ = page;
         window._APP_HASH._page_ = hash;

@@ -3,7 +3,7 @@ import Dict from 'config/dict/product-dict'
 urlConfig['fund/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑基金产品',
 	},
 	'forms' : [
@@ -47,7 +47,7 @@ urlConfig['fund/edit'] = {
 urlConfig['asset/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑资管产品',
 		'key' : '产品维护',
 	},
@@ -88,7 +88,7 @@ urlConfig['asset/edit'] = {
 urlConfig['trust/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑信托产品',
 		'key' : '产品维护',
 	},
@@ -123,7 +123,7 @@ urlConfig['trust/edit'] = {
 urlConfig['debtassgin/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑股权转让产品',
 		'key' : '产品维护',
 	},
@@ -156,7 +156,7 @@ urlConfig['debtassgin/edit'] = {
 urlConfig['equityInvestment/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '' }, 
+		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑股权投资产品',
 		'key' : '产品维护',
 	},

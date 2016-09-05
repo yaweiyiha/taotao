@@ -1,5 +1,8 @@
 Vue.filter('datetime', function (n) {
 
+	if(!n){
+		return;
+	}
     var date = new Date(n);
     
     let timeArr = [YYYY,MM,DD] = [date.getFullYear() , 

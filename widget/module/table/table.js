@@ -5,6 +5,7 @@ import productCategory from 'widget/filter/productCategory.js'
 import applyState from 'widget/filter/applyState.js'
 import distributorStatus from 'widget/filter/distributorStatus.js'
 import AlertDialog from "widget/classComponent/dialog/alert.js"
+import Util from "widget/util/util"
 
 var style = __inline('./table.inline.less');
 var tpl = __inline('./table.tpl');
@@ -22,6 +23,7 @@ var table = Widget.extend({
         pageNo: 1,
         totalPages: 1,
         totolSize: '0',
+        extraInfo: {}
     }, 
     init: function (data) {
         //console.log(JSON.stringify(data.operater));
@@ -217,6 +219,11 @@ var table = Widget.extend({
             });
         }
 
+        if (data.totalInvestmentAmount) {
+            data.extraInfo = {};
+            data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
+            data.extraInfo.totalCommission = data.totalCommission;
+        }
         return data;
     },
     render :function(){
@@ -288,6 +295,14 @@ var table = Widget.extend({
 
         });
 
+        $('.report-item').on('click', '.loadDownExcel' ,function(){
+    
+            let param = me.submitData.param;
+            let url = `report/agentsales/excel?productId=${param.name}&agentId=${param.distributor}&startDate=${param.startDate}&endDate=${param.endDate}`;
+            window.location.href = url;
+        });
+
+
     },
     getData :function(url,param) {
         var me = this;
@@ -315,7 +330,9 @@ var table = Widget.extend({
     },
     updateTableData: function (data) {
         var me = this;
+        me.submitData = data;
         let model = new tableModel();
+
         model.getData(data.url ,data.param).then((res) => {  
             if (res.msg === 'success') {
                 let totalPages = Math.ceil(res.totalSize / res.pageSize);
@@ -327,6 +344,7 @@ var table = Widget.extend({
 
                 res = me.processData(Object.assign(me._initData_, res));
                 this.vm.$set('items', res.items);
+                this.vm.$set('extraInfo', res.extraInfo);
             }
         });
     },

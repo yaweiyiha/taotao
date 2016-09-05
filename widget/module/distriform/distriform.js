@@ -5,7 +5,9 @@ import Star from 'widget/component/star/star';
 import CommType from 'widget/component/commtype/commtype';
 import singledate from  'widget/component/singledate/singledate';
 import Util from  'widget/util/util';
-import datetime from 'widget/filter/datetime.js';
+import datetime from 'widget/filter/datetime';
+import commisionType from 'widget/filter/commisionType';
+import applyStates from 'widget/filter/applyStates';
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -49,7 +51,6 @@ var distriform = Widget.extend({
         me.previewImage(this, imageContainer.get(0));
       });
 
-
       //完成签约
       $(this.vm.$el).on('click' ,'[data-role=finishSigned]', function () {
         let data = new FormData();
@@ -78,8 +79,7 @@ var distriform = Widget.extend({
             processData: false,
             type: 'POST',
             success: function(data){
-                if(data.mgs === 'success') {
-                  debugger
+                if(data.status === 1) {
                     window.location.href = "#main/distribut/maintenance";
                 }
             }
@@ -98,7 +98,7 @@ var distriform = Widget.extend({
             type: 'POST',
             success: function(data){
               if (data.msg === 'success') {
-                history.back();
+                window.location.href = "#main/distribut/maintenance";
               }
             }
         });
@@ -136,18 +136,6 @@ var distriform = Widget.extend({
               }
               reader.readAsDataURL(file.files[0]);
           }
-          else //兼容IE
-          {
-            // var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-            // file.select();
-            // var src = document.selection.createRange().text;
-            // div.innerHTML = '<img id=imghead>';
-            // var img = document.getElementById('imghead');
-            // img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-            // var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-            // status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-            // div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
-          }
     },
 
     clacImgZoomParam : function( maxWidth, maxHeight, width, height ){
@@ -173,7 +161,9 @@ var distriform = Widget.extend({
         return param;
     },
     filters : {
-        datetime : datetime ,
+        datetime      : datetime ,
+        commisionType : commisionType,
+        applyStates   : applyStates,
     },
     methods:{
         back : () => {
