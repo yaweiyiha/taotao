@@ -86,13 +86,13 @@ urlConfig['product/maintenance'] =
 		'drafts' : '#main/product/draft',
 	},
 	'filters' : [
-		{ key :'categoryId', name : '产品类型', wrapperClass : 'col-sm-6' , 
+		{ key :'categoryId', name : '产品类型', wrapperClass : 'col-sm-6' , mark:'',
 			options : ['全部','基金','资管','信托','债权转让','股权投资'] ,values: [-1, 10, 30, 40, 60, 70],type : 'filter' },
-		{ key :'salesStatusId', name : '产品状态',  wrapperClass : 'col-md-6',
+		{ key :'salesStatusId', name : '产品状态',  wrapperClass : 'col-md-6',mark:'',
 			options : ['全部','在售','预售','售罄','已结束','执行中','募集失败'] ,values: [-1, 10, 20, 30, 60, 70,80],type : 'filter'},
-		{ key :'statusId', name : '审核状态' , wrapperClass :'col-md-6' ,
+		{ key :'statusId', name : '审核状态' , wrapperClass :'col-md-6' ,mark:'product:audit',
 			options : ['全部','待审核','审核失败','审核通过'] , values: [-1, 20, 30, 40],type : 'filter'},	
-		{ key :'available', name : '上下架状态', wrapperClass: 'col-md-6',
+		{ key :'available', name : '上下架状态', wrapperClass: 'col-md-6',mark:'',
 		  options : ['全部','上架','下架'] , values: [-1, 10, 20],type : 'filter',},
 	],
 	

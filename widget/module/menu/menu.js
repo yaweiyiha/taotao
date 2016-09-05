@@ -31,6 +31,7 @@ var menu = Widget.extend({
 		};
     	
     	var arrPermissions = _permissions.split(',');
+    	
     	if(data.menus){
     		for(var i=0;i<data.menus.length;i++){
     			if(data.menus[i].level2List){
