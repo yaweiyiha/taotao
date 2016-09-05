@@ -40,14 +40,7 @@ var table = Widget.extend({
             } 
         };
 
-        /*var arrPermissions = _permissions.split(','); 
-        if($.inArray("product:edit",arrPermissions) !== -1){
-
-        }else{
-            delete data.operater.statusIdDict[40];
-        }*/
-
-        var arrPermissions = _permissions.split(',');
+        arrPermissions = _permissions.split(',');
         //console.log(JSON.stringify(arrPermissions));
         
         //产品审核权限，产品编辑权限，发行商详情权限，发行商编辑权限，发行商状态改变权限，分销签约审核权限，查看签约状态权限
@@ -68,7 +61,6 @@ var table = Widget.extend({
 
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
-        //console.log(JSON.stringify(this.processData(data).items));
 
         this._params_ = {};
         this._params_.url = data.url;
@@ -83,7 +75,7 @@ var table = Widget.extend({
         }
 
         this.vm = this.display(myData, tpl ,'vue');
-
+        this.render();
         this.bind();
 
     },
@@ -210,18 +202,32 @@ var table = Widget.extend({
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
         if(data.items){
+
             data.items.forEach(function (dataItem) {
                 dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
                 if(data.hasProductUrl){
                     let key = dataItem.categoryId || dataItem.productCategory;
-                    dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
-                    
+                    if($.inArray('product:detail',arrPermissions) != -1){
+                        dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
+                    }else{
+                        dataItem['_detailUrl_'] = `javascript:;`;
+                    }
                 }
                 
             });
         }
 
         return data;
+    },
+    render :function(){
+        if($.inArray('product:detail',arrPermissions) != -1){
+            
+        }else{
+            $('.detailUrl').css({
+                'color': '#686868',
+                'font-weight': 'normal'
+            });
+        }
     },
     productDict: {
         10: "fund",

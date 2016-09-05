@@ -38,7 +38,7 @@
                             {{item[t.key]}}
                         </td>
                         <td v-if="t.type === 'pro'">
-                            <a v-if="item._detailUrl_" href="{{item._detailUrl_}}">{{item[t.key]}}</a>
+                            <a v-if="item._detailUrl_" href="{{item._detailUrl_}}" class="detailUrl">{{item[t.key]}}</a>
                         </td>
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
