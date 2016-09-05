@@ -67,7 +67,7 @@ var addform = Widget.extend({
     render : function(){
         if (this.data.options && this.data.options.disable === true) {
             $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled',true);
-            // $('select', this.vm.$el).prop('disabled', 'disabled');
+            $('select', this.vm.$el).prop('disabled', 'disabled');
             $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
         }
         let me = this;

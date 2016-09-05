@@ -1,10 +1,10 @@
 Vue.filter('applyState', function (applyID) {
 	
     let applyStateArr = {
-    	10 : '代销方发起签约',
-    	20 : '代销方取消',
-    	30 : '委托方取消',
-    	40 : '签约完成',
+    	10 : '签约审核',
+    	20 : '对方取消签约',
+    	30 : '决绝签约',
+    	40 : '代销已签约',
     }
 
     return applyStateArr[applyID];

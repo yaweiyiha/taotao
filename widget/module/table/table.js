@@ -25,13 +25,13 @@ var table = Widget.extend({
     }, 
     init: function (data) {
 
-        var arrPermissions = _permissions.split(',');
+        // var arrPermissions = _permissions.split(',');
         
-        if($.inArray("product:edit",arrPermissions) != -1){
-            
-        }else{
-            delete data.operater.statusIdDict[40];
-        }
+        // if($.inArray("product:edit",arrPermissions) !== -1){
+
+        // }else{
+        //     delete data.operater.statusIdDict[40];
+        // }
 
         this._initData_ = Object.assign({}, data);
         let myData = $.extend(data, this.processData(data));
@@ -275,10 +275,8 @@ var table = Widget.extend({
     },
     updateTableData: function (data) {
         var me = this;
-        debugger
         let model = new tableModel();
         model.getData(data.url ,data.param).then((res) => {  
-            debugger
             if (res.msg === 'success') {
                 let totalPages = Math.ceil(res.totalSize / res.pageSize);
                 let pages = me.calculateIndexes(res.pageNo, totalPages, 5);

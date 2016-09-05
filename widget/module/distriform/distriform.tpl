@@ -128,7 +128,6 @@
           </div>
         </template>
       </template>
-<!--       <input type="file" class="custom-button fun-button" value="添加文件"> -->
       
       <div class="attachment-view-wrapper" style="display:none">
         <div class="box">
@@ -142,9 +141,14 @@
         </div>
       </div>
       <div class="tac">
+                    <div class = 'row'>
           <template v-for="bt in buttonlist">
-              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" >{{bt.name}}</button> 
+              <div class= "col-md-6 pln prn">
+                  <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" >{{bt.name}}</button> 
+                  <span v-if="bt.needAlt" class="alt-info">{{bt.alt}}</span>
+              </div>
           </template> 
+              </div>
       </div>
   </div>
 </div>

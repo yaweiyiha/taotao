@@ -89,7 +89,7 @@ urlConfig['distribut/maintenance'] =
 		{ key :'productCategoryId', name : '类型', wrapperClass : 'col-sm-6' , 
 		  	options : ['全部','基金','资管','信托','债券转让','股权投资'], values: [-1, 10, 30, 40, 60, 70], type : 'filter' },
 		{ key :'applyState', name : '状态',  wrapperClass : 'col-md-6',
-			options : ['全部','签约完成','代销方发起签约','代销方取消','委托方取消'], values: [-1, 40, 10, 20, 30] ,type : 'filter'},
+			options : ['全部','代销已签约','签约审核','对方取消申请','拒绝签约'], values: [-1, 40, 10, 20, 30] ,type : 'filter'},
 		// { key :'beginTime' , wrapperClass: 'col-sm-12 date-control' ,type : 'time'},
 
 	],

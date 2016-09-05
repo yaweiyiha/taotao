@@ -6,7 +6,7 @@ urlConfig['fund/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增基金产品',
+		'thirdTitle' : '基金产品详情',
 		'key' : '产品维护',
 	},
 	'tabs' : [
@@ -86,7 +86,7 @@ urlConfig['trust/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增信托产品',
+		'thirdTitle' : '信托产品详情',
 		'key' : '产品维护',
 		'subFun' : [
 			{'key' : '保存' , evt :'save'},
@@ -180,7 +180,7 @@ urlConfig['asset/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增资管产品',
+		'thirdTitle' : '资管产品详情',
 		'key' : '产品维护',
 	},
 	'options' : {
@@ -262,7 +262,7 @@ urlConfig['debtassgin/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增债券转让产品',
+		'thirdTitle' : '债券转让产品详情',
 		'key' : '产品维护',
 	},
 	'options' : {
@@ -338,7 +338,7 @@ urlConfig['equityInvestment/detail'] =
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '新增股权投资产品',
+		'thirdTitle' : '股权投资产品详情',
 		'key' : '产品维护',
 	},
 	'tabs' : [

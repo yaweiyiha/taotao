@@ -154,7 +154,6 @@ var form = Widget.extend({
             let url = me.data.url ||  me.data.submitUrl; 
 
             data = $.extend({param: me._filters_},{url : url});
-            debugger
             me.updateTable(data);
 
         });
