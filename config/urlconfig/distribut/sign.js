@@ -13,10 +13,10 @@ urlConfig['sign/validate'] =
 			{	
 				'panelName' : '线上申请内容',
 				'formlist'   : [
-					[ Dict.appProName ],
-					[ Dict.appDistri  ],
-					[ Dict.appTime    ],
-					[ Dict.appAmount  ],
+					[ Dict.baseText('申请代销产品名称','productName','','text')],
+					[ Dict.baseText('申请分销商','agentName','','text')],
+					[ Dict.baseText('申请代销时间' ,['applyStartDate','applyEndDate'],'','doubleTime')],
+					[ Dict.baseText('申请代销额度','applyQuota','','applyQuota')],
 				 ],
 			},
 

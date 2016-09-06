@@ -145,6 +145,7 @@ var util = {
 
         return valid;
     },
+
     getCustomElement: (el) => {
         let list = [];
         el.each(function (index, item) {
@@ -216,9 +217,11 @@ var util = {
             arrRank            : toNumber(data.product.arrRank),
             collarCast         : data.product.collarCast,
             collarCastNumber   : data.product.collarCastNumber,
+            equity : data.product.equity,
             fullName: data.publisher.fullName,
             telephone: data.publisher.telephone,
             address: data.publisher.address,
+
         }
     }
 };

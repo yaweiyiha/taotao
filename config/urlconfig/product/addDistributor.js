@@ -24,7 +24,9 @@ urlConfig['distributor/add'] =
 	'buttons': [
 		{name : '确认新增',classList : 'primary', type : 'button', evt : 'submit'},
 	],
-	'submiturl' : 'publisher/add'
+	'submiturl' : 'publisher/add',
+	'backPage' : '#main/distributors/maintenance',
+	'successMgs' : '添加发行商成功'
 
 }
 

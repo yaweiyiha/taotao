@@ -139,7 +139,9 @@ var addform = Widget.extend({
             let url  = '';
             let param = '';
             let inputCollections = $('.panel-body').find('[data-key]');
-
+            if (!Util.validate(container)) {
+                return;
+            }
             for (let i = 0, len = inputCollections.length; i < len; i++) {
                 let ele = $(inputCollections[i]);
                 let key = ele.attr('data-key');
@@ -160,6 +162,9 @@ var addform = Widget.extend({
 
             let model = new formModel();
             model.getData(url,data,'POST').then((res) => {
+                if(me.data.successMgs){
+                    AlertDialog.show(me.data.successMgs);
+                }
                 window.location.href = me.data.backPage;
             });
         });
@@ -215,6 +220,22 @@ var addform = Widget.extend({
                 $(".admin-widget-fundStrategy").css('display','block');
             }
         });
+
+        $('input').on('blur' ,function(){
+            let ele = $(this);
+            let isNumTag = ele.attr('data-number');
+            let reg = new RegExp("^[0-9]*$");
+            let val = parseInt(ele.val());
+            let parentNode = ele.parents('.input-wrapper');
+            if(isNumTag){
+                if(val !== '' && !reg.test(val)){
+                    parentNode.find('.tips').remove();
+                    parentNode.append(`<p class="tips">${ele.attr('data-des')}必须为数字</p>`);
+                }else{
+                    parentNode.find('.tips').remove();
+                }
+            }
+        })
 
     },
     processAddProData : function(){
