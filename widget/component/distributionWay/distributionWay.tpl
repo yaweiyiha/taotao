@@ -35,7 +35,7 @@
 
         <div class="row ">
             <div class="col-md-5 input-wrapper rt"> 
-				<div class="form-group input-group"> 
+				        <div class="form-group input-group"> 
                       <div class="input-group-addon input-title">收益生效日类型     
                       </div>
                       <input type="radio" class="radio-input"  name="identity" checked="checked" value="10" v-model="picked"> 固定日期

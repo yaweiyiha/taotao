@@ -49,14 +49,6 @@ urlConfig['product/draft'] =
 				 			url: ['#addPro/', '{{ DICT(categoryId, pageDict)}}', '/draftedit?id=', '{{ INTERFACE_DATA(id) }}']
 			 			}
 					}
-				],
-				[
-					{
-			 			content: {
-				 			name: ['提交审核'],
-				 			url: ['#distri/sign/draftedit?id=', '{{ INTERFACE_DATA(id) }}']
-			 			}
-					}
 				]
 			]
 		}

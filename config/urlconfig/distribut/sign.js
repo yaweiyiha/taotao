@@ -22,7 +22,6 @@ urlConfig['sign/validate'] =
 
 			{	
 				'panelName' : '分销佣金',
-				'descTitle' : '(全部必填，且按合同规定填写)',
 				'formlist'   : [
 					[	Dict.commissionType ],
 				],

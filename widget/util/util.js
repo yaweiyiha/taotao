@@ -156,8 +156,12 @@ var util = {
                     // }
                 }
             }
-        });
 
+        });
+        let commissionType = $(".commissionTypeFk").val();
+        if(commissionType == "-1"){
+            valid = false;
+        }
         if (valid === false) {
             AlertDialog.show('填写不完整或填写有误，请检查');
         }

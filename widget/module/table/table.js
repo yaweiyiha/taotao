@@ -275,7 +275,8 @@ var table = Widget.extend({
             AlertDialog.show($(this).attr('value'));
         });
 
-        $(".operator").on('click','[data-evt=statusDistriChange]',function(){
+        $(".admin-widget-table").on('click','[data-evt=statusDistriChange]',function(){
+
             let target = $(this);
             let id = $(this).attr('data-param');
             let value = parseInt($(this).attr('value'));

@@ -9,14 +9,15 @@
         </li>
         
       </template>
-      <div class="tac">
-          <template v-for="bt in buttonlist">
-              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" pro="{{bt.productCategories}}">{{bt.name}}</button> 
-          </template> 
+      <div class="back" @click="back">
+           <span class="back-info">
+              < 返回
+           </span>
       </div>
+
     </ul>
     <div class="panel">
-      
+
       <template v-for = "(index,form) in forms">
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{ 'none' : index > 0 }">
           <div v-for = "panel in form" class="sub-panel" >
@@ -82,6 +83,12 @@
                   </template>
                   <template v-if="li.type === 'distributionWay'">
                        <distribution-way :disable="options.disable"></distribution-way> 
+                  </template>
+                  <template v-if="li.type === 'foundStatus'">
+                       <found-status :disable="options.disable"></found-status>
+                  </template>
+                  <template v-if="li.type === 'proTerm'">
+                      <pro-term></pro-term>
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor></editor>
@@ -160,6 +167,11 @@
           </div>
         </template>
       </template>
+      <div class="tac">
+          <template v-for="bt in buttonlist">
+              <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" pro="{{bt.productCategories}}">{{bt.name}}</button> 
+      </template> 
+      </div>
       <div class="buttons-wrapper">
           <template v-for="bt in buttons">
               <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 

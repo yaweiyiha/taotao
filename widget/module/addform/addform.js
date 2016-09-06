@@ -15,6 +15,8 @@ import AlertDialog from "widget/classComponent/dialog/alert"
 import citySelectDialog from "widget/classComponent/dialog/citySelectDialog"
 import distributionWay from 'widget/component/distributionWay/distributionWay';
 import CustomEle from "widget/component/customele/customele"
+import foundStatus from "widget/component/foundStatus/foundStatus";
+import proTerm from "widget/component/proTerm/proTerm"
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');

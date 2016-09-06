@@ -12,10 +12,9 @@ export default {
  	'fundManager' 	:  { key :'fundManagerCompany', name : '基金管理人', wrapperClass : 'col-md-6' , type : 'input' ,placeholder : '请输入基金管理人',validate: {isrequire : false}},
  	'trusteeFee' 	:  { key :'fundCustodianCharges' ,name : '托管费', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入基金经理',validate: {isrequire : false}},
  	'phone' 		:  { key :'serviceTel', name : '联系电话', wrapperClass : 'col-md-6' , type : 'input' ,placeholder : '请输入联系电话',validate: {isrequire : false}},					
- 	'foundStatus' 	:  { key :'establishStatus' ,name : '成立状态', wrapperClass : 'col-md-6' ,   type : 'select', 
-					    options : ['募集中','已成立','募集失败'],value : [0,1,2] , isNum : 1,validate: {isrequire : false}},
- 	'proStatus' 	:  { key :'salesStatusFk' ,name : '产品状态', wrapperClass : 'col-md-6' ,   type : 'select', 
-					    options : ['在售','预售','售罄','已结束','执行中','募集失败'],value : [10,20,30,60,70,80] , isNum : 1,validate: {isrequire : false}},
+
+ 	'foundStatus'   : {type : 'foundStatus'},
+
 	'executeState' 	:  { key :'executeState' ,name : '执行中', wrapperClass : 'col-md-6' ,  type : 'radios',radios : [{'name': '已结束','isChecked' : 'checked'},{'name' : '执行中'} ],validate: {isrequire : true}},
 	'distriSize' 	:  { key :'issureScale' ,name : '发行规模', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入发行规模'},
 	'unitFkOfferingSize':  { key :'unitFkOfferingSize' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
@@ -28,7 +27,7 @@ export default {
 					    options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1,validate: {isrequire : false}},
 
 	'saleSize' 		:  { key :'offeringSize' , reg: '^\d+\.?\d*$', regError: '需要为数字', name : '可销售份额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入可销售份额',validate: {isrequire : true ,isNumber : true}}, 				 
- 	'proTerm' 		:  { key :'maturities' ,name : '产品期限', wrapperClass : 'col-md-4 prn' ,   brd : true,  type : 'input',placeholder : '请输入产品期限' , options : ['无'],validate: {isrequire : true}},
+ 	'proTerm' 		:  { type : 'proTerm'},
  	'unitFkMaturities' 	    :  { key :'unitFkMaturities' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['天','自然月','自然季','自然年','非固定期限（不赎回则一直持有）','无', '不限期（前台投资人自选期限）'],value : [2100,2200,2300,2400,-3,-2,-1] , isNum : 1,validate: {isrequire : false} },
  	'distriDate' 	:  { key :'dateRelease' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate',validate: {isrequire : false}},

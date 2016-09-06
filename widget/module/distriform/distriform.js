@@ -36,6 +36,7 @@ var distriform = Widget.extend({
     },
     bind: function () {
       var me = this;
+      let container = $(this.vm.$el);
 
     	$(this.vm.$el).on('click' ,'.my-tabs > li', function () {
     		$(this).siblings().removeClass('active');
@@ -54,8 +55,11 @@ var distriform = Widget.extend({
 
       //完成签约
       $(this.vm.$el).on('click' ,'[data-role=finishSigned]', function () {
+        
+        if (!Util.validate(container)) {
+            return;
+        }
         let data = new FormData();
-        // add attachment file data
         let files = $('.attachment', me.vm.$el)[0].files;
         let startTime = $('input[data-key="offlineStartDate"]').val();
         let endTime = $('input[data-key="offlineEndDate"]').val();

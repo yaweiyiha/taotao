@@ -13,9 +13,6 @@ urlConfig['fund/add'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
-	options: {
-		disable: true
-	},
 	'forms' : [
 
 		[
@@ -38,7 +35,7 @@ urlConfig['fund/add'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities ,elementDict.distriDate],
+					[	elementDict.proTerm ,elementDict.distriDate],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
@@ -121,7 +118,7 @@ urlConfig['trust/add'] =
 						elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,
 					],
 					[	
-						elementDict.proTerm ,elementDict.unitFkMaturities,
+						elementDict.proTerm 
 					],
 					[	
 						elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount,elementDict.unitFkIncreasement,
@@ -196,7 +193,7 @@ urlConfig['asset/add'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities,],
+					[	elementDict.proTerm ],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.buyBegintime ,elementDict.buyEndTime],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
@@ -255,7 +252,7 @@ urlConfig['debtassgin/add'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.proName, elementDict.distributor ],
-					[   elementDict.proTerm	,elementDict.unitFkMaturities],
+					[   elementDict.proTerm	],
 				],
 			},
 
