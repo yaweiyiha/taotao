@@ -2,7 +2,7 @@ export default {
 	'proName'  		:  { key :'name' ,name : '产品名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入产品简称',isrequire : true},
 	'fundStrategy'	:  {type : 'fundStrategy'},
 	'fundType' 		:  { key :'fundGenreAFk' ,name : '基金类型', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'select', 
-				   		options : ['证券','股票','风险投资','混合型','其他权益','类固收私募基金','私募股权基金','契约型基金'] ,value : [500,510,520,530,540,550,560,570],isNum : 1 ,isrequire : true},
+				   		options : ['证券','股权','风险投资','混合型','其他权益','类固收私募基金','私募股权基金','契约型基金'] ,value : [500,510,520,530,540,550,560,570],isNum : 1 ,isrequire : true},
 	'fundTypeUnit' 	:  { key :'fundGenreBFk' ,name : '', wrapperClass : 'col-md-2 pln ' , bln: true,   type : 'select', 
 						options : ['契约','公司','有限合伙'] ,isrequire : true,value : [700,710,720] , isNum : 1},	
     'distributor' 	:  { key :'publisherFk' ,name : '发行公司', wrapperClass : 'col-md-6' ,   type : 'select', isrequire : true,isNum : 1},

@@ -29,7 +29,6 @@ urlConfig['sign/validate'] =
 			},
 			{	
 				'panelName' : '线下分销签约实际内容',
-				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	Dict.consignmentTime ],
 					[	Dict.uploadContract ]
@@ -93,7 +92,7 @@ urlConfig['sign/reject'] =
 				'panelName' : '状态',
 				'formlist'   : [
 					[ Dict.baseText('签约状态','applyState','','applyState')],
-					[ Dict.baseText('拒绝原因','rejectReason','','rejectReason')],
+					[ Dict.baseText('拒绝原因','rejectReason','','text')],
 				 ],
 			},
 	],

@@ -11,7 +11,7 @@ urlConfig['distripro/report'] =
 		},
 		'formlist' :[
 			[ 	
-				{ type : 'productDistri',wrapperClass: 'productDistri col-sm-5'},
+				{ type : 'productDistri',wrapperClass: 'productDistri col-sm-6'},
 				{ startkey :'startDate' ,endkey: 'endDate' ,name : '上架时间', wrapperClass: 'col-sm-4 date-control' ,type : 'time'},
 				// { key :'orderNumber' ,name : '上架时间', wrapperClass : 'col-sm-4' ,   type : 'input'},
 				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
@@ -48,7 +48,7 @@ urlConfig['distripro/report'] =
 	},
 	'topbanner' : {
 		'title' : '报表管理',
-		'subtitle' : {name : '分销产品销售报表' ,url : ''},
+		'subtitle' : {name : '分销产品销售报表' ,url : '#main/distripro/report'},
 		'key' : '分销产品销售报表',
 	},
 	// 'filters' : [

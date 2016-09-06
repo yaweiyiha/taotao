@@ -30,9 +30,9 @@
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} :
 
-      <!--               <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
+                    <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
                     <span v-else>{{item[li.key]}}</span>
- -->
+
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>

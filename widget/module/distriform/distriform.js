@@ -81,6 +81,7 @@ var distriform = Widget.extend({
             type: 'POST',
             success: function(data){
                 if(data.status === 1) {
+                  debugger
                     window.location.href = "#main/distribut/maintenance";
                 }
             }

@@ -207,6 +207,15 @@ var addform = Widget.extend({
             });
         })
 
+        $("select[data-key='fundGenreAFk']").on('click',function(){
+            let  value = $(this).val();
+            if(value !== "500"){
+                $(".admin-widget-fundStrategy").css('display','none');
+            }else {
+                $(".admin-widget-fundStrategy").css('display','block');
+            }
+        });
+
     },
     processAddProData : function(){
         let me = this;
