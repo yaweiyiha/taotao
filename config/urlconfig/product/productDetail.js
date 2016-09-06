@@ -56,9 +56,10 @@ urlConfig['fund/detail'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -151,9 +152,10 @@ urlConfig['trust/detail'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -231,9 +233,10 @@ urlConfig['asset/detail'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -307,9 +310,10 @@ urlConfig['debtassgin/detail'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -385,9 +389,10 @@ urlConfig['equityInvestment/detail'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	

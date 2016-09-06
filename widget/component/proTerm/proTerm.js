@@ -8,24 +8,12 @@ require.loadCss({
 
 export default Vue.component('pro-term', {
  	template: tpl,
+ 	props: {
+ 		disable: {default: false}
+ 	},
  	data: () => ({
- 		unitMaturities    : '',
- 		dayShow   : false ,
- 		nonFixTerm : false ,
-
+ 		unitMaturities: '2100',
+ 		nonFixTerm : false,
+ 		baseDays: '365'
  	}),
-
- 	watch : {
- 		unitMaturities :function() {
- 			let unitMaturities = parseInt(this.unitMaturities);
- 			if(unitMaturities == 2100){
- 				this.dayShow = true;
- 				this.nonFixTerm = false;
- 			}else if (unitMaturities == -3){
- 				this.dayShow = false;
- 				this.nonFixTerm = true;
- 			}
- 		}
- 		
- 	}
 });

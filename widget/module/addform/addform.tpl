@@ -88,10 +88,13 @@
                        <found-status :disable="options.disable"></found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
-                      <pro-term></pro-term>
+                      <pro-term :disable="options.disable"></pro-term>
+                  </template>
+                  <template v-if="li.type === 'hoster'">
+                      <hoster :disable="options.disable"></hoster>
                   </template>
                   <template v-if="li.type === 'editor'">
-                    <editor></editor>
+                    <editor :disable="options.disable"></editor>
                   </template>
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
@@ -110,6 +113,7 @@
                       :base-commission="item.baseCommission"
                       :latter-data="item.productCommissionList"
                       :disable="options.disable"
+                      :required="li.validate.isrequire"
                     >
                     </comm-type>
                   </div>
@@ -133,7 +137,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date :key="li.key" :placeholder="li.placeholder"></single-date>
+                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder"></single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}
@@ -146,7 +150,7 @@
                    <div class="input-group-addon input-title" >{{li.name}}
                       <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                    </div>
-                     <input type="text" class="city-select input-control" placeholder="{{li.placeholder}}">
+                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}">
  <!--                    <city-select key="code"></city-select> -->
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 

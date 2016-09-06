@@ -10,7 +10,7 @@ export default Vue.component('custom-ele', {
  	template: tpl,
  	props: {
  		list: {default: []},
- 		disable: {default: true}
+ 		disable: {default: false}
  	},
  	data: () => ({
  		output: ''
@@ -20,6 +20,7 @@ export default Vue.component('custom-ele', {
  			this.list = this.list.concat([{
  				title: '',
  				content: '',
+ 				isValid: true,
  				sorter: this.list.length + 1
  			}]);
  		},

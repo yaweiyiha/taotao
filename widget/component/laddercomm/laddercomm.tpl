@@ -28,7 +28,7 @@
 						<span v-else>含</span>
 					</div>
 					<div v-else>
-						<input type="text" readonly v-model="item.end" v-bind:readonly="disable">
+						<input type="text" readonly v-model="item.end">
 						<span v-if="leftContain === '1'">含</span>
 						<span v-else>不含</span>
 					</div>

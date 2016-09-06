@@ -49,8 +49,11 @@ var util = {
     getCommTypeData: (el)=> {
         // param `el` is the commType wrapper jQuery element
         let data = {};
-        
+        let validator = el.attr('data-validate');
         data.commissionTypeFk = +el.find('.commissionTypeFk').val();
+        if (validator === 'required' && data.commissionTypeFk === -1) {
+            return false;
+        }
         data.baseCommission = null;
         data.productCommissionList = null;
         if (data.commissionTypeFk === 10) {

@@ -17,6 +17,7 @@ import distributionWay from 'widget/component/distributionWay/distributionWay';
 import CustomEle from "widget/component/customele/customele"
 import foundStatus from "widget/component/foundStatus/foundStatus";
 import proTerm from "widget/component/proTerm/proTerm"
+import Hoster from "widget/component/hoster/hoster"
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -171,14 +172,14 @@ var addform = Widget.extend({
             });
         });
 
-        $('button').on('click',function(){
+        $('button').unbind().on('click',function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {
                     AlertDialog.show('请输入产品名称');
                     return;
                 }
-                let data = me.processAddProData();
+                let data = me.processAddProData('save');
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let saveUrl = Config.host + me.data.saveUrl;
                 Util.getData(saveUrl,data,'POST').then((res)=>{
@@ -247,9 +248,10 @@ var addform = Widget.extend({
         })
 
     },
-    processAddProData : function(){
+    processAddProData : function(role=''){
         let me = this;
-        let container = $(this.vm.$el);
+        let container = $('.cnt-box');
+
         let url  =  '';
         let filters = {};
 
@@ -289,12 +291,20 @@ var addform = Widget.extend({
         let data  = {
             'product' : filters,
         }
-        data.customElementsList = Util.getCustomElement(container.find('.admin-widget-customele'));
+        
+        // get custom element list info
+        if (container.find('.admin-widget-customele').size()) {
+            data.customElementsList = Util.getCustomElement(container.find('.admin-widget-customele'));
+        }
         
         // get commission type info
         let commTypeContainer = container.find('.admin-widget-commtype');
-        if (commTypeContainer.size()) {
+        if (commTypeContainer.size() && role !== 'save') {
             let commTypeData = Util.getCommTypeData(commTypeContainer);
+            if (commTypeData === false) {
+                AlertDialog.show('请填写佣金设置内容');
+                return;
+            }
             data.product.commissionTypeFk = commTypeData.commissionTypeFk;
             data.product.baseCommission = commTypeData.baseCommission;
             data.productCommissionList = commTypeData.productCommissionList

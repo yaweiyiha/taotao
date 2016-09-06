@@ -207,6 +207,7 @@ var table = Widget.extend({
 
             data.items.forEach(function (dataItem) {
                 dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
+            
                 if(data.hasProductUrl){
                     let key = dataItem.categoryId || dataItem.productCategory;
                     if($.inArray('product:detail',arrPermissions) != -1){

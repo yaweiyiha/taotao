@@ -24,7 +24,8 @@ export default Vue.component('product-distri', {
     methods:{
         getProductors :function(){
         	let me = this;
-            Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
+            let url = `${Config.host}report/agentsales/constants`
+            Util.getData(url, '' ,'GET').then((res)=> {
                 res = res.items;
                 me.productRes = res;
                 res.forEach(function(item){
