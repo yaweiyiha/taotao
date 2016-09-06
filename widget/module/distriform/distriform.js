@@ -64,14 +64,13 @@ var distriform = Widget.extend({
         data.append('id', _APP_HASH.id);
         data.append('commissionType', obj.commissionTypeFk);
         if(obj.commissionTypeFk == 10){
-            data.append('fixedCommission', (obj.baseCommission)/100);
+            data.append('fixedCommission', (obj.baseCommission));
         }else if(obj.commissionTypeFk == 20){
             data.append('floatingCommission' , JSON.stringify(obj.productCommissionList));
         }
         data.append('attachment', files[0]);
         data.append('offlineStartDate', startTime);
         data.append('offlineEndDate', endTime);
-
         $.ajax({
             url: 'agentsales/approve',
             data: data,
@@ -81,7 +80,6 @@ var distriform = Widget.extend({
             type: 'POST',
             success: function(data){
                 if(data.status === 1) {
-                  debugger
                     window.location.href = "#main/distribut/maintenance";
                 }
             }

@@ -70,7 +70,10 @@
                       </year-rate>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
-                    <fund-strategy></fund-strategy>
+                      <fund-strategy></fund-strategy>
+                  </template>
+                  <template v-if="li.type === 'distributionWay'">
+                       <distribution-way></distribution-way> 
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor></editor>

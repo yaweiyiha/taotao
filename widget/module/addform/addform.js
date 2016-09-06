@@ -13,6 +13,7 @@ import Util from 'widget/util/util';
 import editor from 'widget/component/editor/editor';
 import AlertDialog from "widget/classComponent/dialog/alert"
 import citySelectDialog from "widget/classComponent/dialog/citySelectDialog"
+import distributionWay from 'widget/component/distributionWay/distributionWay';
 
 
 let style = __inline('./addform.inline.less');
