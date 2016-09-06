@@ -12,7 +12,7 @@ export default Vue.component('ladder-comm', {
  		unit: {
  			default: ''
  		},
- 		readonly: {
+ 		disable: {
  			default: false
  		},
  		latterData: {
@@ -26,7 +26,8 @@ export default Vue.component('ladder-comm', {
 		}
  	},
  	data: () => ({
- 		list: []
+ 		list: [],
+ 		readonly: false
  	}),
  	ready: function () {
  		this.list = this.revertData();

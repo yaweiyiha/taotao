@@ -14,7 +14,7 @@ import editor from 'widget/component/editor/editor';
 import AlertDialog from "widget/classComponent/dialog/alert"
 import citySelectDialog from "widget/classComponent/dialog/citySelectDialog"
 import distributionWay from 'widget/component/distributionWay/distributionWay';
-
+import CustomEle from "widget/component/customele/customele"
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -50,6 +50,7 @@ var addform = Widget.extend({
             distributionWayFk: '90',
             currencies: '10',
             arrRank: 0,
+            customElementsList: [],
         }
 
         data.item = Object.assign({}, defaultData, data.item);
@@ -84,13 +85,10 @@ var addform = Widget.extend({
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
 
-        if (this.data.options && this.data.options.disable === true) {
-            $('input', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
-            setTimeout(() => {
-                $('select', this.vm.$el).attr('disabled', true);
-            }, 1300);
-            $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
-        }
+        // if (this.data.options && this.data.options.disable === true) {
+        //     $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
+        //     $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
+        // }
 
         // add pass radios select in validate page
         // (function () {
@@ -143,6 +141,7 @@ var addform = Widget.extend({
             if (!Util.validate(container)) {
                 return;
             }
+
             for (let i = 0, len = inputCollections.length; i < len; i++) {
                 let ele = $(inputCollections[i]);
                 let key = ele.attr('data-key');
@@ -189,6 +188,13 @@ var addform = Widget.extend({
             }else if(dataRole == 'republic'){
                 if (!Util.validate(container)) {
                     return;
+                }
+                // 可销售份额应大于起购金额
+                if ($('[data-key=startingPrice]', me.vm.$el).size() && $('[data-key=offeringSize]', me.vm.$el).size()) {
+                    if (!Util.startPriceValidate(container)) {
+                        AlertDialog.show('可销售份额应大于起购金额');
+                        return;
+                    }
                 }
                 let data = me.processAddProData();
                 data.product.categoryFk = parseInt($(this).attr("pro"));
@@ -281,7 +287,7 @@ var addform = Widget.extend({
         let data  = {
             'product' : filters,
         }
-        data.customElementsList = Util.getCustomElement(container.find('[data-role=addSelfEleContent]'));
+        data.customElementsList = Util.getCustomElement(container.find('.admin-widget-customele'));
         
         // get commission type info
         let commTypeContainer = container.find('.admin-widget-commtype');

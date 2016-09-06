@@ -113,6 +113,24 @@ var util = {
         }
         return data;
     },
+    startPriceValidate: (layer) => {
+        let Dict = {
+            '1100': 1,
+            '1200': 10000,
+            '1300': 100000000
+        };
+        let startingPrice = +$('[data-key=startingPrice]', layer).val();
+        let offeringSize = +$('[data-key=offeringSize]', layer).val();
+
+        let startingPriceUint = $('[data-key=unitFkStartingPrice]', layer).val();
+        let offeringSizeUint = $('[data-key=unitFkOfferingSize]', layer).val();
+
+        if (offeringSize * Dict[offeringSizeUint] <= startingPrice * Dict[startingPriceUint]) {
+            return false;
+        } else {
+            return true;
+        }
+    },
     validate: (layer) => {
         let valid = true;
         layer.find('.tips').remove();
@@ -131,37 +149,25 @@ var util = {
                     valid = false;
                     parentNode.append(`<p class="tips">${item.attr('data-des')}必填</p>`);
                 } else if (item.attr('data-reg')) {
-                    let reg = new RegExp(item.reg);
-                    if (reg.test(item.val())) {
-                        parentNode.append(`<p class="tips">${item.attr('data-des')}${item.attr('data-regerror')}</p>`);
-                    }
+                    // let reg = new RegExp(item.attr('data-reg'));
+                    // if (!reg.test(item.val())) {
+                    //     valid = false;
+                    //     parentNode.append(`<p class="tips">${item.attr('data-des')}${item.attr('data-regerror')}</p>`);
+                    // }
                 }
             }
         });
 
         if (valid === false) {
-            AlertDialog.show('填写不完整，请检查必填字段');
+            AlertDialog.show('填写不完整或填写有误，请检查');
         }
 
         return valid;
     },
 
     getCustomElement: (el) => {
-        let list = [];
-        el.each(function (index, item) {
-            let title = $(item).find('[data-key=title]').val();
-            let content = $(item).find('[data-key=content]').val();
-            if (title || content) {
-                list.push({ title, content });
-            }
-        });
-
-        list.forEach(function (item, index) {
-            item.sorter = (index + 1);
-        });
-
-        return list;
-
+        let output = el.find('.output').val();
+        return JSON.parse(output);
     },
     processData: (data) => {
         let toString = (val) => {

@@ -15,8 +15,8 @@ export default Vue.component('comm-type', {
  		commissionTypeFk: {default: '-1'},
  		baseCommission: {default: ''},
  		latterData: {default: []},
- 		CommUnit: {default: '元'}
-
+ 		CommUnit: {default: '元'},
+ 		disable: {default: false}
  	},
  	watch: {
  		latterData: function () {

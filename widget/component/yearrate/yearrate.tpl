@@ -6,7 +6,7 @@
 	          	预期年化收益率
 	          	<span class="text-strong-red">*</span>
 	          </div>
-	          <select class="input-control arrTypeFk" v-model="arrTypeFk"> 
+	          <select class="input-control arrTypeFk" :disabled="disable" v-model="arrTypeFk"> 
 	            <option value="0">未设置</option>
 	            <option value="10">固定</option>
 	            <option value="20">浮动</option>
@@ -74,7 +74,7 @@
 	  		<label><input type="radio" v-model="leftContain" value="1"> 左包含</label>
 	  		<label class="ml10"><input type="radio" v-model="leftContain" value="0"> 右包含</label>
   		</div>
-	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData"></ladder-comm>
+	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData" :disable="disable"></ladder-comm>
   	</div>
   	<div class="row" v-if="false">
   		<button @click="getData">获取佣金设置数据</button>

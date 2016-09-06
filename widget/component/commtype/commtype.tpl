@@ -36,7 +36,7 @@
 	      	</div>
 	  	</div>
   	</div>
-  	<ladder-comm :unit="CommUnit" :latter-data="latterData" v-if="commissionTypeFk === '20'"></ladder-comm>	
+  	<ladder-comm :unit="CommUnit" :latter-data="latterData" :disable="disable" v-if="commissionTypeFk === '20'"></ladder-comm>	
   	<div class="row" v-if="false">
   		<button @click="getData">获取佣金设置数据</button>
   	</div>

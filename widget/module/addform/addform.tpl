@@ -57,6 +57,13 @@
                   <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
+                  <template v-if="li.type === 'custom-ele'">
+                    <custom-ele
+                      :list="item.customElementsList"
+                      :disable="options.disable"
+                    >
+                    </custom-ele>
+                  </template>
                   <template v-if="li.type === 'year-rate'">
                       <year-rate
                         :arr-type-fk="item.arrTypeFk"
@@ -66,14 +73,15 @@
                         :float-max="item.product.floatMax"
                         :max-arr="item.product.maxArr"
                         :latter-data="item.productLadderRates"
+                        :disable="options.disable"
                       >
                       </year-rate>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
-                      <fund-strategy></fund-strategy>
+                      <fund-strategy :disable="options.disable"></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
-                       <distribution-way></distribution-way> 
+                       <distribution-way :disable="options.disable"></distribution-way> 
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor></editor>
@@ -86,7 +94,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="li.readonly" value="{{item[li.key]}}" data-reg="{{li.reg}}" data-regerror="{{li.regError}}">  
+                    <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-reg="{{li.reg}}" data-regerror="{{li.regError}}">  
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'CommType'">
@@ -94,13 +102,14 @@
                       :commission-type-fk="item.commissionTypeFk"
                       :base-commission="item.baseCommission"
                       :latter-data="item.productCommissionList"
+                      :disable="options.disable"
                     >
                     </comm-type>
                   </div>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
-                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]"> 
+                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" :disabled="options.disable"> 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option  value="{{li.value[index]}}">{{option}}</option>
                         </template>

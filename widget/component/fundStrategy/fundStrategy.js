@@ -8,7 +8,9 @@ require.loadCss({
 
 export default Vue.component('fund-strategy', {
  	template: tpl,
-
+ 	props: {
+ 		disable: {default: false}
+ 	},
  	data: () => ({
  		fundTypeFk: '',
  		StaffCommUnit: '元',

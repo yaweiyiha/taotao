@@ -13,6 +13,9 @@ urlConfig['fund/add'] =
 		{ key: 'proEle', value: '产品要素'},
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
+	options: {
+		disable: true
+	},
 	'forms' : [
 
 		[
@@ -52,9 +55,10 @@ urlConfig['fund/add'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	

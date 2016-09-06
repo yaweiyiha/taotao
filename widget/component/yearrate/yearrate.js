@@ -21,7 +21,8 @@ export default Vue.component('year-rate', {
  		latterData: {default: ''},
  		YearRateUnit: {default: '元'},
  		floatUpperLimit: {default: '0'},
- 		latterData: {default: []}
+ 		latterData: {default: []},
+ 		disable: {default: false},
  	},
  	watch: {
  		latterData: function () {
