@@ -34,14 +34,15 @@ export default Vue.component('city-select', {
     computed: {
         output: function () {
             // return [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ');
-            let result = '';
-            this.subarea.forEach((item) => {
-                if (item.code === this.areaSelected) {
-                    result = item.fullName;
-                }
-            });
+            // let result = '';
+            // this.subarea.forEach((item) => {
+            //     if (item.code === this.areaSelected) {
+            //         result = item.fullName;
+            //     }
+            // });
 
-            return result;
+            // return result;
+            return this.provinceSelected || this.citySelected || this.areaSelected
         }
     },
     methods:{

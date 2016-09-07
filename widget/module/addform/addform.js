@@ -61,7 +61,7 @@ var addform = Widget.extend({
         this.data = data;
         this.vm = this.display(this.data ,tpl ,'vue');
 
-        this.render();
+        this.render(data);
         this.bind();
         Waves.attach('button', ['waves-light']);
     },
@@ -69,20 +69,31 @@ var addform = Widget.extend({
         this.saveUrl   = data.saveUrl;
         this.publicUrl = data.publicUrl;
     },
-    render : function(){
+    render : function(data){
+        let res = data;
         let me = this;
         if($('select[data-key="publisherFk"]')){
+
+            let publisherKey  = res.item.publisherFk;
+            console.log(publisherKey);
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
+            let option  = '';
 
             let index = 0;
 
             for(key in publisherList){
-                if (index === 0) {
+                if (index === 0 && publisherKey == '') {
                     me.vm.$set('item.publisherFk', key);
+                }else if(key == publisherKey){
+                    me.vm.$set('item.publisherFk', publisherKey);
                 }
                 index++;
-                let option = `<option value="${key}">${publisherList[key]}</option>`;
+
+
+                option = `<option value="${key}">${publisherList[key]}</option>`;
+            
+                
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);

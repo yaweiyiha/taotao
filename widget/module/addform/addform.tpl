@@ -85,13 +85,15 @@
                        <distribution-way :disable="options.disable"></distribution-way> 
                   </template>
                   <template v-if="li.type === 'foundStatus'">
-                       <found-status :disable="options.disable"></found-status>
+                    {{item.establishStatus}}
+                       <found-status establish-status="2" :date-established="dateEstablished"  :disable="options.disable"></found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
                       <pro-term :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
-                      <hoster :disable="options.disable"></hoster>
+            
+                      <hoster :select-key="item.custodianType" :custodian-party="item.custodianParty" :disable="options.disable"></hoster>
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor :disable="options.disable"></editor>
@@ -104,6 +106,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
+                    {{item[li.key]}}  
                     <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-reg="{{li.reg}}" data-regerror="{{li.regError}}">  
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
@@ -120,6 +123,7 @@
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
+                      {{item[li.key]}}
                       <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" :disabled="options.disable"> 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option  value="{{li.value[index]}}">{{option}}</option>
@@ -151,7 +155,6 @@
                       <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                    </div>
                      <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}">
- <!--                    <city-select key="code"></city-select> -->
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}

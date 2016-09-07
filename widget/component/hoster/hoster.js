@@ -9,18 +9,20 @@ require.loadCss({
 export default Vue.component('hoster', {
  	template: tpl,
  	props: {
- 		disable: {default: false}
+ 		disable: {default: false},
+ 		selectKey : {default : ''},
+ 		custodianParty : {default : ''}
  	},
  	data : () => ({
  		custodianType : '10',
  	}),
  	computed : {
  		placeholder : function(){
- 			if(this.custodianType == '20'){
+ 			if(this.selectKey == '20'){
  				return '请输入托管劵商';
- 			}else if(this.custodianType == '30'){
+ 			}else if(this.selectKey == '30'){
  				return '请输入托管银行';
- 			}else if(this.custodianType == '40'){
+ 			}else if(this.selectKey == '40'){
  				return '第三方支付存管';
  			}
  		}

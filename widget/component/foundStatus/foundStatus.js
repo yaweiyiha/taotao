@@ -11,7 +11,8 @@ require.loadCss({
 export default Vue.component('found-status', {
  	template: tpl,
  	props: {
- 		disable: {default: false}
+ 		disable: {default: false},
+ 		establishStatus : {default: ''}
  	},
  	data: () => ({
  		foundStatusFK    : '',
@@ -23,23 +24,27 @@ export default Vue.component('found-status', {
  			'10'  : '月' ,
  			'40'  : '季度',
  			'30'  : '年',
- 			'100' : '周',
+ 			'100' : '周',	
  			'20'  : '天',
  			'80'  : '半年'
  		}
  	}),
+ 	ready : function (){
+ 		debugger
+ 		let ss= this.establishStatus;
+ 	},
  	watch : {
  		foundStatusFK :function() {
- 			let foundStatus = parseInt(this.foundStatusFK);
- 			if(foundStatus == 0){
+ 			let establishStatus = parseInt(this.establishStatus);
+ 			if(establishStatus == 0){
  				this.proCollect = true;
  				this.collectStatus = false;
  				this.failStatus  = false;
- 			}else if (foundStatus == 1){
+ 			}else if (establishStatus == 1){
  				this.proCollect = false;
  				this.collectStatus = true;
  				this.failStatus  = false;
- 			}else if(foundStatus == 2){
+ 			}else if(establishStatus == 2){
  				this.proCollect = false;
  				this.collectStatus = false;
  				this.failStatus  = true;

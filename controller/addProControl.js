@@ -57,6 +57,7 @@ class addProControl extends Control{
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
         // me.getViews([widgets.addform],data);
+
         if( data.url !== '' &&  data.url !== undefined){
             let param = _APP_HASH.id;
             let url = Config.host + data.url + '?id=' + param;
@@ -67,7 +68,7 @@ class addProControl extends Control{
                 model.getData(url).then((res) => {
                     if(data.useProcessData){
                         let dictData = {};
-
+             
                         dictData.item = $.extend(res.item, Util.processData(res.item));
                         me.getViews([me.widgets.addform], $.extend(dictData, data));
                     } else {

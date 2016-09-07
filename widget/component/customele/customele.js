@@ -20,7 +20,7 @@ export default Vue.component('custom-ele', {
  			this.list = this.list.concat([{
  				title: '',
  				content: '',
- 				isValid: true,
+ 				isValid: 1,
  				sorter: this.list.length + 1
  			}]);
  		},

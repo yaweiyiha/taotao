@@ -234,9 +234,15 @@ var util = {
             collarCastNumber   : data.product.collarCastNumber,
             equity : data.product.equity,
             investModeFk  : data.product.investModeFk,
+            investManager : data.product.investManager,
+            startDatePurchase : data.product.startDatePurchase,
             fullName: data.publisher.fullName,
             telephone: data.publisher.telephone,
             address: data.publisher.address,
+            foundStatusFK : data.product.foundStatusFK,
+            startDateInterest : data.product.startDateInterest,
+            executeState     : data.product.executeState,
+
 
         }
     }
