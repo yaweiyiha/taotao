@@ -301,9 +301,9 @@ var addform = Widget.extend({
         
         // get commission type info
         let commTypeContainer = container.find('.admin-widget-commtype');
-        if (commTypeContainer.size() && role !== 'save') {
+        if (commTypeContainer.size()) {
             let commTypeData = Util.getCommTypeData(commTypeContainer);
-            if (commTypeData === false) {
+            if (commTypeData === false && role !== 'save') {
                 AlertDialog.show('请填写佣金设置内容');
                 return;
             }

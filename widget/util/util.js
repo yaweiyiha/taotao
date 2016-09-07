@@ -149,7 +149,9 @@ var util = {
             if ($.inArray('required', validter) > -1) {
                 parentNode.find('.tips').remove();
                 if (item.val() === '') {
-                    let offsetLeft = parentNode.find('.input-title').outerWidth() || '105';
+                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
+                    offsetLeft = Math.max(offsetLeft, 105);
+                    
                     valid = false;
                     parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
                 } else if (item.attr('data-reg')) {
