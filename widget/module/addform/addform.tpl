@@ -9,7 +9,7 @@
         </li>
         
       </template>
-      <div class="back" @click="back">
+      <div class="back" @click="back" v-if="showBack">
            <span class="back-info">
               < 返回
            </span>
@@ -22,11 +22,16 @@
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{ 'none' : index > 0 }">
           <div v-for = "panel in form" class="sub-panel" >
               <div class="row title" v-if="panel.panelName">
-                  <div>
+                  <div> 
                       <span class="section-title">{{panel.panelName}}</span>
                       <span v-if="panel.subFun" class="icon" data-role="{{panel.subFun}}"></span>
                       <span class="text-strong-red">{{panel.descTitle}}</span>
                   </div>
+                  <div class="back" @click="back" v-if="showBack">
+                     <span class="back-info">
+                        < 返回
+                     </span>
+                </div>
               </div>
               <div v-if="panel.subFun" data-role="{{panel.subFun}}Content" class="none"> 
                   <div class="row mt10">
@@ -99,7 +104,8 @@
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
-                      <hoster :select-key="item.custodianType" :custodian-party="item.custodianParty" :disable="options.disable"></hoster>
+
+                      <hoster :select-key="item.custodianType" :custodian="item.custodianParty" :disable="options.disable"></hoster>
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor :disable="options.disable"></editor>
@@ -146,7 +152,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder" timestamp="1473234685163"></single-date>
+                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder" ></single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}

@@ -8,6 +8,7 @@ urlConfig['distributor/add'] =
 		'thirdTitle' : '新增发行商',
 		'key' : '产品维护',
 	},
+
 	'forms' : [
 		[
 			{	
@@ -37,6 +38,9 @@ urlConfig['distributor/view'] =
 		'subtitle' : {'name': '查看', url : '#main/distributors/maintenance' }, 
 		'thirdTitle' : '发行商查看',
 		'key' : '产品维护',
+	},
+	'options' : {
+		disable: true
 	},
 	'forms' : [
 		[

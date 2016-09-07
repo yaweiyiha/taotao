@@ -59,20 +59,24 @@ urlConfig['asset/edit'] = {
 				'formlist'   : [
 					// [Dict.soled ,Dict.yearIncome],
 					[Dict.soled ],
+					[Dict.yearRate]
 				],
 			},
 			{	
 				'panelName' : '状态',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.foundStatus ,Dict.proStatus],
+					[Dict.foundStatus ],
+					[Dict.riskRant],
+					[Dict.showStatus]
+
 				],
 			},
 			{	
 				'panelName' : '其他',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.riskRant]
+
 				],
 			},
 		]

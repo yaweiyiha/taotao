@@ -31,12 +31,59 @@
           <div class="row ">
             <template v-for="li in list">
                 <div class="{{li.wrapperClass || ''}} input-wrapper rt">
+                  <template v-if="li.type === 'verify-confirm'">
+                    <verify-confirm></verify-confirm>
+                  </template>
                   <template v-if="li.type === 'product-commset'">
                     <product-commset></product-commset>
                   </template>
-                  <template v-if="li.type === 'fundStrategy'">
-                    <fund-strategy></fund-strategy>
+                  <template v-if="li.type === 'custom-ele'">
+                    <custom-ele
+                      :list="item.customElementsList"
+                      :disable="options.disable"
+                    >
+                    </custom-ele>
                   </template>
+                  <template v-if="li.type === 'year-rate'">
+                      <year-rate
+                        :arr-type-fk="item.arrTypeFk"
+                        :expected-arr="item.product.expectedArr"
+                        :fix-min="item.product.fixMin"
+                        :min-arr="item.product.minArr"
+                        :float-max="item.product.floatMax"
+                        :max-arr="item.product.maxArr"
+                        :latter-data="item.productLadderRates"
+                        :disable="options.disable"
+                      >
+                      </year-rate>
+                  </template>
+                  <template v-if="li.type === 'fundStrategy'">
+                      <fund-strategy :disable="options.disable"></fund-strategy>
+                  </template>
+                  <template v-if="li.type === 'distributionWay'">
+                       <distribution-way
+                        :distribution="item.distributionWayFk"
+                        :incomecalcutype="item.incomeCalculationTypeFk"
+                        :distributeinterval="item.distributeInterval"
+                        :disable="options.disable"
+                        :incomecompletion="item.incomeCompletionDateNumber"
+                      >
+                    </distribution-way> 
+                  </template>
+                  <template v-if="li.type === 'foundStatus'">
+                       <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="item.dateEstablished"  :disable="options.disable"></found-status>
+                  </template>
+                  <template v-if="li.type === 'proTerm'">
+                      {{ item.unitFkMaturities }}
+                      <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
+                  </template>
+                  <template v-if="li.type === 'hoster'">
+
+                      <hoster :select-key="item.custodianType" :custodian="item.custodianParty" :disable="options.disable"></hoster>
+                  </template>
+
+
+
                   <div v-if="li.type === 'text'" class="form-group input-group text">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
                     </div>
@@ -51,18 +98,6 @@
                   <div v-if="li.type === 'CommType'">
                     <comm-type></comm-type>
                   </div>
-                  <template v-if="li.type === 'year-rate'">
-                      <year-rate
-                        :arr-type-fk="item.arrTypeFk"
-                        :expected-arr="item.product.expectedArr"
-                        :fix-min="item.product.fixMin"
-                        :min-arr="item.product.minArr"
-                        :float-max="item.product.floatMax"
-                        :max-arr="item.product.maxArr"
-                        :latter-data="item.productLadderRates"
-                      >
-                      </year-rate>
-                  </template>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
                       <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>

@@ -11,10 +11,10 @@ export default Vue.component('hoster', {
  	props: {
  		disable: {default: false},
  		selectKey : {default : ''},
- 		custodianParty : {default : ''}
+ 		custodian : {default : ''}
  	},
  	data : () => ({
- 		custodianType : '10',
+ 		custodianType : '',
  	}),
  	computed : {
  		placeholder : function(){

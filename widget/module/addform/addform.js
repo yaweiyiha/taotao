@@ -56,8 +56,11 @@ var addform = Widget.extend({
         }
 
         data.item = Object.assign({}, defaultData, data.item);
-
+ 
         this.data = data;
+        // if()
+        // 
+        this.data.tabs = data.tabs;
         this.vm = this.display(this.data ,tpl ,'vue');
 
         this.render(data);
@@ -221,6 +224,7 @@ var addform = Widget.extend({
 
         $(".city-select").on('click',function(){
             citySelectDialog.show({
+
                 onConfirm: (data) => $(this).val(data.city)
             });
         })
@@ -349,6 +353,15 @@ var addform = Widget.extend({
         }
 
         return  data;
+    },
+    computed:{
+        showBack :() => {
+            if(this.data.tabs.length !== 0 ){
+                return true
+            }else{
+                return false
+            }
+        }
     },
     methods:{
     	back : () => {

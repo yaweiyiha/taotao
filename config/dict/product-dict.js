@@ -86,7 +86,7 @@ export default {
  	'foundDay' 	:  { key :'dateEstablished' ,name : '成立日', wrapperClass : 'col-md-6 none foundDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',validate: {isrequire : true}},
  	'investModeFk' : { key :'investModeFk' ,name : '投资方式', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['信托贷款','股权投资','权益投资','证券投资','组合运用','其他投资','量化对冲投资','结构化投资','海外投资'],
-					   value : [10,20,30,40,50,60,70,80,90] , isNum : 1 }, 
+					   value : [10,20,30,40,50,60,70,80,90] , isNum : 1 ,validate: {isrequire : true}}, 
 	'investManager' : { key :'investManager' ,name : '投资经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入投资经理'},
  	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-4' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked'  },{'name' : '关闭'} ] },
  	'proLocation'   : { key :'locationFk' ,name : '项目所在地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '', validate: {isrequire : true}, placeholder: '请添加项目所在地'},
@@ -98,8 +98,11 @@ export default {
  	'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true}}, 
  	'unitFkOfMaxInvestmentPrice' :{ key :'unitFkOfMaxInvestmentPrice' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1},
+ 	'showStatus'	 : { key :'available' ,name : '展示状态', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '上架','isChecked' : 'checked' ,'value' : '10'},{'name' : '下架','value' : '20' }  ] },
+
  	'collarCastDesc'  : {type: 'editor'},
  	'commissionType'   :  { type: 'CommType', validate: {isrequire : true} },
  	'distributionWay'  : {type : 'distributionWay'},
  	'baseInput'  : (opts = {}) => ({ key :opts.key ,name : opts.name || '', readonly: opts.readonly || false, wrapperClass : 'col-md-6', type : 'input', value: opts.value || ''}),
+ 	
  }

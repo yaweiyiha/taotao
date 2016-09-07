@@ -42,6 +42,7 @@ class  citySelectDialog{
                     if ($('.admin-widget-cityselect', this.$el).size()) {
                         output.city = $('.admin-widget-cityselect textarea.output', this.$el).val();
                     }
+                    debugger
                     opts.onConfirm && opts.onConfirm(output);
                     vm.hide();
                 },
