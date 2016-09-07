@@ -12,13 +12,15 @@ export default Vue.component('found-status', {
  	template: tpl,
  	props: {
  		disable: {default: false},
- 		establishStatus : {default: ''}
+ 		establish : {default: '1'},
+ 		sales : {default : ''},
  	},
  	data: () => ({
  		foundStatusFK    : '',
  		proCollect        : true,
  		collectStatus     : false,
  		failStatus   : 	  false,
+ 		salesStatusFk : '',
  		picked               : '',
  		circleArr            :{
  			'10'  : '月' ,
@@ -30,21 +32,21 @@ export default Vue.component('found-status', {
  		}
  	}),
  	ready : function (){
- 		debugger
- 		let ss= this.establishStatus;
+
+ 		let ss= this.establish;
  	},
  	watch : {
  		foundStatusFK :function() {
- 			let establishStatus = parseInt(this.establishStatus);
- 			if(establishStatus == 0){
+ 			let establish = parseInt(this.establish);
+ 			if(establish == 0){
  				this.proCollect = true;
  				this.collectStatus = false;
  				this.failStatus  = false;
- 			}else if (establishStatus == 1){
+ 			}else if (establish == 1){
  				this.proCollect = false;
  				this.collectStatus = true;
  				this.failStatus  = false;
- 			}else if(establishStatus == 2){
+ 			}else if(establish == 2){
  				this.proCollect = false;
  				this.collectStatus = false;
  				this.failStatus  = true;

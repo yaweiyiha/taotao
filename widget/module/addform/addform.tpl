@@ -86,7 +86,8 @@
                   </template>
                   <template v-if="li.type === 'foundStatus'">
                     {{item.establishStatus}}
-                       <found-status establish-status="2" :date-established="dateEstablished"  :disable="options.disable"></found-status>
+                    {{item.salesStatusFk}}
+                       <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="dateEstablished"  :disable="options.disable"></found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
                       <pro-term :disable="options.disable"></pro-term>

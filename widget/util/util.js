@@ -104,11 +104,20 @@ var util = {
             let key = ele.attr('data-key');
             let isNum = ele.attr('is-num');
 
-            if(isNum){
+            // if(isNum){
+            //     val = parseInt(ele.attr('data-values')) || parseInt(ele.val());
+            // }else{
+            //     val = ele.attr('data-values') || ele.val();
+            // }
+            let inputType = ele.attr('type');
+            if(inputType === 'radio'){
+                val = parseInt($('input[data-key=' +key + ']:checked').val())
+            }else if(inputType === 'select'){
                 val = parseInt(ele.attr('data-values')) || parseInt(ele.val());
-            }else{
-                val = ele.attr('data-values') || ele.val();
+            }else {
+                 val = ele.attr('data-values') || ele.val();
             }
+
             
             if (key && val) {
                 data[key] = val;
