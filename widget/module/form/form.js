@@ -5,6 +5,7 @@ import cityselect from 'widget/component/cityselect/cityselect.js';
 import dialog from 'widget/classComponent/dialog/dialog.js';
 import Util from 'widget/util/util';
 import productDistri from 'widget/component/productDistri/productDistri'
+import alertDialog from "widget/classComponent/dialog/alert.js"
 
 var style = __inline('./form.inline.less');
 var tpl = __inline('./form.tmpl');
@@ -90,6 +91,16 @@ var form = Widget.extend({
             var ele = $(inputCollections[i]);
             var key = ele.attr('data-key');
             var val = ele.attr('data-values') || ele.val();
+            var validater = ele.attr('data-valide');
+            if (/required/.test(validater)) {
+                if (val === '') {
+                    alertDialog.show(ele.attr('data-errorTip') || '填写不完整');
+                    return false;
+                }
+            }
+            if (ele.attr('is-num') === '1' && val) {
+                val = +val;
+            }
             if (key) {
                 data[key] = val || '';
             }
@@ -148,7 +159,10 @@ var form = Widget.extend({
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
             let alwaysParam   =  me.data.alwaysParam;
-
+            let inputFilters = me.getInputFilters();
+            if (inputFilters === false) {
+                return;
+            }
             me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
             let url = me.data.url ||  me.data.submitUrl; 
             me._filters_.pageSize = 10;

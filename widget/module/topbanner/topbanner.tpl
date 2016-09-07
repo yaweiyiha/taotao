@@ -22,7 +22,7 @@
         	</div>
             <span v-if="drafts" class="spliter"></span>
             <div v-if="drafts" class="draft">
-                <a href="{{drafts}}" >草稿箱&nbsp;(59)</a>
+                <a href="{{drafts}}" style = "color: #286ede;">草稿箱&nbsp;(59)</a>
             </div>
 
         </div>

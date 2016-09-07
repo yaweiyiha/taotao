@@ -49,8 +49,11 @@ var util = {
     getCommTypeData: (el)=> {
         // param `el` is the commType wrapper jQuery element
         let data = {};
-        
+        let validator = el.attr('data-validate');
         data.commissionTypeFk = +el.find('.commissionTypeFk').val();
+        if (validator === 'required' && data.commissionTypeFk === -1) {
+            return false;
+        }
         data.baseCommission = null;
         data.productCommissionList = null;
         if (data.commissionTypeFk === 10) {
@@ -135,6 +138,8 @@ var util = {
         let valid = true;
         layer.find('.tips').remove();
         let eles = layer.find('[data-valide]');
+        debugger
+        
         eles.toArray().forEach((item) => {
             item = $(item);
             let validter = item.attr('data-valide');
@@ -158,13 +163,14 @@ var util = {
             }
 
         });
-        let commissionType = $(".commissionTypeFk").val();
-        if(commissionType == "-1"){
-            valid = false;
-        }
+        
         if (valid === false) {
             AlertDialog.show('填写不完整或填写有误，请检查');
+        }else{
+            let commissionType = $(".commissionTypeFk").val();
+            AlertDialog.show('佣金类型未填写，请填写');
         }
+
 
         return valid;
     },

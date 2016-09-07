@@ -48,7 +48,7 @@
              <%} else if (item.type === 'time') {%>
                 <div class="form-group input-group time">
                   <div class="input-group-addon input-title"><%-item.name%></div>
-                  <date-control startkey="<%-item.startkey%>" endkey="<%-item.endkey%>"></date-control>
+                  <date-control :range-limit="<%-item.rangeLimit%>" startkey="<%-item.startkey%>" endkey="<%-item.endkey%>" validator="<%-item.validator%>"></date-control>
                 </div> 
             <%} else if (item.type === 'dep') {%>
                 <div class="form-group input-group dep">

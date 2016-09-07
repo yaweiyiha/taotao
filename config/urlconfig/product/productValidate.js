@@ -38,7 +38,7 @@ urlConfig['fund/validate'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities ,elementDict.distriDate],
+					[	elementDict.proTerm ,elementDict.distriDate],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
@@ -55,8 +55,9 @@ urlConfig['fund/validate'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
 			},
 			{
 				'formlist': [
@@ -124,7 +125,7 @@ urlConfig['trust/validate'] =
 						elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,
 					],
 					[	
-						elementDict.proTerm ,elementDict.unitFkMaturities,
+						elementDict.proTerm ,
 					],
 					[	
 						elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount,elementDict.unitFkIncreasement,
@@ -147,8 +148,9 @@ urlConfig['trust/validate'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
 			},
 			{
 				'formlist': [
@@ -204,7 +206,8 @@ urlConfig['asset/validate'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities,],
+					[	elementDict.proTerm 
+					],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.buyBegintime ,elementDict.buyEndTime],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
@@ -224,8 +227,9 @@ urlConfig['asset/validate'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
 			},
 			{
 				'formlist': [
@@ -268,7 +272,7 @@ urlConfig['debtassgin/validate'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.proName, elementDict.distributor ],
-					[   elementDict.proTerm	,elementDict.unitFkMaturities],
+					[   elementDict.proTerm	],
 				],
 			},
 
@@ -295,8 +299,9 @@ urlConfig['debtassgin/validate'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
 			},
 			{
 				'formlist': [
@@ -370,8 +375,9 @@ urlConfig['equityInvestment/validate'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
 			},
 			{
 				'formlist': [

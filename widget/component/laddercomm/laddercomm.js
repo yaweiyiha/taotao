@@ -45,7 +45,7 @@ export default Vue.component('ladder-comm', {
 	 				cache.minExtraRate = +item.proportion;
  					cache.maxExtraRate = +item.upperProportion;
  				} else {
-	 				cache.extraRate = +item.proportion;
+	 				cache.extraCommission = +item.proportion;
  				}
  				cache.measureUnitFk = this.unit ? dict[this.unit] : dict[item.unit];
  				cache.sorter = index;

@@ -80,13 +80,13 @@
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}
-                        <span v-if="li.isrequire" class="text-strong-red">*</span>
+                        <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
                     <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control" value="" maxlength="40" placeholder="{{li.placeholder}}" v-bind:readonly="item.readonly || false" v-model="item.vlaue || ''" value="{{{{item[li.key]}}}}">
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'select'" class="form-group input-group w100">
-                      <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.isrequire" class="text-strong-red">*</span>
+                      <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
                       <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}"> 
                         <template v-for="option in li.options">
@@ -101,7 +101,7 @@
                   </div> 
                   <div  v-if="li.type === 'time'" class="form-group input-group time">
                     <div class="input-group-addon input-title" >{{li.name}}
-                        <span v-if="li.isrequire" class="text-strong-red">*</span>
+                        <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
                     <date-control :startkey="li.startkey" :endkey="li.endkey"></date-control>
                   </div>
@@ -112,20 +112,20 @@
                   </div>  
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}
-                        <span v-if="li.isrequire" class="text-strong-red">*</span>
+                        <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
                     <input data-key="{{li.key}}" class="input-control  readonly">
                     <div class="input-group-addon input-title choose-button">选择</div>
                   </div> 
                   <div  v-if="li.type === 'area'" class="form-group input-group">
                    <div class="input-group-addon input-title" >{{li.name}}
-                      <span v-if="li.isrequire" class="text-strong-red">*</span>
+                      <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                    </div>
                     <city-select key="code"></city-select>
                   </div>
                   <div v-if="li.type ==='checkbox'" class="form-group input-group"> 
                       <label for="inputEmail3" class="control-label">{{li.checkLabel}}
-                          <span v-if="li.isrequire" class="text-strong-red">*</span>
+                          <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </label>
                       <template v-for="r in li.radios">
                         <input type="radio" name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
@@ -133,7 +133,7 @@
                   </div>
                   <div v-if="li.type ==='checkbox'" class="form-group input-group"> 
                       <label for="inputEmail3" class="control-label">{{li.checkLabel}}
-                          <span v-if="li.isrequire" class="text-strong-red">*</span>
+                          <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </label>
                       <template v-for="r in li.radios">
                         <input type="radio" name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}

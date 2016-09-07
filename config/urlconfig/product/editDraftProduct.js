@@ -52,9 +52,10 @@ urlConfig['fund/draftedit'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -142,9 +143,10 @@ urlConfig['trust/draftedit'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -216,9 +218,10 @@ urlConfig['asset/draftedit'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -284,9 +287,10 @@ urlConfig['debtassgin/draftedit'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	
@@ -355,9 +359,10 @@ urlConfig['equityInvestment/draftedit'] =
 				]
 			},
 			{	
-				'panelName' : '添加自定义要素',
-				'subFun' : 'addSelfEle',
-			}
+				'formlist'   : [
+					[	elementDict.customEle ],
+				],
+			},
 		],
 		[
 			{	

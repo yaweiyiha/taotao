@@ -20,7 +20,7 @@
 	          <div class="input-group-addon input-title">
 	          	金额单位
 	          </div>
-	          <select class="input-control YearRateUnit" v-model="YearRateUnit"> 
+	          <select class="input-control YearRateUnit" :disabled="disable" v-model="YearRateUnit"> 
 	            <option value="元">元</option>
 	            <option value="万元">万元</option>
 	            <option value="亿元">亿元</option>
@@ -34,15 +34,15 @@
 	          <div class="input-group-addon input-title">
 	          	固定利率
 	          </div>
-				<input class="input-control expectedArr" v-model="expectedArr">
+				<input class="input-control expectedArr" :disabled="disable" v-model="expectedArr">
 				<div class="unit">%</div>
 	      	</div>
 	  	</div>  	
   	</div>
   	<div v-if="arrTypeFk === '20'">
   		<div class="row ml30">
-	  		<label><input type="checkbox" v-model="fixMin" class="fixMin"> 固定下限</label>
-	  		<label class="ml10"><input type="checkbox" v-model="floatMax" class="floatMax"> 浮动上限</label>
+	  		<label><input type="checkbox" v-model="fixMin" class="fixMin" :disabled="disable"> 固定下限</label>
+	  		<label class="ml10"><input type="checkbox" v-model="floatMax" class="floatMax" :disabled="disable"> 浮动上限</label>
   		</div>
   		<div class="row mt10">
 			<div class="col-md-3 input-wrapper rt" v-if="fixMin">
@@ -50,7 +50,7 @@
 		          <div class="input-group-addon input-title">
 		          	固定下限
 		          </div>
-					<input class="input-control minArr" v-model="minArr">
+					<input class="input-control minArr" v-model="minArr" :disabled="disable">
 					<div class="unit">%</div>
 		      	</div>
 		  	</div>  	
@@ -59,20 +59,20 @@
 		          <div class="input-group-addon input-title">
 		          	浮动上限
 		          </div>
-					<input class="input-control maxArr" v-model="maxArr">
+					<input class="input-control maxArr" v-model="maxArr" :disabled="disable">
 					<div class="unit">%</div>
 		      	</div>
 		  	</div>  	
   		</div>
   	</div>
 	<div class="row ml30" v-if="arrTypeFk === '40'">
-		<label><input type="radio" v-model="floatUpperLimit" value="1"> 有浮动上限</label>
-		<label class="ml10"><input type="radio" v-model="floatUpperLimit" value="0"> 无浮动上限</label>
+		<label><input type="radio" v-model="floatUpperLimit" value="1" :disabled="disable"> 有浮动上限</label>
+		<label class="ml10"><input type="radio" v-model="floatUpperLimit" value="0" :disabled="disable"> 无浮动上限</label>
 	</div>
   	<div v-if="arrTypeFk === '30' || arrTypeFk === '40'">
   		<div class="row ml30">
-	  		<label><input type="radio" v-model="leftContain" value="1"> 左包含</label>
-	  		<label class="ml10"><input type="radio" v-model="leftContain" value="0"> 右包含</label>
+	  		<label><input type="radio" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
+	  		<label class="ml10"><input type="radio" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
   		</div>
 	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData" :disable="disable"></ladder-comm>
   	</div>

@@ -12,7 +12,12 @@ require.loadCss({
 export default Vue.component('date-control', {
   
     template: tpl,
-    props: ['startkey','endkey'],
+    props: {
+        startkey: {default: ''},
+        endkey: {default: ''},
+        rangeLimit: {default: -1},
+        validator: {default: ''},
+    },
     data: function () {
         return {
             beginTime : '',
@@ -44,14 +49,24 @@ export default Vue.component('date-control', {
 
     },
     methods:{
-
+        validate: function (limit) {
+            let startTimestamp = Date.parse(this.beginTime);
+            let endTimestamp = Date.parse(this.endTime);
+            if (limit > -1) {
+                if (endTimestamp > startTimestamp + limit * 24 * 60 * 60 * 1000) {
+                    this.endTime = '';
+                    alertDialog.show(`时间范围应小于${limit}天`);
+                }
+            }
+        }
     },
     watch: {
         beginTime : function (){
-
+            this.validate(this.rangeLimit);
         },
         endTime : function () {
-            if(this.endTime < this.beginTime){
+            this.validate(this.rangeLimit);
+            if(Date.parse(this.endTime) < Date.parse(this.beginTime)){
                 this.endTime = '';
                 alertDialog.show("起始时间不能大于结束时间。");
             }

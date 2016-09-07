@@ -9,6 +9,11 @@ require.loadCss({
 export default Vue.component('single-date', {
  	template: tpl,
     props: ['key', 'placeholder'],
+    props: {
+        key: {default: ''},
+        placeholder: {default: ''},
+        disable: {default: false},
+    },
     data: function () {
         return {
             time : '',
