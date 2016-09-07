@@ -10,6 +10,12 @@ require.loadCss({
 
 export default Vue.component('distribution-way', {
  	template: tpl,
+ 	props: {
+ 		list: {default: []},
+ 		disable: {default: false},
+ 		distribution : {default: ''},
+ 		incomecalcutype : {default: ''},
+ 	},
  	data: () => ({
  		distributionWayFk    : '',
  		distriCircleShow     : false,
@@ -17,15 +23,26 @@ export default Vue.component('distribution-way', {
  		completionDateShow   : false,
  		foundDateShow        : false ,
  		picked               : '',
- 		circleArr            :{
- 			'10'  : '月' ,
- 			'40'  : '季度',
- 			'30'  : '年',
- 			'100' : '周',
- 			'20'  : '天',
- 			'80'  : '半年'
- 		}
+ 		distributionway      : '10',
+ 		circleUnit           : '月',
  	}),
+ 	computed : {
+ 		circleUnit : function(){
+ 			if(this.distributionway == '10'){
+ 				return '月';
+ 			}else if(this.distributionway == '40'){
+ 				return '季度';
+ 			}else if(this.distributionway == '30'){
+ 				return '年';
+ 			}else if(this.distributionway == '100'){
+ 				return '周';
+ 			}else if(this.distributionway == '20'){
+ 				return '天';
+ 			}else if(this.distributionway == '80'){
+ 				return '半年';
+ 			}
+ 		}
+ 	},
  	watch : {
  		distributionWayFk :function() {
  			let distributionWay = parseInt(this.distributionWayFk);

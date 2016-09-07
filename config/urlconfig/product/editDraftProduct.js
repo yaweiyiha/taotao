@@ -35,7 +35,7 @@ urlConfig['fund/draftedit'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities ,elementDict.distriDate],
+					[	elementDict.proTerm ,elementDict.distriDate],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
 					[	elementDict.redemptionFee, elementDict.compensationPay],
@@ -120,7 +120,7 @@ urlConfig['trust/draftedit'] =
 						elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,
 					],
 					[	
-						elementDict.proTerm ,elementDict.unitFkMaturities,
+						elementDict.proTerm 
 					],
 					[	
 						elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount,elementDict.unitFkIncreasement,
@@ -138,7 +138,7 @@ urlConfig['trust/draftedit'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
+					[ 	elementDict.distributionWay],
 					[	elementDict.yearRate	],
 				]
 			},
@@ -198,7 +198,7 @@ urlConfig['asset/draftedit'] =
 				'formlist'   : [
 					[	elementDict.foundStatus , elementDict.proStatus],
 					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.unitFkMaturities,],
+					[	elementDict.proTerm ],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
 					[	elementDict.buyBegintime ,elementDict.buyEndTime],
 					[	elementDict.subscriptionFee ,elementDict.ManageFee],
@@ -212,7 +212,7 @@ urlConfig['asset/draftedit'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
+					[ 	elementDict.distributionWay],
 					[	elementDict.yearRate	],
 					// [   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
 				]
@@ -260,7 +260,7 @@ urlConfig['debtassgin/draftedit'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[   elementDict.proName, elementDict.distributor ],
-					[   elementDict.proTerm	,elementDict.unitFkMaturities],
+					[   elementDict.proTerm	],
 				],
 			},
 

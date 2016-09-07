@@ -112,7 +112,7 @@ var util = {
             let inputType = ele.attr('type');
             if(inputType === 'radio'){
                 val = parseInt($('input[data-key=' +key + ']:checked').val())
-            }else if(inputType === 'select'){
+            }else if(isNum){
                 val = parseInt(ele.attr('data-values')) || parseInt(ele.val());
             }else {
                  val = ele.attr('data-values') || ele.val();
@@ -253,6 +253,11 @@ var util = {
             foundStatusFK : data.product.foundStatusFK,
             startDateInterest : data.product.startDateInterest,
             executeState     : data.product.executeState,
+            startingInvest  : data.product.startingInvest,
+            baseDays   : data.product.baseDays,
+            customBaseDays  :data.product.customBaseDays,
+            unitFkStartingMaturities : data.product.unitFkStartingMaturities,
+            incomeCalculationTypeFk : data.product.incomeCalculationTypeFk
 
 
         }

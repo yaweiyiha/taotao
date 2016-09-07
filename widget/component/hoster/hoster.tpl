@@ -4,7 +4,6 @@
       	托管方
       	<span class="text-strong-red">*</span>
       </div>
-      {{selectKey}}
       <select class="input-control"  data-key="custodianType" is-num="1" style="width:45%;float:left" :disabled="disable" v-model="selectKey"> 
 		    <option value="10">无</option>
         <option value="20">托管券商</option>

@@ -18,7 +18,7 @@
 		        <div class="input-group">
 		            <div class="input-group-addon">成立日
 		            </div>
-		            <single-date  :disable="disable" :key="startDateInterest" data-key="dateEstablished" placeholder="请输入固定日期"></single-date>
+		            <single-date  :disable="disable" :key="startDateInterest" data-key="dateEstablished" placeholder="请输入成立日"></single-date>
 				</div>
 		    </div>
 		</div>

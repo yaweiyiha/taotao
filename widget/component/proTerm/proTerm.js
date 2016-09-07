@@ -9,7 +9,13 @@ require.loadCss({
 export default Vue.component('pro-term', {
  	template: tpl,
  	props: {
- 		disable: {default: false}
+ 		disable        : {default: false},
+ 		unitmaturities : {default : ''},
+ 		maturities     :  {default : ''},
+ 		startinginvest : {default : ''},
+ 		basedays       : {default : '365'},
+ 		custombasedays : {default : ''},
+ 		unitstartingmaturities : {default : ''}
  	},
  	data: () => ({
  		unitMaturities: '2400',
