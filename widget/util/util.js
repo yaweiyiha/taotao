@@ -8,11 +8,17 @@ var util = {
         let res = {};
         for(let i in data) {
             if (data.hasOwnProperty(i)) {
+                let _prefixKey = prefixKey;
+                if (_prefixKey === '') {
+                    _prefixKey = i;
+                } else {
+                    _prefixKey += this.cameCase(i);
+                }
                 if (typeof data[i] === 'object') {
                     let tmp = $.extend(true, {}, data[i]);
-                    res = $.extend(true, res, this.flatData(tmp, i));
+                    res = $.extend(true, res, this.flatData(tmp, _prefixKey));
                 } else if (typeof data[i] !== 'function') {
-                    res[prefixKey + this.cameCase(i)] = data[i];
+                    res[_prefixKey] = data[i];
                 }
             }
         }
@@ -77,13 +83,13 @@ var util = {
         if (data.arrTypeFk === 10) {
             data.expectedArr = el.find('.expectedArr').val();
         } else if (data.arrTypeFk === 20) {
-            if (el.find('.fixMin').val()) {
+            if (el.find('.fixMin').is(':checked')) {
                 data.fixMin = 1;
                 data.minArr = +el.find('.minArr').val();
             } else {
                 data.fixMin = 0;
             }
-            if (el.find('.floatMax').val()) {
+            if (el.find('.floatMax').is(':checked')) {
                 data.floatMax = 1;
                 data.maxArr = +el.find('.maxArr').val();
             } else {
@@ -176,11 +182,7 @@ var util = {
         
         if (valid === false) {
             AlertDialog.show('填写不完整或填写有误，请检查');
-        }else{
-            let commissionType = $(".commissionTypeFk").val();
-            AlertDialog.show('佣金类型未填写，请填写');
         }
-
 
         return valid;
     },
@@ -260,8 +262,7 @@ var util = {
             incomeCalculationTypeFk : data.product.incomeCalculationTypeFk,
             distributeInterval   : data.product.distributeInterval,
             incomeCompletionDateNumber : data.product.incomeCompletionDateNumber,
-
-
+            available: toString(data.product.available) || '10',
         }
     }
 };

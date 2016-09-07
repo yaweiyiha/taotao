@@ -41,6 +41,7 @@
                             <a v-if="item._detailUrl_" href="{{item._detailUrl_}}" class="detailUrl">{{item[t.key]}}</a>
                         </td>
                         <td v-if="t.type === 'time'">{{item[t.key] | datetime}}</td>
+                        <td v-if="t.type === 'detailtime'">{{item[t.key] | detailtime}}</td>
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
                         <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
@@ -140,8 +141,8 @@
     </div>
     <div class="report-item">
         <div v-if="page=='report' && extraInfo "  >
-            <span>总投资金额：{{extraInfo.totalInvestmentAmount}}万</span>   
-            <span>总佣金：{{extraInfo.totalCommission}}万</span>
+            <span>总投资金额：{{extraInfo.totalInvestmentAmount}}元</span>   
+            <span>总佣金：{{extraInfo.totalCommission}}元</span>
             <button class="custom-button loadDownExcel" >下载Excel</button>
         </div>
     </div>

@@ -141,7 +141,7 @@ var addform = Widget.extend({
             $('.' + key).removeClass('none');
         })
 
-        $('.cnt-box').on('click', '[data-role=submit]', function () {
+        container.on('click', '[data-role=submit]', function () {
             let data = {};
             let url  = '';
             let param = '';

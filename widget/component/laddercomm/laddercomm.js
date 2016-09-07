@@ -32,6 +32,11 @@ export default Vue.component('ladder-comm', {
  	ready: function () {
  		this.list = this.revertData();
  	},
+ 	watch: {
+ 		latterData: function () {
+ 			this.list = this.revertData();
+ 		}
+ 	},
  	computed: {
  		dataCollect: function () {
  			let cache = this.list.map((item, index, list) => {
@@ -115,7 +120,7 @@ export default Vue.component('ladder-comm', {
  				} else {
  					cache.operator = '&gt;';
 					cache.start = '';
-					cache.end = '' + item.value1;
+					cache.end = '' + (item.value1 || '');
  				}
  				return cache;
  			});

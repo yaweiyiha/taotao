@@ -152,7 +152,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder" ></single-date>
+                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder"></single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}

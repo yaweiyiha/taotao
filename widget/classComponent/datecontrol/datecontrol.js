@@ -17,8 +17,8 @@ export default Vue.component('date-control', {
         endkey: {default: ''},
         rangeLimit: {default: -1},
         validator: {default: ''},
-        startTime: {default: -1},
-        endTime: {default: -1},
+        startTimestp: {default: -1},
+        endTimestp: {default: -1},
     },
     data: function () {
         return {
@@ -27,10 +27,10 @@ export default Vue.component('date-control', {
     },
     computed: {
         beginTime: function () {
-            return this.toDateString(this.startTime);
+            return this.toDateString(this.startTimestp);
         },
         endTime: function () {
-            return this.toDateString(this.startTime);
+            return this.toDateString(this.endTimestp);
         }
     },
     ready: function(){
@@ -85,15 +85,15 @@ export default Vue.component('date-control', {
         }
     },
     watch: {
-        beginTime : function (){
-            this.validate(this.rangeLimit);
-        },
-        endTime : function () {
-            this.validate(this.rangeLimit);
-            if(Date.parse(this.endTime) < Date.parse(this.beginTime)){
-                this.endTime = '';
-                alertDialog.show("起始时间不能大于结束时间。");
-            }
-        }
+        // beginTime : function (){
+        //     this.validate(this.rangeLimit);
+        // },
+        // endTime : function () {
+        //     this.validate(this.rangeLimit);
+        //     if(Date.parse(this.endTime) < Date.parse(this.beginTime)){
+        //         this.endTime = '';
+        //         alertDialog.show("起始时间不能大于结束时间。");
+        //     }
+        // }
     }
 });

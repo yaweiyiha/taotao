@@ -56,13 +56,25 @@ var editform = Widget.extend({
     bind: function () {
         
         let me = this;
-    
+        let container = $(this.vm.$el);
         $('button[data-role="submit"]').on('click', function () {
             
         	let filters = Util.getInputFilters();
         	filters =  me.toNum(filters);
         	filters.productId = parseInt(_APP_HASH.id);
-        	
+            // get year rate info
+            let yearRateContainer = container.find('.admin-widget-yearrate');
+            if (yearRateContainer.size()) {
+                let yearRateData = Util.getYearRateData(yearRateContainer);
+                filters.product = {};
+                filters.product.arrTypeFk = yearRateData.arrTypeFk;
+                filters.product.expectedArr = yearRateData.expectedArr;
+                filters.product.fixMin = yearRateData.fixMin;
+                filters.product.minArr = yearRateData.minArr;
+                filters.product.floatMax = yearRateData.floatMax;
+                filters.product.maxArr = yearRateData.maxArr;
+                filters.productLadderRates = yearRateData.productLadderRates
+            }
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';

@@ -1,5 +1,6 @@
 import LadderComm from 'widget/component/laddercomm/laddercomm'
 import Util from 'widget/util/util'
+import AlertDialog from "widget/classComponent/dialog/alert"
 
 let style = __inline('./yearrate.inline.less');
 let tpl = __inline('./yearrate.tpl');
@@ -18,7 +19,6 @@ export default Vue.component('year-rate', {
  		floatMax: {default: false},
  		minArr: {default: ''},
  		maxArr: {default: ''},
- 		latterData: {default: ''},
  		YearRateUnit: {default: '元'},
  		floatUpperLimit: {default: '0'},
  		latterData: {default: []},
@@ -70,7 +70,7 @@ export default Vue.component('year-rate', {
  			'1300': '亿元'
  		},
  		leftContain: '0',
- 		// 	latterData: [{
+ 	// 		latterData: [{
 		//     "value1": 2,
 		//     "operator1": "GT",
 		//     "value2": 4,
@@ -101,6 +101,42 @@ export default Vue.component('year-rate', {
  	methods: {
  		getData: function () {
  			console.log(Util.getYearRateData($(this.$el)));
- 		}
+ 		},
+		arrTypeFkChange: function () {
+			if ($('[data-key=startingPrice]').size() === 0) {
+				return;
+			}
+			let Dict = {
+				'1100': '元',
+				'1200': '万元',
+				'1300': '亿元'
+			};
+ 			if (this.arrTypeFk === '30' || this.arrTypeFk === '40') {
+ 				let startingPrice = $('[data-key=startingPrice]').val();
+ 				if (startingPrice === '' || isNaN(startingPrice)) {
+ 					this.arrTypeFk = '0';
+ 					AlertDialog.show('起购金额为空或者不是有效值');
+ 				} else {
+ 					let unit = Dict[$('[data-key=unitFkStartingPrice]').val()];
+ 					this.YearRateUnit = unit;
+
+ 					if (this.latterData.length === 0) {
+ 						this.latterData = [{
+						    "value1": +startingPrice,
+						    "operator1": "GT",
+						    "value2": null,
+						    "operator2": null,
+						    "measureUnitFk": +$('[data-key=unitFkStartingPrice]').val(),
+						    "extraCommission": null,
+						    "sorter": 0 							
+ 						}, {
+ 							
+ 						}];
+
+ 						console.log(this.latterData);
+ 					}
+ 				}
+ 			}
+		}
  	}
 });

@@ -10,7 +10,7 @@ export default {
  	'distriCompany'  :   { key :'productName', name : '发行公司',value : '固定佣金 佣金比例:2%', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriTime'  :   { key :'productName', name : '代销时间',value : '2016-10-08至2016-12-10', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriAmount'  :   { key :'productName', name : '代销额度',value : '200万', wrapperClass : 'col-md-2' , type : 'text'},
- 	'contractCopy'  :   { key :'productName', name : '电子合同影印件', wrapperClass : 'col-md-5 left-right' , type : 'img',src: 'static/img/default_user.jpg'},
+ 	'contractCopy'  :   { key :'attachments0Path', name : '电子合同影印件', wrapperClass : 'col-md-5 left-right' , type : 'img', src: 'static/img/default_user.jpg'},
  	'distriName'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : '分销方名称',value : '创宁金融', wrapperClass : 'col-md-2' , type : 'text'},
  	'padNum'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : 'pad数',value : '20', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriLogo'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName',  wrapperClass : 'col-md-5' , type : 'img',src: 'static/img/default_user.jpg'},

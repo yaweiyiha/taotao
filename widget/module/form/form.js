@@ -158,6 +158,7 @@ var form = Widget.extend({
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
+            console.log('??');
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             if (inputFilters === false) {

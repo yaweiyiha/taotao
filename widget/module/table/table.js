@@ -246,8 +246,12 @@ var table = Widget.extend({
     },
     bind: function(){
         var me = this;
-        listener.on('page', 'tableUpdate', (type ,data) => {
+        function updateHandler (type, data) {
             this.update(data);
+        }
+        listener.on('page', 'tableUpdate', updateHandler, this);
+        listener.once('page', 'change', function () {
+            listener.off('page', 'tableUpdate', updateHandler, this);
         });
         /**
          *  table query by order 
@@ -351,9 +355,12 @@ var table = Widget.extend({
         });
     },
     update: function(data){
-
         this._params_.url = data.url;
-        this._params_.filters = data.param;
+
+        // 此处需要让table保持之前的一些筛选条件，新的过滤条件覆盖同名过滤条件
+        // 已有过滤条件波爱吃
+        this._params_.filters = Object.assign(this._params_.filters, data.param);
+        data.param = this._params_.filters;
         this.updateTableData(data);
     },
     updatePage: function (page, scope = this) {

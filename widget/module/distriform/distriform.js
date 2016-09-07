@@ -9,6 +9,8 @@ import datetime from 'widget/filter/datetime';
 import commisionType from 'widget/filter/commisionType';
 import applyStates from 'widget/filter/applyStates';
 import InputeDialog from 'widget/classComponent/dialog/inputeDialog';
+import AlertDialog from "widget/classComponent/dialog/alert"
+import LadderComm from 'widget/component/laddercomm/laddercomm'
 
 let style = __inline('./distriform.inline.less');
 let tpl = __inline('./distriform.tpl');
@@ -64,13 +66,24 @@ var distriform = Widget.extend({
         let startTime = $('input[data-key="offlineStartDate"]').val();
         let endTime = $('input[data-key="offlineEndDate"]').val();
         var obj = Util.getCommTypeData($('.admin-widget-commtype'));
+        
+        // get commission type info
+        let commTypeContainer = container.find('.admin-widget-commtype');
+        let commTypeData = {};
+        if (commTypeContainer.size()) {
+            commTypeData = Util.getCommTypeData(commTypeContainer);
+            if (commTypeData === false) {
+                AlertDialog.show('请填写佣金设置内容');
+                return;
+            }
+        }
 
         data.append('id', _APP_HASH.id);
-        data.append('commissionType', obj.commissionTypeFk);
-        if(obj.commissionTypeFk == 10){
-            data.append('fixedCommission', (obj.baseCommission));
-        }else if(obj.commissionTypeFk == 20){
-            data.append('floatingCommission' , JSON.stringify(obj.productCommissionList));
+        data.append('commissionType', commTypeData.commissionTypeFk);
+        if(commTypeData.commissionTypeFk == 10){
+            data.append('fixedCommission', (commTypeData.baseCommission));
+        }else if(commTypeData.commissionTypeFk == 20){
+            data.append('floatingCommission' , JSON.stringify(commTypeData.productCommissionList));
         }
         data.append('attachment', files[0]);
         data.append('offlineStartDate', startTime);

@@ -79,6 +79,7 @@ class distriControl extends Control{
             model.getData(url).then((res) => {
                 let dictData = {};
                 dictData.item = $.extend(res.item, me.processData(res.item));
+
                 me.getViews([me.widgets.distriform], $.extend(dictData,data));
                 });
             });
@@ -92,7 +93,6 @@ class distriControl extends Control{
 
     processData (data) {
         let res = Util.flatData(data);
-
         return res;
     }
 }

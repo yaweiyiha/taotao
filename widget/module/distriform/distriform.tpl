@@ -24,15 +24,15 @@
           <div class="row ">
             <template v-for="li in list">
                 <div v-if="li.type === 'CommType'">
-                  <comm-type></comm-type>
+                  <comm-type
+                    :disable="options.disable"
+                    :required="li.validate.isrequire"
+                  >
+                  </comm-type>
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} :
-
-   <!--                  <span v-if="li.filter === 'datetime'">{{item[li.key] | datetime}}</span>
-                    <span v-else>{{item[li.key]}}</span> -->
-
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}}hello :
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>
@@ -76,6 +76,9 @@
                         <span v-if ="text.subtype =='text' ">
                              {{text.name}} : {{item[text.key]}}
                         </span>
+                        <template v-if="text.key === 'fixedCommission' && item['floatingCommission']">
+                          <ladder-comm :latter-data="item['floatingCommission']" :disable="true"></ladder-comm>  
+                        </template>
                     </div>
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">
