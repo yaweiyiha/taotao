@@ -138,8 +138,7 @@ var util = {
         let valid = true;
         layer.find('.tips').remove();
         let eles = layer.find('[data-valide]');
-        debugger
-        
+
         eles.toArray().forEach((item) => {
             item = $(item);
             let validter = item.attr('data-valide');
@@ -234,6 +233,7 @@ var util = {
             collarCast         : data.product.collarCast,
             collarCastNumber   : data.product.collarCastNumber,
             equity : data.product.equity,
+            investModeFk  : data.product.investModeFk,
             fullName: data.publisher.fullName,
             telephone: data.publisher.telephone,
             address: data.publisher.address,

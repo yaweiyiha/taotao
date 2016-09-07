@@ -84,7 +84,7 @@ export default {
  	'fixedDay' 	:  { key :'orderNumber' ,name : '固定日期', wrapperClass : 'col-md-6 fixedDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',validate: {isrequire : true}},
  	'closeDay' 	:  { key :'orderNumber' ,name : '按日成交', wrapperClass : 'col-md-6 none closeDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',validate: {isrequire : true}},
  	'foundDay' 	:  { key :'dateEstablished' ,name : '成立日', wrapperClass : 'col-md-6 none foundDay incomeComputeDay' ,  type : 'singledate', placeholder:'请输入发行规模',validate: {isrequire : true}},
- 	'investModeFk' : { key :'investModeFk' ,name : '收益方式', wrapperClass : 'col-md-6' ,   type : 'select', 
+ 	'investModeFk' : { key :'investModeFk' ,name : '投资方式', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['信托贷款','股权投资','权益投资','证券投资','组合运用','其他投资','量化对冲投资','结构化投资','海外投资'],
 					   value : [10,20,30,40,50,60,70,80,90] , isNum : 1 }, 
 	'investManager' : { key :'investManager' ,name : '投资经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入投资经理'},

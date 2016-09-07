@@ -207,11 +207,11 @@ var table = Widget.extend({
 
             data.items.forEach(function (dataItem) {
                 dataItem['operater'] =  me.parseOperater(me._initData_.operater, dataItem);
-            
                 if(data.hasProductUrl){
                     let key = dataItem.categoryId || dataItem.productCategory;
                     if($.inArray('product:detail',arrPermissions) != -1){
-                        dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.productId}`;
+                        let id = dataItem.productId || dataItem.id;
+                        dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${id}`;
                     }else{
                         dataItem['_detailUrl_'] = `javascript:;`;
                     }
