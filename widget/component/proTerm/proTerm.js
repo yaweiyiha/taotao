@@ -12,7 +12,7 @@ export default Vue.component('pro-term', {
  		disable: {default: false}
  	},
  	data: () => ({
- 		unitMaturities: '2100',
+ 		unitMaturities: '2400',
  		nonFixTerm : false,
  		baseDays: '365'
  	}),

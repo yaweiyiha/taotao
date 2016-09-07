@@ -10,6 +10,9 @@ require.loadCss({
 
 export default Vue.component('found-status', {
  	template: tpl,
+ 	props: {
+ 		disable: {default: false}
+ 	},
  	data: () => ({
  		foundStatusFK    : '',
  		proCollect        : true,
