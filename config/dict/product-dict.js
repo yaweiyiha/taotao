@@ -57,7 +57,7 @@ export default {
  	'distirName'    : { key :'name' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称' ,validate: {isrequire : true}},
  	'distirPhone'   : { key :'telephone' ,name : '发行商固定电话', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商固定电话',validate: {isrequire : true}},
  	'distirFullName'   : { key :'fullName' ,name : '发行商全称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商全称',validate: {isrequire : true}},
- 	'distirAddr'   : { key :'address' ,name : '发行商地址', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址',validate: {isrequire : true}},
+ 	'distirAddr'   : { key :'address' ,name : '发行商地址', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商地址',validate: {isrequire : true}},
  	
  	'personnelPolicy' : { key :'orderNumber' ,name : '人员策略', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '员工' },{'name' : '直销员','isChecked' : 'checked' } ] },
  	'salesPolicy'  : { key :'orderNumber' ,name : '直销员策略', wrapperClass : 'col-md-6' ,   type : 'select', 

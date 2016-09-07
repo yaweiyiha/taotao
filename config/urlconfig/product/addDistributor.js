@@ -22,7 +22,7 @@ urlConfig['distributor/add'] =
 
 	],
 	'buttons': [
-		{name : '确认新增',classList : 'primary', type : 'button', evt : 'submit'},
+		{name : '确认新增',classList : 'primary', type : 'button', evt : 'submit', selfStyle: {position:'fixed', bottom:'70px'}},
 	],
 	'submiturl' : 'publisher/add',
 	'backPage' : '#main/distributors/maintenance',

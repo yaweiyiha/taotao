@@ -101,7 +101,7 @@
                     </div>
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">
-                    <div class="input-group-addon input-title" >{{li.name}}
+                    <div class="input-group-addon input-title" v-bind:style="li.textStyle">{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
                     <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-reg="{{li.reg}}" data-regerror="{{li.regError}}">  
@@ -178,7 +178,7 @@
       </div>
       <div class="buttons-wrapper">
           <template v-for="bt in buttons">
-              <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
       </div>
 

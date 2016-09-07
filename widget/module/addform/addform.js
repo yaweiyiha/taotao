@@ -165,7 +165,7 @@ var addform = Widget.extend({
             });
         });
 
-        $('.cnt-box').on('click', 'button', function(){
+        container.on('click', 'button', function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {
