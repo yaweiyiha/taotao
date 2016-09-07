@@ -42,7 +42,6 @@ var addform = Widget.extend({
             salesStatusFk: '10',
             unitFkIssureScale: '1100',
             unitFkOfferingSize: '1100',
-            unitFkMaturities: '2100',
             unitFkStartingPrice: '1100',
             unitFkIncreasement: '1100',
             currencies: '10',
@@ -238,15 +237,24 @@ var addform = Widget.extend({
         $('input').on('blur' ,function(){
             let ele = $(this);
             let isNumTag = ele.attr('data-number');
+            let isPhoneTag = ele.attr('data-phone');
             let require = ele.attr('data-valide');
-            let reg = new RegExp("^[0-9]*$");
             let val = ele.val();
             let parentNode = ele.parents('.input-wrapper');
      
             if(isNumTag){
-                if(val !== '' && !reg.test(val)){
+                if(val !== '' && isNaN(val)){
                     parentNode.find('.tips').remove();
                     parentNode.append(`<p class="tips">${ele.attr('data-des')}必须为数字</p>`);
+                }else{
+                    parentNode.find('.tips').remove();
+                }
+            }
+
+            if (isPhoneTag === 'phone') {
+                if(val !== '' && !/^1\d{10}$/.test(val)){
+                    parentNode.find('.tips').remove();
+                    parentNode.append(`<p class="tips">${ele.attr('data-des')}无效</p>`);
                 }else{
                     parentNode.find('.tips').remove();
                 }

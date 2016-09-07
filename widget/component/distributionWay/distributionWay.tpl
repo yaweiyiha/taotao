@@ -3,17 +3,17 @@
             <div class="col-md-6 input-wrapper rt"> 
                 <div class="form-group input-group w100">
                     <div class="input-group-addon input-title">收益分配方式</div>
-                     <select class="input-control" data-key="distributionWayFk" v-model='distribution'> 
+                     <select class="input-control" data-key="distributionWayFk" v-model='distributionWayFk'> 
                         	<option  value="90">到期一次性还本付息</option>
                         	<option value="130">按期付息，到期还本</option>
                       </select>
                 </div>  
             </div>
-            <div v-if="distribution == '130'" class="col-md-4 prn input-wrapper rt">  
+            <div v-if="distributionWayFk == '130'" class="col-md-3 prn input-wrapper rt">  
                 <div class="form-group input-group w100">
                       <div class="input-group-addon input-title">收益分配周期
                       </div>
-                      <select class="input-control" data-key="distributionWayFk" v-model="distributionway"> 
+                      <select class="input-control" data-key="distributionWayFk" v-model="distributionAnother"> 
                         	<option value="10">按月</option>
                         	<option value="40">按季度</option>
                         	<option value="30">按年</option>
@@ -23,12 +23,11 @@
                       </select>
                   </div>     
               </div>
-              <div  v-if="distribution == '130'"  class="col-md-2 pln input-wrapper rt">  
+              <div  v-if="distributionWayFk == '130'"  class="col-md-2 pln input-wrapper rt">  
                   <div class="form-group input-group">
                     <span class="input-group-addon input-title">每</span>
-                    <input class="input-control" maxlength="40" data-des="每" data-key="orderNumber"> 
-                    <span class="input-group-addon input-title">{{circleUnit}}</span> 
-                    
+                    <input class="input-control" maxlength="40" data-des="每" data-key="distributeInterval" style="width:70px" v-model="distributeinterval"> 
+                    <span class="input-group-addon input-title" style="min-width:10px">{{circleUnit}}</span> 
                   </div>
               </div>
           </div>
@@ -38,9 +37,9 @@
 				        <div class="form-group input-group"> 
                       <div class="input-group-addon input-title">收益生效日类型     
                       </div>
-                      <input type="radio" class="radio-input"  name="identity" checked="checked" value="10" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 固定日期
-                      <input type="radio" class="radio-input" name="identity" value="20" v-model="picked" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 按成交日
-                      <input type="radio" class="radio-input" name="identity" value="30" v-model="picked" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 成立日
+                      <input type="radio" class="radio-input"  name="identity" value="10" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 固定日期
+                      <input type="radio" class="radio-input" name="identity" value="20" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 按成交日
+                      <input type="radio" class="radio-input" name="identity" value="30" data-key="incomeCalculationTypeFk" v-model="incomecalcutype"> 成立日
                   </div> 
             </div>
 
@@ -56,7 +55,7 @@
 				<div class="form-group">
 				    <div class="input-group">
 				        <div id="dateF" class="input-group-addon">T(成交日) +</div>
-				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8"> 
+				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8" v-model ="incomecompletion"> 
 				        <div class="input-group-addon">天</div>
 				    </div>
 				</div>				                                    
@@ -65,7 +64,7 @@
 				<div class="form-group">
 				    <div class="input-group">
 				        <div id="dateF" class="input-group-addon">T(成立日) +</div>
-				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8"> 
+				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8" v-model ="incomecompletion"> 
 				        <div class="input-group-addon">天</div>
 				    </div>
 				</div>				                                    

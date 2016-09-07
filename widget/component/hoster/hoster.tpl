@@ -10,6 +10,6 @@
         <option value="30">托管银行</option>
         <option value="40">第三方支付存管</option>
       </select>
-      <input v-if="selectKey!=='10'" type="text" class="input-control" data-key="custodianParty" style="width:50%;float:right" placeholder = "{{placeholder}}" value="{{custodianParty}}">
+      <input v-if="selectKey!=='10'" type="text" class="input-control" data-key="custodianParty" style="width:50%;float:right" placeholder = "{{placeholder}}" v-model="{{custodianParty}}">
   </div>
 </div>

@@ -10,12 +10,12 @@ export default {
  	'fundLeader' 	:  { key :'fundManager' ,name : '基金经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入基金经理',validate: {isrequire : false}},
  	'fundManager' 	:  { key :'fundManagerCompany', name : '基金管理人', wrapperClass : 'col-md-6' , type : 'input' ,placeholder : '请输入基金管理人',validate: {isrequire : false}},
  	'trusteeFee' 	:  { key :'fundCustodianCharges' ,name : '托管费', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入托管费',validate: {isrequire : false}},
- 	'phone' 		:  { key :'serviceTel', name : '联系电话', wrapperClass : 'col-md-6' , type : 'input' ,placeholder : '请输入联系电话',validate: {isrequire : false}},					
+ 	'phone' 		:  { key :'serviceTel', name : '联系电话', wrapperClass : 'col-md-6' , type : 'input' ,placeholder : '请输入联系电话',validate: {isPhone: true}},					
 
  	'foundStatus'   : {type : 'foundStatus'},
 
 	'executeState' 	:  { key :'executeState' ,name : '执行中', wrapperClass : 'col-md-6' ,  type : 'radios',radios : [{'name': '已结束','isChecked' : 'checked'},{'name' : '执行中'} ],validate: {isrequire : true}},
-	'distriSize' 	:  { key :'issureScale' ,name : '发行规模', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入发行规模'},
+	'distriSize' 	:  { key :'issureScale' ,name : '发行规模', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入发行规模', validate: {isNumber : true}},
 	'unitFkOfferingSize':  { key :'unitFkOfferingSize' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1,validate: {isrequire : false}},
 	'unitFkIssureScale' :  { key :'unitFkIssureScale' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
@@ -32,7 +32,7 @@ export default {
  	'distriDate' 	:  { key :'dateRelease' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate',validate: {isrequire : false}, placeholder: '请选择发行日期'},
  	'purchaseAmount':  { key :'startingPrice', reg: '^\d+\.?\d*$', regError: '需要为数字',  name : '起购金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入起购金额',validate: {isrequire : true,isNumber : true}},
  	'increasingAmount':{ key :'increasement' , reg: '^\d+\.?\d*$', regError: '需要为数字',  name : '递增金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入递增金额',validate: {isrequire : true,isNumber : true}},
- 	'subscriptionFee' :{ key :'subscribeFee' ,name : '认购费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入认购费"},
+ 	'subscriptionFee' :{ key :'subscribeFee' ,name : '认购费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入认购费", validate: { isNumber: true}},
 	'ManageFee' 	: { key :'managementCost' ,name : '管理费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入管理费"},
  	'redemptionFee' : { key :'redeemFee' ,name : '赎回费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入赎回费"},
 	'compensationPay':{ key :'reward' ,name : '业绩报酬', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入业绩报酬"},

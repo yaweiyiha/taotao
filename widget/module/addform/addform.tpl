@@ -82,17 +82,23 @@
                       <fund-strategy :disable="options.disable"></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
-                       <distribution-way  :distribution="item.distributionWayFk" 
-                      :incomecalcutype="incomeCalculationTypeFk" :disable="options.disable"></distribution-way> 
+                       <distribution-way
+                        :distribution="item.distributionWayFk"
+                        :incomecalcutype="item.incomeCalculationTypeFk"
+                        :distributeinterval="item.distributeInterval"
+                        :disable="options.disable"
+                        :incomecompletion="item.incomeCompletionDateNumber"
+                      >
+                    </distribution-way> 
                   </template>
                   <template v-if="li.type === 'foundStatus'">
                        <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="dateEstablished"  :disable="options.disable"></found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
+                      {{ item.unitFkMaturities }}
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
-            
                       <hoster :select-key="item.custodianType" :custodian-party="item.custodianParty" :disable="options.disable"></hoster>
                   </template>
                   <template v-if="li.type === 'editor'">
@@ -106,7 +112,7 @@
                     <div class="input-group-addon input-title" v-bind:style="li.textStyle">{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                    <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-reg="{{li.reg}}" data-regerror="{{li.regError}}">  
+                    <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-phone="{{li.validate.isPhone ? 'phone' : ''}}">  
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
                   </div>
                   <div v-if="li.type === 'CommType'">

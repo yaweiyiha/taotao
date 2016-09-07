@@ -257,7 +257,9 @@ var util = {
             baseDays   : data.product.baseDays,
             customBaseDays  :data.product.customBaseDays,
             unitFkStartingMaturities : data.product.unitFkStartingMaturities,
-            incomeCalculationTypeFk : data.product.incomeCalculationTypeFk
+            incomeCalculationTypeFk : data.product.incomeCalculationTypeFk,
+            distributeInterval   : data.product.distributeInterval,
+            incomeCompletionDateNumber : data.product.incomeCompletionDateNumber,
 
 
         }
