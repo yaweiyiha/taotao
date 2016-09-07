@@ -117,14 +117,6 @@ var addform = Widget.extend({
             $('.panel-body[form-index]', me.vm.$el).addClass("none");
             $('.panel-body[form-index='+ curIndex +']', me.vm.$el).removeClass('none');            
     	});
-        $(this.vm.$el).on('click', '[data-role=addSelfEle]', function () {
-            let target = $('[data-role=addSelfEleContent]');
-            if (target.hasClass('none')) {
-                target.removeClass('none');
-            } else {
-                target.addClass('none');
-            }
-        });
 
         $('input[type=radio]').on('click' , function(){
             var key = $(this).attr('data-key');
@@ -136,7 +128,7 @@ var addform = Widget.extend({
             $('.' + key).removeClass('none');
         })
 
-        $('button[data-role="submit"]').on('click', function () {
+        $('.cnt-box').on('click', '[data-role=submit]', function () {
             let data = {};
             let url  = '';
             let param = '';
@@ -173,7 +165,7 @@ var addform = Widget.extend({
             });
         });
 
-        $('button').unbind().on('click',function(){
+        $('.cnt-box').on('click', 'button', function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {

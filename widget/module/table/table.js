@@ -211,7 +211,7 @@ var table = Widget.extend({
                 if(data.hasProductUrl){
                     let key = dataItem.categoryId || dataItem.productCategory;
                     if($.inArray('product:detail',arrPermissions) != -1){
-                        dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.id}`;
+                        dataItem['_detailUrl_'] = `#addPro/${me.productDict[key]}/detail?id=${dataItem.productId}`;
                     }else{
                         dataItem['_detailUrl_'] = `javascript:;`;
                     }

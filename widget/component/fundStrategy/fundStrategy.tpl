@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6 input-wrapper rt">
 	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title" >
+	          <div class="input-group-addon input-title" style="min-width:120px" >
 	          	基金策略
 	          	<span class="text-strong-red">*</span>
 	          </div>
@@ -16,7 +16,7 @@
 	  	</div>  
 
 	  	<div class="col-md-6 input-wrapper rt">   
-          <div class="form-group input-group w100">
+          <div class="form-group input-group w100" style="padding-right:15px">
               <div class="input-group-addon input-title">
               	二级策略
               	<span class="text-strong-red">*</span>
