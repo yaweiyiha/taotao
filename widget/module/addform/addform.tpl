@@ -103,7 +103,7 @@
                     </div>
                   </div>
                   <div v-if="li.type === 'input'" class="form-group input-group">
-                    <div class="input-group-addon input-title" >{{li.name}}
+                    <div class="input-group-addon input-title" v-bind:style="li.textStyle">{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
                     {{item[li.key]}}  
@@ -181,7 +181,7 @@
       </div>
       <div class="buttons-wrapper">
           <template v-for="bt in buttons">
-              <button class="custom-button {{bt.classList}} bottom-button" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
       </div>
 

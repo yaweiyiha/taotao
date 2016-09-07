@@ -176,7 +176,7 @@ var addform = Widget.extend({
             });
         });
 
-        $('.cnt-box').on('click', 'button', function(){
+        container.on('click', 'button', function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {
@@ -312,9 +312,9 @@ var addform = Widget.extend({
         
         // get commission type info
         let commTypeContainer = container.find('.admin-widget-commtype');
-        if (commTypeContainer.size() && role !== 'save') {
+        if (commTypeContainer.size()) {
             let commTypeData = Util.getCommTypeData(commTypeContainer);
-            if (commTypeData === false) {
+            if (commTypeData === false && role !== 'save') {
                 AlertDialog.show('请填写佣金设置内容');
                 return;
             }
