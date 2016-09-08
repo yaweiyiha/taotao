@@ -40,6 +40,7 @@ export default Vue.component('ladder-comm', {
  	},
  	computed: {
  		dataCollect: function () {
+ 			let me = this;
  			let cache = this.list.map((item, index, list) => {
  				let cache = {};
  				let dict = {
@@ -58,19 +59,19 @@ export default Vue.component('ladder-comm', {
  				cache.isValid = 1;
  				if (index === 0 && item.start === '') {
  					cache.value1 = +item.end;
- 					cache.operator1 = 'LE';
+ 					cache.operator1 = me.leftContain === '1' ? 'LT' : 'LE';
  					cache.value2 = null;
  					cache.operator2 = null;
  				} else if (index === (list.length - 1)) {
  					cache.value1 = +item.end;
- 					cache.operator1 = 'GT';
+ 					cache.operator1 = me.leftContain === '1' ? 'GE' : 'GT';
  					cache.value2 = null;
  					cache.operator2 = null;
  				} else {
  					cache.value1 = +item.start;
- 					cache.operator1 = 'GT';
+ 					cache.operator1 = me.leftContain === '1' ? 'GE' : 'GT';
  					cache.value2 = +item.end;
- 					cache.operator2 = 'LT';
+ 					cache.operator2 = me.leftContain === '1' ? 'LT' : 'LE';
  				}
  				return cache;
  			});
