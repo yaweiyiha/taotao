@@ -66,7 +66,7 @@ var util = {
             data.baseCommission = +el.find('.baseCommission').val();
         } else if (data.commissionTypeFk === 20) {
             data.productCommissionList = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
-            data.productLadderRates.forEach(function (item) {
+            data.productCommissionList.forEach(function (item) {
                 delete item.extraRate;
             });
         }

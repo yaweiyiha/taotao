@@ -26,7 +26,7 @@ urlConfig['product/draft'] =
 			{ name :'提交人', width:"8%" ,key : 'creatorName',type:'nomal'},
 
 			{ name :'类型', width:"8%" ,key : 'categoryName',type:'nomal'},
-			{ name :'产品状态', width:"8%",key : 'salesStatusName' ,type:'nomal'},
+			{ name :'保存日期', width:"8%",key : 'updateTime' ,type:'nomal'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
 		'url' : "product/maintenance/list",

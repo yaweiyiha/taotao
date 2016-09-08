@@ -17,6 +17,10 @@ urlConfig['distributor/add'] =
 				'formlist'   : [
 					[   Dict.distirName, Dict.distirPhone ],
 					[   Dict.distirFullName , Dict.distirAddr ],
+					[   Dict.paymentTransferCardOwner ,Dict.paymentTransferBankId],
+					[   Dict.paymentTransferBranch],
+					[   Dict.paymentTransferCardNumber,Dict.paymentTransferCardNumberAgain],
+					[	Dict.paymentTransferIntroduction]
 				],
 			},
 		]

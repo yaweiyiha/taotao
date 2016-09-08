@@ -105,12 +105,11 @@ export default Vue.component('ladder-comm', {
  					'1300': '亿元'
  				};
 
- 				cache.proportion = item.extraCommission;
- 				cache.upperProportion = '';
-
- 				if (item.hasOwnProperty('minExtraRate') && item.hasOwnProperty('maxExtraRate')) {
- 					cache.proportion = item.minExtraRate
- 					cache.upperProportion = item.maxExtraRate;
+				cache.proportion = item.minExtraRate
+				cache.upperProportion = item.maxExtraRate;
+ 				if (typeof item.extraRate === 'number' || typeof item.extraCommission === 'number') {
+	 				cache.proportion = item.extraCommission || item.extraRate;
+	 				cache.upperProportion = '';
  				}
  				cache.unit = dict['' + item.measureUnitFk];
  				if (index !== list.length - 1) {
