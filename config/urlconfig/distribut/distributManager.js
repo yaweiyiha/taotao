@@ -75,7 +75,7 @@ urlConfig['distribut/maintenance'] =
 		},
 		'url' : "agentsales/list",
 		'param' : { 
-			"name": null, "telephone": null, "address": null,"status": null,"pageNo": 1, "pageSize": 10
+			"productName": '', "agentName": '', "productCategoryId": '',"applyState": '',"pageNo": 1, "pageSize": 10
 		 }
 	},
 	'topbanner' : {

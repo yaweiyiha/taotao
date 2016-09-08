@@ -2,7 +2,7 @@
 <div class="asset-widget-login">
 	<div class="header">
 		<div class="logo"></div>
-		<h1>祺鲲资产集市</h1>
+		<h1>祺鲲产品集市</h1>
 	</div>
 	<section class="main">
 		<div class="main-inner"></div>
@@ -16,13 +16,13 @@
 					<i class="icon password"></i>
 					<input type="password" v-model="password" name="password" placeholder="请输入密码"/>
 				</div>
-				<div class="mt25 rt clearfix">
+<!-- 				<div class="mt25 rt clearfix">
 					<div class="input-wrapper verify-wrapper">
 						<input type="text" v-model="code" class="code" placeholder="请输入验证码">
 					</div>
 					<img v-bind:src="verifyCode" alt="" class="verify-code">
 					<i class="refresh-icon" @click="refreshCode"></i>
-				</div>
+				</div> -->
 				<input class="mt25 custom-button substy" type="submit" value="登录" style="" />
 				<!-- <a href="javascript:;" class="login-submit mt25 custom-button" @click="login">登录</a> -->
 			</form>

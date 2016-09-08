@@ -14,6 +14,7 @@ export default Vue.component('found-status', {
  		disable: {default: false},
  		establish : {default: '1'},
  		sales : {default : ''},
+ 		dateestablished : {default : ''},
  	},
  	data: () => ({
  		foundStatusFK    : '',

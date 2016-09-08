@@ -271,7 +271,8 @@ var util = {
             //购买起始日
             startDatePurchase : data.product.startDatePurchase,
             areaFullName: data.area.fullName,
-            areaCode: data.area.cityCode
+            areaCode: data.area.cityCode,
+            dateEstablished  : data.product.dateEstablished,
             
         }
     }

@@ -3,7 +3,7 @@
         <div class="navbar-header pull-left">
             <a href="/admin/" class="navbar-brand">
                 <em class="logo" ></em>
-                <span class="caption">祺鲲资产集市</span>
+                <span class="caption">祺鲲产品集市</span>
             </a>
         </div>
         <div class="user-info-box" v-on:click.stop="showMenu = !showMenu">

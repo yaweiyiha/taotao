@@ -3,7 +3,7 @@
 		<div class="col-md-6 input-wrapper rt">
 	      	<div class="form-group input-group w100">
 	          <div class="input-group-addon input-title" >
-	          	预期年化收益率
+	          	历史实际年化收益率
 	          	<span class="text-strong-red">*</span>
 	          </div>
 	          <select class="input-control arrTypeFk" :disabled="disable" v-model="arrTypeFk" v-on:change="arrTypeFkChange"> 
