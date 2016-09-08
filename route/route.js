@@ -40,7 +40,20 @@ class Router {
         let uriParams = Url.getUriParams();
         // let params = Url.getParams();
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
-        let page = uriParams.join('/') || 'product/maintenance';
+
+        let defaultPage = '';
+        console.log(JSON.stringify(_permissions));
+        let arrPermissions = _permissions.split(',');
+        
+        if($.inArray('product:list',arrPermissions) != -1){
+            defaultPage = 'product/maintenance';
+        }else if($.inArray('agentsales:list',arrPermissions) != -1){
+            defaultPage = 'distribut/maintenance';
+        }
+
+        let page = uriParams.join('/') || defaultPage;
+        console.log(page);
+
         window._APP_HASH = Url.urlToJSON();
         window._APP_HASH._uri_ = page;
         window._APP_HASH._page_ = hash;

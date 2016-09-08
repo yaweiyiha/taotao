@@ -25,7 +25,7 @@ demo : fis3 relase xuxu -w
 
 fis.media('xuxu').match('*', {
     deploy: fis.plugin('http-push', {
-        receiver: 'http://192.168.1.3:80/receiver.php',
+        receiver: 'http://localhost/receiver.php',
         to: 'D:/apache-tomcat-7.0.70/webapps/admin'
     }),
   
@@ -39,11 +39,11 @@ fis.media('remote').match('*', {
   
 });
 
-fis.media('remote').match('*.{js,css,png,gif,woff}', {
+fis.media('remote').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 
-fis.media('xuxu').match('*.{js,css,png,gif,woff}', {
+fis.media('xuxu').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 
