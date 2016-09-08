@@ -302,9 +302,10 @@ var table = Widget.extend({
         });
 
         $('.report-item').on('click', '.loadDownExcel' ,function(){
-    
+            
             let param = me.submitData.param;
-            let url = `report/agentsales/excel?productId=${param.name}&agentId=${param.distributor}&startDate=${param.startDate}&endDate=${param.endDate}`;
+
+            let url = `report/agentsales/excel?productId=${param.productId}&agentId=${param.agentId}&startDate=${param.startDate}&endDate=${param.endDate}`;
             window.location.href = url;
         });
 

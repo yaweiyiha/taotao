@@ -13,9 +13,6 @@ export default Vue.component('hoster', {
  		custodiantype : {default : ''},
  		custodian : {default : ''}
  	},
- 	data : () => ({
- 		custodianType : '',
- 	}),
  	computed : {
  		placeholder : function(){
  			if(this.custodiantype == '20'){

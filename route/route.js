@@ -64,6 +64,8 @@ class Router {
         
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');
+
+        //console.log(path);
         
         require.async(path, function (controller) {
             new controller(configData);
