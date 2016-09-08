@@ -14,12 +14,18 @@ export default Vue.component('single-date', {
         placeholder: {default: ''},
         disable: {default: false},
         timestamp: {default: -1},
+        enddatepurchase : {default: ''},
+        opendaydesc     : {default:  ''},
+        startdatepurchase : {default: ''},
     },
     data: function () {
     },
     computed: {
         time: function () {
             return this.toDateString(this.timestamp);
+        },
+        dataKey: function(){
+            return this.enddatepurchase  || this.opendaydesc  || this.startdatepurchase
         }
     },
     methods: {

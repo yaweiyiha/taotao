@@ -33,7 +33,8 @@ export default Vue.component('city-select', {
     },
     computed: {
         output: function () {
-            return [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ');
+            debugger
+            let aa= [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ');
             let result = '';
             let obj = '';
             this.subarea.forEach((item) => {
@@ -41,7 +42,6 @@ export default Vue.component('city-select', {
                     result = item.fullName;
                 }
             });
-
             obj = {
                 name : result,
                 value : this.provinceSelected || this.citySelected || this.areaSelected

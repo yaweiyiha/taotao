@@ -100,7 +100,6 @@
                        <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="dateEstablished"  :disable="options.disable"></found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
-                      {{ item.unitFkMaturities }}
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
@@ -152,7 +151,18 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date :key="li.key" :disable="options.disable" :placeholder="li.placeholder"></single-date>
+                    {{item.endDatePurchase}}
+                    {{item.openDayDesc}}
+                    {{item.startDatePurchase}}
+                      <single-date 
+                           :enddatepurchase="item.endDatePurchase"
+                           :opendaydesc  = "item.openDayDesc"
+                           :startdatepurchase = 'item.startDatePurchase'
+                           :key="li.key" 
+                           :disable="options.disable" 
+                           :placeholder="li.placeholder"
+                           >
+                      </single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}

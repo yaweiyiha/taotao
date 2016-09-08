@@ -263,6 +263,13 @@ var util = {
             distributeInterval   : data.product.distributeInterval,
             incomeCompletionDateNumber : data.product.incomeCompletionDateNumber,
             available: toString(data.product.available) || '10',
+            //购买截止日
+            endDatePurchase  : data.product.endDatePurchase,
+            //开放日       
+            openDayDesc      : data.product.openDayDesc,
+            //购买起始日
+            startDatePurchase : data.product.startDatePurchase,
+            
         }
     }
 };
