@@ -39,11 +39,11 @@ fis.media('remote').match('*', {
   
 });
 
-fis.media('remote').match('*.{js,css,png,gif,woff}', {
+fis.media('remote').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 
-fis.media('xuxu').match('*.{js,css,png,gif,woff}', {
+fis.media('xuxu').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 

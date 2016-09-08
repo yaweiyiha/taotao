@@ -1,9 +1,7 @@
 
 .asset-widget-login {
 	width: 100%;
-	height: 100%;
-	background: url(static/img/login-bg.png) no-repeat;
-	background-size: cover;
+	height: 100%;	
 	.header {
 		height: 80px;
 		position: relative;
@@ -26,20 +24,34 @@
 		}
 	}
 
+	.main{
+		background-color: #fff;
+		height: 610px;
+	    position: relative;
+	    min-width: 1000px;
+		.main-inner{
+			height: 610px;
+			background-image: url(static/img/login-bg.jpg);
+			background-repeat: no-repeat;
+    		background-position: center top;
+		}
+	}
+
 	.footer {
 		text-align: center;
-		height: 30px;
-		line-height: 30px;
-		position: fixed;
+		height: 80px;
+		line-height: 80px;
 		width: 100%;
-		bottom: 0;
+		background: #fff;
+		color: #648ebf;
+		font-size: 14px;
 	}
 
 	.form {
 		width: 330px;
 		background: #eaecee;
 		border-radius: 3px;
-		position: fixed;
+		position: absolute;
 		top: 150px;
 		right: 200px;
 		padding: 50px 20px 55px 20px;
@@ -51,8 +63,8 @@
 
 		input[type=text], input[type=password] {
 			border: none;
-			height: 45px;
-			line-height: 45px;
+			height: 40px;
+			line-height: 40px;
 			width: 245px;
 			margin-left: 40px;
 			background: none;
