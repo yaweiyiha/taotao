@@ -13,7 +13,7 @@ export default Vue.component('distribution-way', {
  	props: {
  		list: {default: []},
  		disable: {default: false},
- 		distribution : {default: ''},
+ 		distribution : {default: '130'},
  		incomecalcutype : {default: '10'},
  		distributeinterval   : {default: ''}, 	
  		incomecompletion   : {default: ''}, 
@@ -27,15 +27,15 @@ export default Vue.component('distribution-way', {
  		foundDateShow        : false ,
  		picked               : '',
  		distributionway      : '10',
- 		distributionAnother  : '',
+ 		distributionAnother  : '10',
  	}),
  	ready: function () {
 
-		if (this.distribution === '130') {
-			this.distributionWayFk = '130';
-		} else {
+		if (this.distribution !== '130') {
 			this.distributionWayFk = '90';
 			this.distributionAnother = this.distribution;
+		} else {
+			this.distributionWayFk = '130';
 		}
  	},
  	computed : {

@@ -94,6 +94,9 @@
                     </div>
                     <input data-valide="  {{li.isrequire ? 'required' : ''}}" data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="li.readonly" value="{{item[li.key]}}"> 
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
+                    <div class="unit" v-if="li.unitKey">
+                      <span v-if="li.unitType === 'money'">{{ item[li.unitKey] | money }}</span>
+                    </div>
                   </div>
                   <div v-if="li.type === 'CommType'">
                     <comm-type></comm-type>

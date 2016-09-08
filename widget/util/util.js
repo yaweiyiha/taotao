@@ -279,6 +279,7 @@ var util = {
             areaFullName: data.area.fullName,
             areaCode: data.area.cityCode,
             dateEstablished  : data.product.dateEstablished,
+            publisherName  : data.publisher.name,
             
         }
     }

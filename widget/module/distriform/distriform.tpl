@@ -100,7 +100,7 @@
                   <div v-if="li.type === 'img'" class="form-group input-group image" v-bind:style="li.selfStyle">
                       <div class="input-title" >{{li.name}}
                       </div>
-                      <img v-bind:src="item[li.key]" alt="">
+                      <img class="{{li.key}}" v-bind:src="item[li.key]" alt="">
                   </div> 
                   <div  v-if="li.type === 'time'" class="form-group input-group time">
                     <div class="input-group-addon input-title" >{{li.name}}

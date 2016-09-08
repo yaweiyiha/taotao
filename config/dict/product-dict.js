@@ -50,7 +50,7 @@ export default {
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'expectedArr', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
- 	'soled'			: { key :'selfDefinedProcess', name : '已销售份额', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '元', isrequire: true},
+ 	'soled'			: { key :'selfDefinedProcess', name : '已销售份额', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unitType: 'money', unitKey: 'unitFkOfferingSize', isrequire: true},
  	'star'			: { key :'arrRank', name : '收益评级', wrapperClass : 'col-md-6' , type : 'star'},
  	
  	'proFoundDay'   : { key :'productName', name : '产品成立日期', wrapperClass : 'col-md-6' , type : 'time'},
@@ -88,7 +88,7 @@ export default {
 					   options : ['信托贷款','股权投资','权益投资','证券投资','组合运用','其他投资','量化对冲投资','结构化投资','海外投资'],
 					   value : [10,20,30,40,50,60,70,80,90] , isNum : 1 ,validate: {isrequire : true}}, 
 	'investManager' : { key :'investManager' ,name : '投资经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入投资经理'},
- 	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-4' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked'  },{'name' : '关闭'} ] },
+ 	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-4' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked', value: '1'  },{'name' : '关闭', value: '0'} ] },
  	'proLocation'   : { key :'locationFk' ,name : '项目所在地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '', validate: {isrequire : true}, placeholder: '请添加项目所在地'},
  	'proDistriLocation'   : { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入产品发行地'},
  	'financeAmount'  : { key :'issureScale' ,name : '融资金额', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入融资金额'},
@@ -108,6 +108,6 @@ export default {
  	'collarCastDesc'  : {type: 'editor'},
  	'commissionType'   :  { type: 'CommType', validate: {isrequire : true} },
  	'distributionWay'  : {type : 'distributionWay'},
- 	'baseInput'  : (opts = {}) => ({ key :opts.key ,name : opts.name || '', readonly: opts.readonly || false, wrapperClass : 'col-md-6', type : 'input', value: opts.value || ''}),
+ 	'baseInput'  : (opts = {}) => ({ key :opts.key ,textStyle: opts.textStyle || {}, name : opts.name || '', readonly: opts.readonly || false, wrapperClass : 'col-md-6', type : 'input', value: opts.value || ''}),
  	
  }

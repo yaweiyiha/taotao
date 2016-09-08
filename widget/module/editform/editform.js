@@ -18,6 +18,7 @@ import CustomEle from "widget/component/customele/customele"
 import foundStatus from "widget/component/foundStatus/foundStatus";
 import proTerm from "widget/component/proTerm/proTerm"
 import Hoster from "widget/component/hoster/hoster"
+import Filter from 'widget/filter/distributorStatus'
 
 let style = __inline('./editform.inline.less');
 let tpl = __inline('./editform.tpl');
@@ -66,15 +67,22 @@ var editform = Widget.extend({
             let yearRateContainer = container.find('.admin-widget-yearrate');
             if (yearRateContainer.size()) {
                 let yearRateData = Util.getYearRateData(yearRateContainer);
-                filters.product = {};
-                filters.product.arrTypeFk = yearRateData.arrTypeFk;
-                filters.product.expectedArr = yearRateData.expectedArr;
-                filters.product.fixMin = yearRateData.fixMin;
-                filters.product.minArr = yearRateData.minArr;
-                filters.product.floatMax = yearRateData.floatMax;
-                filters.product.maxArr = yearRateData.maxArr;
+                // filters.product = {};
+                // filters.product.arrTypeFk = yearRateData.arrTypeFk;
+                // filters.product.expectedArr = yearRateData.expectedArr;
+                // filters.product.fixMin = yearRateData.fixMin;
+                // filters.product.minArr = yearRateData.minArr;
+                // filters.product.floatMax = yearRateData.floatMax;
+                // filters.product.maxArr = yearRateData.maxArr;
+                filters.arrTypeFk = yearRateData.arrTypeFk;
+                filters.expectedArr = yearRateData.expectedArr;
+                filters.fixMin = yearRateData.fixMin;
+                filters.minArr = yearRateData.minArr;
+                filters.floatMax = yearRateData.floatMax;
+                filters.maxArr = yearRateData.maxArr;
                 filters.productLadderRates = yearRateData.productLadderRates
             }
+            console.log(JSON.stringify(filters));
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';

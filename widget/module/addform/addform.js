@@ -49,10 +49,11 @@ var addform = Widget.extend({
             arrTypeFk: '0',
             industryTypeFk: '10',
             custodianType: '',
-            distributionWayFk: '90',
+            distributionWayFk: '130',
             currencies: '10',
             arrRank: 0,
             customElementsList: [],
+            isRiskRating: '1',
         }
 
         data.item = Object.assign({}, defaultData, data.item);
@@ -131,6 +132,16 @@ var addform = Widget.extend({
             $('.panel-body[form-index='+ curIndex +']', me.vm.$el).removeClass('none');            
     	});
 
+        // 是否启用风险等级联动
+        container.on('click', '[data-key=isRiskRating]', function () {
+            let on = container.find('[data-key=isRiskRating]:checked').val();
+            let target = container.find('[data-key=riskRating]').parents('.input-wrapper');
+            if (on === '0') {
+                target.hide();
+            } else {
+                target.show();
+            }
+        });
         $('input[type=radio]').on('click' , function(){
             var key = $(this).attr('data-key');
             var arr = $('.incomeComputeDay').toArray();
@@ -360,13 +371,6 @@ var addform = Widget.extend({
         return  data;
     },
     computed:{
-        showBack :() => {
-            if(this.data.tabs.length !== 0 ){
-                return true
-            }else{
-                return false
-            }
-        }
     },
     methods:{
     	back : () => {

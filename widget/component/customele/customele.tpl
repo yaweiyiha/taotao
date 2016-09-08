@@ -22,7 +22,7 @@
           <div class="form-group input-group">
             <div class="input-group-addon input-title">内容</div>
             <textarea class="content" v-model="item.content" maxlength="40" placeholder="请输入内容" v-bind:readonly="disable"></textarea>
-	        <a class="remove" @click="remove(item)" href="javascript:;">移除</a>            
+	        <a class="remove" v-if="!disable" @click="remove(item)" href="javascript:;">移除</a>            
           </div>
         </div>
     </div>

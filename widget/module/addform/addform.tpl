@@ -9,13 +9,12 @@
         </li>
         
       </template>
-      <div class="back" @click="back" v-if="showBack">
-           <span class="back-info">
-              &gt; 返回
-           </span>
-      </div>
-
     </ul>
+    <div class="back" @click="back">
+         <span class="back-info">
+            &lt; 返回
+         </span>
+    </div>
     <div class="panel">
 
       <template v-for = "(index,form) in forms">
@@ -27,11 +26,6 @@
                       <span v-if="panel.subFun" class="icon" data-role="{{panel.subFun}}"></span>
                       <span class="text-strong-red">{{panel.descTitle}}</span>
                   </div>
-                  <div class="back" @click="back" v-if="showBack">
-                     <span class="back-info">
-                        < 返回
-                     </span>
-                </div>
               </div>
               <div v-if="panel.subFun" data-role="{{panel.subFun}}Content" class="none"> 
                   <div class="row mt10">
@@ -184,10 +178,10 @@
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}
-                          <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+                          <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
                       <template v-for="r in li.radios">
-                        <input type="radio" data-key="{{r.key}}" class='radio-input' name="isDisable" id="isDisable11" checked="{{r.isChecked}}" value="-1"> {{r.name}}
+                        <input type="radio" data-key="{{li.key}}" class='radio-input' value="{{r.value}}" name="{{li.key}}" v-model="item[li.key]"> {{r.name}}
                       </template>
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">

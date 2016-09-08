@@ -88,18 +88,13 @@ export default Vue.component('city-select', {
             me.getData(...param);         
         },
         getData :function( key,code, arr ,name,id ){
-
+            let me = this;
             this.area.getData(key,code).then(function(data){
-
-                data.forEach(function(li){
-                    
-                    let obj = {
-                        name : li[name],
-                        code : li[id],
-                        fullName: li.fullName
-                    }
-                    arr.push(obj)
-                });
+                me[key] = data.map((item) => ({
+                    name : item[name],
+                    code : item[id],
+                    fullName: item.fullName
+                }));
             });
         },
         get : function(){

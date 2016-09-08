@@ -154,6 +154,7 @@ var form = Widget.extend({
             let inputFilters = me.getInputFilters();
             let filters =  inputFilters && $.extend(inputFilters,filter);
             me._filters_ = Object.assign(me._filters_, filters);
+            me._filters_.pageNo = 1;
             data = $.extend({param: me._filters_},{url : url});
             me.updateTable(data);
 

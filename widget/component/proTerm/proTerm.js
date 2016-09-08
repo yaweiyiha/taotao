@@ -21,4 +21,20 @@ export default Vue.component('pro-term', {
  		nonFixTerm : false,
  		baseDays: '365'
  	}),
+ 	watch: {
+ 		unitmaturities: function (val) {
+ 			if ($.inArray(val, ['-1', '-2', '-3']) > -1) {
+ 				this.maturities = '';
+ 			}
+ 		}
+ 	},
+ 	computed: {
+ 		maturitiesDisable: function () {
+ 			if ($.inArray(this.unitmaturities, ['-1', '-2', '-3']) > -1) {
+ 				return true;
+ 			} else {
+ 				return this.disable;
+ 			}
+ 		}
+ 	}
 });

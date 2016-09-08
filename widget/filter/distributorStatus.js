@@ -8,3 +8,15 @@ Vue.filter('distributorStatus', function (status) {
     return distributorStatusArr[status];
 
 })
+
+Vue.filter('money', function (status) {
+	status = '' + status;
+    let Dict = {
+    	'1100' : '元',
+    	'1200' : '万元',
+    	'1300' : '亿元'
+    }
+
+    return Dict[status];
+
+})

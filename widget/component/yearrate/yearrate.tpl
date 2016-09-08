@@ -15,7 +15,7 @@
 	          </select>
 	      	</div>
 	  	</div>  	
-		<div class="col-md-6 input-wrapper rt" v-if="arrTypeFk === '30'">
+		<div class="col-md-6 input-wrapper rt" v-if="arrTypeFk === '30' || arrTypeFk === '40'">
 	      	<div class="form-group input-group w100">
 	          <div class="input-group-addon input-title">
 	          	金额单位
