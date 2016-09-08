@@ -11,7 +11,7 @@
       </template>
       <div class="back" @click="back" v-if="showBack">
            <span class="back-info">
-              < 返回
+              &gt; 返回
            </span>
       </div>
 
@@ -172,7 +172,7 @@
                    <div class="input-group-addon input-title" >{{li.name}}
                       <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                    </div>
-                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}" data-key="{{li.key}}">
+                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}" data-key="{{li.key}}" value="{{item.areaFullName}}" data-values="{{item.areaCode}}">
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}

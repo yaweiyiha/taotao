@@ -24,25 +24,43 @@ export default Vue.component('year-rate', {
  		latterData: {default: []},
  		disable: {default: false},
  	},
- 	watch: {
- 		latterData: function () {
- 			if (this.latterData.length) {
- 				this.YearRateUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
- 			} else {
- 				this.YearRateUnit = '元';
- 			}
+ 	ready: function () {
+		if (this.latterData.length) {
+			this.YearRateUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
+		} else {
+			this.YearRateUnit = '元';
+		}
 
- 			if (this.latterData.length) {
- 				if (this.latterData[0].minExtraRate && this.latterData[0].maxExtraRate) {
- 					this.floatUpperLimit = '1';
- 				} else {
- 					this.floatUpperLimit = '0';
- 				}
- 			} else {
- 				this.floatUpperLimit = '0';
- 			}
- 		}
+		if (this.latterData.length) {
+			if (this.latterData[0].hasOwnProperty('minExtraRate') || this.latterData[0].hasOwnProperty('maxExtraRate')) {
+				this.floatUpperLimit = '1';
+			} else {
+				this.floatUpperLimit = '0';
+			}
+		} else {
+			this.floatUpperLimit = '0';
+		}
  	},
+ 	// watch: {
+ 	// 	latterData: function () {
+ 	// 		if (this.latterData.length) {
+ 	// 			this.YearRateUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
+ 	// 		} else {
+ 	// 			this.YearRateUnit = '元';
+ 	// 		}
+
+ 	// 		if (this.latterData.length) {
+ 	// 			debugger;
+ 	// 			if (this.latterData[0].minExtraRate && this.latterData[0].maxExtraRate) {
+ 	// 				this.floatUpperLimit = '1';
+ 	// 			} else {
+ 	// 				this.floatUpperLimit = '0';
+ 	// 			}
+ 	// 		} else {
+ 	// 			this.floatUpperLimit = '0';
+ 	// 		}
+ 	// 	}
+ 	// },
  	// computed: {
  	// 	YearRateUnit: function () {
  	// 		if (this.latterData.length) {
