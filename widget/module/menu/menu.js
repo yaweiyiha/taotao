@@ -34,7 +34,7 @@ var menu = Widget.extend({
         if (typeof _permissions !== 'undefined') {
             this.arrPermissions = _permissions.split(',');
         }
-    	
+
     	if(data.menus){
     		for(var i=0;i<data.menus.length;i++){
     			if(data.menus[i].level2List){
@@ -49,6 +49,13 @@ var menu = Widget.extend({
 		    		}
 		    	}
 	    	}
+    	}
+
+    	//console.log(JSON.stringify(data.menus));
+    	for(var n=data.menus.length-1; n>=0; n--){
+			if(data.menus[n].level2List.length == 0){
+				data.menus.remove(data.menus[n]);
+			}
     	}
 
     	//展示菜单栏
