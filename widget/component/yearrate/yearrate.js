@@ -32,7 +32,7 @@ export default Vue.component('year-rate', {
 		}
 
 		// 左包含, 右包含
-		if (this.latterData  && this.latterData.length) {
+		if (this.latterData && this.latterData.length) {
 			let lastLatter = this.latterData[this.latterData.length - 1];
 			if (lastLatter.operator1 === 'GE') {
 				this.leftContain = '1';
@@ -42,6 +42,8 @@ export default Vue.component('year-rate', {
 		}
 
 		if (this.latterData  && this.latterData.length) {
+
+		if (this.latterData && this.latterData.length) {
 			if (this.latterData[0].hasOwnProperty('minExtraRate') || this.latterData[0].hasOwnProperty('maxExtraRate')) {
 				this.floatUpperLimit = '1';
 			} else {
