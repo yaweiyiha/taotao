@@ -1,3 +1,5 @@
+import datetime from 'widget/filter/datetime.js';
+
 let style = __inline('./singledate.inline.less');
 let tpl = __inline('./singledate.tpl');
 
@@ -22,7 +24,10 @@ export default Vue.component('single-date', {
     },
     computed: {
         time: function () {
-            return this.toDateString(this.timestamp);
+            if(this.timestamp){
+                return this.toDateString(this.timestamp);
+            }
+            
         },
         dataKey: function(){
             return this.enddatepurchase  || this.opendaydesc  || this.startdatepurchase
@@ -46,6 +51,11 @@ export default Vue.component('single-date', {
             }
         }
     },
+    watch : {
+        dataKey : function(){
+
+        }
+    },
     ready: function(){
         $('.time', this.$el).datetimepicker({
             language : 'zh-CN',
@@ -57,5 +67,8 @@ export default Vue.component('single-date', {
             minView: 2,
             container: '.cnt-box'
         });
-    }
+    },
+    filters : {
+        datetime : datetime ,
+    },
 });

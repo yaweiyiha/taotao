@@ -87,6 +87,8 @@
                       <fund-strategy :disable="options.disable"></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
+                      {{item.startDateInterest}}
+
                        <distribution-way
                         :distribution="item.distributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
@@ -151,16 +153,12 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                    {{item.endDatePurchase}}
-                    {{item.openDayDesc}}
-                    {{item.startDatePurchase}}
+
                       <single-date 
-                           :enddatepurchase="item.endDatePurchase"
-                           :opendaydesc  = "item.openDayDesc"
-                           :startdatepurchase = 'item.startDatePurchase'
                            :key="li.key" 
                            :disable="options.disable" 
                            :placeholder="li.placeholder"
+                           :timestamp ="item[li.key]"
                            >
                       </single-date>
                   </div> 
