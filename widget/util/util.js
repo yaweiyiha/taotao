@@ -66,6 +66,9 @@ var util = {
             data.baseCommission = +el.find('.baseCommission').val();
         } else if (data.commissionTypeFk === 20) {
             data.productCommissionList = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
+            data.productLadderRates.forEach(function (item) {
+                delete item.extraRate;
+            });
         }
         return data;
     },
@@ -97,6 +100,9 @@ var util = {
             }
         } else if (data.arrTypeFk === 30 || data.arrTypeFk === 40) {
             data.productLadderRates = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
+            data.productLadderRates.forEach(function (item) {
+                delete item.extraCommission;
+            });
         }
         return data;
     },
