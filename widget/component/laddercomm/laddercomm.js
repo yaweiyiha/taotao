@@ -106,7 +106,6 @@ export default Vue.component('ladder-comm', {
 
  				cache.proportion = item.extraCommission;
  				cache.upperProportion = '';
- 				cache.proportion = '';
 
  				if (item.hasOwnProperty('minExtraRate') && item.hasOwnProperty('maxExtraRate')) {
  					cache.proportion = item.minExtraRate
