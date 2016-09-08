@@ -73,6 +73,7 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(data){
+        let container = $(this.vm.$el);
         let res = data;
         let me = this;
         if($('select[data-key="publisherFk"]')){
@@ -101,6 +102,13 @@ var addform = Widget.extend({
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
+
+        // init risk level
+        setTimeout(() => {
+            if (container.find('[data-key=isRiskRating]:checked').val() === '0') {
+                container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
+            }
+        });
 
         // if (this.data.options && this.data.options.disable === true) {
         //     $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
@@ -291,6 +299,7 @@ var addform = Widget.extend({
         let filters = {};
 
         filters = Object.assign(filters, Util.getInputFilters());
+        debugger;
         if(filters.name == "" || filters.name == undefined){
             //todo 
             //return;

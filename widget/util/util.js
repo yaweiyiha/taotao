@@ -123,15 +123,21 @@ var util = {
             // }
             let inputType = ele.attr('type');
             if(inputType === 'radio'){
-                val = parseInt($('input[data-key=' +key + ']:checked').val())
+                val = $('input[data-key=' +key + ']:checked').val();
+                if (val !== '') {
+                    val = +val;
+                }
             }else if(isNum){
-                val = parseInt(ele.attr('data-values')) || parseInt(ele.val());
+                val = ele.attr('data-values') || ele.val();
+                if (val !== '') {
+                    val = +val;
+                }
             }else {
                  val = ele.attr('data-values') || ele.val();
             }
 
             
-            if (key && val) {
+            if (key && val !== '') {
                 data[key] = val;
             }
         }
@@ -280,6 +286,7 @@ var util = {
             areaCode: data.area.cityCode,
             dateEstablished  : data.product.dateEstablished,
             publisherName  : data.publisher.name,
+            isRiskRating: toString(data.product.isRiskRating),
             
         }
     }
