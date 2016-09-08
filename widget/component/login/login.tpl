@@ -1,8 +1,10 @@
 
 <div class="asset-widget-login">
 	<div class="header">
-		<div class="logo"></div>
-		<h1>祺鲲产品集市</h1>
+		<div class="headPosition">
+			<div class="logo"></div>
+			<h1>祺鲲产品集市</h1>
+		</div>
 	</div>
 	<section class="main">
 		<div class="main-inner"></div>
@@ -28,5 +30,5 @@
 			</form>
 		</div>
 	</section>
-	<div class="footer">版权所有:@2015    祺鲲科技所有    沪ICP备14046106号-1</div>
+	<div class="footer">版权所有:@2015&nbsp;&nbsp;祺鲲科技所有&nbsp;&nbsp;沪ICP备14046106号-1</div>
 </div>
