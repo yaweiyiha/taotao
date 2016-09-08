@@ -4,12 +4,12 @@
                 <div class="form-group input-group w100">
                     <div class="input-group-addon input-title">收益分配方式</div>
                      <select class="input-control" data-key="distributionWayFk" v-model='distributionWayFk' :disabled="disable"> 
-                        	<option  value="90">到期一次性还本付息</option>
-                        	<option value="130">按期付息，到期还本</option>
+                        	<option  value="130">到期一次性还本付息</option>
+                        	<option value="90">按期付息，到期还本</option>
                       </select>
                 </div>  
             </div>
-            <div v-if="distributionWayFk == '130'" class="col-md-3 prn input-wrapper rt">  
+            <div v-if="distributionWayFk == '90'" class="col-md-3 prn input-wrapper rt">  
                 <div class="form-group input-group w100">
                       <div class="input-group-addon input-title">收益分配周期
                       </div>
@@ -23,7 +23,7 @@
                       </select>
                   </div>     
               </div>
-              <div  v-if="distributionWayFk == '130'"  class="col-md-2 pln input-wrapper rt">  
+              <div  v-if="distributionWayFk == '90'"  class="col-md-2 pln input-wrapper rt">  
                   <div class="form-group input-group">
                     <span class="input-group-addon input-title">每</span>
                     <input class="input-control" maxlength="40" data-des="每" data-key="distributeInterval" style="width:70px" v-model="distributeinterval" :disabled="disable"> 
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-addon">固定日期</div>
-						<single-date data-key="startDateInterest" :key="startDateInterest" :disabled="disable" placeholder="请输入固定日期"></single-date>
+						<single-date key="startDateInterest" :timestamp="startdateinterest" :disabled="disable" :placeholder="请输入固定日期"></single-date>
                     </div>
                 </div>
             </div>

@@ -16,9 +16,6 @@ export default Vue.component('single-date', {
         placeholder: {default: ''},
         disable: {default: false},
         timestamp: {default: -1},
-        enddatepurchase : {default: ''},
-        opendaydesc     : {default:  ''},
-        startdatepurchase : {default: ''},
     },
     data: function () {
     },
@@ -29,9 +26,6 @@ export default Vue.component('single-date', {
             }
             
         },
-        dataKey: function(){
-            return this.enddatepurchase  || this.opendaydesc  || this.startdatepurchase
-        }
     },
     methods: {
         toDateString: function (timestamp) {
@@ -51,11 +45,6 @@ export default Vue.component('single-date', {
             }
         }
     },
-    watch : {
-        dataKey : function(){
-
-        }
-    },
     ready: function(){
         $('.time', this.$el).datetimepicker({
             language : 'zh-CN',
@@ -67,6 +56,8 @@ export default Vue.component('single-date', {
             minView: 2,
             container: '.cnt-box'
         });
+ 
+        console.log(this.key);
     },
     filters : {
         datetime : datetime ,

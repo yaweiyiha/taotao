@@ -32,7 +32,7 @@
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}}hello :
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}}:
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>

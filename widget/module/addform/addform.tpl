@@ -93,6 +93,7 @@
                         :distribution="item.distributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
+                        :startdateinterest="item.startDateInterest"
                         :disable="options.disable"
                         :incomecompletion="item.incomeCompletionDateNumber"
                       >

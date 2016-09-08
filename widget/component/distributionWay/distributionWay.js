@@ -16,7 +16,8 @@ export default Vue.component('distribution-way', {
  		distribution : {default: ''},
  		incomecalcutype : {default: '10'},
  		distributeinterval   : {default: ''}, 	
- 		incomecompletion   : {default: ''}, 		
+ 		incomecompletion   : {default: ''}, 
+ 		startdateinterest  : {default:''}		
  	},
  	data: () => ({
  		distributionWayFk    : '',
@@ -29,10 +30,10 @@ export default Vue.component('distribution-way', {
  		distributionAnother  : '',
  	}),
  	ready: function () {
-		if (this.distribution === '90') {
-			this.distributionWayFk = '90';
-		} else {
+		if (this.distribution === '130') {
 			this.distributionWayFk = '130';
+		} else {
+			this.distributionWayFk = '90';
 			this.distributionAnother = this.distribution;
 		}
  	},
@@ -50,6 +51,8 @@ export default Vue.component('distribution-way', {
  				return '天';
  			}else if(this.distributionAnother == '80'){
  				return '半年';
+ 			}else {
+ 				return '月'
  			}
  		}
  	},

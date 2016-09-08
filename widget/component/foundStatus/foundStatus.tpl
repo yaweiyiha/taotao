@@ -29,8 +29,8 @@
 		<div v-if="establish == '0'" class="form-group input-group"> 
 		     <div class="input-group-addon input-title">产品状态     
 		      </div>
-		      <input data-key="salesStatusFk" type="radio" class="radio-input"  name="salesStatusFk"  value="10"  :disabled="disable" v-model="sales"> 预售
-		      <input data-key="salesStatusFk" type="radio" class="radio-input" name="salesStatusFk"   value="20"  :disabled="disable" v-model="sales"> 在售
+		      <input data-key="salesStatusFk" type="radio" class="radio-input"  name="salesStatusFk"  value="20"  :disabled="disable" v-model="sales"> 预售
+		      <input data-key="salesStatusFk" type="radio" class="radio-input" name="salesStatusFk"   value="10"  :disabled="disable" v-model="sales"> 在售
 		      <input  data-key="salesStatusFk" type="radio" class="radio-input" name="salesStatusFk" value="30" :disabled="disable" v-model="sales"> 售罄
   		</div>
 
