@@ -147,7 +147,7 @@ urlConfig['trust/detail'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
+					[ 	elementDict.distributionWay],
 					[	elementDict.yearRate	],
 				]
 			},
@@ -228,7 +228,7 @@ urlConfig['asset/detail'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.incomeDistriType ,elementDict.incomeDistirCycle ,elementDict.incomeDistirUnit],
+					[ 	elementDict.distributionWay],
 					[	elementDict.yearRate	],
 					// [   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
 				]

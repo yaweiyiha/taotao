@@ -37,7 +37,7 @@ var addform = Widget.extend({
             fundTypeFk: '60',
             fundSubTypeFk: '100',
             publisherFk: '',
-            custodianParty: '10',
+            custodianParty: '',
             establishStatus: '0',
             salesStatusFk: '10',
             unitFkIssureScale: '1100',
@@ -48,7 +48,7 @@ var addform = Widget.extend({
             riskRating: '30',
             arrTypeFk: '0',
             industryTypeFk: '10',
-            custodianType: '10',
+            custodianType: '',
             distributionWayFk: '90',
             currencies: '10',
             arrRank: 0,
@@ -217,10 +217,6 @@ var addform = Widget.extend({
             }
            
         })
-
-        $('button[data-role="republic"]').on('click',function () {
-            validate($('body'));
-        });
 
         $(".city-select").on('click',function(){
             citySelectDialog.show({

@@ -240,7 +240,7 @@ var util = {
             commissionTypeFk   : toString(data.product.commissionTypeFk),
             baseCommission     : toString(data.product.baseCommission),
             industryTypeFk     : toString(data.product.industryTypeFk),
-            custodianType      : toString(data.product.custodianType),
+            custodianType      : toString(data.product.custodianType) || '10',
             distributionWayFk  : toString(data.product.distributionWayFk),
             currencies         : toString(data.product.currencies),
             arrRank            : toNumber(data.product.arrRank),

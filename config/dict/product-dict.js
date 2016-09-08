@@ -95,7 +95,7 @@ export default {
  	'stockRight'     : { key :'equity' ,name : '股权', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入股权',validate: {isrequire : true ,isNumber : true},unit: '%'},
  	'collarCast'     : { key :'collarCast' ,name : '领投人', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入领投人',validate: {isrequire : true}}, 
  	'collarCastNumber' : { key :'collarCastNumber' ,name : '身份证号', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入身份证号'}, 
- 	'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true}}, 
+ 	'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true ,isNumber : true}}, 
  	'unitFkOfMaxInvestmentPrice' :{ key :'unitFkOfMaxInvestmentPrice' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
 					    options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1},
  	'showStatus'	 : { key :'available' ,name : '展示状态', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '上架','isChecked' : 'checked' ,'value' : '10'},{'name' : '下架','value' : '20' }  ] },
