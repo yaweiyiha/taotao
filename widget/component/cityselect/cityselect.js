@@ -33,20 +33,37 @@ export default Vue.component('city-select', {
     },
     computed: {
         output: function () {
-            debugger
-            let aa= [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ');
             let result = '';
             let obj = '';
-            this.subarea.forEach((item) => {
-                if (item.code === this.areaSelected) {
-                    result = item.fullName;
-                }
-            });
+            if (this.areaSelected) {
+                this.subarea.forEach((item) => {
+                    if (item.code === this.areaSelected) {
+                        result = item.fullName;
+                    }
+                });
+            } else if(this.citySelected) {
+                this.city.forEach((item) => {
+                    if (item.code === this.citySelected) {
+                        result = item.fullName;
+                    }
+                });
+            } else if (this.provinceSelected !== '省') {
+                this.province.forEach((item) => {
+                    if (item.code === this.provinceSelected) {
+                        result = item.fullName;
+                    }
+                });
+            }
+
             obj = {
                 name : result,
-                value : this.provinceSelected || this.citySelected || this.areaSelected
+                value: this.areaSelected || this.citySelected || this.provinceSelected
+                // value : [this.provinceSelected, this.citySelected, this.areaSelected].join(' - ')
             }
-            return obj;
+            if (obj.value === '省') {
+                obj.value = '';
+            }
+            return JSON.stringify(obj);
         }
     },
     methods:{
