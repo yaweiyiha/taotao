@@ -42,7 +42,7 @@ class Router {
         let hash = uriParams.shift() || this.DEFUALT_PAGE;
 
         let defaultPage = '';
-        console.log(JSON.stringify(_permissions));
+        //console.log(JSON.stringify(_permissions));
         let arrPermissions = _permissions.split(',');
         
         if($.inArray('product:list',arrPermissions) != -1){
@@ -52,7 +52,7 @@ class Router {
         }
 
         let page = uriParams.join('/') || defaultPage;
-        console.log(page);
+        //console.log(page);
 
         window._APP_HASH = Url.urlToJSON();
         window._APP_HASH._uri_ = page;

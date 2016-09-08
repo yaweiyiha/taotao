@@ -198,6 +198,7 @@ var util = {
         let toNumber = (val) => {
             return val === null ? undefined : +val;
         }
+        data.area = data.area || {};
         return {
             name               :  data.product.name,
             fundGenreAFk       :  toString(data.product.fundGenreAFk), 
@@ -269,6 +270,8 @@ var util = {
             openDayDesc      : data.product.openDayDesc,
             //购买起始日
             startDatePurchase : data.product.startDatePurchase,
+            areaFullName: data.area.fullName,
+            areaCode: data.area.cityCode
             
         }
     }

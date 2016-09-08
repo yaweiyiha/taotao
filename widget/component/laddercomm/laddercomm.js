@@ -31,6 +31,7 @@ export default Vue.component('ladder-comm', {
  	}),
  	ready: function () {
  		this.list = this.revertData();
+ 		this.$log('list');
  	},
  	watch: {
  		latterData: function () {
@@ -101,8 +102,15 @@ export default Vue.component('ladder-comm', {
  					'1200': '万元',
  					'1300': '亿元'
  				};
+
  				cache.proportion = item.extraCommission;
  				cache.upperProportion = '';
+ 				cache.proportion = '';
+
+ 				if (item.hasOwnProperty('minExtraRate') && item.hasOwnProperty('maxExtraRate')) {
+ 					cache.proportion = item.minExtraRate
+ 					cache.upperProportion = item.maxExtraRate;
+ 				}
  				cache.unit = dict['' + item.measureUnitFk];
  				if (index !== list.length - 1) {
 	 				if (item.operator1 === 'GT' || item.operator2 === 'GT') {
