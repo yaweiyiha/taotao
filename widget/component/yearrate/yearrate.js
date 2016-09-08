@@ -41,8 +41,6 @@ export default Vue.component('year-rate', {
 			}
 		}
 
-		if (this.latterData  && this.latterData.length) {
-
 		if (this.latterData && this.latterData.length) {
 			if (this.latterData[0].hasOwnProperty('minExtraRate') || this.latterData[0].hasOwnProperty('maxExtraRate')) {
 				this.floatUpperLimit = '1';

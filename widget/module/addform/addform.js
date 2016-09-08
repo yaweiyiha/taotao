@@ -37,7 +37,7 @@ var addform = Widget.extend({
             fundTypeFk: '60',
             fundSubTypeFk: '100',
             publisherFk: '',
-            custodianParty: '10',
+            custodianParty: '',
             establishStatus: '0',
             salesStatusFk: '10',
             unitFkIssureScale: '1100',
