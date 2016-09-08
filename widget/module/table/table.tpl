@@ -46,6 +46,7 @@
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
                         <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
                         <td v-if="t.type === 'applyQuota'">{{ item[t.key]}}元</td>
+                        <td v-if="t.type === 'commission'">{{ item[t.key]}}%</td>
                         <td v-if="t.type === 'operater'" class = "operator">
                             <template v-for="op in item.operater">
                                 <a href="{{op.url}} " data-evt="{{op.evt}}" value="{{op.val}}" data-param= '{{op.par}}'>
