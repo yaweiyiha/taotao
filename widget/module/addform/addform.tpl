@@ -87,7 +87,6 @@
                       <fund-strategy :disable="options.disable"></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
-
                        <distribution-way
                         :distribution="item.distributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
@@ -96,7 +95,7 @@
                         :disable="options.disable"
                         :incomecompletion="item.incomeCompletionDateNumber"
                       >
-                    </distribution-way> 
+                      </distribution-way> 
                   </template>
                   <template v-if="li.type === 'foundStatus'">
                        <found-status 
@@ -111,8 +110,11 @@
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
-
-                      <hoster :select-key="item.custodianType" :custodian="item.custodianParty" :disable="options.disable"></hoster>
+                      <hoster 
+                        :custodiantype="item.custodianType" 
+                        :custodian="item.custodianParty" 
+                        :disable="options.disable">
+                      </hoster>
                   </template>
                   <template v-if="li.type === 'editor'">
                     <editor :disable="options.disable"></editor>

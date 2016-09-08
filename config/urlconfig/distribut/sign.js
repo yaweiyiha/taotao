@@ -59,7 +59,7 @@ urlConfig['sign/done'] =
 						{name : '发行公司' ,key : 'agentName' ,subtype : 'text'},	
 						{name : '佣金类型' ,key : 'commisionType',subtype : 'commisionType'},	
 						{name : '佣金比例' ,key : 'fixedCommission',subtype : 'percent'},	
-						{name : '代销时间' ,key : ['applyStartDate','applyEndDate']  ,subtype:'doubleTime' },	
+						{name : '代销时间' ,key : ['offlineStartDate','offlineEndDate']  ,subtype:'doubleTime' },	
 						{name : '代销额度' ,key : 'applyQuota',subtype: 'applyQuota' },	
 						{name : '申请代销时间 ' ,key : 'createTime' ,subtype: 'singleTime'},	
 					])  , Dict.contractCopy ]
@@ -83,7 +83,7 @@ urlConfig['sign/reject'] =
 				'formlist'   : [
 					[ Dict.baseText('申请代销产品名称','productName','','text')],
 					[ Dict.baseText('申请分销商','agentName','','text')],
-					[ Dict.baseText('申请代销时间' ,['offlineStartDate','offlineEndDate'],'','doubleTime')],
+					[ Dict.baseText('申请代销时间' ,['applyStartDate','applyEndDate'],'','doubleTime')],
 					[ Dict.baseText('申请代销额度','applyQuota','','applyQuota')],
 				 ],
 			},

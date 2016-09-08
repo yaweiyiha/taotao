@@ -10,7 +10,7 @@ export default Vue.component('hoster', {
  	template: tpl,
  	props: {
  		disable: {default: false},
- 		selectKey : {default : ''},
+ 		custodiantype : {default : ''},
  		custodian : {default : ''}
  	},
  	data : () => ({
@@ -18,11 +18,11 @@ export default Vue.component('hoster', {
  	}),
  	computed : {
  		placeholder : function(){
- 			if(this.selectKey == '20'){
+ 			if(this.custodiantype == '20'){
  				return '请输入托管劵商';
- 			}else if(this.selectKey == '30'){
+ 			}else if(this.custodiantype == '30'){
  				return '请输入托管银行';
- 			}else if(this.selectKey == '40'){
+ 			}else if(this.custodiantype == '40'){
  				return '第三方支付存管';
  			}
  		}

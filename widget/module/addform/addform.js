@@ -338,6 +338,12 @@ var addform = Widget.extend({
             data.productCommissionList = commTypeData.productCommissionList
         }
 
+        let publisherEle  = $('select[data-key="publisherFk"]');
+        if (publisherEle.val() === '' || publisherEle.val() === undefined) {
+            AlertDialog.show('发行商为空,请选择');
+            return;
+        }
+
         // get year rate info
         let yearRateContainer = container.find('.admin-widget-yearrate');
         if (yearRateContainer.size()) {

@@ -19,6 +19,10 @@ export default Vue.component('single-date', {
     },
     data: function () {
     },
+    ready :function(){
+        debugger
+        console.log(this.disable);
+    },
     computed: {
         time: function () {
             if(this.timestamp){

@@ -138,7 +138,7 @@
                           <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
                       <template v-for="r in li.radios">
-                        <input type="radio" data-key="{{li.key}}" class='radio-input' value="{{r.value}}" name="{{li.key}}" v-model="item.available"> {{r.name}}
+                        <input type="radio" data-key="{{li.key}}" class='radio-input' value="{{r.value}}" name="{{li.key}}" v-model="item[li.key]"> {{r.name}}
                       </template>
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">

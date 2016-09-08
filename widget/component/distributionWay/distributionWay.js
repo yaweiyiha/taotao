@@ -30,6 +30,7 @@ export default Vue.component('distribution-way', {
  		distributionAnother  : '',
  	}),
  	ready: function () {
+
 		if (this.distribution === '130') {
 			this.distributionWayFk = '130';
 		} else {

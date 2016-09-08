@@ -206,7 +206,7 @@ var util = {
             fundTypeFk         :  toString(data.product.fundTypeFk), 
             fundSubTypeFk      :  toString(data.product.fundSubTypeFk),
             publisherFk        :  toString(data.product.publisherFk),
-            custodianParty     :  toString(data.product.custodianParty),
+            custodianParty     :  toString(data.product.custodianParty) || '',
             fundManager        :  data.product.fundManager,
             fundManagerCompany :  data.product.fundManagerCompany,
             fundCustodianCharges: data.product.fundCustodianCharges,

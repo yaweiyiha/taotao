@@ -68,7 +68,6 @@ class addProControl extends Control{
                 model.getData(url).then((res) => {
                     if(data.useProcessData){
                         let dictData = {};
-             
                         dictData.item = $.extend(res.item, Util.processData(res.item));
                         me.getViews([me.widgets.addform], $.extend(dictData, data));
                     } else {
