@@ -18,6 +18,7 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
+        //console.log(JSON.stringify(data));
 
         this._filters_ = {};
         this.localData = {};
