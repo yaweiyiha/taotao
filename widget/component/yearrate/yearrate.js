@@ -31,6 +31,16 @@ export default Vue.component('year-rate', {
 			this.YearRateUnit = '元';
 		}
 
+		// 左包含, 右包含
+		if (this.latterData.length) {
+			let lastLatter = this.latterData[this.latterData.length - 1];
+			if (lastLatter.operator1 === 'GE') {
+				this.leftContain = '1';
+			} else {
+				this.leftContain = '0';
+			}
+		}
+
 		if (this.latterData.length) {
 			if (this.latterData[0].hasOwnProperty('minExtraRate') || this.latterData[0].hasOwnProperty('maxExtraRate')) {
 				this.floatUpperLimit = '1';
