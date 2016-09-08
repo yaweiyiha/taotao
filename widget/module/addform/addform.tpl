@@ -151,9 +151,6 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
-                    {{item.endDatePurchase}}
-                    {{item.openDayDesc}}
-                    {{item.startDatePurchase}}
                       <single-date 
                            :enddatepurchase="item.endDatePurchase"
                            :opendaydesc  = "item.openDayDesc"
@@ -175,7 +172,7 @@
                    <div class="input-group-addon input-title" >{{li.name}}
                       <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                    </div>
-                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}">
+                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}" data-key="{{li.key}}">
                   </div>
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}

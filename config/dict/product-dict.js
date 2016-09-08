@@ -46,7 +46,7 @@ export default {
  	
  	'industryTypeFk': { key :'industryTypeFk' ,name : '信托类型', wrapperClass : 'col-md-6' ,   type : 'select', 
 					   options : ['政信类','金融类','基础设施','工商企业','房地产','其他'], value: ['10', '20', '30', '40', '50', '60'], validate: {isrequire : true}},
- 	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日"},
+ 	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'expectedArr', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
@@ -90,7 +90,7 @@ export default {
 	'investManager' : { key :'investManager' ,name : '投资经理', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入投资经理'},
  	'isRiskRating'  : { key :'isRiskRating' ,name : '是否启用风险等级', wrapperClass : 'col-md-4' ,   type : 'radios',radios : [{'name': '启用' ,'isChecked' : 'checked'  },{'name' : '关闭'} ] },
  	'proLocation'   : { key :'locationFk' ,name : '项目所在地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '', validate: {isrequire : true}, placeholder: '请添加项目所在地'},
- 	'proDistriLocation'   : { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入投资经理'},
+ 	'proDistriLocation'   : { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入产品发行地'},
  	'financeAmount'  : { key :'issureScale' ,name : '融资金额', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入融资金额'},
  	'stockRight'     : { key :'equity' ,name : '股权', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入股权',validate: {isrequire : true ,isNumber : true},unit: '%'},
  	'collarCast'     : { key :'collarCast' ,name : '领投人', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入领投人',validate: {isrequire : true}}, 

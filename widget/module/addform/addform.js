@@ -225,7 +225,10 @@ var addform = Widget.extend({
         $(".city-select").on('click',function(){
             citySelectDialog.show({
 
-                onConfirm: (data) => $(this).val(data.city)
+                onConfirm: (data) => {
+                    $(this).val(data.name)
+                    $(this).attr('data-values', data.value);
+                }
             });
         })
 
