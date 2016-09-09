@@ -159,6 +159,9 @@ var url = {
 
         let url = '';
         let uri = param.uri || location.pathname;
+        if (ROOT) {
+            uri = ROOT + '/' + uri;
+        }
         delete param.uri;
 
         if (param.url) {

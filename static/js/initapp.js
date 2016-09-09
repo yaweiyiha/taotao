@@ -29,23 +29,36 @@ cc.getViews([widgets.menu],menusConfig);
 
 
 // delegate system navigate
-if (URL_MODE === 'pushstate') {
-    let layer = document.querySelector('body');
-    layer.addEventListener('click', function (e) {
-        let tagName = e.target.tagName;
-        let ele = $(e.target);
+let layer = document.querySelector('body');
+layer.addEventListener('click', function (e) {
+    let tagName = e.target.tagName;
+    let ele = $(e.target);
 
-        if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
-            let link = ele.attr('href');
-            link = link.replace(/^#/ , '/');
+    if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
+        let link = ele.attr('href');
+        link = link.replace(/^#/ , '');
+
+        if (URL_MODE === 'pushstate') {
+            if (ROOT) {
+                link = '/' + ROOT + '/' + link;
+            } else {
+                link = '/' + link;
+            }
             window.history.pushState({},'',link);
             listener.trigger('page', 'reload');
             listener.trigger('hash', 'change');
-            e.preventDefault();
-            e.stopPropagation();
+        } else {
+            if (ROOT) {
+                link = '#' + ROOT + '/' + link;
+            } else {
+                link = '#' + link;
+            }
+            location.hash = link;
         }
-    }, true);
-}
+        e.preventDefault();
+        e.stopPropagation();
+    }
+}, true);
 
 let getEnums = () => {
 
