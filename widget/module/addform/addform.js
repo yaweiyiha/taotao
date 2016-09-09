@@ -59,7 +59,7 @@ var addform = Widget.extend({
             containsLeftValue: '0',
         }
 
-        console.log(JSON.stringify(data.item));
+        //console.log(JSON.stringify(data.item));
 
         data.item = Object.assign({}, defaultData, data.item);
 
@@ -259,6 +259,8 @@ var addform = Widget.extend({
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let publishUrl = Config.host + me.data.publishUrl;
 
+                alert(JSON.stringify(data));
+
                 Util.getData(publishUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {
                         AlertDialog.show('发布成功');
@@ -409,6 +411,7 @@ var addform = Widget.extend({
             data.product.id = _APP_HASH.id
         }
 
+        console.log(JSON.stringify(data));
         return  data;
     },
     validateSubmitData : function(){

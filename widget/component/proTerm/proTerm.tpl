@@ -24,8 +24,8 @@
 	        <input type="radio" :disabled="disable" name="baseDays" data-key="baseDays"  value="365" v-model="basedays">365天 
 			<input type="radio" :disabled="disable" name="baseDays" data-key="baseDays"  value="360" v-model="basedays">360天
 	        <input type="radio" :disabled="disable" name="baseDays" data-key="baseDays"  value="30" v-model="basedays">自定义
-	        <input type="text" v-if="basedays === '30'" :disabled="disable" class="cus-days" data-key="customBaseDays" placeholder="请输入自定义天数" value="{{custombasedays}}">
-	        <span v-if="basedays === '30'">天</span>
+	        <input type="text" v-if="basedays == 30" :disabled="disable" class="cus-days" data-key="customBaseDays" placeholder="请输入自定义天数" value="{{custombasedays}}">
+	        <span v-if="basedays == 30">天</span>
         </div>
 	</div>
 	<p class="tip"> (仅用于投资期限为“天”时计算收益)</p>

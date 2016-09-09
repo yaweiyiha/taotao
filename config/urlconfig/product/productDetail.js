@@ -386,6 +386,7 @@ urlConfig['equityInvestment/detail'] =
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[	elementDict.saleSize , elementDict.unitFkOfferingSize,elementDict.purchaseAmount,elementDict.unitFkStartingPrice],
+					[	elementDict.startPurchase ,elementDict.endPurchase],
 					[	elementDict.moneyType ,elementDict.riskRant],
 				],
 			},

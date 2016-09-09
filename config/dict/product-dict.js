@@ -48,6 +48,10 @@ export default {
 					   options : ['政信类','金融类','基础设施','工商企业','房地产','其他'], value: ['10', '20', '30', '40', '50', '60'], validate: {isrequire : true}},
  	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
+
+	'startPurchase'	: { key :'startDatePurchase' ,name : '起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
+	'endPurchase'	: { key :'endDatePurchase' ,name : '截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
+ 	
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'expectedArr', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
  	'soled'			: { key :'selfDefinedProcess', name : '已销售份额', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unitType: 'money', unitKey: 'unitFkOfferingSize', isrequire: true},
