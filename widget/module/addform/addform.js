@@ -79,7 +79,6 @@ var addform = Widget.extend({
         if($('select[data-key="publisherFk"]')){
 
             let publisherKey  = res.item.publisherFk;
-            console.log(publisherKey);
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
             let option  = '';
@@ -101,6 +100,39 @@ var addform = Widget.extend({
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
+        }
+
+        if($('select[data-key="paymentTransferBranch"]')){
+
+            Util.getData('publisher/constants','','GET').then((res) => {
+
+                if(res.status === 1){
+                    // let publisherKey  = res.item.publisherFk;
+                    // let index = 0;
+                    // 
+                    let banksArr   =  [];
+                    let banks = res.item.banks;
+
+                    for(key in banks){
+
+                        // if (index === 0 && publisherKey == '') {
+                        //     me.vm.$set('item.paymentTransferBranch', key);
+                        // }else if(key == publisherKey){
+                        //     me.vm.$set('item.paymentTransferBranch', publisherKey);
+                        // }
+                        // index++;
+
+
+                        option = `<option value="${key}">${banks[key]}</option>`;
+                    
+                        
+                        banksArr.push(option);
+                    }
+                    $('select[data-key="paymentTransferBranch"]').append(banksArr);
+                }
+
+            });
+
         }
 
         // init risk level
@@ -169,6 +201,12 @@ var addform = Widget.extend({
             if (!Util.validate(container)) {
                 return;
             }
+            if(!me.validateSubmitData()){
+                AlertDialog.show('两次卡号不一致，请重新输入');
+                return;
+            }
+
+
 
             for (let i = 0, len = inputCollections.length; i < len; i++) {
                 let ele = $(inputCollections[i]);
@@ -180,7 +218,6 @@ var addform = Widget.extend({
             }
             url = me.data.submiturl || me.data.url;
             param = me.data.param;
-
             if(param){
                 let params = location.href.split('?')[1].split("=");
                 let key = params[0];
@@ -378,6 +415,19 @@ var addform = Widget.extend({
         }
 
         return  data;
+    },
+    validateSubmitData : function(){
+
+        if($('input[data-key="paymentTransferCardNumber"]') &&
+            $('input[data-key="paymentTransferCardNumberAgain"]')){
+            let payTanscardEle = $('input[data-key="paymentTransferCardNumber"]');
+            let payTanscardAgainEle = $('input[data-key="paymentTransferCardNumberAgain"]');
+            if(payTanscardEle.val() !== payTanscardAgainEle.val()){
+                return  false;
+            }else{
+                return true
+            }
+        }
     },
     computed:{
     },

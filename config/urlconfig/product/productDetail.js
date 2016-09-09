@@ -73,7 +73,7 @@ urlConfig['fund/detail'] =
 				'panelName' : '基本信息',
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'publisherName' , name: '名称', value: "", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "", readonly: true}) ],
-					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "", readonly: true, textStyle: {minWidth: '122px'}}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "", readonly: true, textStyle: {minWidth: '122px'}}) ],
 				],
 			},
 		]
@@ -169,7 +169,7 @@ urlConfig['trust/detail'] =
 				'panelName' : '基本信息',
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
-					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
 				],
 			},
 		]
@@ -251,7 +251,7 @@ urlConfig['asset/detail'] =
 				'panelName' : '基本信息',
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
-					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
 				],
 			},
 		]
@@ -329,7 +329,7 @@ urlConfig['debtassgin/detail'] =
 				'panelName' : '基本信息',
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
-					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '　　　发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '　　　发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
 				],
 			},
 		]
@@ -408,7 +408,7 @@ urlConfig['equityInvestment/detail'] =
 				'panelName' : '基本信息',
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
-					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
 				],
 			},
 		]

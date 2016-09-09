@@ -25,7 +25,7 @@ demo : fis3 relase xuxu -w
 
 fis.media('xuxu').match('*', {
     deploy: fis.plugin('http-push', {
-        receiver: 'http://192.168.1.3/receiver.php',
+        receiver: 'http://localhost:80/receiver.php',
         to: 'D:/apache-tomcat-7.0.70/webapps/admin'
     }),
   

@@ -102,7 +102,7 @@ export default {
  	'paymentTransferCardOwner' :{ key :'paymentTransferCardOwner' ,name : '持卡人', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入持卡人',validate: {isrequire : true}},
  	'paymentTransferBankId' :{ key :'paymentTransferBankId' ,name : '银行ID', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入银行ID',validate: {isrequire : true}},
  	'paymentTransferCardNumber' :{ key :'paymentTransferCardNumber' ,name : '卡号', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入卡号',validate: {isrequire : true}},
- 	'paymentTransferBranch' :{ key :'paymentTransferBranch' ,name : '支行', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入持卡人'},
+ 	'paymentTransferBranch' :{ key :'paymentTransferBranch' ,name : '支行', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'select',placeholder : '请输入支行'},
  	'paymentTransferCardNumberAgain' :{ key :'paymentTransferCardNumberAgain' ,name : '再次输入卡号', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请再次输入卡号',validate: {isrequire : true}},
  	'paymentTransferIntroduction' :{ key :'paymentTransferIntroduction' ,name : '说明', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'textarea',placeholder : '请输入说明',validate: {isrequire : true}},
  	'collarCastDesc'  : {type: 'editor'},
