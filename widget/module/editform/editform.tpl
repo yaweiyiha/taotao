@@ -54,6 +54,8 @@
                         :max-arr="item.product.maxArr"
                         :latter-data="item.productLadderRates"
                         :disable="options.disable"
+                        :not-float-upper-limit="item.notContainsFloatRateMax"
+                        :left-contain="item.product.containsLeftValue"
                       >
                       </year-rate>
                   </template>

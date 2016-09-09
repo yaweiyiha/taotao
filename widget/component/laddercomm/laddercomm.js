@@ -88,6 +88,7 @@ export default Vue.component('ladder-comm', {
  	},
  	methods: {
  		revertData: function () {
+ 			let me = this;
  			if (!this.latterData ||this.latterData.length === 0) {
  				return [
 				    {
@@ -113,7 +114,7 @@ export default Vue.component('ladder-comm', {
 
 				cache.proportion = item.minExtraRate
 				cache.upperProportion = item.maxExtraRate;
- 				if (typeof item.extraRate === 'number' || typeof item.extraCommission === 'number') {
+ 				if (me.notFloatUpperLimit === '1') {
 	 				cache.proportion = item.extraCommission || item.extraRate;
 	 				cache.upperProportion = '';
  				}
