@@ -207,7 +207,7 @@ urlConfig['asset/detail'] =
 				'formlist'   : [
 					[   elementDict.proName, elementDict.investModeFk ],
 					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.distriArea],
+					[   elementDict.proDistriLocation],
 					[   elementDict.investManager, elementDict.phone ]
 
 				],

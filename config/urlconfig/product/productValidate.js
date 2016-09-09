@@ -194,7 +194,7 @@ urlConfig['asset/validate'] =
 				'formlist'   : [
 					[   elementDict.proName, elementDict.investModeFk ],
 					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.distriArea],
+					[   elementDict.proDistriLocation],
 					[   elementDict.investManager, elementDict.phone ]
 
 				],

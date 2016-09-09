@@ -81,7 +81,8 @@
                   </template>
                   <template v-if="li.type ==='vipChoicenessDistributionWay'">
                       <choiceness-distribution 
-                        :distribution="item.distributionWayFk"
+
+                        :distribution="item.vipChoicenessDistributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
                         :startdateinterest="item.startDateInterest"
@@ -152,7 +153,7 @@
                     </comm-type>
                   </div>
 
-                  <div v-if="li.type === 'select'" class="form-group input-group w100 xuxu" data-key="{{li.key}}" >
+                  <div v-if="li.type === 'select'" class="form-group input-group w100 "  >
                       <div v-if= "li.name" class="input-group-addon input-title"  >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
             

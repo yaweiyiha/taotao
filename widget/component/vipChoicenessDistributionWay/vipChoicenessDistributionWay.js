@@ -29,27 +29,27 @@ export default Vue.component('choiceness-distribution', {
  	}),
  	ready: function () {
 
-		if (this.distribution !== '130') {
-			this.vipChoicenessDistributionWayFk = '90';
+		if (this.distribution !== '10') {
+			this.distribution = '120';
 			this.distributionAnother = this.distribution;
 		} else {
-			this.vipChoicenessDistributionWayFk = '130';
+			this.distribution = '10';
 		}
  	},
  	computed : {
  		circleUnit : function(){
- 			if(this.distributionAnother == '10'){
+ 			if(this.distributionAnother == '20'){
  				return '月';
- 			}else if(this.distributionAnother == '40'){
- 				return '季度';
  			}else if(this.distributionAnother == '30'){
+ 				return '季度';
+ 			}else if(this.distributionAnother == '40'){
  				return '年';
- 			}else if(this.distributionAnother == '100'){
- 				return '周';
- 			}else if(this.distributionAnother == '20'){
- 				return '天';
- 			}else if(this.distributionAnother == '80'){
+ 			}else if(this.distributionAnother == '70'){
  				return '半年';
+ 			}else if(this.distributionAnother == '80'){
+ 				return '天';
+ 			}else if(this.distributionAnother == '90'){
+ 				return '周';
  			}else {
  				return '月'
  			}
