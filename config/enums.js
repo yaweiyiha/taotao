@@ -2,4 +2,4 @@
 
 
 
-//window.enums = {};
+window.enums = {};

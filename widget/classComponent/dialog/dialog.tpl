@@ -69,7 +69,7 @@
 		</div>
 		<div v-if="type === 'addPro'" class="modal-body text-center add-pro" >
 			<template v-for="pro in pros">
-				<a href="{{pro.url}}" class="add-pro-item" @click="hide"><span>{{pro.name}}</span></a>
+				<a href="{{pro.url}}" class="add-pro-item" @click="hide">{{pro.name}}</a>
 			</template>
 		</div>
 		<div v-if="type === 'citySelect'" class="modal-body text-center add-pro" >

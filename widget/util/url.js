@@ -152,7 +152,7 @@ var url = {
     },
     navigate: function (param, opts = {}) {
         opts = $.extend({
-            type: 'hash'
+            type: URL_MODE,
             replace: false,
             trigger: true
         }, opts);
@@ -168,23 +168,23 @@ var url = {
 
             url = `${uri}?${this.jsonToUrl(query)}`;
         }
-        if (opts.type === 'pushState') {
+        if (opts.type === 'pushstate') {
             if (opts.replace === true) {
                 if (window.history.replaceState) {
-                    window.history.replaceState({page: uri}, '', url);
+                    window.history.replaceState({page: uri}, '', `/${url}`);
                 }
             } else {
                 if (window.history.pushState) {
-                    window.history.pushState({page: page}, '', url);
+                    window.history.pushState({page: uri}, '', `/${url}`);
                 }
             }
             if (opts.trigger ===  true) {
                 listener.trigger('page', 'reload');
             }
         } else if (opts.type === 'hash') {
-            location.hash = url;
+            location.hash = `#${url}`;
         }
-    }
+    },
     /**
      * json转换为url
      * @param {Object} json数据

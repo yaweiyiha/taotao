@@ -41,6 +41,10 @@ class  addProDialog{
             }
         });
 
+        listener.once('hash', 'change', function () {
+            vm.hide();
+        });
+
         if(vm && vm.$el.hidden == true){
             vm.show();
         }

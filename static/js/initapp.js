@@ -34,11 +34,13 @@ if (URL_MODE === 'pushstate') {
     layer.addEventListener('click', function (e) {
         let tagName = e.target.tagName;
         let ele = $(e.target);
+
         if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
             let link = ele.attr('href');
             link = link.replace(/^#/ , '/');
             window.history.pushState({},'',link);
             listener.trigger('page', 'reload');
+            listener.trigger('hash', 'change');
             e.preventDefault();
             e.stopPropagation();
         }
@@ -48,7 +50,7 @@ if (URL_MODE === 'pushstate') {
 let getEnums = () => {
 
      Util.getData(`${Config.host}product/maintenance/enums` ,'', 'GET').then((res) => {
-         window.enums = res.item;
+         window.enums = $.extend(window.enums, res.item);
     });
 }
 

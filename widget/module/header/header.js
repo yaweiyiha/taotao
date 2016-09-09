@@ -1,6 +1,8 @@
 import Widget from 'static/js/widget.js';
 import dialog from 'widget/classComponent/dialog/dialog.js';
 import alertDialog from 'widget/classComponent/dialog/alert.js';
+import Url from 'widget/util/url'
+
 
 var style = __inline('./header.inline.less');
 var tpl = __inline('./header.tpl');
@@ -26,6 +28,12 @@ var header = Widget.extend({
         });
     },
     methods : {
+        nav: () => {
+            Url.navigate({
+                uri: 'addPro/fund/add',
+                id: '1'
+            });
+        },
         logout: function (){
             window.location.href ='/admin/logout';
         },
