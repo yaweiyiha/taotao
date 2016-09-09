@@ -21,8 +21,8 @@ export default Vue.component('ladder-comm', {
 		leftContain: {
 			default: '0'
 		},
-		floatUpperLimit: {
-			default: '0'
+		notFloatUpperLimit: {
+			default: '1'
 		}
  	},
  	data: () => ({
@@ -54,7 +54,7 @@ export default Vue.component('ladder-comm', {
  					'万元': 1200,
  					'亿元': 1300
  				};
- 				if (this.floatUpperLimit === '1') {
+ 				if (this.notFloatUpperLimit === '0') {
 	 				cache.minExtraRate = +item.proportion;
  					cache.maxExtraRate = +item.upperProportion;
  				} else {

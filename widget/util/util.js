@@ -287,7 +287,8 @@ var util = {
             dateEstablished  : data.product.dateEstablished,
             publisherName  : data.publisher.name,
             isRiskRating: toString(data.product.isRiskRating),
-            
+            notContainsFloatRateMax: toString(data.product.notContainsFloatRateMax),
+            containsLeftValue: toString(data.product.containsLeftValue),      
         }
     }
 };

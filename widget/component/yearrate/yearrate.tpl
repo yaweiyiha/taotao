@@ -66,14 +66,14 @@
   		</div>
   	</div>
 	<div class="row ml30" v-if="arrTypeFk === '40'">
-		<label><input type="radio" v-model="floatUpperLimit" value="1" :disabled="disable"> 有浮动上限</label>
-		<label class="ml10"><input type="radio" v-model="floatUpperLimit" value="0" :disabled="disable"> 无浮动上限</label>
+		<label><input type="radio" data-key="notContainsFloatRateMax" v-model="notFloatUpperLimit" value="0" :disabled="disable"> 有浮动上限</label>
+		<label class="ml10"><input type="radio" data-key="notContainsFloatRateMax" v-model="notFloatUpperLimit" value="1" :disabled="disable"> 无浮动上限</label>
 	</div>
   	<div v-if="arrTypeFk === '30' || arrTypeFk === '40'">
   		<div class="row ml30">
-	  		<label><input type="radio" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
-	  		<label class="ml10"><input type="radio" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
+	  		<label><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
+	  		<label class="ml10"><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
   		</div>
-	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData" :interaction="true" :disable="disable"></ladder-comm>
+	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :not-float-upper-limit="notFloatUpperLimit" :latter-data="latterData" :interaction="true" :disable="disable"></ladder-comm>
   	</div>
 </div>

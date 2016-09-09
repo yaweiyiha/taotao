@@ -37,8 +37,8 @@
 				<td>
 					<input type="text" v-model="item.proportion" v-bind:readonly="disable">%
 				</td>
-				<td v-if="floatUpperLimit === '1'" width="5%">-</td>
-				<td v-if="floatUpperLimit === '1'">
+				<td v-if="notFloatUpperLimit === '0'" width="5%">-</td>
+				<td v-if="notFloatUpperLimit === '0'">
 					<input type="text" v-model="item.upperProportion" v-bind:readonly="disable">%
 				</td>
 				<td v-if="!disable">

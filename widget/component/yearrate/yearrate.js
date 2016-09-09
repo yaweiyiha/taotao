@@ -20,9 +20,10 @@ export default Vue.component('year-rate', {
  		minArr: {default: ''},
  		maxArr: {default: ''},
  		YearRateUnit: {default: '元'},
- 		floatUpperLimit: {default: '0'},
+ 		notFloatUpperLimit: {default: '1'},
  		latterData: {default: []},
  		disable: {default: false},
+ 		leftContain: {default: '0'}
  	},
  	ready: function () {
  		let me = this;
@@ -32,25 +33,25 @@ export default Vue.component('year-rate', {
 			this.YearRateUnit = '元';
 		}
 
-		// 左包含, 右包含
-		if (this.latterData && this.latterData.length) {
-			let lastLatter = this.latterData[this.latterData.length - 1];
-			if (lastLatter.operator1 === 'GE') {
-				this.leftContain = '1';
-			} else {
-				this.leftContain = '0';
-			}
-		}
+		// // 左包含, 右包含
+		// if (this.latterData && this.latterData.length) {
+		// 	let lastLatter = this.latterData[this.latterData.length - 1];
+		// 	if (lastLatter.operator1 === 'GE') {
+		// 		this.leftContain = '1';
+		// 	} else {
+		// 		this.leftContain = '0';
+		// 	}
+		// }
 
-		if (this.latterData && this.latterData.length) {
-			if (typeof this.latterData[0].extraRate === 'number' || typeof this.latterData[0].extraCommission === 'number') {
-				this.floatUpperLimit = '0';
-			} else {
-				this.floatUpperLimit = '1';
-			}
-		} else {
-			this.floatUpperLimit = '0';
-		}
+		// if (this.latterData && this.latterData.length) {
+		// 	if (typeof this.latterData[0].extraRate === 'number' || typeof this.latterData[0].extraCommission === 'number') {
+		// 		this.floatUpperLimit = '0';
+		// 	} else {
+		// 		this.floatUpperLimit = '1';
+		// 	}
+		// } else {
+		// 	this.floatUpperLimit = '0';
+		// }
 
 		if ($('.cnt-box [data-key=unitFkStartingPrice]').size()) {
 			this.disableUnit = true;
@@ -77,7 +78,6 @@ export default Vue.component('year-rate', {
  			'1300': '亿元'
  		},
  		disableUnit: false,
- 		leftContain: '0',
  	// 		latterData: [{
 		//     "value1": 2,
 		//     "operator1": "GT",
