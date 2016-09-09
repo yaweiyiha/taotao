@@ -36,6 +36,9 @@
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>
+                        <span v-if="li.subtype =='detailtime'">
+                              {{item[li.key] | detailtime}}
+                        </span>
                         <span v-if="li.subtype =='doubleTime'">
                               <span v-if="item[li.key[0]]">{{item[li.key[0]] | datetime}} 至 {{item[li.key[1]] | datetime}}</span>
                         </span>
@@ -43,7 +46,13 @@
                               {{item[li.key]}} <span v-if="item[li.key].toString()">%</span>
                         </span>
                         <span v-if="li.subtype =='applyQuota'">
-                              {{item[li.key]}} <span v-if="item[li.key]">元</span>
+                              {{item[li.key]}} <span v-if="item[li.key].toString()">元</span>
+                        </span>
+                        <span v-if="li.subtype =='day'">
+                              {{item[li.key]}} <span v-if="item[li.key].toString()">天</span>
+                        </span>
+                        <span v-if="li.subtype =='gender'">
+                               {{item[li.key] | gender}} 
                         </span>
                         <span v-if="li.subtype =='commisionType'">
                               {{item[li.key] | commisionType}} 
