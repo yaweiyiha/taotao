@@ -29,26 +29,41 @@ cc.getViews([widgets.menu],menusConfig);
 
 
 // delegate system navigate
-if (URL_MODE === 'pushstate') {
-    let layer = document.querySelector('body');
-    layer.addEventListener('click', function (e) {
-        let tagName = e.target.tagName;
-        let ele = $(e.target);
-        if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
-            let link = ele.attr('href');
-            link = link.replace(/^#/ , '/');
+let layer = document.querySelector('body');
+layer.addEventListener('click', function (e) {
+    let tagName = e.target.tagName;
+    let ele = $(e.target);
+
+    if (tagName === 'A' && ele.attr('href') !== '' && /^#/.test(ele.attr('href')) ) {
+        let link = ele.attr('href');
+        link = link.replace(/^#/ , '');
+
+        if (URL_MODE === 'pushstate') {
+            if (ROOT) {
+                link = '/' + ROOT + '/' + link;
+            } else {
+                link = '/' + link;
+            }
             window.history.pushState({},'',link);
             listener.trigger('page', 'reload');
-            e.preventDefault();
-            e.stopPropagation();
+            listener.trigger('hash', 'change');
+        } else {
+            if (ROOT) {
+                link = '#' + ROOT + '/' + link;
+            } else {
+                link = '#' + link;
+            }
+            location.hash = link;
         }
-    }, true);
-}
+        e.preventDefault();
+        e.stopPropagation();
+    }
+}, true);
 
 let getEnums = () => {
 
      Util.getData(`${Config.host}product/maintenance/enums` ,'', 'GET').then((res) => {
-         window.enums = res.item;
+         window.enums = $.extend(window.enums, res.item);
     });
 }
 

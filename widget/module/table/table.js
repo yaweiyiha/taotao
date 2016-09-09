@@ -220,11 +220,17 @@ var table = Widget.extend({
             });
         }
 
+        
         if (data.totalInvestmentAmount) {
             data.extraInfo = {};
             data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
             data.extraInfo.totalCommission = data.totalCommission;
+        }else{
+            data.extraInfo = {};
+            data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
+            data.extraInfo.totalCommission = data.totalCommission;
         }
+        console.log(JSON.stringify(data.extraInfo.totalInvestmentAmount));
         return data;
     },
     render :function(){

@@ -150,6 +150,44 @@ var url = {
 
         return result;
     },
+    navigate: function (param, opts = {}) {
+        opts = $.extend({
+            type: URL_MODE,
+            replace: false,
+            trigger: true
+        }, opts);
+
+        let url = '';
+        let uri = param.uri || location.pathname;
+        if (ROOT) {
+            uri = ROOT + '/' + uri;
+        }
+        delete param.uri;
+
+        if (param.url) {
+            url = param.url;
+        } else {
+            let query = param;
+
+            url = `${uri}?${this.jsonToUrl(query)}`;
+        }
+        if (opts.type === 'pushstate') {
+            if (opts.replace === true) {
+                if (window.history.replaceState) {
+                    window.history.replaceState({page: uri}, '', `/${url}`);
+                }
+            } else {
+                if (window.history.pushState) {
+                    window.history.pushState({page: uri}, '', `/${url}`);
+                }
+            }
+            if (opts.trigger ===  true) {
+                listener.trigger('page', 'reload');
+            }
+        } else if (opts.type === 'hash') {
+            location.hash = `#${url}`;
+        }
+    },
     /**
      * json转换为url
      * @param {Object} json数据
