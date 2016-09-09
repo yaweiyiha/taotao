@@ -14,7 +14,7 @@
 					<i class="icon username"></i>
 					<input type="text" v-model="username" name="username" placeholder="请输入账号"/>
 				</div>
-				<div class="input-wrapper mt25">
+				<div class="input-wrapper" style="margin-top:23px;">
 					<i class="icon password"></i>
 					<input type="password" v-model="password" name="password" placeholder="请输入密码"/>
 				</div>
@@ -25,7 +25,7 @@
 					<img v-bind:src="verifyCode" alt="" class="verify-code">
 					<i class="refresh-icon" @click="refreshCode"></i>
 				</div> -->
-				<input class="mt25 custom-button substy" type="submit" value="登录" style="" />
+				<input class="custom-button substy" type="submit" value="登 录" style="" />
 				<!-- <a href="javascript:;" class="login-submit mt25 custom-button" @click="login">登录</a> -->
 			</form>
 		</div>

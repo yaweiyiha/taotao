@@ -2,7 +2,8 @@
 .asset-widget-login {
 	font-family: "Microsoft YaHei";
 	width: 100%;
-	height: 100%;	
+	height: 100%;
+
 	.header {
 		height: 80px;
 		position: relative;
@@ -27,7 +28,10 @@
 			height: 45px;
 			line-height: 45px;
 			margin: 0;
-			font-size: 20px;
+			font-size: 26px;
+			font-weight: 500;
+			color: #333;
+			margin-left: 2px;
 		}
 	}
 
@@ -36,11 +40,13 @@
 		height: 610px;
 	    position: relative;
 	    min-width: 1000px;
+	    width: 100%;
 		.main-inner{
 			height: 610px;
 			background-image: url(static/img/login-bg.jpg);
 			background-repeat: no-repeat;
     		background-position: center top;
+		    background-size: cover;
 		}
 	}
 
@@ -50,7 +56,7 @@
 		line-height: 80px;
 		width: 100%;
 		background: #fff;
-		color: #a9bbd0;
+		color: #888;
 		font-size: 12px;
 	}
 
@@ -59,7 +65,7 @@
 		background: #eaecee;
 		border-radius: 3px;
 		position: absolute;
-		top: 110px;
+		top: 145px;
 		left: 50%;
 		margin-left: 140px;
 		padding: 50px 20px 55px 20px;
@@ -79,6 +85,7 @@
 			background: none;
 			text-indent: 10px;
 			color: #333;
+			font-size: 15px;
 
 			&:focus {
 				outline: none;
@@ -146,8 +153,11 @@
 		}
 
 		.substy{
+			line-height: 28px;
+			font-size: 15px;
 			width: 100%;
 			font-family: "Microsoft YaHei";
+			margin-top: 23px;
 		}
 	}
 }
