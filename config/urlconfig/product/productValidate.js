@@ -280,9 +280,9 @@ urlConfig['debtassgin/validate'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-				    [elementDict.distriSize,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,]
+				    [	elementDict.distriSize, elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
-					[	elementDict.maxInvest , elementDict.moneyType],
+					[	elementDict.maxInvestmentPrice , elementDict.unitFkOfMaxInvestmentPrice,elementDict.moneyType],
 				],
 			},
 			{	
@@ -365,13 +365,6 @@ urlConfig['equityInvestment/validate'] =
 				'formlist'   : [
 					[	elementDict.collarCast, elementDict.collarCastNumber ],
 					[   elementDict.collarCastDesc  ]
-				]
-			},
-			{	
-				'panelName' : '收益信息',
-				'descTitle' : '(全部必填)',
-				'formlist'   : [
-					[	elementDict.yearRate ]
 				]
 			},
 			{	

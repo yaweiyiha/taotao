@@ -74,6 +74,9 @@ urlConfig['fund/detail'] =
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'publisherName' , name: '名称', value: "", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "", readonly: true, textStyle: {minWidth: '122px'}}) ],
+					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
+					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],
+					[   elementDict.paymentTransferIntroduction],
 				],
 			},
 		]
@@ -170,6 +173,9 @@ urlConfig['trust/detail'] =
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
+					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],
+					[   elementDict.paymentTransferIntroduction],
 				],
 			},
 		]
@@ -252,6 +258,9 @@ urlConfig['asset/detail'] =
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
+					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],
+					[   elementDict.paymentTransferIntroduction],
 				],
 			},
 		]
@@ -293,9 +302,10 @@ urlConfig['debtassgin/detail'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-				    [elementDict.distriSize,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,]
+
+					[	elementDict.distriSize, elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize],
 					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
-					[	elementDict.maxInvest , elementDict.moneyType],
+					[	elementDict.maxInvestmentPrice , elementDict.unitFkOfMaxInvestmentPrice,elementDict.moneyType],
 				],
 			},
 			{	
@@ -330,6 +340,9 @@ urlConfig['debtassgin/detail'] =
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '　　　发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
+					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],
+					[   elementDict.paymentTransferIntroduction],
 				],
 			},
 		]
@@ -371,7 +384,7 @@ urlConfig['equityInvestment/detail'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.saleSize ,elementDict.unitFkOfferingSize,elementDict.purchaseAmount,elementDict.unitFkStartingPrice],
+					[	elementDict.saleSize , elementDict.unitFkOfferingSize,elementDict.purchaseAmount,elementDict.unitFkStartingPrice],
 					[	elementDict.moneyType ,elementDict.riskRant],
 				],
 			},
@@ -381,13 +394,6 @@ urlConfig['equityInvestment/detail'] =
 				'formlist'   : [
 					[	elementDict.collarCast, elementDict.collarCastNumber ]
 					// [   elementDict.collarCastDesc  ]
-				]
-			},
-			{	
-				'panelName' : '收益信息',
-				'descTitle' : '(全部必填)',
-				'formlist'   : [
-					[	elementDict.yearRate ]
 				]
 			},
 			{	
@@ -409,6 +415,9 @@ urlConfig['equityInvestment/detail'] =
 				'formlist'   : [
 					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
+					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
+					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],
+					[   elementDict.paymentTransferIntroduction],
 				],
 			},
 		]

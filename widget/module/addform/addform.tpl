@@ -77,12 +77,21 @@
                       >
                       </year-rate>
                   </template>
+                  <template v-if="li.type ==='vipChoicenessDistributionWay'">
+                      <choiceness-distribution 
+                        :distribution="item.distributionWayFk"
+                        :incomecalcutype="item.incomeCalculationTypeFk"
+                        :distributeinterval="item.distributeInterval"
+                        :startdateinterest="item.startDateInterest"
+                        :disable="options.disable"
+                      ></choiceness-distribution>
+                  </template>
                   <template v-if="li.type === 'fundStrategy'">
                       <fund-strategy :disable="options.disable"></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
                        <distribution-way
-                        :distribution="item.distributionWayFk"
+                        :distribution="item.vipChoicenessDistributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
                         :startdateinterest="item.startDateInterest"
@@ -101,7 +110,13 @@
                       </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
-                      <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
+                      <pro-term 
+                      :maturities="item.maturities" 
+                      :unitmaturities="item.unitFkMaturities" 
+                      :startinginvest="item.startingInvest" 
+                      :basedays="item.baseDays" 
+                      :custombasedays="customBaseDays" 
+                      :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
                       <hoster 
@@ -134,8 +149,9 @@
                     >
                     </comm-type>
                   </div>
-                  <div v-if="li.type === 'select'" class="form-group input-group w100">
-                      <div v-if= "li.name" class="input-group-addon input-title" >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+
+                  <div v-if="li.type === 'select'" class="form-group input-group w100 xuxu" data-key="{{li.key}}" >
+                      <div v-if= "li.name" class="input-group-addon input-title"  >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
             
                       <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" :disabled="options.disable"> 
@@ -155,6 +171,7 @@
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                     </div>
+
                       <single-date 
                            :key="li.key" 
                            :disable="options.disable" 

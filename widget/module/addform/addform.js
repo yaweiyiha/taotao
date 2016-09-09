@@ -18,6 +18,7 @@ import CustomEle from "widget/component/customele/customele"
 import foundStatus from "widget/component/foundStatus/foundStatus";
 import proTerm from "widget/component/proTerm/proTerm"
 import Hoster from "widget/component/hoster/hoster"
+import vipChoicenessDistributionWay from "widget/component/vipChoicenessDistributionWay/vipChoicenessDistributionWay";
 
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
@@ -102,37 +103,34 @@ var addform = Widget.extend({
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
 
-        if($('select[data-key="paymentTransferBranch"]')){
+        if($('select[data-key="paymentTransferBankId"]')){
 
             Util.getData('publisher/constants','','GET').then((res) => {
 
                 if(res.status === 1){
-                    // let publisherKey  = res.item.publisherFk;
-                    // let index = 0;
-                    // 
                     let banksArr   =  [];
                     let banks = res.item.banks;
 
                     for(key in banks){
-
-                        // if (index === 0 && publisherKey == '') {
-                        //     me.vm.$set('item.paymentTransferBranch', key);
-                        // }else if(key == publisherKey){
-                        //     me.vm.$set('item.paymentTransferBranch', publisherKey);
-                        // }
-                        // index++;
-
 
                         option = `<option value="${key}">${banks[key]}</option>`;
                     
                         
                         banksArr.push(option);
                     }
-                    $('select[data-key="paymentTransferBranch"]').append(banksArr);
+                    $('select[data-key="paymentTransferBankId"]').append(banksArr);
                 }
 
             });
 
+        }
+
+        if(_APP_HASH._uri_ == 'fund/detail'){
+
+            let fundGenre = $('select[data-key="fundGenreAFk"]');
+            if(fundGenre.val() !== "500" ){
+                $('.admin-widget-fundStrategy').css('display','none');
+            }
         }
 
         // init risk level
@@ -141,24 +139,6 @@ var addform = Widget.extend({
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
-
-        // if (this.data.options && this.data.options.disable === true) {
-        //     $('input, select', this.vm.$el).attr("readonly","readonly").attr('disabled', true);
-        //     $('.admin-widget-verifyconfirm input, select', this.vm.$el).attr("readonly","").attr('disabled',false);
-        // }
-
-        // add pass radios select in validate page
-        // (function () {
-        //     let html = [];
-        //     html.push('<div class="verify-status-box">');
-        //     html.push('<label><input type="radio" name="verifyStatus" value="40" checked="true">  通过</label>');
-        //     html.push('<label><input type="radio" name="verifyStatus" value="30">  不通过</label>');
-        //     html.push('</div>');
-
-        //     if (/\/validate$/.test(_APP_HASH._uri_)) {
-        //         $('.buttons-wrapper').prepend($(html.join('')));
-        //     }
-        // })();
     },
     bind: function () {
         let me = this;
@@ -231,6 +211,11 @@ var addform = Widget.extend({
                     AlertDialog.show(me.data.successMgs);
                 }
                 window.location.href = me.data.backPage;
+                if(_APP_HASH._uri_ == "addPro/distributor"){
+                    
+                }else{
+                    
+                }
             });
         });
 

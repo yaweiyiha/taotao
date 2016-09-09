@@ -4,7 +4,7 @@
 			<div class="input-group-addon input-title">产品期限
 	            <span class="text-strong-red">*</span>
 	        </div>
-	        <input v-if="maturitiesDisable" class="form-control brn" data-des="产品期限" placeholder="请输入产品期限" :disabled="true" style="width:70%">
+	        <input v-if="maturitiesDisable" class="form-control brn" data-des="产品期限" placeholder="请输入产品期限" :disabled="true" style="width:70%" v-model="maturities">
 	        <input v-else class="form-control brn" data-valide="required" data-number="data-number" data-des="产品期限" data-key="maturities" placeholder="请输入产品期限" :disabled="maturitiesDisable" style="width:70%" v-model="maturities">
 	        <select class="form-control valid bld" data-key="unitFkMaturities" v-model="unitmaturities" :disabled="disable" style="width:30%">
 	            <option value="2400">自然年</option>

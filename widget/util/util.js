@@ -287,6 +287,12 @@ var util = {
             dateEstablished  : data.product.dateEstablished,
             publisherName  : data.publisher.name,
             isRiskRating: toString(data.product.isRiskRating),
+            dateRelease  : data.product.dateRelease,
+            vipChoicenessDistributionWayFk :  data.product.vipChoicenessDistributionWayFk,
+            paymentTransferCardOwner : data.publisher.paymentTransferCardOwner,
+            paymentTransferBankId  : data.publisher.paymentTransferBankId,
+            paymentTransferBranch : data.publisher.paymentTransferBranch,
+            paymentTransferCardNumber : data.publisher.paymentTransferCardNumber,
             
         }
     }

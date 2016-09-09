@@ -48,7 +48,6 @@ urlConfig['fund/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ elementDict.distributionWay],
 					[	elementDict.yearRate	],
 				]
 			},
@@ -272,6 +271,7 @@ urlConfig['debtassgin/add'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
+					[ 	elementDict.vipChoicenessDistributionWay],
 					[	elementDict.yearRate	],
 				]
 			},
@@ -343,13 +343,6 @@ urlConfig['equityInvestment/add'] =
 					[	elementDict.collarCast, elementDict.collarCastNumber ],
 					[ 	elementDict.buyBegintime ,elementDict.buyEndTime]
 					[   elementDict.collarCastDesc  ]
-				]
-			},
-			{	
-				'panelName' : '收益信息',
-				'descTitle' : '(全部必填)',
-				'formlist'   : [
-					[	elementDict.yearRate ]
 				]
 			},
 			{	
