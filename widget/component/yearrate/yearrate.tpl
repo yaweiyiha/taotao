@@ -20,7 +20,7 @@
 	          <div class="input-group-addon input-title">
 	          	金额单位
 	          </div>
-	          <select class="input-control YearRateUnit" :disabled="disable" v-model="YearRateUnit"> 
+	          <select class="input-control YearRateUnit" :disabled="disableUnitComputed" v-model="YearRateUnit"> 
 	            <option value="元">元</option>
 	            <option value="万元">万元</option>
 	            <option value="亿元">亿元</option>
@@ -74,6 +74,6 @@
 	  		<label><input type="radio" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
 	  		<label class="ml10"><input type="radio" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
   		</div>
-	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData" :disable="disable"></ladder-comm>
+	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :float-upper-limit="floatUpperLimit" :latter-data="latterData" :interaction="true" :disable="disable"></ladder-comm>
   	</div>
 </div>

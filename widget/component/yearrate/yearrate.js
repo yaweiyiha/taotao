@@ -25,6 +25,7 @@ export default Vue.component('year-rate', {
  		disable: {default: false},
  	},
  	ready: function () {
+ 		let me = this;
 		if (this.latterData && this.latterData.length) {
 			this.YearRateUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
 		} else {
@@ -50,6 +51,24 @@ export default Vue.component('year-rate', {
 		} else {
 			this.floatUpperLimit = '0';
 		}
+
+		if ($('.cnt-box [data-key=unitFkStartingPrice]').size()) {
+			this.disableUnit = true;
+		}
+
+		// 起购金额单位联动
+		$('.cnt-box').on('change', '[data-key=unitFkStartingPrice]', function () {
+			me.YearRateUnit = me.unitDict[$(this).val()];
+		});
+ 	},
+ 	computed: {
+ 		disableUnitComputed: function () {
+ 			if (!this.disable) {
+ 				return this.disableUnit;
+ 			} else {
+ 				return true;
+ 			}
+ 		}
  	},
  	data: () => ({
  		unitDict: {
@@ -57,6 +76,7 @@ export default Vue.component('year-rate', {
  			'1200': '万元',
  			'1300': '亿元'
  		},
+ 		disableUnit: false,
  		leftContain: '0',
  	// 		latterData: [{
 		//     "value1": 2,

@@ -30,8 +30,14 @@ export default Vue.component('ladder-comm', {
  		readonly: false
  	}),
  	ready: function () {
+ 		let me = this;
  		this.list = this.revertData();
- 		this.$log('list');
+		// 起购金额联动
+		$('.cnt-box').on('change', '[data-key=startingPrice]', function () {
+			if (me.list && me.list.length) {
+				me.list[0].start = +$(this).val();
+			}
+		});
  	},
  	watch: {
  		latterData: function () {
@@ -113,12 +119,12 @@ export default Vue.component('ladder-comm', {
  				}
  				cache.unit = dict['' + item.measureUnitFk];
  				if (index !== list.length - 1) {
-	 				if (item.operator1 === 'GT' || item.operator2 === 'GT') {
+	 				if (item.operator1 === 'GT' || item.operator1 === 'GE' || item.operator2 === 'GT' || item.operator2 === 'GE') {
 	 					cache.operator = '-';
 	 				} else {
-	 					cache.operator = item.operator1 === 'LE' ? '&lt;' : '&gt;'
+	 					cache.operator = item.operator1 === 'LT' || item.operator1 === 'LE' ? '&lt;' : '&gt;'
 	 				}
-					if (item.operator1 === 'GT') {
+					if (item.operator1 === 'GT' || item.operator1 === 'GE') {
 						cache.start = item.value1 ? '' + item.value1 : '';
 						cache.end = item.value2 ? '' + item.value2 : '';
 					} else {
