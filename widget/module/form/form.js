@@ -160,7 +160,7 @@ var form = Widget.extend({
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            console.log('??');
+            
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             if (inputFilters === false) {
@@ -170,6 +170,8 @@ var form = Widget.extend({
             let url = me.data.url ||  me.data.submitUrl; 
             me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
+
+            console.log(JSON.stringify(data));
             me.updateTable(data);
 
         });
