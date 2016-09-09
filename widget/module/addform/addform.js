@@ -49,12 +49,14 @@ var addform = Widget.extend({
             riskRating: '30',
             arrTypeFk: '0',
             industryTypeFk: '10',
-            custodianType: '',
+            custodianType: '10',
             distributionWayFk: '130',
             currencies: '10',
             arrRank: 0,
             customElementsList: [],
             isRiskRating: '1',
+            notContainsFloatRateMax: '1',
+            containsLeftValue: '0',
         }
 
         data.item = Object.assign({}, defaultData, data.item);

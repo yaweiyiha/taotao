@@ -6,7 +6,6 @@
                 <span class="caption">祺鲲产品集市</span>
             </a>
         </div>
-        <button @click="nav">跳转测试</button>
         <div class="user-info-box" v-on:click.stop="showMenu = !showMenu">
             <div class="avatar-icon"></div>
             <div class="arrow" v-bind:class="{ 'down': showMenu }"></div>

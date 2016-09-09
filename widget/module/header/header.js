@@ -28,12 +28,6 @@ var header = Widget.extend({
         });
     },
     methods : {
-        nav: () => {
-            Url.navigate({
-                uri: 'addPro/fund/add',
-                id: '1'
-            });
-        },
         logout: function (){
             window.location.href ='/admin/logout';
         },

@@ -277,6 +277,7 @@ urlConfig['debtassgin/draftedit'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
+					[ 	elementDict.vipChoicenessDistributionWay],
 					[	elementDict.yearRate	],
 				]
 			},

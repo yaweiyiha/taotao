@@ -293,7 +293,8 @@ var util = {
             paymentTransferBankId  : data.publisher.paymentTransferBankId,
             paymentTransferBranch : data.publisher.paymentTransferBranch,
             paymentTransferCardNumber : data.publisher.paymentTransferCardNumber,
-            
+            notContainsFloatRateMax: toString(data.product.notContainsFloatRateMax),
+            containsLeftValue: toString(data.product.containsLeftValue),      
         }
     }
 };
