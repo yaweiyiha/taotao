@@ -113,6 +113,8 @@
                       </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
+                      {{item.baseDays}}
+                      {{item.customBaseDays}}
                       <pro-term 
                       :maturities="item.maturities" 
                       :unitmaturities="item.unitFkMaturities" 

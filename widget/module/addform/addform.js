@@ -253,8 +253,12 @@ var addform = Widget.extend({
                     }
                 }
                 let data = me.processAddProData();
+
+                
+
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let publishUrl = Config.host + me.data.publishUrl;
+
                 Util.getData(publishUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {
                         AlertDialog.show('发布成功');
@@ -336,10 +340,10 @@ var addform = Widget.extend({
         filters.fundTypeFk    = parseInt(filters.fundTypeFk);
         filters.fundSubTypeFk = parseInt(filters.fundSubTypeFk);
 
-        if($("input[data-key='maturities']").val() === '' 
+        /*if($("input[data-key='maturities']").val() === '' 
             || $("input[data-key='maturities']").val() === undefined){
             filters.unitFkMaturities= '';
-        }
+        }*/
         if($("input[data-key='offeringSize']").val() === '' 
             || $("input[data-key='offeringSize']").val() === undefined){
             filters.unitFkOfferingSize = '';
