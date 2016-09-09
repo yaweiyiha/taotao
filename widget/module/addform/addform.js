@@ -48,7 +48,7 @@ var addform = Widget.extend({
             riskRating: '30',
             arrTypeFk: '0',
             industryTypeFk: '10',
-            custodianType: '',
+            custodianType: '10',
             distributionWayFk: '130',
             currencies: '10',
             arrRank: 0,
