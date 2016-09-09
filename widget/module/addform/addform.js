@@ -59,7 +59,11 @@ var addform = Widget.extend({
             containsLeftValue: '0',
         }
 
+        console.log(JSON.stringify(data.item));
+
         data.item = Object.assign({}, defaultData, data.item);
+
+
  
         this.data = data;
         // if()

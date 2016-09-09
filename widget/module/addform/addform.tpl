@@ -118,7 +118,7 @@
                       :unitmaturities="item.unitFkMaturities" 
                       :startinginvest="item.startingInvest" 
                       :basedays="item.baseDays" 
-                      :custombasedays="customBaseDays" 
+                      :custombasedays="item.customBaseDays" 
                       :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
