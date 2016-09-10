@@ -60,7 +60,7 @@ class Router {
         let configData = urlConfig[page] || {};
         configData.options = configData.options || {};
         configData.options.disable = configData.options.disable || false;
-        console.log(configData.options);
+        //console.log(configData.options);
         
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');

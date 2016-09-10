@@ -79,7 +79,7 @@ urlConfig['distributors/maintenance'] =
 	},
 	'topbanner' : {
 		'title' : '发行商管理',
-		'subtitle' : {name : '查看' ,url : ''},
+		'subtitle' : {name : '查看' ,url : '#main/distributors/maintenance'},
 		'key' : '产品维护',
 		'subFun' : [{'key' : '新增发行商' , url :'#addPro/distributor/add' ,code : 'add', mark: 'publisher:create'}],
 	},

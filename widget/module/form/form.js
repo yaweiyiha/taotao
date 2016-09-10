@@ -18,11 +18,12 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
-        //console.log(JSON.stringify(data));
+        
 
         this._filters_ = {};
         this.localData = {};
     	this.data = data;
+
         this.eles = this.display(data, tpl, 'native');
         this.render();
         this.bind();
@@ -171,7 +172,8 @@ var form = Widget.extend({
             me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
 
-            console.log(JSON.stringify(data));
+            //console.log(JSON.stringify(data));
+
             me.updateTable(data);
 
         });

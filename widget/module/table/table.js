@@ -26,7 +26,6 @@ var table = Widget.extend({
         extraInfo: {}
     }, 
     init: function (data) {
-        //console.log(JSON.stringify(data.operater));
         //索引
         Array.prototype.indexOf = function(val) { 
             for (var i = 0; i < this.length; i++) { 
@@ -203,6 +202,17 @@ var table = Widget.extend({
         let me = this;
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
+
+        //console.log(JSON.stringify(data.tabtop));
+        var proNameVal = $('.distriproName').val();
+        var distriagentVal = $('.distriagent').val();
+        var proNameTxt = $('.distriproName option[value="'+proNameVal+'"]').text();
+        var distriagentTxt = $('.distriagent option[value="'+distriagentVal+'"]').text();
+        data.tabtop[0].val = proNameTxt;
+        data.tabtop[1].val = distriagentTxt;
+
+        console.log(JSON.stringify(data.tabtop));
+
         if(data.items){
 
             data.items.forEach(function (dataItem) {
@@ -230,7 +240,7 @@ var table = Widget.extend({
             data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
             data.extraInfo.totalCommission = data.totalCommission;
         }
-        console.log(JSON.stringify(data.extraInfo.totalInvestmentAmount));
+        
         return data;
     },
     render :function(){

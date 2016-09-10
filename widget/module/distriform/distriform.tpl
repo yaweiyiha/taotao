@@ -40,7 +40,9 @@
                               {{item[li.key] | detailtime}}
                         </span>
                         <span v-if="li.subtype =='doubleTime'">
-                              <span v-if="item[li.key[0]]">{{item[li.key[0]] | datetime}} 至 {{item[li.key[1]] | datetime}}</span>
+                              <span v-if="item[li.key[0]]">{{item[li.key[0]] | datetime}}</span>
+                              <span v-if="item[li.key[0]] && item[li.key[1]]">至</span>
+                              <span v-if="item[li.key[1]]">{{item[li.key[1]] | datetime}}</span>
                         </span>
                         <span v-if="li.subtype =='percent'">
                               {{item[li.key]}} <span v-if="item[li.key].toString()">%</span>

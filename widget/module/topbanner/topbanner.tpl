@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6 titles">
             <span v-if="title">{{title}}</span>
-            <em>  </em>
+            <em></em>
             <a v-if="subtitle" href="{{subtitle.url}}" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</a>
             <em v-if="thirdTitle"> </em>
             <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>

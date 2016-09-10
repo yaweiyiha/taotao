@@ -21,8 +21,13 @@
 			</div>
 		</div>
 	</div> -->
-
-	<table  v-if="items" class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
+    <ul v-if="items" class="report-topcont">
+        <template v-for="item in tabtop">
+            <li v-if="item.type === 'nomal'"><label>{{item.name}}：</label><span>{{item.val}}</span></li>
+            <li v-if="item.type === 'quota'"><label>{{item.name}}：</label><span>{{item.val}}</span></li>
+        </template>
+    </ul>
+	<table v-if="items" class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
 		<thead>
 			<tr role="row" >
 				<template  v-for="item in tables">

@@ -20,6 +20,12 @@ urlConfig['distripro/report'] =
 
 		'type' : 'effective',
 		'host' : 'index.html#main/',
+		'tabtop':[
+			{ name :'产品名称', key : 'productName',      type:'nomal', val:'' },
+			{ name :'分销方',   key : 'agentName' ,       type:'nomal', val:'' },
+			{ name :'佣金类型', key : 'commisionType',    type:'quota', val:'' },
+			{ name :'佣金比率', key : 'extraCommission',  type:'nomal', val:'' },
+		],
 		'tables' : [
 			{ name :'订单号' ,  width:"15%" ,key : 'orderNo',      type: 'nomal'},
 			{ name :'下单日期', width:"10%" ,key : 'createTime' ,  type:'time' },

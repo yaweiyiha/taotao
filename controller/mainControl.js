@@ -20,6 +20,7 @@ var widgets  = {
         { widget: 'form', data: {},container: '.form-wrapper' },
     searchfilter : 
         { widget: 'searchfilter', data: {},container: '.form-wrapper' },
+
     table : 
         { widget: 'table', container: '.my-cnt-wrapper' },
 };
@@ -36,6 +37,7 @@ class MainControl extends Control{
      * @return void
      */
     init(data){
+        
         var me = this;
         let structure = `<div class="topbanner-wrapper"></div>
                          <div class="form-wrapper"></div>
@@ -45,14 +47,14 @@ class MainControl extends Control{
         me.getViews([widgets.topbanner],data.topbanner);
         me.getViews([widgets.form],data.form);
         data.filters &&  me.getViews([widgets.searchfilter],{filters: data.filters});
-
+        
         if(data.form.showTable){
              me.getViews([me.widgets.table],data.form);
         }
 
         if(data.form.url !== '' && data.form.url !== undefined){
             me.getModel('table',(model) => {
-                model.getData(data.form.url,data.form.param).then((res) => {
+                model.getData(data.form.url,data.form.param).then((res) => {                    
                     me.getViews([me.widgets.table], $.extend(res,data.form));
                 });
             });

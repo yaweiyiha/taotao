@@ -80,7 +80,7 @@ urlConfig['distribut/maintenance'] =
 	},
 	'topbanner' : {
 		'title' : '分销管理',
-		'subtitle' : {name : '分销签约管理' ,url : ''},
+		'subtitle' : {name : '分销签约管理' ,url : '#main/distribut/maintenance'},
 		'key' : '产品维护',
 	},
 	'filters' : [

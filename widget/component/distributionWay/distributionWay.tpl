@@ -13,7 +13,7 @@
                 <div class="form-group input-group w100">
                       <div class="input-group-addon input-title">收益分配周期
                       </div>
-                      <select class="input-control" data-key="distributionWayFk" v-model="distributionAnother" :disabled="disable" is-num="1"> 
+                      <select class="input-control" data-key="distributionWayFk" v-model="distributionAnother" :disabled="disable" is-num='1'> 
                         	<option value="10">按月</option>
                         	<option value="40">按季度</option>
                         	<option value="30">按年</option>

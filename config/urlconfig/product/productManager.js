@@ -87,7 +87,7 @@ urlConfig['product/maintenance'] =
 	},
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {name : '产品维护' ,url : ''},
+		'subtitle' : {name : '产品维护' ,url : '#main/product/maintenance'},
 		'key' : '产品维护',
 		'subFun' : [{'key' : '新增产品' , evt :'addProduct', code: 'add', mark:'product:create'}],
 		'drafts' : '#main/product/draft',
