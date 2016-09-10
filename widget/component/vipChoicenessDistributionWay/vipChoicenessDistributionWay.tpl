@@ -3,7 +3,7 @@
 	<div class="row ">
             <div class="col-md-6 input-wrapper rt"> 
                 <div class="form-group input-group w100">
-                    <div class="input-group-addon input-title">收益分配方式</div>
+                    <div class="input-group-addon input-title">还款方式</div>
                      <select class="input-control" data-key="vipChoicenessDistributionWayFk" v-model="distribution" :disabled="disable" is-num='1'> 
                         	<option  value="10">到期一次性还本付息</option>
                         	<option value="120">按期付息，到期还本</option>
@@ -41,7 +41,7 @@
                       </div>
                       <input type="radio" class="radio-input"  name="identity" value="10" data-key="incomeCalculationTypeFk" v-model="incomecalcutype" :disabled="disable"> 固定日期
                       <input type="radio" class="radio-input" name="identity" value="20" data-key="incomeCalculationTypeFk" v-model="incomecalcutype" :disabled="disable"> 按成交日
-                      <input type="radio" class="radio-input" name="identity" value="30" data-key="incomeCalculationTypeFk" v-model="incomecalcutype" :disabled="disable"> 成立日
+                      <input type="radio" class="radio-input" name="identity" value="30" data-key="incomeCalculationTypeFk" v-model="incomecalcutype" :disabled="disable"> T+工作日
                   </div> 
             </div>
 
@@ -66,7 +66,7 @@
 		    <div v-if="incomecalcutype == '30'" class="col-md-6" >
 				<div class="form-group">
 				    <div class="input-group">
-				        <div id="dateF" class="input-group-addon">T(成立日) +</div>
+				        <div id="dateF" class="input-group-addon">T+工作日</div>
 				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8" v-model ="incomecompletion" :disabled="disable"> 
 				        <div class="input-group-addon">天</div>
 				    </div>

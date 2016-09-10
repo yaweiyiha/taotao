@@ -16,6 +16,7 @@ export default Vue.component('product-distri', {
             products      : [],
             distributors  : [],
             productRes  : [],
+            agentSalesList: [],
         }
     },
     ready: function(){

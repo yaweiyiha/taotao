@@ -16,7 +16,7 @@
 				<div class="input-group-addon input-title">分销方</div>                  
 				<select class="custom-input bln distriagent" data-key="agentId" is-num="1">
 					<template v-for="distri in distributors">
-						<option value="{{distri.agentId}}">{{distri.agentName}}</option>
+						<option value="{{distri.agentId}}" data-commisionTypeString = "{{distri.commisionTypeString}}" data-commissionRangeString = "{{distri.commissionRangeString}}">{{distri.agentName}}</option>
 					</template>                                                                                                   
 			</select>              
 		</div>                                                                                          

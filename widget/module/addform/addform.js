@@ -59,7 +59,7 @@ var addform = Widget.extend({
             containsLeftValue: '0',
         }
 
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
 
         data.item = Object.assign({}, defaultData, data.item);
 
@@ -259,7 +259,7 @@ var addform = Widget.extend({
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let publishUrl = Config.host + me.data.publishUrl;
 
-                //alert(JSON.stringify(data));
+                alert(JSON.stringify(data));
 
                 Util.getData(publishUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {

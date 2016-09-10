@@ -41,8 +41,8 @@
   	</div>
   	<div v-if="arrTypeFk === '20'">
   		<div class="row ml30">
-	  		<label><input type="checkbox" v-model="fixMin" class="fixMin" :disabled="disable"> 固定下限</label>
-	  		<label class="ml10"><input type="checkbox" v-model="floatMax" class="floatMax" :disabled="disable"> 浮动上限</label>
+	  		<label><input type="checkbox" v-model="fixMin" class="fixMin" :disabled="disable" v-on:click="fixminClick"> 固定下限</label>
+	  		<label class="ml10"><input type="checkbox" v-model="floatMax" class="floatMax" :disabled="disable" v-on:click="floatmaxClick"> 浮动上限</label>
   		</div>
   		<div class="row mt10">
 			<div class="col-md-3 input-wrapper rt" v-if="fixMin">
