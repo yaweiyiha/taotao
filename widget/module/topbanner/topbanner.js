@@ -52,8 +52,9 @@ var topbanner = Widget.extend({
         this.bind();
     },
     processData :function (data = {}){
-        //console.log(JSON.stringify(data));
+
         if(data.isDrafts){
+            
             let url = `${Config.host}product/maintenance/list`;
             let dataObj = {
                 statusId: 10

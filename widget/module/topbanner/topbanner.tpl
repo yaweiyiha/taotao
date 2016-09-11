@@ -5,7 +5,7 @@
             <em></em>
             <a v-if="subtitle" href="{{subtitle.url}}" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</a>
             <em v-if="thirdTitle"> </em>
-            <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
+            <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle} " data-isDrafts="{{isDrafts.draftStatus}}" data-class="{{classDrafts.classList}}">{{thirdTitle}}</span>
         </div>
         <div class="col-xs-6 text-right">
         	<div v-if="subFun" class="sub-func" >

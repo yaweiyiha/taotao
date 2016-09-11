@@ -157,7 +157,12 @@ var form = Widget.extend({
             me._filters_ = Object.assign(me._filters_, filters);
             me._filters_.pageNo = 1;
             data = $.extend({param: me._filters_},{url : url});
-            data.param.statusId = 10;
+            if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts')){
+                if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts') == 10){
+                    data.param.statusId = $('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts');
+                }
+            }
+            
             me.updateTable(data);
 
         });
@@ -172,8 +177,12 @@ var form = Widget.extend({
             let url = me.data.url ||  me.data.submitUrl; 
             me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
-            //data.param.statusId = 10;
-            console.log(JSON.stringify(data));
+
+            if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts')){
+                if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts') == 10){
+                    data.param.statusId = $('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts');
+                }
+            }
 
             me.updateTable(data);
 

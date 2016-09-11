@@ -60,7 +60,8 @@ urlConfig['product/draft'] =
 		'subtitle' : {name : '产品维护' ,url : '#main/product/maintenance'},
 		'thirdTitle' : '草稿箱',
 		'key' : '产品维护',
-		'isDrafts': true,
+		'isDrafts': {draftStatus:10},
+		'classDrafts': {classList:'draftsSty'},
 	},
 	'filters' : [
 		{ key :'categoryId', name : '产品类型', wrapperClass : 'col-sm-6' , 
