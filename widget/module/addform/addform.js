@@ -45,12 +45,14 @@ var addform = Widget.extend({
             unitFkOfferingSize: '1100',
             unitFkStartingPrice: '1100',
             unitFkIncreasement: '1100',
+            unitFkOfMaxInvestmentPrice: '1100',
             currencies: '10',
             riskRating: '30',
             arrTypeFk: '0',
             industryTypeFk: '10',
             custodianType: '10',
             distributionWayFk: '130',
+            vipChoicenessDistributionWayFk: '10',
             currencies: '10',
             arrRank: 0,
             customElementsList: [],
@@ -59,18 +61,11 @@ var addform = Widget.extend({
             containsLeftValue: '0',
         }
 
-        //console.log(JSON.stringify(data));
-
         data.item = Object.assign({}, defaultData, data.item);
-
-
  
         this.data = data;
-        // if()
-        // 
         this.data.tabs = data.tabs;
         this.vm = this.display(this.data ,tpl ,'vue');
-
         this.render(data);
         this.bind();
         Waves.attach('button', ['waves-light']);
@@ -254,12 +249,8 @@ var addform = Widget.extend({
                 }
                 let data = me.processAddProData();
 
-                
-
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let publishUrl = Config.host + me.data.publishUrl;
-
-                alert(JSON.stringify(data));
 
                 Util.getData(publishUrl,data,'POST').then((res)=>{
                     if (res.status === 1) {

@@ -1,13 +1,13 @@
 <div class="styleguide admin-widget-topbanner">
     <div class="row">
-        <div class="col-md-6 titles">
+        <div class="col-xs-6 titles">
             <span v-if="title">{{title}}</span>
             <em></em>
             <a v-if="subtitle" href="{{subtitle.url}}" v-bind:class="{ 'active': subtitle && !thirdTitle}">{{subtitle.name}}</a>
             <em v-if="thirdTitle"> </em>
             <span v-if="thirdTitle" v-bind:class="{ 'active' : thirdTitle }">{{thirdTitle}}</span>
         </div>
-        <div class="col-md-5 text-right">
+        <div class="col-xs-6 text-right">
         	<div v-if="subFun" class="sub-func" >
                 <template v-for = "(index,func) in subFun">
                     <a v-if="func.code == 'add' "  href="{{func.url}}" data-role="{{func.evt}}">
@@ -22,7 +22,7 @@
         	</div>
             <span v-if="drafts" class="spliter"></span>
             <div v-if="drafts" class="draft">
-                <a href="{{drafts}}" style = "color: #286ede;">草稿箱&nbsp;(59)</a>
+                <a href="{{drafts}}" style = "color: #286ede;">草稿箱&nbsp;(<span id="draftsTotalSize"></span>)</a>
             </div>
 
         </div>

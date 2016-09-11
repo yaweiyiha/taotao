@@ -49,8 +49,8 @@ export default {
  	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
 
-	'startPurchase'	: { key :'startDatePurchase' ,name : '起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
-	'endPurchase'	: { key :'endDatePurchase' ,name : '截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
+	'startPurchase'	: { key :'startDatePurchase' ,name : '起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日",validate: {isrequire : true} ,timestamp: 1473304491256},
+	'endPurchase'	: { key :'endDatePurchase' ,name : '截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日",validate: {isrequire : true}},
  	
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'expectedArr', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
@@ -99,9 +99,10 @@ export default {
  	'stockRight'     : { key :'equity' ,name : '股权', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入股权',validate: {isrequire : true ,isNumber : true},unit: '%'},
  	'collarCast'     : { key :'collarCast' ,name : '领投人', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入领投人',validate: {isrequire : true}}, 
  	'collarCastNumber' : { key :'collarCastNumber' ,name : '身份证号', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入身份证号'}, 
- 	'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true ,isNumber : true}}, 
- 	'unitFkOfMaxInvestmentPrice' :{ key :'unitFkOfMaxInvestmentPrice' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
-					    options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1},
+ 	/*'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true ,isNumber : true}}, */
+	'maxInvestmentPrice':  { key :'maxInvestmentPrice', reg: '^\d+\.?\d*$', regError: '需要为数字',  name : '最大投资金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入最大投资金额',validate: {isrequire : true,isNumber : true}},
+	'unitFkOfMaxInvestmentPrice':  { key :'unitFkOfMaxInvestmentPrice' ,name : '', wrapperClass : 'col-md-2 pln' ,   type : 'select', bln: true, 
+						options : ['元','万元','亿元'],value : [1100,1200,1300] , isNum : 1,validate: {isrequire : false}},
  	'showStatus'	 : { key :'available' ,name : '展示状态', wrapperClass : 'col-md-6' ,   type : 'radios',radios : [{'name': '上架','isChecked' : 'checked' ,'value' : '10'},{'name' : '下架','value' : '20' }  ] },
  	'paymentTransferCardOwner' :{ key :'paymentTransferCardOwner' ,name : '持卡人', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入持卡人',validate: {isrequire : true}},
  	'paymentTransferBankId' :{ key :'paymentTransferBankId' ,name : '银行', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'select',placeholder : '请输入银行',validate: {isrequire : true}},

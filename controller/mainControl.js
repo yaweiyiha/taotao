@@ -52,6 +52,7 @@ class MainControl extends Control{
              me.getViews([me.widgets.table],data.form);
         }
 
+        //console.log(JSON.stringify(data.form.param));
         if(data.form.url !== '' && data.form.url !== undefined){
             me.getModel('table',(model) => {
                 model.getData(data.form.url,data.form.param).then((res) => {                    

@@ -241,6 +241,8 @@ var util = {
             issureScale        :  toString(data.product.issureScale),
             arrTypeFk          :  toString(data.product.arrTypeFk),
             offeringSize       :  toString(data.product.offeringSize),
+            maxInvestmentPrice :  toString(data.product.maxInvestmentPrice),
+
             expectedArr        : toString(data.product.expectedArr),
             selfDefinedProcess : toString(data.product.selfDefinedProcess),
             establishStatus    : toString(data.product.establishStatus),
@@ -249,6 +251,8 @@ var util = {
             unitFkIssureScale  : toString(data.product.unitFkIssureScale), 
             unitFkOfferingSize : toString(data.product.unitFkOfferingSize),
             unitFkOfferingSize : toString(data.product.unitFkOfferingSize),
+            unitFkOfMaxInvestmentPrice : toString(data.product.unitFkOfMaxInvestmentPrice),
+
             commissionTypeFk   : toString(data.product.commissionTypeFk),
             baseCommission     : toString(data.product.baseCommission),
             industryTypeFk     : toString(data.product.industryTypeFk),

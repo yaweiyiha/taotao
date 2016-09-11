@@ -18,7 +18,6 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
-        
 
         this._filters_ = {};
         this.localData = {};
@@ -154,14 +153,16 @@ var form = Widget.extend({
 
             let inputFilters = me.getInputFilters();
             let filters =  inputFilters && $.extend(inputFilters,filter);
+
             me._filters_ = Object.assign(me._filters_, filters);
             me._filters_.pageNo = 1;
             data = $.extend({param: me._filters_},{url : url});
+            data.param.statusId = 10;
             me.updateTable(data);
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            
+            console.log(JSON.stringify(this.data));
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             if (inputFilters === false) {
@@ -171,8 +172,8 @@ var form = Widget.extend({
             let url = me.data.url ||  me.data.submitUrl; 
             me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
-
-            //console.log(JSON.stringify(data));
+            //data.param.statusId = 10;
+            console.log(JSON.stringify(data));
 
             me.updateTable(data);
 

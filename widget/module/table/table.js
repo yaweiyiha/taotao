@@ -203,16 +203,20 @@ var table = Widget.extend({
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
 
-        var proNameVal = $('.distriproName').val();
-        var distriagentVal = $('.distriagent').val();
-        var proNameTxt = $('.distriproName option[value="'+proNameVal+'"]').text();
-        var distriagentTxt = $('.distriagent option[value="'+distriagentVal+'"]').text();
-        var commisionTypeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commisionTypeString');
-        var commissionRangeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commissionRangeString');
-        data.tabtop[0].val = proNameTxt;
-        data.tabtop[1].val = distriagentTxt;
-        data.tabtop[2].val = commisionTypeStringVal;
-        data.tabtop[3].val = commissionRangeStringVal;
+        
+        if(data.tabtop){
+            var proNameVal = $('.distriproName').val();
+            var distriagentVal = $('.distriagent').val();
+            var proNameTxt = $('.distriproName option[value="'+proNameVal+'"]').text();
+            var distriagentTxt = $('.distriagent option[value="'+distriagentVal+'"]').text();
+            var commisionTypeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commisionTypeString');
+            var commissionRangeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commissionRangeString');
+            data.tabtop[0].val = proNameTxt;
+            data.tabtop[1].val = distriagentTxt;
+            data.tabtop[2].val = commisionTypeStringVal;
+            data.tabtop[3].val = commissionRangeStringVal; 
+        }
+        
 
         if(data.items){
 

@@ -1,7 +1,7 @@
 export default {
 	'commissionType'   :  { type: 'CommType',validate: {isrequire : true} },
- 	'consignmentTime'  : { startkey :'offlineStartDate',endkey :'offlineEndDate', name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time'},
- 	'uploadContract'   : { key :'productName', name : '上传合同影印件', wrapperClass : 'col-md-5' , type : 'button' ,value : '添加图片' ,icon : 'addImg'},
+ 	'consignmentTime'  : { startkey :'offlineStartDate',endkey :'offlineEndDate', name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time',validate:{"isrequire":true}},
+ 	'uploadContract'   : { key :'productName', name : '上传合同影印件', wrapperClass : 'col-md-5' , type : 'button' ,value : '添加图片' ,icon : 'addImg',validate:{"isrequire":true}},
  	'appProName'  :   { key :'productName', name : '申请代销产品名称',value : '', wrapperClass : 'col-md-2' , type : 'text'},
  	'appDistri'  :   { key :'agentName', name : '申请分销商',value : '', wrapperClass : 'col-md-2' , type : 'text'},
  	'appTime'  :   { key :'createTime', name : '申请代销时间',value : '', wrapperClass : 'col-md-2' , type : 'text'},
@@ -20,6 +20,6 @@ export default {
  	'transferCertificate'  :   { key :'posUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
 
  	'baseDateText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
- 	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
+ 	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),
  }

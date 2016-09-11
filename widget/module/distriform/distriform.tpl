@@ -31,8 +31,9 @@
                   </comm-type>
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
-                  <div v-if="li.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}}:
+                  <div v-if="li.type === 'text'" class="form-group input-group">
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">
+                        <label style="text-align:right;font-weight:normal;width:30%;">{{li.name}}:</label>
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>
@@ -60,7 +61,7 @@
                               {{item[li.key] | commisionType}} 
                         </span>
                         <span v-if="li.subtype =='applyState'">
-                              {{item[li.key] | applyStates}} 
+                              {{item[li.key] | applyState}} 
                         </span>
                         <span v-if ="li.subtype =='text' ">
                              {{item[li.key]}}
@@ -158,7 +159,8 @@
                     <star></star>
                   </div>
                   <div v-if="li.type === 'button'" class="form-group input-group">
-                    <div v-if="li.name" class="input-group-addon input-title" >{{li.name}}</div>
+                    <div v-if="li.name" class="input-group-addon input-title" >{{li.name}}
+                    <span v-if="li.validate.isrequire" class="text-strong-red">*</span></div>
                     <div class='custom-button fun-button' @click="addFile">
                         <em v-if="li.icon" class="{{li.icon}}"></em>
                         <span>{{li.value}}</span>

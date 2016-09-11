@@ -38,10 +38,10 @@
 	        </div>
 	        <input :disabled="disable" class="form-control" data-key="startingInvest" placeholder="请输入起购期限" style="width:70%" value="{{startinginvest}}">
 	        <select class="form-control valid" data-key="unitFkStartingMaturities" :disabled="disable" style="width:30%" v-model="unitstartingmaturities">
-                <option value="2400">年</option>
-                <option value="2300">季度</option>
-                <option value="2200">月</option>
-                <option value="2100">天</option>
+                <option value="10">年</option>
+                <option value="20">季度</option>
+                <option value="30">月</option>
+                <option value="40">天</option>
             </select>
 	    </div>
 	</div>
