@@ -104,6 +104,7 @@ var util = {
                 delete item.extraCommission;
             });
         }
+
         return data;
     },
     getInputFilters: () => {
