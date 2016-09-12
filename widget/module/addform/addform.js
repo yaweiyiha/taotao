@@ -66,6 +66,7 @@ var addform = Widget.extend({
         this.data = data;
         this.data.tabs = data.tabs;
 
+        console.log(JSON.stringify(this.data));
         this.vm = this.display(this.data ,tpl ,'vue');
         this.render(data);
         this.bind();

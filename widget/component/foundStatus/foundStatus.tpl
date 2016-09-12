@@ -41,9 +41,9 @@
 		      <input data-key="salesStatusFk" type="radio" :disabled="disable" class="radio-input" name="founed"  value="70"  v-model="sales"> 执行中
 		      	<div v-if="sales == '70'" style= "display: inline-block">
 		      		<span>(</span>
-		      		<input type="radio" :disabled="disable" class="radio-input" name="executeState" value="10" checked="checked" data-key ="executeState" > 封闭状态
-		      		<input type="radio" :disabled="disable" class="radio-input" name="executeState" value="20" data-key ="executeState"> 开放状态
-
+		      		<input type="radio" :disabled="disable" class="radio-input" name="executeState" value="10" data-key ="executeState" v-model="executestate"> 封闭状态
+		      		
+		      		<input type="radio" :disabled="disable" class="radio-input" name="executeState" value="20" data-key ="executeState" v-model="executestate"> 开放状态
 		      		<span>)</span>
 		      	</div>
 	

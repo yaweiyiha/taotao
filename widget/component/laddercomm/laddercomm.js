@@ -115,7 +115,7 @@ export default Vue.component('ladder-comm', {
 				cache.proportion = item.minExtraRate
 				cache.upperProportion = item.maxExtraRate;
  				if (me.notFloatUpperLimit === '1') {
-	 				cache.proportion = item.extraCommission || item.extraRate;
+	 				cache.proportion = item.extraCommission || item.minExtraRate;
 	 				cache.upperProportion = '';
  				}
  				cache.unit = dict['' + item.measureUnitFk];
