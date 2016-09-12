@@ -79,6 +79,10 @@ export default Vue.component('date-control', {
     watch: {
         beginTime : function (){
             this.validate(this.rangeLimit);
+            if(Date.parse(this.endTime) < Date.parse(this.beginTime)){
+                this.endTime = '';
+                alertDialog.show("起始时间不能大于结束时间。");
+            }
         },
         endTime : function () {
             this.validate(this.rangeLimit);

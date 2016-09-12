@@ -145,7 +145,7 @@ var addform = Widget.extend({
 
         // init risk level
         setTimeout(() => {
-            if (container.find('[data-key=isRiskRating]:checked').val() === '0') {
+            if (container.find('[data-key=isRiskRating]:checked').val() === '2') {
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
@@ -166,7 +166,7 @@ var addform = Widget.extend({
         container.on('click', '[data-key=isRiskRating]', function () {
             let on = container.find('[data-key=isRiskRating]:checked').val();
             let target = container.find('[data-key=riskRating]').parents('.input-wrapper');
-            if (on === '0') {
+            if (on === '2') {
                 target.hide();
             } else {
                 target.show();
@@ -238,15 +238,20 @@ var addform = Widget.extend({
                     return;
                 }
                 let data = me.processAddProData('save');
-                console.log(JSON.stringify(data));
-
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let saveUrl = Config.host + me.data.saveUrl;
                 Util.getData(saveUrl,data,'POST').then((res)=>{
-                    if (res.status === 1) {
-                        AlertDialog.show('保存成功');
-                        window.location.href = '#main/product/maintenance';
+                    if(res){
+                        if (res.status === 1) {
+                            AlertDialog.show('保存成功');
+                            window.location.href = '#main/product/maintenance';
+                        }else if(res.status === 0){
+                            AlertDialog.show('保存失败，请检查是否有非法输入');
+                        }
+                    }else{
+                        AlertDialog.show('网络请求失败');
                     }
+  
                 });
             }else if(dataRole == 'republic'){
                 if (!Util.validate(container)) {
@@ -265,10 +270,17 @@ var addform = Widget.extend({
                 let publishUrl = Config.host + me.data.publishUrl;
 
                 Util.getData(publishUrl,data,'POST').then((res)=>{
-                    if (res.status === 1) {
-                        AlertDialog.show('发布成功');
-                        window.location.href = '#main/product/maintenance';
+                    if(res){
+                        if (res.status === 1) {
+                            AlertDialog.show('发布成功');
+                            window.location.href = '#main/product/maintenance';
+                        }else if(res.status === 0){
+                            AlertDialog.show('发布失败，请检查是否有非法输入');
+                        }
+                    }else{
+                        AlertDialog.show('网络请求失败');
                     }
+
                 });
             }
            
