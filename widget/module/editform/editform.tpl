@@ -44,6 +44,15 @@
                     >
                     </custom-ele>
                   </template>
+                  <template v-if="li.type === 'comSoled'">
+                    <soled
+                      :disable="options.disable"
+                      :offering-size="item.offeringSize"
+                      :offeringsize-unit="item.unitFkOfferingSize"
+                      :process="item.selfDefinedProcess"
+                    >
+                  </soled>
+                  </template>
                   <template v-if="li.type === 'year-rate'">
                       <year-rate
                         :arr-type-fk="item.arrTypeFk"

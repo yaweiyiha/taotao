@@ -12,7 +12,7 @@ urlConfig['fund/edit'] = {
 				'panelName' : '销售信息',
 				'formlist'   : [
 					[Dict.distriSize, Dict.unitFkIssureScale,Dict.saleSize,Dict.unitFkOfferingSize],
-					[  Dict.soled],
+					[Dict.comSoled],
 					[Dict.yearRate]
 				],
 			},
@@ -53,7 +53,7 @@ urlConfig['asset/edit'] = {
 				'panelName' : '销售信息',
 				'formlist'   : [
 					// [Dict.soled ,Dict.yearIncome],
-					[Dict.soled ],
+					[Dict.comSoled ],
 					[Dict.yearRate]
 				],
 			},
@@ -88,7 +88,7 @@ urlConfig['trust/edit'] = {
 			{	
 				'panelName' : '销售信息',
 				'formlist'   : [
-					[Dict.soled ],	
+					[Dict.comSoled ],	
 				],
 			},
 			{	
