@@ -104,6 +104,7 @@ var util = {
                 delete item.extraCommission;
             });
         }
+
         return data;
     },
     getInputFilters: () => {
@@ -124,16 +125,19 @@ var util = {
             let inputType = ele.attr('type');
             if(inputType === 'radio'){
                 val = $('input[data-key=' +key + ']:checked').val();
+                val = val.trim();
                 if (val !== '') {
                     val = +val;
                 }
             }else if(isNum){
                 val = ele.attr('data-values') || ele.val();
+                val = val.trim();
                 if (val !== '') {
                     val = +val;
                 }
             }else {
                  val = ele.attr('data-values') || ele.val();
+                 val = val.trim();
             }
 
             
@@ -171,11 +175,12 @@ var util = {
             validter = String.prototype.split.call(validter, ',');
             validter = validter.map((item) => {
                 return item.trim();
-            })
+            });
+            let val = item.val().trim();
             let parentNode = item.parents('.input-wrapper');
             if ($.inArray('required', validter) > -1) {
                 parentNode.find('.tips').remove();
-                if (item.val() === '') {
+                if (val === '') {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     offsetLeft = Math.max(offsetLeft, 105);
                     
@@ -183,7 +188,7 @@ var util = {
                     parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
                 } else if (item.attr('data-number') === 'number') {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    if (isNaN(item.val())) {
+                    if (isNaN(val)) {
                         valid = false;
                         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必须为数字</p>`);
                     }

@@ -1,6 +1,7 @@
 import Widget from 'static/js/widget.js';
 import tableModel from 'model/tableModel.js';
 import datetime from 'widget/filter/datetime.js';
+import detailtime from 'widget/filter/detailtime.js';
 import productCategory from 'widget/filter/productCategory.js'
 import applyState from 'widget/filter/applyState.js'
 import distributorStatus from 'widget/filter/distributorStatus.js'
@@ -401,6 +402,7 @@ var table = Widget.extend({
     },
     filters : {
         datetime          : datetime ,
+        detailtime        : detailtime ,
         productCategory   : productCategory,
         applyState        : applyState,
         distributorStatus : distributorStatus 

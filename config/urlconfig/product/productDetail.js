@@ -15,7 +15,7 @@ urlConfig['fund/detail'] =
 		{ key: 'Detail', value: '发行商信息' },
 	],
 	'options' : {
-		disable: true
+		disable: false
 	},
 	'forms' : [
 
@@ -339,7 +339,7 @@ urlConfig['debtassgin/detail'] =
 			{	
 				'panelName' : '基本信息',
 				'formlist'   : [
-					[   elementDict.baseInput({key: 'name' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
+					[   elementDict.baseInput({key: 'publisherName' , name: '名称', value: "小众赢", readonly: true}), elementDict.baseInput({key:'telephone', name: '发行商固定电话', value: "021-99999999", readonly: true}) ],
 					[   elementDict.baseInput({key: 'fullName' , name: '发行商全称', value: "上海小众赢投资有限公司", readonly: true}), elementDict.baseInput({key: 'address' ,name: '　　　发行商地址', value: "上海南京西路201号12F", readonly: true}) ],
 					[   elementDict.paymentTransferCardOwner ,elementDict.paymentTransferBankId],
 					[   elementDict.paymentTransferBranch ,elementDict.paymentTransferCardNumber],

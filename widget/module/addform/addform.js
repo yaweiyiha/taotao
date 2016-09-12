@@ -65,6 +65,7 @@ var addform = Widget.extend({
  
         this.data = data;
         this.data.tabs = data.tabs;
+
         this.vm = this.display(this.data ,tpl ,'vue');
         this.render(data);
         this.bind();
@@ -231,11 +232,14 @@ var addform = Widget.extend({
         container.on('click', 'button', function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
+
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {
                     AlertDialog.show('请输入产品名称');
                     return;
                 }
                 let data = me.processAddProData('save');
+                console.log(JSON.stringify(data));
+
                 data.product.categoryFk = parseInt($(this).attr("pro"));
                 let saveUrl = Config.host + me.data.saveUrl;
                 Util.getData(saveUrl,data,'POST').then((res)=>{
@@ -394,8 +398,10 @@ var addform = Widget.extend({
 
         // get year rate info
         let yearRateContainer = container.find('.admin-widget-yearrate');
+        
         if (yearRateContainer.size()) {
             let yearRateData = Util.getYearRateData(yearRateContainer);
+
             data.product.arrTypeFk = yearRateData.arrTypeFk;
             data.product.expectedArr = yearRateData.expectedArr;
             data.product.fixMin = yearRateData.fixMin;
@@ -408,8 +414,7 @@ var addform = Widget.extend({
         if (/\/draftedit$/.test(_APP_HASH._uri_)) {
             data.product.id = _APP_HASH.id
         }
-
-        console.log(JSON.stringify(data));
+        
         return  data;
     },
     validateSubmitData : function(){

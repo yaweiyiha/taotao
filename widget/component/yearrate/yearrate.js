@@ -122,6 +122,8 @@ export default Vue.component('year-rate', {
  			console.log(Util.getYearRateData($(this.$el)));
  		},
 		arrTypeFkChange: function () {
+			
+
 			if ($('[data-key=startingPrice]').size() === 0) {
 				return;
 			}
@@ -132,6 +134,7 @@ export default Vue.component('year-rate', {
 			};
  			if (this.arrTypeFk === '30' || this.arrTypeFk === '40') {
  				let startingPrice = $('[data-key=startingPrice]').val();
+
  				if (startingPrice === '' || isNaN(startingPrice)) {
  					this.arrTypeFk = '0';
  					AlertDialog.show('起购金额为空或者不是有效值');
