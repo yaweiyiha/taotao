@@ -57,6 +57,9 @@
                         <span v-if="li.subtype =='gender'">
                                {{item[li.key] | gender}} 
                         </span>
+                        <span v-if="li.subtype =='emergency'">
+                               {{item[li.key] | emergency}} 
+                        </span>
                         <span v-if="li.subtype =='commisionType'">
                               {{item[li.key] | commisionType}} 
                         </span>
@@ -110,8 +113,7 @@
                       </select>
                   </div>
                   <div v-if="li.type === 'img'" class="form-group input-group image" v-bind:style="li.selfStyle">
-                      <div class="input-title" >{{li.name}}
-                      </div>
+                      <div class="input-title" >{{li.name}}</div>
                       <img class="{{li.key}}" v-bind:src="item[li.key]" alt="">
                   </div> 
                   <div  v-if="li.type === 'time'" class="form-group input-group time">

@@ -8,6 +8,7 @@ import Util from  'widget/util/util';
 import datetime from 'widget/filter/datetime';
 import detailtime from 'widget/filter/detailtime';
 import gender from 'widget/filter/gender';
+import emergency from 'widget/filter/emergency';
 import commisionType from 'widget/filter/commisionType';
 import applyStates from 'widget/filter/applyStates';
 import applyState from 'widget/filter/applyState';
@@ -27,6 +28,7 @@ var distriform = Widget.extend({
     
     init : function(data){
       
+        console.log(JSON.stringify(data));
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         this.render();
@@ -189,10 +191,11 @@ var distriform = Widget.extend({
     filters : {
         datetime      : datetime ,
         detailtime    : detailtime ,
-        gender           : gender ,
+        gender        : gender ,
+        emergency     : emergency ,
         commisionType : commisionType,
         applyStates   : applyStates,
-        applyState   : applyState,
+        applyState    : applyState,
     },
     methods:{
         back : () => {

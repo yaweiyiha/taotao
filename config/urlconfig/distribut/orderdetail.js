@@ -25,7 +25,7 @@ urlConfig['order/detail'] =
 				'panelName' : '产品信息',
 				'formlist'   : [
 					[ 	Dict.baseText('产品名称', 'orderInfoProductName','','text'),
-						Dict.baseText('认购金额', 'orderInfoOrderAmount','','text'),
+						Dict.baseText('认购金额', 'orderInfoOrderAmount','','applyQuota'),
 					  
 				 	],[
 					 	 Dict.baseText('期限', 'orderInfoProductTerm','','day'),
@@ -39,7 +39,7 @@ urlConfig['order/detail'] =
 						Dict.baseText('姓名' ,'investorName','','text'),
 						Dict.baseText('性别', 'investorGender','','gender'),
 				 	],[
-					  	Dict.baseDateText('出生日期', 'investorDateOfBirth','','text'),
+					  	Dict.baseDateText('出生日期', 'investorDateOfBirth','','singleTime'),
 					  	Dict.baseText('手机', 'investorCellPhone','','text'),
 	
 				 	],[
@@ -49,7 +49,7 @@ urlConfig['order/detail'] =
 				 		Dict.baseText('证件类型', 'investorIdTypeName','','text'),
 					  	Dict.baseText('证件号码', 'investorIdNumber','','text')
 				 	],[
-				 		Dict.baseDateText('证件到期日', 'investorIdNumberExpiredDate','','text'),
+				 		Dict.baseDateText('证件到期日', 'investorIdNumberExpiredDate','','singleTime'),
 
 				 	],[
 				 		Dict.baseText('联系地址', 'investorContactAddress','','text'),
@@ -73,7 +73,7 @@ urlConfig['order/detail'] =
 						Dict.baseText('紧急联系人姓名', 'orderInfoEmergencyName','','text'),
 						Dict.baseText('紧急联系人关系', 'orderInfoEmergencyRelation','','text'),
 				 	],[
-					  	Dict.baseText('紧急联系人证件类型', 'orderInfoEmergencyIdType','','text'),
+					  	Dict.baseText('紧急联系人证件类型', 'orderInfoEmergencyIdType','','emergency'),
 					  	Dict.baseText('紧急联系人证件号码', 'orderInfoEmergencyIdNumber','','text'),
 	
 				 	],[
@@ -112,7 +112,7 @@ urlConfig['order/detail'] =
 			{	
 				'panelName' : '支付信息',
 				'formlist'   : [
-					[ Dict.payType ],
+					[ Dict.payType('支付方式', 'paymentInfo支付方式','','text') ],
 					[ Dict.transferCertificate ],
 				 ],
 			},
