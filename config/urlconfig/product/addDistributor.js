@@ -3,8 +3,8 @@ import Dict from 'config/dict/product-dict'
 urlConfig['distributor/add'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
+		'title' : '发行商管理',
+		'subtitle' : {'name': '查看', url : '#main/distributors/maintenance' }, 
 		'thirdTitle' : '新增发行商',
 		'key' : '产品维护',
 	},

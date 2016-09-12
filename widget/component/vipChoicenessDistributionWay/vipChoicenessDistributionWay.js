@@ -28,11 +28,11 @@ export default Vue.component('choiceness-distribution', {
  		distributionAnother  : '20',
  	}),
  	ready: function () {
-		if (this.distribution !== '10') {
+		if (this.distribution !== 10) {
 			this.vipChoicenessDistributionWayFk = '120';
 			this.distributionAnother = this.distribution;
 		} else {
-			this.distribution = '10';
+			this.vipChoicenessDistributionWayFk = '10';
 		}
  	},
  	computed : {
