@@ -91,7 +91,7 @@ urlConfig['sign/reject'] =
 				'panelName' : '状态',
 				'formlist'   : [
 					[ Dict.baseText('签约状态','applyState','','applyState')],
-					[ Dict.baseText('拒绝原因','rejectReason','','text')],
+					[ Dict.rejectText('拒绝原因','rejectReason','','text','rejectSty')],
 				 ],
 			},
 	],

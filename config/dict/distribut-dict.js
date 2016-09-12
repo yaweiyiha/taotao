@@ -22,4 +22,5 @@ export default {
  	'baseDateText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
  	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),
+ 	'rejectText': (name, key = '', value = '',subtype= '',classList='') => ({ key :key, name : name , value: value,subtype: subtype,classList:classList, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  }

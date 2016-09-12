@@ -33,7 +33,7 @@
                 <div class="{{li.wrapperClass}} input-wrapper rt">
                   <div v-if="li.type === 'text'" class="form-group input-group">
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">
-                        <label style="text-align:right;font-weight:normal;width:30%;">{{li.name}}:</label>
+                        {{li.name}}:
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>
@@ -66,7 +66,7 @@
                         <span v-if="li.subtype =='applyState'">
                               {{item[li.key] | applyState}} 
                         </span>
-                        <span v-if ="li.subtype =='text' ">
+                        <span v-if ="li.subtype =='text'" class="{{li.classList}}">
                              {{item[li.key]}}
                         </span>
                     </div>

@@ -28,7 +28,7 @@ var distriform = Widget.extend({
     
     init : function(data){
       
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
         this.render();
