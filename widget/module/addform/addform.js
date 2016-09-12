@@ -85,7 +85,6 @@ var addform = Widget.extend({
             let publisherArr   =  [];
             let option  = '';
             let index = 0;
-            debugger
             for(key in publisherList){
 
                 if (index === 0 && publisherKey == '') {
