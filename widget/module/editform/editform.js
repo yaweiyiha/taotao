@@ -81,7 +81,7 @@ var editform = Widget.extend({
                 filters.productLadderRates = yearRateData.productLadderRates
             }
 
-            if(filters.isRiskRating === 0){
+            if(filters.isRiskRating === 2){
                     filters.riskRating = '';
             }
 
@@ -152,7 +152,7 @@ var editform = Widget.extend({
         container.on('click', '[data-key=isRiskRating]', function () {
             let on = container.find('[data-key=isRiskRating]:checked').val();
             let target = container.find('[data-key=riskRating]').parents('.input-wrapper');
-            if (on === '0') {
+            if (on === '2') {
                 target.hide();
             } else {
                 target.show();
@@ -160,7 +160,7 @@ var editform = Widget.extend({
         });
         //init risk level
         setTimeout(() => {
-            if (container.find('[data-key=isRiskRating]:checked').val() === '0') {
+            if (container.find('[data-key=isRiskRating]:checked').val() === '2') {
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });

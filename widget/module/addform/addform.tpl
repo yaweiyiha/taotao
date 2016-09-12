@@ -113,6 +113,7 @@
                        :sales="item.salesStatusFk" 
                        :disable="options.disable"
                        :dateestablished ="item.dateEstablished"
+                       :executestate="item.executeState"
                        >
                       </found-status>
                   </template>
@@ -163,7 +164,7 @@
                   <div v-if="li.type === 'select'" class="form-group input-group w100 "  >
                       <div v-if= "li.name" class="input-group-addon input-title"  >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
-                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" value="item[li.key]" :disabled="options.disable"> 
+                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" :disabled="options.disable"> 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option value="{{li.value[index]}}">{{option}}</option>
                         </template>
@@ -207,7 +208,15 @@
                           <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
                       <template v-for="r in li.radios">
-                        <input type="radio" data-key="{{li.key}}" class='radio-input' value="{{r.value}}" name="{{li.key}}" v-model="item[li.key]" :disabled="options.disable"> {{r.name}}
+
+                        <input type="radio" 
+                             data-key="{{li.key}}" 
+                             class='radio-input' 
+                             value="{{r.value}}" 
+                             name="{{li.key}}" 
+                             v-model="item[li.key]" 
+                             checked="{{r.checked}}"
+                             :disabled="options.disable"> {{r.name}}
                       </template>
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">

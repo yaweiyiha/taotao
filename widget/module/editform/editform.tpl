@@ -161,12 +161,20 @@
                           <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
                       <template v-for="r in li.radios">
-                        <input type="radio" data-key="{{li.key}}" class='radio-input' value="{{r.value}}" name="{{li.key}}" v-model="item[li.key]"> {{r.name}}
+                        <input 
+                          type="radio" 
+                          data-key="{{li.key}}" 
+                          class='radio-input' 
+                          value="{{r.value}}" 
+                          name="{{li.key}}" 
+                          v-model="item[li.key]"
+                          checked="{{r.checked}}"
+                          > {{r.name}}
                       </template>
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}</div>
-                    <star></star>
+                    <star :score="item.arrRank" :disable="options.disable"></star>
                   </div>
               </div>
             </template>

@@ -63,7 +63,7 @@ layer.addEventListener('click', function (e) {
 let getEnums = () => {
 
      Util.getData(`${Config.host}product/maintenance/enums` ,'', 'GET').then((res) => {
-         window.enums = $.extend(window.enums, res.item);
+        window.enums = $.extend(window.enums, res.item);
     });
 }
 

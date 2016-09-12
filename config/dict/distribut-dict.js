@@ -14,12 +14,12 @@ export default {
  	'distriName'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : '分销方名称',value : '创宁金融', wrapperClass : 'col-md-2' , type : 'text'},
  	'padNum'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : 'pad数',value : '20', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriLogo'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName',  wrapperClass : 'col-md-5' , type : 'img',src: 'static/img/default_user.jpg'},
- 	'IdCardPositive'  :   { key :'identifyUrls身份证正面照片',  name : '身份正面照' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
- 	'IdCardNegative'  :   { key :'identifyUrls身份证反面照片', name : '身份负面照' , wrapperClass : 'col-md-5 up-down' , type : 'img',src: 'static/img/default_user.jpg'},
-  	'payType'  :   { key :'paymentType', name : '支付方式',value : '', selfStyle: {left: '0px', textAlign: 'left', position: 'relative', left: '-30px'}, wrapperClass : 'col-md-4' , type : 'text'},
- 	'transferCertificate'  :   { key :'posUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
+ 	'IdCardPositive'  :   { key :'identifyUrls身份证反面照片',  name : '身份证正面照片' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
+ 	'IdCardNegative'  :   { key :'identifyUrls身份证反面照片', name : '身份证反面照片' , wrapperClass : 'col-md-5 up-down' , type : 'img',src: 'static/img/default_user.jpg'},
+ 	'transferCertificate'  :   { key :'evidenceUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
 
- 	'baseDateText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
+ 	'payType'  : (name, key = '', value = '',subtype= '')  =>  ({ key :key, name : name,value : value, subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left', position: 'relative', left: '-30px'}, wrapperClass : 'col-md-4' , type : 'text'}),
+ 	'baseDateText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
  	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),
  }
