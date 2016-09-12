@@ -10,16 +10,14 @@ urlConfig['fund/edit'] = {
 		[
 			{	
 				'panelName' : '销售信息',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.distriSize, Dict.unitFkIssureScale, Dict.interestRate],
-					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.soled],
+					[Dict.distriSize, Dict.unitFkIssureScale,Dict.saleSize,Dict.unitFkOfferingSize],
+					[  Dict.soled],
 					[Dict.yearRate]
 				],
 			},
 			{	
 				'panelName' : '状态',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[Dict.foundStatus],
 					[Dict.showStatus]
@@ -27,7 +25,6 @@ urlConfig['fund/edit'] = {
 			},
 			{	
 				'panelName' : '其他',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[Dict.riskRant],
 					[Dict.star],
@@ -38,8 +35,8 @@ urlConfig['fund/edit'] = {
 	'url': 'product/edit/',
 	'submitUrl' : 'product/edit/fundSave',
 	'buttons': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'submit'},
-		{name : '取消',classList : 'default',type : 'button',evt:'cancel'},
+		{name : '保存', classList : 'primary', type : 'button', evt : 'submit'},
+		{name : '取消', classList : 'default', type : 'button', evt : 'cancel'},
 	],
 }
 
@@ -53,8 +50,7 @@ urlConfig['asset/edit'] = {
 	'forms' : [
 		[
 			{	
-				'panelName' : '基本信息',
-				'descTitle' : '(*为必填)',
+				'panelName' : '销售信息',
 				'formlist'   : [
 					// [Dict.soled ,Dict.yearIncome],
 					[Dict.soled ],
@@ -63,21 +59,13 @@ urlConfig['asset/edit'] = {
 			},
 			{	
 				'panelName' : '状态',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.foundStatus ],
 					[Dict.riskRant],
+					[Dict.foundStatus ],
 					[Dict.showStatus]
 
 				],
-			},
-			{	
-				'panelName' : '其他',
-				'descTitle' : '(*为必填)',
-				'formlist'   : [
-
-				],
-			},
+			}
 		]
 	],
 	'buttons': [
@@ -98,15 +86,13 @@ urlConfig['trust/edit'] = {
 	'forms' : [
 		[
 			{	
-				'panelName' : '基本信息',
-				'descTitle' : '(*为必填)',
+				'panelName' : '销售信息',
 				'formlist'   : [
 					[Dict.soled ],	
 				],
 			},
 			{	
 				'panelName' : '状态',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[Dict.riskRant ],
 					[Dict.foundStatus],
@@ -134,15 +120,13 @@ urlConfig['debtassgin/edit'] = {
 	'forms' : [
 		[
 			{	
-				'panelName' : '基本信息',
-				'descTitle' : '(*为必填)',
+				'panelName' : '日期',
 				'formlist'   : [
 					[Dict.proFoundDay ],
 				],
 			},
 			{	
 				'panelName' : '状态',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[Dict.isRiskRating ,Dict.riskRant ],
 					[ Dict.foundStatus],
@@ -170,15 +154,13 @@ urlConfig['equityInvestment/edit'] = {
 	'forms' : [
 		[
 			{	
-				'panelName' : '基本信息',
-				'descTitle' : '(*为必填)',
+				'panelName' : '日期',
 				'formlist'   : [
 					[Dict.proFoundDay ],
 				],
 			},
 			{	
 				'panelName' : '状态',
-				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[ Dict.riskRant ],
 					[ Dict.foundStatus],

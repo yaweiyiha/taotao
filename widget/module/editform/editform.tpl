@@ -165,7 +165,7 @@
                   </div>
                   <div v-if="li.type === 'star'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}</div>
-                    <star></star>
+                    <star :score="item.arrRank" :disable="options.disable"></star>
                   </div>
               </div>
             </template>
