@@ -79,9 +79,10 @@
                       >
                       </year-rate>
                   </template>
+
                   <template v-if="li.type ==='vipChoicenessDistributionWay'">
                       <choiceness-distribution 
-
+                    
                         :distribution="item.vipChoicenessDistributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
@@ -90,7 +91,11 @@
                       ></choiceness-distribution>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
-                      <fund-strategy :disable="options.disable"></fund-strategy>
+                      <fund-strategy 
+                      :fundtype="item.fundTypeFk"
+                      :fundsubtype="item.fundSubTypeFk"
+                      :disable="options.disable"
+                    ></fund-strategy>
                   </template>
                   <template v-if="li.type === 'distributionWay'">
                        <distribution-way
@@ -113,12 +118,15 @@
                       </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
+
+                      {{item.baseDays}}
+                      {{item.customBaseDays}}
                       <pro-term 
                       :maturities="item.maturities" 
                       :unitmaturities="item.unitFkMaturities" 
                       :startinginvest="item.startingInvest" 
                       :basedays="item.baseDays" 
-                      :custombasedays="customBaseDays" 
+                      :custombasedays="item.customBaseDays" 
                       :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
@@ -156,8 +164,7 @@
                   <div v-if="li.type === 'select'" class="form-group input-group w100 "  >
                       <div v-if= "li.name" class="input-group-addon input-title"  >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>
-            
-                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" v-model="item[li.key]" :disabled="options.disable"> 
+                      <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" value="item[li.key]" :disabled="options.disable"> 
                         <template v-for="(index, option ) in li.options" track-by="$index">
                             <option  value="{{li.value[index]}}">{{option}}</option>
                         </template>

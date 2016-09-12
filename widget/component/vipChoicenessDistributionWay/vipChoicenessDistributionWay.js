@@ -25,13 +25,14 @@ export default Vue.component('choiceness-distribution', {
  		foundDateShow        : false ,
  		picked               : '',
  		distributionway      : '10',
- 		distributionAnother  : '10',
+ 		distributionAnother  : '20',
  	}),
- 	ready: function () {
+ 	ready: function () {	
 
-		if (this.distribution !== '10') {
-			this.distribution = '120';
+		if (this.distribution !== 10) {
 			this.distributionAnother = this.distribution;
+			this.distribution = '120';
+
 		} else {
 			this.distribution = '10';
 		}

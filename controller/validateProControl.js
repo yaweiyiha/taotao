@@ -59,7 +59,7 @@ class validateProControl extends Control{
         me.getModel('productinfo', (model) => {
             model.getData(data.detailUrl, {id: _APP_HASH.id}).then((res) => {
                 let dictData = {};
-
+                
                 dictData.item = $.extend(res.item, Util.processData(res.item));
                 me.getViews([me.widgets.addform], $.extend(dictData, data));
             });

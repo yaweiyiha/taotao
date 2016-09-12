@@ -5,8 +5,8 @@
                 <div class="form-group input-group w100">
                     <div class="input-group-addon input-title">收益分配方式</div>
                      <select class="input-control" data-key="vipChoicenessDistributionWayFk" v-model="distribution" :disabled="disable"> 
-                        	<option  value="10">到期一次性还本付息</option>
-                        	<option value="120">按期付息，到期还本</option>
+                        	<option  value="10" > 到期一次性还本付息 </option>
+                        	<option  value="120"> 按期付息,到期还本  </option>
                       </select>
                 </div>  
             </div>
@@ -21,11 +21,10 @@
                         	<option value="70">按半年</option>
                         	<option value="80">按天</option>
                         	<option value="90">按周</option>
-
                       </select>
                   </div>     
               </div>
-              <div v-if="distribution === '120' && distributionAnother !== '80'"  class="col-md-2 pln input-wrapper rt">  
+              <div v-if="distribution === '120' && distributionAnother !== '70'"  class="col-md-2 pln input-wrapper rt">  
                   <div class="form-group input-group">
                     <span class="input-group-addon input-title">每</span>
                     <input class="input-control" maxlength="40" data-des="每" data-key="distributeInterval" style="width:70px" v-model="distributeinterval" :disabled="disable"> 

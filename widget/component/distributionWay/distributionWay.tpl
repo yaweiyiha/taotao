@@ -3,7 +3,7 @@
             <div class="col-md-6 input-wrapper rt"> 
                 <div class="form-group input-group w100">
                     <div class="input-group-addon input-title">收益分配方式</div>
-                     <select class="input-control" data-key="distributionWayFk" v-model="distributionWayFk" :disabled="disable"> 
+                     <select class="input-control" data-key="distributionWayFk" v-model="distributionWayFk" :disabled="disable" is-num="1"> 
                         	<option  value="130">到期一次性还本付息</option>
                         	<option value="90">按期付息，到期还本</option>
                       </select>
