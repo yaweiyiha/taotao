@@ -125,7 +125,6 @@ var util = {
             let inputType = ele.attr('type');
             if(inputType === 'radio'){
                 val = $('input[data-key=' +key + ']:checked').val();
-                val = val.trim();
                 if (val !== '') {
                     val = +val;
                 }
