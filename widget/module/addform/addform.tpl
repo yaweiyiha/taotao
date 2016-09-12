@@ -113,6 +113,7 @@
                        :sales="item.salesStatusFk" 
                        :disable="options.disable"
                        :dateestablished ="item.dateEstablished"
+                       :executestate="item.executeState"
                        >
                       </found-status>
                   </template>

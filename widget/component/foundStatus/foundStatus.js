@@ -12,8 +12,9 @@ export default Vue.component('found-status', {
  	template: tpl,
  	props: {
  		disable: {default: false},
- 		establish : {default: '1'},
+ 		establish : {default: ''},
  		sales : {default : ''},
+ 		executestate : {default : ''},
  		dateestablished : {default : ''},
  	},
  	data: () => ({
