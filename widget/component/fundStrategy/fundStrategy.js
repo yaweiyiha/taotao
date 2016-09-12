@@ -9,7 +9,9 @@ require.loadCss({
 export default Vue.component('fund-strategy', {
  	template: tpl,
  	props: {
- 		disable: {default: false}
+ 		disable: 		{default: false},
+ 		fundtype : 		{default: '60'},
+ 		fundsubtype : 	{default: ''},
  	},
  	data: () => ({
  		fundTypeFk: '',
@@ -40,20 +42,6 @@ export default Vue.component('fund-strategy', {
 		]
 
  	}),
- 	watch : {
- 		fundTypeFk :function() {
- 			let funkType = parseInt(this.fundTypeFk);
 
- 			if(funkType == 60){
- 				this.items = this.equityStrategy;
- 			}else if (funkType == 70){
- 				this.items = this.futuresStrategy;
- 			}else if (funkType == 80){
- 				this.items = this.BondStrategy;
- 			}else if (funkType == 90){
- 				this.items = this.otherStrategy;
- 			}
- 		}
- 	}
 
 });

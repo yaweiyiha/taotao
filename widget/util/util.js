@@ -182,12 +182,12 @@ var util = {
                     
                     valid = false;
                     parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
-                } else if (item.attr('data-reg')) {
-                    // let reg = new RegExp(item.attr('data-reg'));
-                    // if (!reg.test(item.val())) {
-                    //     valid = false;
-                    //     parentNode.append(`<p class="tips">${item.attr('data-des')}${item.attr('data-regerror')}</p>`);
-                    // }
+                } else if (item.attr('data-number') === 'number') {
+                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
+                    if (isNaN(item.val())) {
+                        valid = false;
+                        parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必须为数字</p>`);
+                    }
                 }
             }
 

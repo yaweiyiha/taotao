@@ -107,14 +107,22 @@ var addform = Widget.extend({
 
         if($('select[data-key="paymentTransferBankId"]')){
 
-            Util.getData('publisher/constants','','GET').then((res) => {
-
-                if(res.status === 1){
+            Util.getData('publisher/constants','','GET').then((data) => {
+                if(data.status === 1){
                     let banksArr   =  [];
-                    let banks = res.item.banks;
+                    let banks = data.item.banks;
+                    let index = 0;
 
+                    let bankId  = ""+res.item.paymentTransferBankId;
+                  
                     for(key in banks){
 
+                        if (index === 0 && bankId == '') {
+                            me.vm.$set('item.paymentTransferBankId', key);
+                        }else if(key == bankId){
+                            me.vm.$set('item.paymentTransferBankId', bankId);
+                        }
+                        index++;
                         option = `<option value="${key}">${banks[key]}</option>`;
                     
                         
@@ -328,7 +336,6 @@ var addform = Widget.extend({
         let filters = {};
 
         filters = Object.assign(filters, Util.getInputFilters());
-        //debugger;
         if(filters.name == "" || filters.name == undefined){
             //todo 
             //return;
@@ -412,6 +419,10 @@ var addform = Widget.extend({
     },
     validateSubmitData : function(){
 
+        let page = _APP_HASH._uri_ ;
+        if(page == "distributor/edit"){
+            return true;
+        }
         if($('input[data-key="paymentTransferCardNumber"]') &&
             $('input[data-key="paymentTransferCardNumberAgain"]')){
             let payTanscardEle = $('input[data-key="paymentTransferCardNumber"]');

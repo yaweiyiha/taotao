@@ -73,10 +73,15 @@
                     </distribution-way> 
                   </template>
                   <template v-if="li.type === 'foundStatus'">
-                       <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="item.dateEstablished"  :disable="options.disable"></found-status>
+                      <found-status 
+                       :establish="item.establishStatus" 
+                       :sales="item.salesStatusFk" 
+                       :disable="options.disable"
+                       :dateestablished ="item.dateEstablished"
+                       >
+                      </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
-                      {{ item.unitFkMaturities }}
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>
                   </template>
                   <template v-if="li.type === 'hoster'">
@@ -118,12 +123,16 @@
                     </div>
                     <input data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control {{li.classList}}" readonly>
                   </div> 
-
                   <div  v-if="li.type === 'singledate'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
                     </div>
-                      <single-date></single-date>
+                      <single-date                            
+                           :key="li.key" 
+                           :disable="options.disable" 
+                           :placeholder="li.placeholder"
+                           :timestamp ="item[li.key]">
+                      </single-date>
                   </div> 
                   <div v-if="li.type === 'dep'" class="form-group input-group dep">
                     <div class="input-group-addon input-title" >{{li.name}}
