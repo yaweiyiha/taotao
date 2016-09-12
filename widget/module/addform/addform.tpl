@@ -74,7 +74,7 @@
                         :max-arr="item.product.maxArr"
                         :latter-data="item.productLadderRates"
                         :not-float-upper-limit="item.notContainsFloatRateMax"
-                        :left-contain="item.product.containsLeftValue"
+                        :left-contain="item.containsLeftValue"
                         :disable="options.disable"
                       >
                       </year-rate>

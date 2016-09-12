@@ -15,7 +15,7 @@ urlConfig['fund/detail'] =
 		{ key: 'Detail', value: '发行商信息' },
 	],
 	'options' : {
-		disable: true
+		disable: false
 	},
 	'forms' : [
 
