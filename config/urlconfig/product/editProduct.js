@@ -11,8 +11,7 @@ urlConfig['fund/edit'] = {
 			{	
 				'panelName' : '销售信息',
 				'formlist'   : [
-					// [Dict.distriSize, Dict.unitFkIssureScale, Dict.yearIncome],
-					[Dict.distriSize, Dict.unitFkIssureScale, Dict.saleSize, Dict.unitFkOfferingSize ],
+					[Dict.distriSize, Dict.unitFkIssureScale,Dict.saleSize,Dict.unitFkOfferingSize],
 					[Dict.comSoled],
 					[Dict.yearRate]
 				],
