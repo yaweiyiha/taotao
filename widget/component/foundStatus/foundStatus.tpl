@@ -3,7 +3,7 @@
 		<div class="col-md-6">
 		    <div class="form-group">
 		        <div class="input-group">
-		            <div class="input-group-addon" style="min-width:120px">成立状态</div>
+		            <div class="input-group-addon" >成立状态</div>
 		                <select class="form-control valid" data-key="establishStatus" v-model="establish" :disabled="disable" is-num="1">
 
 		                    <option value="0" >募集中</option>

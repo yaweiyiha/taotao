@@ -13,7 +13,6 @@ urlConfig['order/detail'] =
 				'formlist'   : [
 					[   Dict.baseDateText('下单时间', 'orderInfoOrderCreateTimeValue','','detailtime'),
 						Dict.baseText('订单号', 'orderInfoOrderNo','','text'),
-					  
 				 	],
 				 	[ 
 				 		Dict.baseText('订单金额', 'orderInfoTotalAmount','','applyQuota'),
