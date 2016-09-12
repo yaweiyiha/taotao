@@ -67,13 +67,6 @@ var editform = Widget.extend({
             let yearRateContainer = container.find('.admin-widget-yearrate');
             if (yearRateContainer.size()) {
                 let yearRateData = Util.getYearRateData(yearRateContainer);
-                // filters.product = {};
-                // filters.product.arrTypeFk = yearRateData.arrTypeFk;
-                // filters.product.expectedArr = yearRateData.expectedArr;
-                // filters.product.fixMin = yearRateData.fixMin;
-                // filters.product.minArr = yearRateData.minArr;
-                // filters.product.floatMax = yearRateData.floatMax;
-                // filters.product.maxArr = yearRateData.maxArr;
                 filters.arrTypeFk = yearRateData.arrTypeFk;
                 filters.expectedArr = yearRateData.expectedArr;
                 filters.fixMin = yearRateData.fixMin;
@@ -82,7 +75,11 @@ var editform = Widget.extend({
                 filters.maxArr = yearRateData.maxArr;
                 filters.productLadderRates = yearRateData.productLadderRates
             }
-            console.log(JSON.stringify(filters));
+
+            if(filters.isRiskRating === 0){
+                    filters.riskRating = '';
+            }
+
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';
@@ -141,6 +138,23 @@ var editform = Widget.extend({
         $('button[data-role="cancel"]').on('click',function(){
         	window.location.href = '#main/product/maintenance';
         })
+
+        // 是否启用风险等级联动
+        container.on('click', '[data-key=isRiskRating]', function () {
+            let on = container.find('[data-key=isRiskRating]:checked').val();
+            let target = container.find('[data-key=riskRating]').parents('.input-wrapper');
+            if (on === '0') {
+                target.hide();
+            } else {
+                target.show();
+            }
+        });
+        //init risk level
+        setTimeout(() => {
+            if (container.find('[data-key=isRiskRating]:checked').val() === '0') {
+                container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
+            }
+        });
 
     },
     toNum : function (filters){

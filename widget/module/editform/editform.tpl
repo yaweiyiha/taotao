@@ -73,7 +73,13 @@
                     </distribution-way> 
                   </template>
                   <template v-if="li.type === 'foundStatus'">
-                       <found-status :establish="item.establishStatus" :sales="item.salesStatusFk" :date-established="item.dateEstablished"  :disable="options.disable"></found-status>
+                      <found-status 
+                       :establish="item.establishStatus" 
+                       :sales="item.salesStatusFk" 
+                       :disable="options.disable"
+                       :dateestablished ="item.dateEstablished"
+                       >
+                      </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
                       <pro-term :maturities="item.maturities" :unitmaturities="item.unitFkMaturities" :startinginvest="item.startingInvest" :basedays="item.baseDays" :custombasedays="customBaseDays" :unitstartingmaturities="item.unitFkStartingMaturities" :disable="options.disable"></pro-term>

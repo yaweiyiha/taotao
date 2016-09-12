@@ -23,7 +23,7 @@ urlConfig['fund/edit'] = {
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
 					[Dict.foundStatus],
-					[Dict.proStatus]
+					[Dict.showStatus]
 				],
 			},
 			{	
@@ -144,7 +144,10 @@ urlConfig['debtassgin/edit'] = {
 				'panelName' : '状态',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.riskRant ,Dict.proStatus],
+					[Dict.isRiskRating ,Dict.riskRant ],
+					[ Dict.foundStatus],
+					[ Dict.showStatus]
+
 				],
 			}
 		]
@@ -177,7 +180,9 @@ urlConfig['equityInvestment/edit'] = {
 				'panelName' : '状态',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[Dict.riskRant ,Dict.proStatus],
+					[ Dict.riskRant ],
+					[ Dict.foundStatus],
+					[ Dict.showStatus]
 				],
 			}
 		]

@@ -57,7 +57,7 @@ export default {
  	'soled'			: { key :'selfDefinedProcess', name : '已销售份额', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unitType: 'money', unitKey: 'unitFkOfferingSize', isrequire: true},
  	'star'			: { key :'arrRank', name : '收益评级', wrapperClass : 'col-md-6' , type : 'star'},
  	
- 	'proFoundDay'   : { key :'productName', name : '产品成立日期', wrapperClass : 'col-md-6' , type : 'singledate'},
+ 	'proFoundDay'   : { key :'dateEstablished', name : '产品成立日期', wrapperClass : 'col-md-6' , type : 'singledate'},
  	'distirName'    : { key :'name' ,name : '名称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商名称' ,validate: {isrequire : true}},
  	'distirPhone'   : { key :'telephone' ,name : '发行商固定电话', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商固定电话',validate: {isrequire : true}},
  	'distirFullName'   : { key :'fullName' ,name : '发行商全称', wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请输入发行商全称',validate: {isrequire : true}},

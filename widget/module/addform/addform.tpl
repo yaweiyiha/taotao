@@ -80,8 +80,7 @@
                       </year-rate>
                   </template>
 
-                  <template v-if="li.type ==='vipChoicenessDistributionWay'">
-                    
+                  <template v-if="li.type ==='vipChoicenessDistributionWay'">  
                       <choiceness-distribution
                         :distribution="item.vipChoicenessDistributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"

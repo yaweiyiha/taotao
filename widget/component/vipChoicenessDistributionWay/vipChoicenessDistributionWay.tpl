@@ -29,7 +29,7 @@
 
                   <div class="form-group input-group">
                     <span class="input-group-addon input-title">每</span>
-                    <input class="input-control" maxlength="40" data-des="每" data-key="distributeInterval" style="width:70px" v-model="distributeinterval" :disabled="disable"> 
+                    <input class="input-control" maxlength="40" data-des="每" data-key="distributeInterval" style="width:70px" v-model="distributeinterval" :disabled="disable">   
                     <span class="input-group-addon input-title" style="min-width:10px" >{{circleUnit}}</span> 
                   </div>
               </div>

@@ -4,7 +4,7 @@
 		    <div class="form-group">
 		        <div class="input-group">
 		            <div class="input-group-addon" style="min-width:120px">成立状态</div>
-		                <select class="form-control valid" data-key="establishStatus" v-model="establish" :disabled="disable">
+		                <select class="form-control valid" data-key="establishStatus" v-model="establish" :disabled="disable" is-num="1">
 
 		                    <option value="0" >募集中</option>
 		                    <option value="1">已成立</option>
@@ -38,7 +38,7 @@
 		     <div class="input-group-addon input-title">产品状态     
 		      </div>
 		      <input data-key="salesStatusFk" type="radio" :disabled="disable" class="radio-input"  name="founed"  value="60" v-model="sales"> 已结束
-		      <input data-key="salesStatusFk" type="radio" :disabled="disable" class="radio-input" name="founed"  checked="checked" value="70"  v-model="sales"> 执行中
+		      <input data-key="salesStatusFk" type="radio" :disabled="disable" class="radio-input" name="founed"  value="70"  v-model="sales"> 执行中
 		      	<div v-if="sales == '70'" style= "display: inline-block">
 		      		<span>(</span>
 		      		<input type="radio" :disabled="disable" class="radio-input" name="executeState" value="10" checked="checked" data-key ="executeState" > 封闭状态

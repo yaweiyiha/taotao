@@ -76,9 +76,11 @@ export default Vue.component('city-select', {
         getCity : function(provinceCode = -1){
             var me = this;
             let urlparam = `?provinceCode=${provinceCode}`;
+            me.city = [];
             let param = [key ,urlparam,arr,name ,code] 
                       = ['city',urlparam,me.city ,'cityName','id'];
             me.getData(...param);
+            me.subarea = [];
         },
         getArea :function(cityCode = -1){
             var me = this;
