@@ -63,6 +63,10 @@ var editform = Widget.extend({
         	let filters = Util.getInputFilters();
         	filters =  me.toNum(filters);
         	filters.productId = parseInt(_APP_HASH.id);
+            // get star info
+            if ($('.admin-widget-star').size()) {
+                filters.arrRank = +$('.admin-widget-star').attr('data-value');
+            }
             // get year rate info
             let yearRateContainer = container.find('.admin-widget-yearrate');
             if (yearRateContainer.size()) {
@@ -103,6 +107,10 @@ var editform = Widget.extend({
                 if(filters.name == "" || filters.name == undefined){
                     //todo 保存的时候产品名字不能为空
                     //return;
+                }
+                // get star info
+                if ($('.admin-widget-star').size()) {
+                    filters.arrRank = +$('.admin-widget-star').attr('data-value');
                 }
                 filters.categoryFk    = parseInt($(this).attr("pro"));
                 filters.fundTypeFk    = parseInt(filters.fundTypeFk);
