@@ -51,7 +51,7 @@
   		<div v-if="establish == '2'" class="form-group input-group"> 
 		     <div class="input-group-addon input-title">产品状态     
 		      </div>
-		      <input data-key ="executeState" type="radio" class="radio-input"  name="founed"  value="10" checked="checked" :disabled="disable"> 募集失败
+		      <input data-key ="executeState" type="radio" class="radio-input"  name="founed"  value="80" checked="checked" :disabled="disable"> 募集失败
   		</div>  
 	
 

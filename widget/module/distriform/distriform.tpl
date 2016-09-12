@@ -31,25 +31,37 @@
                   </comm-type>
                 </div>
                 <div class="{{li.wrapperClass}} input-wrapper rt">
-                  <div v-if="li.type === 'text'" class="form-group input-group text">
-                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}}:
+                  <div v-if="li.type === 'text'" class="form-group input-group">
+                    <div class="input-group-addon input-title" v-bind:style="li.selfStyle">
+                        <label style="text-align:right;font-weight:normal;width:30%;">{{li.name}}:</label>
                         <span v-if="li.subtype =='singleTime'">
                               {{item[li.key] | datetime}}
                         </span>
+                        <span v-if="li.subtype =='detailtime'">
+                              {{item[li.key] | detailtime}}
+                        </span>
                         <span v-if="li.subtype =='doubleTime'">
-                              <span v-if="item[li.key[0]]">{{item[li.key[0]] | datetime}} 至 {{item[li.key[1]] | datetime}}</span>
+                              <span v-if="item[li.key[0]]">{{item[li.key[0]] | datetime}}</span>
+                              <span v-if="item[li.key[0]] && item[li.key[1]]">至</span>
+                              <span v-if="item[li.key[1]]">{{item[li.key[1]] | datetime}}</span>
                         </span>
                         <span v-if="li.subtype =='percent'">
                               {{item[li.key]}} <span v-if="item[li.key].toString()">%</span>
                         </span>
                         <span v-if="li.subtype =='applyQuota'">
-                              {{item[li.key]}} <span v-if="item[li.key]">元</span>
+                              {{item[li.key]}} <span v-if="item[li.key].toString()">元</span>
+                        </span>
+                        <span v-if="li.subtype =='day'">
+                              {{item[li.key]}} <span v-if="item[li.key].toString()">天</span>
+                        </span>
+                        <span v-if="li.subtype =='gender'">
+                               {{item[li.key] | gender}} 
                         </span>
                         <span v-if="li.subtype =='commisionType'">
                               {{item[li.key] | commisionType}} 
                         </span>
                         <span v-if="li.subtype =='applyState'">
-                              {{item[li.key] | applyStates}} 
+                              {{item[li.key] | applyState}} 
                         </span>
                         <span v-if ="li.subtype =='text' ">
                              {{item[li.key]}}
@@ -147,7 +159,8 @@
                     <star></star>
                   </div>
                   <div v-if="li.type === 'button'" class="form-group input-group">
-                    <div v-if="li.name" class="input-group-addon input-title" >{{li.name}}</div>
+                    <div v-if="li.name" class="input-group-addon input-title" >{{li.name}}
+                    <span v-if="li.validate.isrequire" class="text-strong-red">*</span></div>
                     <div class='custom-button fun-button' @click="addFile">
                         <em v-if="li.icon" class="{{li.icon}}"></em>
                         <span>{{li.value}}</span>

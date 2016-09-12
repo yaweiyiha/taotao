@@ -27,9 +27,8 @@ export default Vue.component('choiceness-distribution', {
  		distributionway      : '10',
  		distributionAnother  : '20',
  	}),
- 	ready: function () {	
-
-		if (this.distribution !== 10) {
+ 	ready: function () {
+		if (this.distribution !== '10') {
 			this.distributionAnother = this.distribution;
 			this.distribution = '120';
 

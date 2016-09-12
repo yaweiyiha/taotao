@@ -18,11 +18,11 @@ require.loadCss({
 var form = Widget.extend({
     
     init : function (data = {}) {
-        //console.log(JSON.stringify(data));
 
         this._filters_ = {};
         this.localData = {};
     	this.data = data;
+
         this.eles = this.display(data, tpl, 'native');
         this.render();
         this.bind();
@@ -153,14 +153,21 @@ var form = Widget.extend({
 
             let inputFilters = me.getInputFilters();
             let filters =  inputFilters && $.extend(inputFilters,filter);
+
             me._filters_ = Object.assign(me._filters_, filters);
             me._filters_.pageNo = 1;
             data = $.extend({param: me._filters_},{url : url});
+            if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts')){
+                if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts') == 10){
+                    data.param.statusId = $('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts');
+                }
+            }
+            
             me.updateTable(data);
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            
+            console.log(JSON.stringify(this.data));
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             if (inputFilters === false) {
@@ -171,7 +178,12 @@ var form = Widget.extend({
             me._filters_.pageSize = 10;
             data = $.extend({param: me._filters_},{url : url});
 
-            console.log(JSON.stringify(data));
+            if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts')){
+                if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts') == 10){
+                    data.param.statusId = $('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts');
+                }
+            }
+
             me.updateTable(data);
 
         });

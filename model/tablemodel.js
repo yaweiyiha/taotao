@@ -36,6 +36,7 @@ class tableModel extends Model{
                 timeout : 10000,
                 cache: false,
                 success: function (ret) {
+                    
                     if(ret.msg === 'success'){
                         resolve(ret);
                     }

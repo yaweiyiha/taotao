@@ -11,13 +11,13 @@ urlConfig['order/detail'] =
 			{	
 				'panelName' : '订单信息',
 				'formlist'   : [
-					[   Dict.baseDateText('下单时间', 'orderInfoOrderCreateTimeValue','','text'),
+					[   Dict.baseDateText('下单时间', 'orderInfoOrderCreateTimeValue','','detailtime'),
 						Dict.baseText('订单号', 'orderInfoOrderNo','','text'),
 					  
 				 	],
 				 	[ 
-				 		Dict.baseText('订单金额', 'orderInfoTotalAmount','','text'),
-					    Dict.baseText('认购金额', 'orderInfoOrderAmount','','text')
+				 		Dict.baseText('订单金额', 'orderInfoTotalAmount','','applyQuota'),
+					    Dict.baseText('认购金额', 'orderInfoOrderAmount','','applyQuota')
 				 	],
 				 ]
 			},
@@ -28,7 +28,7 @@ urlConfig['order/detail'] =
 						Dict.baseText('认购金额', 'orderInfoOrderAmount','','text'),
 					  
 				 	],[
-					 	 Dict.baseText('期限', 'orderInfoProductTerm','','text'),
+					 	 Dict.baseText('期限', 'orderInfoProductTerm','','day'),
 				 	],				 
 				 ],
 			},
@@ -37,7 +37,7 @@ urlConfig['order/detail'] =
 				'formlist'   : [
 					[	
 						Dict.baseText('姓名' ,'investorName','','text'),
-						Dict.baseText('性别', 'investorGender','','text'),
+						Dict.baseText('性别', 'investorGender','','gender'),
 				 	],[
 					  	Dict.baseDateText('出生日期', 'investorDateOfBirth','','text'),
 					  	Dict.baseText('手机', 'investorCellPhone','','text'),

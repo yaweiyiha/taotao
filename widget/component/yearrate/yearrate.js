@@ -107,6 +107,17 @@ export default Vue.component('year-rate', {
 		// }]
  	}),
  	methods: {
+ 		fixminClick: function(event){
+ 			let me = this;
+ 			if(!$('.fixMin').prop('checked')){
+ 				me.floatMax = false;
+ 			}
+ 		},
+ 		floatmaxClick: function(event){
+ 			if(!$('.fixMin').prop('checked')){
+ 				event.preventDefault();
+ 			}
+ 		},
  		getData: function () {
  			console.log(Util.getYearRateData($(this.$el)));
  		},

@@ -15,7 +15,7 @@ urlConfig['product/maintenance'] =
 				
 				{ key :'name' ,name : '产品名称', wrapperClass : 'col-sm-4 pln' ,   type : 'input' ,placeholder : '请输入产品名称'},
 				{ startkey :'dateIssueStart', endkey :'dateIssueEnd'  ,name : '上架时间', wrapperClass: 'col-sm-5 date-control' ,type : 'time'},
-				{name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
+				{ name : '搜索', classList : 'search',type : 'button', evt : 'submit'},
 			],
 		],
 
@@ -87,10 +87,11 @@ urlConfig['product/maintenance'] =
 	},
 	'topbanner' : {
 		'title' : '产品管理',
-		'subtitle' : {name : '产品维护' ,url : ''},
+		'subtitle' : {name : '产品维护' ,url : '#main/product/maintenance'},
 		'key' : '产品维护',
 		'subFun' : [{'key' : '新增产品' , evt :'addProduct', code: 'add', mark:'product:create'}],
 		'drafts' : '#main/product/draft',
+		'isDrafts': true,
 	},
 	'filters' : [
 		{ key :'categoryId', name : '产品类型', wrapperClass : 'col-sm-6' , mark:'',

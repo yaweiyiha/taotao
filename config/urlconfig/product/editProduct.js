@@ -128,7 +128,7 @@ urlConfig['debtassgin/edit'] = {
 	'topbanner' : {
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
-		'thirdTitle' : '编辑股权转让产品',
+		'thirdTitle' : '编辑债权转让产品',
 		'key' : '产品维护',
 	},
 	'forms' : [

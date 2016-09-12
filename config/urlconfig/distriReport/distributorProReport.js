@@ -20,13 +20,19 @@ urlConfig['distripro/report'] =
 
 		'type' : 'effective',
 		'host' : 'index.html#main/',
+		'tabtop':[
+			{ name :'产品名称', key : 'productName',      type:'nomal', val:'' },
+			{ name :'分销方',   key : 'agentName' ,       type:'nomal', val:'' },
+			{ name :'佣金类型', key : 'commisionType',    type:'quota', val:'' },
+			{ name :'佣金比率', key : 'extraCommission',  type:'nomal', val:'' },
+		],
 		'tables' : [
 			{ name :'订单号' ,  width:"15%" ,key : 'orderNo',      type: 'nomal'},
 			{ name :'下单日期', width:"10%" ,key : 'createTime' ,  type:'time' },
 			{ name :'投资人',   width:"10%" ,key : 'investorName', type:'nomal'},
-			{ name :'投资金额', width:"15%" ,key : 'totalAmount',  type:'applyQuota'},
+			{ name :'投资金额', width:"15%" ,key : 'totalAmountString',  type:'applyQuota'},
 			{ name :'支付方式', width:"10%" ,key : 'paymentType',  type:'nomal'},
-			{ name :'佣金',     width:"10%", key : 'commission' ,  type:'applyQuota'},
+			{ name :'佣金',     width:"10%", key : 'commissionString' ,  type:'applyQuota'},
 			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
 		],
 		'page': 'report',

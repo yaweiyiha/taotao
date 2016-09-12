@@ -25,13 +25,13 @@ urlConfig['distribut/maintenance'] =
 		'type' : 'effective',
 		'host' : 'index.html#main/',
 		'tables' : [
-			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'pro'},
-			{ name :'申请方', width:"8%" ,key : 'agentName',type: 'nomal'},	
-			{ name :'类型', width:"6%" ,key : 'productCategory', type: 'productCategory' },
-			{ name :'申请额度', width:"6%" ,key: 'applyQuota',type: 'applyQuota' },
-			{ name :'申请日期', width:"10%" ,key: 'createTime' ,  type: 'detailtime' },
-			{ name :'状态', width:"8%" ,key: 'applyState',type: 'applyState'},
-			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater'},
+			{ name :'产品名称', width:"8%" ,key : 'productName',type: 'pro', classList : ''},
+			{ name :'申请方', width:"8%" ,key : 'agentName',type: 'nomal', classList : ''},	
+			{ name :'类型', width:"6%" ,key : 'productCategory', type: 'productCategory' , classList : ''},
+			{ name :'申请额度', width:"6%" ,key: 'applyQuota',type: 'applyQuota' , classList : 'quota-sty'},
+			{ name :'申请日期', width:"10%" ,key: 'createTime' ,  type: 'detailtime' , classList : ''},
+			{ name :'状态', width:"8%" ,key: 'applyState',type: 'applyState', classList : ''},
+			{ name :'操作', width:"10%" ,key: 'operater', type: 'operater', classList : ''},
 		],
 		'hasProductUrl' : true,
 		'operater' : {
@@ -80,7 +80,7 @@ urlConfig['distribut/maintenance'] =
 	},
 	'topbanner' : {
 		'title' : '分销管理',
-		'subtitle' : {name : '分销签约管理' ,url : ''},
+		'subtitle' : {name : '分销签约管理' ,url : '#main/distribut/maintenance'},
 		'key' : '产品维护',
 	},
 	'filters' : [

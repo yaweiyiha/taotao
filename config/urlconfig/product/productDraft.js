@@ -32,7 +32,7 @@ urlConfig['product/draft'] =
 		'url' : "product/maintenance/list",
 		'hasProductUrl' : true,
 		'param' : { 
-			"exclude": 0, "pageNo": 1, "pageSize": 10 ,'statusId' : 10
+			"pageNo": 1, "pageSize": 10 ,'statusId' : 10
 		 },
 		'alwaysParam' : {"exclude": 0 ,'statusId' : 10},
 		'operater' : {
@@ -60,6 +60,8 @@ urlConfig['product/draft'] =
 		'subtitle' : {name : '产品维护' ,url : '#main/product/maintenance'},
 		'thirdTitle' : '草稿箱',
 		'key' : '产品维护',
+		'isDrafts': {draftStatus:10},
+		'classDrafts': {classList:'draftsSty'},
 	},
 	'filters' : [
 		{ key :'categoryId', name : '产品类型', wrapperClass : 'col-sm-6' , 

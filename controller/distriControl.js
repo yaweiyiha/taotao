@@ -77,8 +77,10 @@ class distriControl extends Control{
             me.getModel('distri', (model) => {
             
             model.getData(url).then((res) => {
+
                 let dictData = {};
                 dictData.item = $.extend(res.item, me.processData(res.item));
+                //console.log(JSON.stringify(dictData));
 
                 me.getViews([me.widgets.distriform], $.extend(dictData,data));
                 });

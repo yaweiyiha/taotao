@@ -21,8 +21,13 @@
 			</div>
 		</div>
 	</div> -->
-
-	<table  v-if="items" class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
+    <ul v-if="items" class="report-topcont">
+        <template v-for="item in tabtop">
+            <li v-if="item.type === 'nomal'" style="margin-right:10px;"><label>{{item.name}}：</label><span>{{item.val}}</span></li>
+            <li v-if="item.type === 'quota'" style="margin-right:10px;"><label>{{item.name}}：</label><span>{{item.val}}</span></li>
+        </template>
+    </ul>
+	<table v-if="items" class="table table-hover table-bordered table-responsive dataTable no-footer" style="width: 100%;" role="grid" aria-describedby="tp_info">                
 		<thead>
 			<tr role="row" >
 				<template  v-for="item in tables">
@@ -45,7 +50,7 @@
 						<td v-if="t.type === 'productCategory'">{{ item[t.key] | productCategory}}</td>
                         <td v-if="t.type === 'applyState'">{{ item[t.key] | applyState}}</td>
                         <td v-if="t.type === 'distributorStatus'">{{ item[t.key] | distributorStatus}}</td>
-                        <td v-if="t.type === 'applyQuota'">{{ item[t.key]}}元</td>
+                        <td v-if="t.type === 'applyQuota'" style="text-align:right;padding-right:20px;">{{ item[t.key]}}元</td>
                         <td v-if="t.type === 'operater'" class = "operator">
                             <template v-for="op in item.operater">
                                 <a href="{{op.url}} " data-evt="{{op.evt}}" value="{{op.val}}" data-param= '{{op.par}}'>

@@ -81,8 +81,8 @@
                   </template>
 
                   <template v-if="li.type ==='vipChoicenessDistributionWay'">
-                      <choiceness-distribution 
                     
+                      <choiceness-distribution
                         :distribution="item.vipChoicenessDistributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
@@ -99,7 +99,7 @@
                   </template>
                   <template v-if="li.type === 'distributionWay'">
                        <distribution-way
-                        :distribution="item.vipChoicenessDistributionWayFk"
+                        :distribution="item.distributionWayFk"
                         :incomecalcutype="item.incomeCalculationTypeFk"
                         :distributeinterval="item.distributeInterval"
                         :startdateinterest="item.startDateInterest"
@@ -166,7 +166,7 @@
                       </div>
                       <select class="input-control" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" data-key="{{li.key}}" is-num="{{li.isNum}}" value="item[li.key]" :disabled="options.disable"> 
                         <template v-for="(index, option ) in li.options" track-by="$index">
-                            <option  value="{{li.value[index]}}">{{option}}</option>
+                            <option value="{{li.value[index]}}">{{option}}</option>
                         </template>
                       </select>
                   </div>

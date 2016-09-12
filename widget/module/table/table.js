@@ -26,7 +26,6 @@ var table = Widget.extend({
         extraInfo: {}
     }, 
     init: function (data) {
-        //console.log(JSON.stringify(data.operater));
         //索引
         Array.prototype.indexOf = function(val) { 
             for (var i = 0; i < this.length; i++) { 
@@ -203,6 +202,22 @@ var table = Widget.extend({
         let me = this;
         data.totalPages = Math.ceil(data.totalSize / data.pageSize);
         data.pageList = this.calculateIndexes(data.pageNo, data.totalPages, 5);
+
+        
+        if(data.tabtop){
+            var proNameVal = $('.distriproName').val();
+            var distriagentVal = $('.distriagent').val();
+            var proNameTxt = $('.distriproName option[value="'+proNameVal+'"]').text();
+            var distriagentTxt = $('.distriagent option[value="'+distriagentVal+'"]').text();
+            var commisionTypeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commisionTypeString');
+            var commissionRangeStringVal = $('.distriagent option[value="'+distriagentVal+'"]').attr('data-commissionRangeString');
+            data.tabtop[0].val = proNameTxt;
+            data.tabtop[1].val = distriagentTxt;
+            data.tabtop[2].val = commisionTypeStringVal;
+            data.tabtop[3].val = commissionRangeStringVal; 
+        }
+        
+
         if(data.items){
 
             data.items.forEach(function (dataItem) {
@@ -230,7 +245,7 @@ var table = Widget.extend({
             data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
             data.extraInfo.totalCommission = data.totalCommission;
         }
-        console.log(JSON.stringify(data.extraInfo.totalInvestmentAmount));
+        
         return data;
     },
     render :function(){

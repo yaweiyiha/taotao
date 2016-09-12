@@ -6,8 +6,11 @@ import CommType from 'widget/component/commtype/commtype';
 import singledate from  'widget/component/singledate/singledate';
 import Util from  'widget/util/util';
 import datetime from 'widget/filter/datetime';
+import detailtime from 'widget/filter/detailtime';
+import gender from 'widget/filter/gender';
 import commisionType from 'widget/filter/commisionType';
 import applyStates from 'widget/filter/applyStates';
+import applyState from 'widget/filter/applyState';
 import InputeDialog from 'widget/classComponent/dialog/inputeDialog';
 import AlertDialog from "widget/classComponent/dialog/alert"
 import LadderComm from 'widget/component/laddercomm/laddercomm'
@@ -23,7 +26,7 @@ require.loadCss({
 var distriform = Widget.extend({ 
     
     init : function(data){
-        //console.log(JSON.stringify(data));
+        console.log(JSON.stringify(data.forms[1].formlist));
 
         this.vm = this.display(data ,tpl ,'vue');
         this.bind();
@@ -186,8 +189,11 @@ var distriform = Widget.extend({
     },
     filters : {
         datetime      : datetime ,
+        detailtime    : detailtime ,
+        gender           : gender ,
         commisionType : commisionType,
         applyStates   : applyStates,
+        applyState   : applyState,
     },
     methods:{
         back : () => {

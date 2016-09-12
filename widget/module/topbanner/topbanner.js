@@ -1,5 +1,6 @@
 import Widget from 'static/js/widget.js';
 import addProDialog from 'widget/classComponent/dialog/addProDialog.js';
+import Util from 'widget/util/util';
 
 let style = __inline('./topbanner.inline.less');
 let tpl = __inline('./topbanner.tpl');
@@ -51,6 +52,20 @@ var topbanner = Widget.extend({
         this.bind();
     },
     processData :function (data = {}){
+
+        if(data.isDrafts){
+            
+            let url = `${Config.host}product/maintenance/list`;
+            let dataObj = {
+                statusId: 10
+            }
+
+            Util.getData(url, dataObj ,'POST').then((res)=> {
+                $('#draftsTotalSize').html(res.totalSize);
+            })
+        }
+        
+
         this.data = data;
         return this.data; 
     },
