@@ -65,8 +65,6 @@ var addform = Widget.extend({
  
         this.data = data;
         this.data.tabs = data.tabs;
-
-        console.log(JSON.stringify(this.data));
         this.vm = this.display(this.data ,tpl ,'vue');
         this.render(data);
         this.bind();
@@ -86,22 +84,19 @@ var addform = Widget.extend({
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
             let option  = '';
-
             let index = 0;
-
+            debugger
             for(key in publisherList){
+
                 if (index === 0 && publisherKey == '') {
                     me.vm.$set('item.publisherFk', key);
                 }else if(key == publisherKey){
                     me.vm.$set('item.publisherFk', publisherKey);
                 }
                 index++;
-
-
                 option = `<option value="${key}">${publisherList[key]}</option>`;
-            
-                
                 publisherArr.push(option);
+
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
