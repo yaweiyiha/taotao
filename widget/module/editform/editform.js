@@ -17,6 +17,7 @@ import distributionWay from 'widget/component/distributionWay/distributionWay';
 import CustomEle from "widget/component/customele/customele"
 import foundStatus from "widget/component/foundStatus/foundStatus";
 import proTerm from "widget/component/proTerm/proTerm"
+import Soled from "widget/component/soled/soled"
 import Hoster from "widget/component/hoster/hoster"
 import Filter from 'widget/filter/distributorStatus'
 

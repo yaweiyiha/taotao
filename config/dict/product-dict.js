@@ -77,6 +77,8 @@ export default {
  	'productCommSet': {type: 'product-commset'},
  	// 年收益率设置，逻辑关系比较复杂，使用单独的vue组件
  	'yearRate': {type: 'year-rate'},
+ 	// 年收益率设置，逻辑关系比较复杂，使用单独的vue组件
+ 	'comSoled': {type: 'comSoled',  wrapperClass: 'col-md-6'},
  	'customEle': {type: 'custom-ele'},
  	'verifyConfirm': {type: 'verify-confirm'},
  	'incomeDistriType' : { key :'distributionWayFk' ,name : '收益分配方式', wrapperClass : 'col-md-6' ,   type : 'select', 

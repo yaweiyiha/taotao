@@ -14,7 +14,7 @@ urlConfig['fund/edit'] = {
 				'formlist'   : [
 					// [Dict.distriSize, Dict.unitFkIssureScale, Dict.yearIncome],
 					[Dict.distriSize, Dict.unitFkIssureScale, Dict.interestRate],
-					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.soled],
+					[Dict.saleSize, Dict.unitFkOfferingSize, Dict.comSoled],
 					[Dict.yearRate]
 				],
 			},

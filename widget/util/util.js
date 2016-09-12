@@ -180,12 +180,12 @@ var util = {
             let parentNode = item.parents('.input-wrapper');
             if ($.inArray('required', validter) > -1) {
                 parentNode.find('.tips').remove();
-                if (val === '') {
+                if (!/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(val)) {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     offsetLeft = Math.max(offsetLeft, 105);
                     
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填或输入有误</p>`);
                 } else if (item.attr('data-number') === 'number') {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     if (isNaN(val)) {
@@ -249,7 +249,7 @@ var util = {
             maxInvestmentPrice :  toString(data.product.maxInvestmentPrice),
 
             expectedArr        : toString(data.product.expectedArr),
-            selfDefinedProcess : toString(data.product.selfDefinedProcess),
+            selfDefinedProcess : toNumber(data.product.selfDefinedProcess),
             establishStatus    : toString(data.product.establishStatus),
             riskRating         : toString(data.product.riskRating),
             salesStatusFk      : toString(data.product.salesStatusFk),
