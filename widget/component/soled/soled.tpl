@@ -13,7 +13,7 @@
 		<div class="form-group input-group">
 			<input type="text" :disabled="true" v-model="soled">
 			<span style="padding: 0 5px;"> / </span>
-			<input type="text" :disabled="true" v-model="offeringSize">
+			<input type="text" :disabled="true" v-model="offeringSizeComputed">
 			<span class="ml5">元</span>
 			<input type="hidden" data-key="isSelfDefinedProcess" value="1" is-num="1">
 		</div>
