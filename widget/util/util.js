@@ -191,7 +191,7 @@ var util = {
                     offsetLeft = Math.max(offsetLeft, 105);
                     let itemDes = item.attr('data-des') ? item.attr('data-des') : '';
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.itemDes}输入有误</p>`);
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${itemDes}输入有误</p>`);
                 }else if (item.attr('data-number') === 'number') {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     if (isNaN(item.val())) {
@@ -200,14 +200,13 @@ var util = {
                     }
                 }
             }else {
-                // let val = item.val.trim();
-             
+
                 if (item.val() !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(item.val())) {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     offsetLeft = Math.max(offsetLeft, 105);
                     let itemDes = item.attr('data-des') ? item.attr('data-des') : '';
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.itemDes}输入有误</p>`);
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${itemDes}输入有误</p>`);
                 }
             }
 
