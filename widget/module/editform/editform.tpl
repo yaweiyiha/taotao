@@ -54,7 +54,7 @@
                   </soled>
                   </template>
                   <template v-if="li.type === 'year-rate'">
-                      <year-rate
+                    <year-rate
                         :arr-type-fk="item.arrTypeFk"
                         :expected-arr="item.product.expectedArr"
                         :fix-min="item.product.fixMin"
@@ -62,9 +62,9 @@
                         :float-max="item.product.floatMax"
                         :max-arr="item.product.maxArr"
                         :latter-data="item.productLadderRates"
-                        :disable="options.disable"
                         :not-float-upper-limit="item.notContainsFloatRateMax"
-                        :left-contain="item.product.containsLeftValue"
+                        :left-contain="item.containsLeftValue"
+                        :disable="options.disable"
                       >
                       </year-rate>
                   </template>

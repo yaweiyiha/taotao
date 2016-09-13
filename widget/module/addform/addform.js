@@ -79,6 +79,7 @@ var addform = Widget.extend({
         let container = $(this.vm.$el);
         let res = data;
         let me = this;
+        me.banksArr = [];
         if($('select[data-key="publisherFk"]')){
 
             let publisherKey  = res.item.publisherFk;
@@ -102,7 +103,10 @@ var addform = Widget.extend({
         }
 
         if($('select[data-key="paymentTransferBankId"]')){
-
+   
+            if(me.banksArr.length !== 0){
+                return;
+            }
             Util.getData('publisher/constants','','GET').then((data) => {
                 if(data.status === 1){
                     let banksArr   =  [];
@@ -110,7 +114,7 @@ var addform = Widget.extend({
                     let index = 0;
 
                     let bankId  = ""+res.item.paymentTransferBankId;
-                  
+                    
                     for(key in banks){
 
                         if (index === 0 && bankId == '') {
@@ -123,6 +127,7 @@ var addform = Widget.extend({
                     
                         
                         banksArr.push(option);
+                        me.banksArr = banksArr;
                     }
                     $('select[data-key="paymentTransferBankId"]').append(banksArr);
                 }
@@ -228,7 +233,6 @@ var addform = Widget.extend({
         container.on('click', 'button', function(){
             let dataRole = $(this).attr('data-role');
             if(dataRole == 'save' ) {
-
                 if($(me.vm.$el).find('[data-key=name]').val() === '') {
                     AlertDialog.show('请输入产品名称');
                     return;
@@ -250,6 +254,7 @@ var addform = Widget.extend({
   
                 });
             }else if(dataRole == 'republic'){
+
                 if (!Util.validate(container)) {
                     return;
                 }

@@ -64,6 +64,7 @@ var editform = Widget.extend({
         	let filters = Util.getInputFilters();
         	filters =  me.toNum(filters);
         	filters.productId = parseInt(_APP_HASH.id);
+            
             // get star info
             if ($('.admin-widget-star').size()) {
                 filters.arrRank = +$('.admin-widget-star').attr('data-value');
@@ -71,13 +72,13 @@ var editform = Widget.extend({
             // get year rate info
             let yearRateContainer = container.find('.admin-widget-yearrate');
             if (yearRateContainer.size()) {
-                let yearRateData = Util.getYearRateData(yearRateContainer);
-                filters.arrTypeFk = yearRateData.arrTypeFk;
-                filters.expectedArr = yearRateData.expectedArr;
-                filters.fixMin = yearRateData.fixMin;
-                filters.minArr = yearRateData.minArr;
-                filters.floatMax = yearRateData.floatMax;
-                filters.maxArr = yearRateData.maxArr;
+                let yearRateData     = Util.getYearRateData(yearRateContainer);
+                filters.arrTypeFk    = yearRateData.arrTypeFk;
+                filters.expectedArr  = yearRateData.expectedArr;
+                filters.fixMin       = yearRateData.fixMin;
+                filters.minArr       = yearRateData.minArr;
+                filters.floatMax     = yearRateData.floatMax;
+                filters.maxArr       = yearRateData.maxArr;
                 filters.productLadderRates = yearRateData.productLadderRates
             }
 
@@ -89,7 +90,6 @@ var editform = Widget.extend({
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';
                 }
-        		
         	});
         	
         });
@@ -164,6 +164,8 @@ var editform = Widget.extend({
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
+
+        $('select[data-key="unitFkOfferingSize"]').on('change')
 
     },
     toNum : function (filters){

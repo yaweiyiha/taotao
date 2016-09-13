@@ -167,7 +167,7 @@ var form = Widget.extend({
 
         });
         $('.panel-body').on('click', '[data-role=submit]', function () {
-            console.log(JSON.stringify(this.data));
+            
             let alwaysParam   =  me.data.alwaysParam;
             let inputFilters = me.getInputFilters();
             if (inputFilters === false) {
@@ -176,6 +176,7 @@ var form = Widget.extend({
             me._filters_ = Object.assign(me._filters_,$.extend(me.getInputFilters(),alwaysParam) );
             let url = me.data.url ||  me.data.submitUrl; 
             me._filters_.pageSize = 10;
+            me._filters_.pageNo = 1,
             data = $.extend({param: me._filters_},{url : url});
 
             if($('.admin-widget-topbanner span[data-class="draftsSty"]').attr('data-isDrafts')){

@@ -129,7 +129,7 @@ urlConfig['debtassgin/edit'] = {
 				'panelName' : '状态',
 				'formlist'   : [
 					[Dict.isRiskRating ,Dict.riskRant ],
-					[ Dict.foundStatus],
+					[ Dict.prostatus],
 					[ Dict.showStatus]
 
 				],
@@ -163,7 +163,7 @@ urlConfig['equityInvestment/edit'] = {
 				'panelName' : '状态',
 				'formlist'   : [
 					[ Dict.riskRant ],
-					[ Dict.foundStatus],
+					[ Dict.prostatus],
 					[ Dict.showStatus]
 				],
 			}

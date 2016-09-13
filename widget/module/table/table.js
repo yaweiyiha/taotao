@@ -291,11 +291,13 @@ var table = Widget.extend({
                 pageSize : 10,
                 sortString : code + "." + order
             }
+
             let model = new tableModel();
             model.getData(url, param).then((res) => {
                 me.vm.data = res.data;
                 $(this).addClass('sorting_asc');
             });
+
         });
 
         $(me.vm.$el).on('click', 'a[data-evt=errReasonDailog]', function () {

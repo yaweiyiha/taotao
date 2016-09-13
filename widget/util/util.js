@@ -167,30 +167,47 @@ var util = {
     validate: (layer) => {
         let valid = true;
         layer.find('.tips').remove();
-        let eles = layer.find('[data-valide]');
+        let eles = layer.find('input:text');
         eles.toArray().forEach((item) => {
             item = $(item);
             let validter = item.attr('data-valide');
-            validter = String.prototype.split.call(validter, ',');
-            validter = validter.map((item) => {
-                return item.trim();
-            });
-            let val = item.val().trim();
+            if(validter){
+                validter = String.prototype.split.call(validter, ',');
+                validter = validter.map((item) => {
+                    return item.trim();
+                });
+            }
             let parentNode = item.parents('.input-wrapper');
             if ($.inArray('required', validter) > -1) {
                 parentNode.find('.tips').remove();
-                if (!/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(val)) {
+                if (item.val() == '' || item.val() == undefined) {
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
                     offsetLeft = Math.max(offsetLeft, 105);
                     
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填或输入有误</p>`);
-                } else if (item.attr('data-number') === 'number') {
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
+                } else if(item.val() !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(item.val())){
                     let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    if (isNaN(val)) {
+                    offsetLeft = Math.max(offsetLeft, 105);
+                    
+                    valid = false;
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}输入有误</p>`);
+                }else if (item.attr('data-number') === 'number') {
+                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
+                    if (isNaN(item.val())) {
                         valid = false;
                         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必须为数字</p>`);
                     }
+                }
+            }else {
+                // let val = item.val.trim();
+             
+                if (item.val() !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(item.val())) {
+                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
+                    offsetLeft = Math.max(offsetLeft, 105);
+                    
+                    valid = false;
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}输入有误</p>`);
                 }
             }
 

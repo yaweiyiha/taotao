@@ -64,6 +64,7 @@ class addProControl extends Control{
             if (/\/(draftedit)|(detail)$/.test(_APP_HASH._uri_)) {
                 url = Config.host + data.url + '/' + param;
             }
+
             me.getModel('distri',(model) => {            
                 model.getData(url).then((res) => {
                     if(data.useProcessData){
