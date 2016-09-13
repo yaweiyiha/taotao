@@ -32,7 +32,7 @@
               </div>
           </div>
 
-        <div class="row ">
+        <div class="row">
             <div class="col-md-5 input-wrapper rt"> 
 				        <div class="form-group input-group"> 
                       <div class="input-group-addon input-title">收益生效日类型     
@@ -70,6 +70,5 @@
 				    </div>
 				</div>				                                    
 		    </div>
-
-          </div>
+      </div>
 </div>

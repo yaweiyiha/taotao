@@ -67,7 +67,7 @@
 		    <div v-if="incomecalcutype == '30'" class="col-md-6" >
 				<div class="form-group">
 				    <div class="input-group">
-				        <div id="dateF" class="input-group-addon">T+工作日</div>
+				        <div id="dateF" class="input-group-addon">T(成交日) +</div>
 				        <input class="form-control numberbox" data-key="incomeCompletionDateNumber" maxlength="8" v-model ="incomecompletion" :disabled="disable"> 
 				        <div class="input-group-addon">天</div>
 				    </div>

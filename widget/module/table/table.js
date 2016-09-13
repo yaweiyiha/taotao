@@ -390,8 +390,14 @@ var table = Widget.extend({
     },
     updatePage: function (page, scope = this) {
         let data = {};
+
         data.url = scope._params_.url;
-        data.param = Object.assign(scope._params_.filters, {pageNo: page});
+        if(_APP_HASH._uri_ == 'product/draft'){
+            data.param = Object.assign(scope._params_.filters, {pageNo: page ,statusId :10});
+        }else{
+            data.param = Object.assign(scope._params_.filters, {pageNo: page});
+        }
+        //data.param = Object.assign(scope._params_.filters, {pageNo: page});
         scope.updateTableData(data);
     },
     setMethods: function () {
