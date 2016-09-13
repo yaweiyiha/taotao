@@ -187,6 +187,7 @@
                            :disable="options.disable" 
                            :placeholder="li.placeholder"
                            :timestamp ="item[li.key]"
+                           :required="li.validate.isrequire"
                            >
                       </single-date>
                   </div> 

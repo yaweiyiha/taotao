@@ -130,15 +130,16 @@ var util = {
                 }
             }else if(isNum){
                 val = ele.attr('data-values') || ele.val();
-                val = val.trim();
-                if (val !== '') {
+                if (val) {
+                    val = val.trim();
                     val = +val;
                 }
             }else {
                  val = ele.attr('data-values') || ele.val();
-                 val = val.trim();
+                 if (val) {
+                     val = val.trim();
+                 }
             }
-
             
             if (key && val !== '') {
                 data[key] = val;
@@ -177,47 +178,64 @@ var util = {
                     return item.trim();
                 });
             }
+            let val = item.attr('data-values') || item.val();
+            if (val) {
+                val = val.trim();
+            }
+            let des = item.attr('data-des') || '';
             let parentNode = item.parents('.input-wrapper');
+            let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
+            offsetLeft = Math.max(offsetLeft, 105);
+
+            let errorTip = '';
             if ($.inArray('required', validter) > -1) {
-                parentNode.find('.tips').remove();
-                if (item.val() == '' || item.val() == undefined) {
-                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    offsetLeft = Math.max(offsetLeft, 105);
-                    
+                if (!val) {    
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必填</p>`);
-                } else if(item.val() !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(item.val())){
-                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    offsetLeft = Math.max(offsetLeft, 105);
-                    let itemDes = item.attr('data-des') ? item.attr('data-des') : '';
-                    valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.itemDes}输入有误</p>`);
-                }else if (item.attr('data-number') === 'number') {
-                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    if (isNaN(item.val())) {
+                    errorTip = `${des}必填`;
+                } else if (item.attr('data-number') === 'number') {
+                    if (isNaN(val)) {
                         valid = false;
-                        parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.attr('data-des')}必须为数字</p>`);
+                        errorTip = `${des}必须为数字`;
                     }
+                } else if(val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)){
+                    valid = false;
+                    errorTip = `${des}输入有误`;
                 }
             }else {
-                // let val = item.val.trim();
-             
-                if (item.val() !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff]+$/i.test(item.val())) {
-                    let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
-                    offsetLeft = Math.max(offsetLeft, 105);
-                    let itemDes = item.attr('data-des') ? item.attr('data-des') : '';
+                if (val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)) { 
                     valid = false;
-                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${item.itemDes}输入有误</p>`);
+                    errorTip = `${des}输入有误`;
                 }
             }
-
+            if (errorTip) {
+                if (parentNode.find('.tips').size()) {
+                    parentNode.find('.tips').text(errorTip)
+                } else {
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}输入有误</p>`);
+                }
+            }
         });
         
         if (valid === false) {
             AlertDialog.show('填写不完整或填写有误，请检查');
+            return false;
         }
 
-        return valid;
+        // 起始日不能大于截止日
+        if ($('[data-key=startDatePurchase]').val() && $('[data-key=endDatePurchase]').val()) {
+            let startDatePurchase = new Date($('[data-key=startDatePurchase]').val());
+            startDatePurchase = startDatePurchase.getTime();
+            let endDatePurchase = new Date($('[data-key=endDatePurchase]').val());
+            endDatePurchase = endDatePurchase.getTime();
+
+            if (startDatePurchase > endDatePurchase) {
+                AlertDialog.show('起始日不能大于截止日');
+                return false;
+            }
+        }
+
+        return true;
+
     },
 
     getCustomElement: (el) => {

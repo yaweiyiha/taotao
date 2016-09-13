@@ -33,9 +33,21 @@ export default Vue.component('ladder-comm', {
  		let me = this;
  		this.list = this.revertData();
 		// 起购金额联动
+		if (me.list && me.list.length && $('.cnt-box [data-key=startingPrice]').size()) {
+			let val = $('.cnt-box [data-key=startingPrice]').val();
+			if (val && !isNaN(val)) {
+				me.list[0].start = +val;
+			} else {
+				me.list[0].start = 0;
+			}
+		}
 		$('.cnt-box').on('change', '[data-key=startingPrice]', function () {
 			if (me.list && me.list.length) {
-				me.list[0].start = +$(this).val();
+				if ($(this).val() && !isNaN($(this).val())) {
+					me.list[0].start = +$(this).val();
+				} else {
+					me.list[0].start = 0;
+				}
 			}
 		});
  	},

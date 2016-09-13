@@ -16,6 +16,7 @@ export default Vue.component('single-date', {
         placeholder: {default: ''},
         disable: {default: false},
         timestamp: {default: -1},
+        required: {default: false}
     },
     data: function () {
     },
