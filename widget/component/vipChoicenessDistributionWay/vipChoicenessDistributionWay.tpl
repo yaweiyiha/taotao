@@ -49,7 +49,9 @@
             <div v-if="incomecalcutype == '10'" class="col-md-6" >
                 <div class="form-group">
                     <div class="input-group">
-                      <div class="input-group-addon">固定日期</div>
+                      <div class="input-group-addon">固定日期
+                         <span  class="text-strong-red">*</span>
+                      </div>
 						          <single-date 
                           required="required" 
                           data-key="startDateInterest" 

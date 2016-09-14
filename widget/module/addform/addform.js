@@ -134,7 +134,8 @@ var addform = Widget.extend({
 
         }
 
-        if(_APP_HASH._uri_ == 'fund/detail'){
+        if(_APP_HASH._uri_ == 'fund/detail' || 
+            _APP_HASH._uri_ == 'fund/validate' ){
 
             let fundGenre = $('select[data-key="fundGenreAFk"]');
             if(fundGenre.val() !== "500" ){

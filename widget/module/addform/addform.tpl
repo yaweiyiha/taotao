@@ -79,7 +79,6 @@
                       >
                       </year-rate>
                   </template>
-
                   <template v-if="li.type ==='vipChoicenessDistributionWay'">  
                       <choiceness-distribution
                         :distribution="item.vipChoicenessDistributionWayFk"
@@ -111,6 +110,7 @@
                        <found-status 
                        :establish="item.establishStatus" 
                        :sales="item.salesStatusFk" 
+                       :salesother="item.salesStatusFk"
                        :disable="options.disable"
                        :dateestablished ="item.dateEstablished"
                        :executestate="item.executeState"
