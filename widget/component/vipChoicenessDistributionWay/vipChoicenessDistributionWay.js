@@ -27,8 +27,8 @@ export default Vue.component('choiceness-distribution', {
  		distributionAnother  : '20',
  	}),
  	ready: function () {
+ 		//该逻辑没有问题，请不要随便更改
 		if (this.distribution !== 10) {
-
 			this.distributionAnother = this.distribution;
 			this.distribution = '120'
 		} else {
