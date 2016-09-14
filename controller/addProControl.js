@@ -67,6 +67,7 @@ class addProControl extends Control{
 
             me.getModel('distri',(model) => {            
                 model.getData(url).then((res) => {
+
                     if(data.useProcessData){
                         let dictData = {};
                         dictData.item = $.extend(res.item, Util.processData(res.item));

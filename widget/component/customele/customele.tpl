@@ -12,16 +12,16 @@
 	<div class="row">
 		<div class="col-md-5 input-wrapper rt">
           <div class="form-group input-group">
-            <div class="input-group-addon input-title">标题</div>
-            <input class="input-control" v-model="item.title" maxlength="40" placeholder="请输入标题" v-bind:readonly="disable">  
+            <div class="input-group-addon input-title ">标题</div>
+            <input class="input-control self-title" v-model="item.title" maxlength="40" placeholder="请输入标题" v-bind:readonly="disable">  
           </div>              
         </div>
    	</div>
    	<div class="row">
 		<div class="col-md-8 input-wrapper rt">
           <div class="form-group input-group">
-            <div class="input-group-addon input-title">内容</div>
-            <textarea class="content" v-model="item.content" maxlength="40" placeholder="请输入内容" v-bind:readonly="disable"></textarea>
+            <div class="input-group-addon input-title ">内容</div>
+            <textarea class="content self-content" v-model="item.content" placeholder="请输入内容" v-bind:readonly="disable"></textarea>
 	        <a class="remove" v-if="!disable" @click="remove(item)" href="javascript:;">移除</a>            
           </div>
         </div>

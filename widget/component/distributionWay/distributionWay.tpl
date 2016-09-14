@@ -46,8 +46,19 @@
             <div v-if="incomecalcutype == '10'" class="col-md-6" >
                 <div class="form-group">
                     <div class="input-group">
-                      <div class="input-group-addon">固定日期</div>
-						<single-date data-key="startDateInterest" key="startDateInterest" placeholder="请输入固定日期" :disable="disable" :timestamp="startdateinterest"></single-date>
+                      <div class="input-group-addon">固定日期
+                        <span  class="text-strong-red">*</span>
+                      </div>
+						<single-date 
+                required="required" 
+                data-key="startDateInterest" 
+
+                key="startDateInterest" 
+                name="固定日期"
+                placeholder="请输入固定日期" 
+                :disable="disable" 
+                :timestamp="startdateinterest">
+              </single-date>
 
                     </div>
                 </div>

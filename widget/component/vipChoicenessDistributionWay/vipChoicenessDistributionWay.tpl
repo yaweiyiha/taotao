@@ -50,7 +50,15 @@
                 <div class="form-group">
                     <div class="input-group">
                       <div class="input-group-addon">固定日期</div>
-						<single-date data-key="startDateInterest" key="startDateInterest" placeholder="请输入固定日期" :disable="disable" :timestamp="startdateinterest"></single-date>
+						          <single-date 
+                          required="required" 
+                          data-key="startDateInterest" 
+                          key="startDateInterest" 
+                          name="固定日期"
+                          placeholder="请输入固定日期" 
+                          :disable="disable" 
+                          :timestamp="startdateinterest">
+                      </single-date>
 
                     </div>
                 </div>
