@@ -239,22 +239,22 @@ var util = {
             }
         }
 
-        if($(".self-title") && $('.self-content')){
+        // if($(".self-title").size() && $('.self-content').size()){
 
-            if($(".self-title").val().length > 10 ){
-                //AlertDialog.show('自定义元素标题不能超过10个字');
-                let parentNode = $(".self-title").parents('.input-wrapper');
-                parentNode.append(`<p class="tips" >自定义元素标题不能超过10个字</p>`);
-                return false;
-            }
+        //     if($(".self-title").val().length > 10 ){
+        //         //AlertDialog.show('自定义元素标题不能超过10个字');
+        //         let parentNode = $(".self-title").parents('.input-wrapper');
+        //         parentNode.append(`<p class="tips" >自定义元素标题不能超过10个字</p>`);
+        //         return false;
+        //     }
 
-            if($('.self-content').val().length > 100){
-                //AlertDialog.show('自定义元素内容不能超过100个字');
-                let parentNode = $(".self-content").parents('.input-wrapper');
-                parentNode.append(`<p class="tips" style="margin-left:12px">自定义元素内容不能超过100个字</p>`);
-                return false;
-            }
-        }
+        //     if($('.self-content').val().length > 100){
+        //         //AlertDialog.show('自定义元素内容不能超过100个字');
+        //         let parentNode = $(".self-content").parents('.input-wrapper');
+        //         parentNode.append(`<p class="tips" style="margin-left:12px">自定义元素内容不能超过100个字</p>`);
+        //         return false;
+        //     }
+        // }
 
         return true;
 

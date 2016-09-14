@@ -20,7 +20,7 @@
 	          <div class="input-group-addon input-title">
 	          	金额单位
 	          </div>
-	          <select class="input-control YearRateUnit" :disabled="disableUnitComputed" v-model="YearRateUnit"> 
+	          <select class="input-control YearRateUnit" :disabled="true" v-model="YearRateUnit"> 
 	            <option value="元">元</option>
 	            <option value="万元">万元</option>
 	            <option value="亿元">亿元</option>
