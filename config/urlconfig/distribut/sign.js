@@ -52,7 +52,7 @@ urlConfig['sign/done'] =
 	},
 	'forms' : [
 			{	
-				'panelName' : '线上申请内容',
+				'panelName' : '基本信息',
 				'formlist'   : [
 					[ Dict.textList([
 						{name : '申请代销产品名称' , key : 'productName' ,subtype : 'text'},	

@@ -18,7 +18,6 @@ export default Vue.component('choiceness-distribution', {
  		startdateinterest  : {default:''}		
  	},
  	data: () => ({
- 		vipChoicenessDistributionWayFk    : '',
  		distriCircleShow     : false,
  		fixDayShow           : true,
  		completionDateShow   : false,
@@ -29,10 +28,11 @@ export default Vue.component('choiceness-distribution', {
  	}),
  	ready: function () {
 		if (this.distribution !== 10) {
-			this.vipChoicenessDistributionWayFk = '120';
+
 			this.distributionAnother = this.distribution;
+			this.distribution = '120'
 		} else {
-			this.vipChoicenessDistributionWayFk = '10';
+			this.distribution = '10';
 		}
  	},
  	computed : {

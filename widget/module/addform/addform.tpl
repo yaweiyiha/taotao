@@ -42,7 +42,7 @@
                       <div class="form-group input-group">
                         <div class="input-group-addon input-title">内容
                         </div>
-                        <textarea type="" class="input-control" value="" maxlength="40" data-key="content" style="width:400px;height:150px" placeholder="请输入内容"></textarea>
+                        <textarea type="" class="input-control" value="" data-key="content" style="width:400px;height:150px" placeholder="请输入内容"></textarea>
                       </div>              
                     </div>
                   </div>
@@ -118,9 +118,6 @@
                       </found-status>
                   </template>
                   <template v-if="li.type === 'proTerm'">
-
-                      {{item.baseDays}}
-                      {{item.customBaseDays}}
                       <pro-term 
                       :maturities="item.maturities" 
                       :unitmaturities="item.unitFkMaturities" 

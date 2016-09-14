@@ -169,6 +169,7 @@ var util = {
         let valid = true;
         layer.find('.tips').remove();
         let eles = layer.find('input:text');
+
         eles.toArray().forEach((item) => {
             item = $(item);
             let validter = item.attr('data-valide');
@@ -192,28 +193,32 @@ var util = {
                 if (!val) {    
                     valid = false;
                     errorTip = `${des}必填`;
+
+                    parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}必填</p>`);
                 } else if (item.attr('data-number') === 'number') {
                     if (isNaN(val)) {
                         valid = false;
                         errorTip = `${des}必须为数字`;
+                         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}必须为数字</p>`);
                     }
                 } else if(val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)){
                     valid = false;
                     errorTip = `${des}输入有误`;
-                }
-            }else {
-                if (val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)) { 
-                    valid = false;
-                    errorTip = `${des}输入有误`;
-                }
-            }
-            if (errorTip) {
-                if (parentNode.find('.tips').size()) {
-                    parentNode.find('.tips').text(errorTip)
-                } else {
                     parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}输入有误</p>`);
                 }
+            }else {
+                // if (val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)) { 
+                //     valid = false;
+                //     errorTip = `${des}输入有误`;
+                // }
             }
+            // if (errorTip) {
+            //     if (parentNode.find('.tips').size()) {
+            //         parentNode.find('.tips').text(errorTip);
+            //     } else {
+            //         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}输入有误</p>`);
+            //     }
+            // }
         });
         
         if (valid === false) {
@@ -233,6 +238,23 @@ var util = {
                 return false;
             }
         }
+
+        // if($(".self-title").size() && $('.self-content').size()){
+
+        //     if($(".self-title").val().length > 10 ){
+        //         //AlertDialog.show('自定义元素标题不能超过10个字');
+        //         let parentNode = $(".self-title").parents('.input-wrapper');
+        //         parentNode.append(`<p class="tips" >自定义元素标题不能超过10个字</p>`);
+        //         return false;
+        //     }
+
+        //     if($('.self-content').val().length > 100){
+        //         //AlertDialog.show('自定义元素内容不能超过100个字');
+        //         let parentNode = $(".self-content").parents('.input-wrapper');
+        //         parentNode.append(`<p class="tips" style="margin-left:12px">自定义元素内容不能超过100个字</p>`);
+        //         return false;
+        //     }
+        // }
 
         return true;
 

@@ -66,5 +66,15 @@ let getEnums = () => {
         window.enums = $.extend(window.enums, res.item);
     });
 }
+let getBanks = () => {
+
+     Util.getData('publisher/constants','','GET').then((data) => {
+        if(data.status === 1){
+             window.banks = $.extend(window.banks, data.item.banks);
+        }
+       
+     })
+}
 
 getEnums();
+getBanks();

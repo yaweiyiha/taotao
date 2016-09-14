@@ -113,7 +113,7 @@ export default {
  	'paymentTransferCardNumberAgain' :{ key :'paymentTransferCardNumberAgain' ,name : '再次输入卡号', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'input',placeholder : '请再次输入卡号',validate: {isrequire : true,isNumber : true}},
  	'paymentTransferIntroduction' :{ key :'paymentTransferIntroduction' ,name : '说明', textStyle: {minWidth: '130px'}, wrapperClass : 'col-md-6' ,   type : 'textarea',placeholder : '请输入说明'},
  	
- 	'prostatus' : { key :'salesStatusFk' ,name : '产品状态', wrapperClass : 'col-md-6' ,  type : 'radios',radios : [{'name': '预售',value: '20' },{'name' : '在售',value: '10' },{'name' : '执行中',value: '30' } ]},
+ 	'prostatus' : { key :'salesStatusFk' ,name : '产品状态', wrapperClass : 'col-md-6' ,  type : 'radios',radios : [{'name': '预售',value: '20' },{'name' : '在售',value: '10' },{'name' : '售罄',value: '30' } ]},
  	'collarCastDesc'  : {type: 'editor'},
  	'commissionType'   :  { type: 'CommType', validate: {isrequire : true} },
  	'distributionWay'  : {type : 'distributionWay'},

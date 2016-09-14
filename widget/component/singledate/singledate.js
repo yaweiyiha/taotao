@@ -13,6 +13,7 @@ export default Vue.component('single-date', {
     props: ['key', 'placeholder'],
     props: {
         key: {default: ''},
+        name : {default : ''},
         placeholder: {default: ''},
         disable: {default: false},
         timestamp: {default: -1},
@@ -22,7 +23,7 @@ export default Vue.component('single-date', {
     },
     ready :function(){
         debugger
-        console.log(this.disable);
+        console.log(this.required);
     },
     computed: {
         time: function () {
