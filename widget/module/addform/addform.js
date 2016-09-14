@@ -40,7 +40,7 @@ var addform = Widget.extend({
             publisherFk: '',
             custodianParty: '',
             establishStatus: '0',
-            salesStatusFk: '10',
+            salesStatusFk: '70',
             unitFkIssureScale: '1100',
             unitFkOfferingSize: '1100',
             unitFkStartingPrice: '1100',

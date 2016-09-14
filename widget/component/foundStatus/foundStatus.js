@@ -13,7 +13,7 @@ export default Vue.component('found-status', {
  	props: {
  		disable: {default: false},
  		establish : {default: ''},
- 		sales : {default : ''},
+ 		sales : {default : '70'},
  		executestate : {default : ''},
  		dateestablished : {default : ''},
  	},

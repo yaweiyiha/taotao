@@ -40,6 +40,11 @@ export default Vue.component('star', {
  			if (!this.disable) {
 	 			this.score = curIndex + 1;
  			}
+ 		},
+ 		clear: function () {
+ 			if (!this.disable) {
+ 				this.score = 0;
+ 			}
  		}
  	},
  	computed: {
