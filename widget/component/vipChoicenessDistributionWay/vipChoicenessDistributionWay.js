@@ -8,7 +8,7 @@ require.loadCss({
 
 export default Vue.component('choiceness-distribution', {
  	template: tpl,
- 		props: {
+ 	props: {
  		list: {default: []},
  		disable: {default: false},
  		distribution : {default: '10'},
@@ -28,14 +28,16 @@ export default Vue.component('choiceness-distribution', {
  	}),
  	ready: function () {
 
-		if (this.distribution !== '10') {
+		if (this.distribution !== '10' && this.distribution !== 10) {
 			this.distributionAnother = this.distribution;
 			this.distribution = '120'
 		} else {
 			this.distribution = '10';
 		}
+
  	},
  	computed : {
+ 		
  		circleUnit : function(){
  			if(this.distributionAnother == '20'){
  				return '月';
@@ -53,6 +55,7 @@ export default Vue.component('choiceness-distribution', {
  				return '月'
  			}
  		}
+
  	},
  	watch : {
  	}

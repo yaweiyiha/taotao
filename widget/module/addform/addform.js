@@ -56,7 +56,7 @@ var addform = Widget.extend({
             currencies: '10',
             arrRank: 0,
             customElementsList: [],
-            isRiskRating: '1',
+            isRiskRating: '',
             notContainsFloatRateMax: '1',
             containsLeftValue: '0',
         }

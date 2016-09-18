@@ -239,22 +239,18 @@ var util = {
             }
         }
 
-        // if($(".self-title").size() && $('.self-content').size()){
-
-        //     if($(".self-title").val().length > 10 ){
-        //         //AlertDialog.show('自定义元素标题不能超过10个字');
-        //         let parentNode = $(".self-title").parents('.input-wrapper');
-        //         parentNode.append(`<p class="tips" >自定义元素标题不能超过10个字</p>`);
-        //         return false;
-        //     }
-
-        //     if($('.self-content').val().length > 100){
-        //         //AlertDialog.show('自定义元素内容不能超过100个字');
-        //         let parentNode = $(".self-content").parents('.input-wrapper');
-        //         parentNode.append(`<p class="tips" style="margin-left:12px">自定义元素内容不能超过100个字</p>`);
-        //         return false;
-        //     }
-        // }
+        if( _APP_HASH._uri_ === 'asset/add'  || 
+            _APP_HASH._uri_ === 'trust/add'  ||
+            _APP_HASH._uri_ === 'debtassgin/add'  || 
+            _APP_HASH._uri_ === 'trust/draftedit' ||
+            _APP_HASH._uri_ === 'asset/draftedit' ||
+            _APP_HASH._uri_ === 'debtassgin/draftedit'
+            ){
+            if($('.arrTypeFk').val() == '0'){
+                AlertDialog.show('此产品历史实际年化收益率必须设置');
+                return false;
+            }
+        }
 
         return true;
 

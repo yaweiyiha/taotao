@@ -237,7 +237,5 @@
               <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}">{{bt.name}}</button> 
           </template> 
       </div>
-
-
   </div>
 </div>
