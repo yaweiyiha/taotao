@@ -1,5 +1,5 @@
 <div class="styleguide admin-widget-fundStrategy">
-	<div class="row">
+	<div class="row" style="margin:0 15px 0 15px;">
 		<div class="col-md-6 input-wrapper rt">
 	      	<div class="form-group input-group w100">
 	          <div class="input-group-addon input-title" style="min-width:120px" >
@@ -15,8 +15,8 @@
 	      	</div>
 	  	</div>  
 
-	  	<div  v-if="fundtype=='60'" class="col-md-6 input-wrapper rt">   
-          <div class="form-group input-group w100" style="padding-right:15px">
+	  	<div  v-if="fundtype=='60'" class="col-md-6 input-wrapper rt" style="padding-right:0;">   
+          <div class="form-group input-group w100">
               <div class="input-group-addon input-title">
               	二级策略
               	<span class="text-strong-red">*</span>

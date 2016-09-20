@@ -70,7 +70,7 @@ urlConfig['distributor/edit'] =
 	'topbanner' : {
 		'title' : '发行商管理',
 		'subtitle' : {'name': '查看', url : '#main/distributors/maintenance' }, 
-		'thirdTitle' : '发行商查看',
+		'thirdTitle' : '发行商编辑',
 		'key' : '产品维护',
 	},
 	'forms' : [

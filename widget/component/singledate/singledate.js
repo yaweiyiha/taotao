@@ -22,7 +22,6 @@ export default Vue.component('single-date', {
     data: function () {
     },
     ready :function(){
-        debugger
         console.log(this.required);
     },
     computed: {
