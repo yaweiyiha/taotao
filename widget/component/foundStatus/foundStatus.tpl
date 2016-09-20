@@ -5,7 +5,6 @@
 		        <div class="input-group">
 		            <div class="input-group-addon" >成立状态</div>
 		                <select class="input-control valid" data-key="establishStatus" v-model="establish" :disabled="disable" is-num="1">
-
 		                    <option value="0" >募集中</option>
 		                    <option value="1" >已成立</option>
 		                    <option value="2" >募集失败</option>

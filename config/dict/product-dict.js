@@ -101,6 +101,11 @@ export default {
  	'proDistriLocation'   : { key :'locationFk' ,name : '产品发行地', wrapperClass : 'col-md-6' ,   type : 'area', placeholder : '请输入产品发行地'},
  	'financeAmount'  : { key :'issureScale' ,name : '融资金额', wrapperClass : 'col-md-4 prn ' ,  brd : true, type : 'input', placeholder:'请输入融资金额'},
  	'stockRight'     : { key :'equity' ,name : '股权', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入股权',validate: {isrequire : true ,isNumber : true},unit: '%'},
+ 	
+ 	/*基金净值&累计分红（sgk）*/
+ 	'yesterdayNet'     : { key :'yesterdayNet' ,name : '基金净值', wrapperClass : 'col-md-6 hidden yesterdayNet' ,  brd : true, type : 'input', placeholder:'请输入基金净值',validate: {isrequire : true ,isNumber : true},unit: '元'},
+ 	'sumNet'     : { key :'sumNet' ,name : '累计分红', wrapperClass : 'col-md-6 hidden sumNet' ,  brd : true, type : 'input', placeholder:'请输入累计分红',validate: {isrequire : true ,isNumber : true},unit: '元'},
+
  	'collarCast'     : { key :'collarCast' ,name : '领投人', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入领投人',validate: {isrequire : true}}, 
  	'collarCastNumber' : { key :'collarCastNumber' ,name : '身份证号', wrapperClass : 'col-md-6' ,  brd : true, type : 'input', placeholder:'请输入身份证号'}, 
  	/*'maxInvestmentPrice' : { key :'maxInvestmentPrice' ,name : '最大投资金额', wrapperClass : 'col-md-4  prn ' ,  brd : true, type : 'input', placeholder:'请输入最大投资金额',validate: {isrequire : true ,isNumber : true}}, */

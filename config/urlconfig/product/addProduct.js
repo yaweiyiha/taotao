@@ -14,7 +14,6 @@ urlConfig['fund/add'] =
 		{ key: 'CommiSet', value: '佣金设置' }, 
 	],
 	'forms' : [
-
 		[
 			{	
 				'panelName' : '基本信息',
@@ -28,7 +27,6 @@ urlConfig['fund/add'] =
 					[   elementDict.trusteeFee ,elementDict.phone ],
 				],
 			},
-
 			{	
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
@@ -49,6 +47,7 @@ urlConfig['fund/add'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	elementDict.yearRate	],
+					[	elementDict.yesterdayNet ,elementDict.sumNet],
 				]
 			},
 			{	
@@ -66,8 +65,8 @@ urlConfig['fund/add'] =
 		],
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary ', type : 'button', evt : 'save' ,'productCategories':10},
-		{name : '保存',classList : 'default ml10',type : 'button',evt:'republic' ,'productCategories' :10 },
+		{name : '保存',classList : 'primary ', type : 'button', evt : 'save' ,'productCategories':10},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic' ,'productCategories' :10 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',
@@ -155,8 +154,8 @@ urlConfig['trust/add'] =
 
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary', type : 'button', evt : 'save','productCategories' :40 },
-		{name : '保存',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :40 },
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :40 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :40 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',
@@ -227,8 +226,8 @@ urlConfig['asset/add'] =
 		],
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :30 },
-		{name : '保存',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :30 },
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :30 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :30 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',
@@ -296,8 +295,8 @@ urlConfig['debtassgin/add'] =
 
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :60 },
-		{name : '保存',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :60 },
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :60 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :60 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',
@@ -360,8 +359,8 @@ urlConfig['equityInvestment/add'] =
 		],
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary', type : 'button', evt : 'save','productCategories' :70 },
-		{name : '保存',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :70 },
+		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :70 },
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :70 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',

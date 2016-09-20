@@ -149,6 +149,17 @@ var addform = Widget.extend({
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
+
+        /*基金净值&累计分红*/
+        if ($("select[data-key='establishStatus']").val()==1 && $("select[data-key='fundGenreAFk']").val() == 500) {
+            $(".yesterdayNet").removeClass('hidden');
+            $(".sumNet").removeClass('hidden');
+            $(".admin-widget-yearrate").css('display','none');
+        }else{
+            $(".yesterdayNet").addClass('hidden');
+            $(".sumNet").addClass('hidden');
+            $(".admin-widget-yearrate").css('display','block');
+        }
     },
     bind: function () {
         let me = this;
@@ -301,8 +312,36 @@ var addform = Widget.extend({
             let  value = $(this).val();
             if(value !== "500"){
                 $(".admin-widget-fundStrategy").css('display','none');
+                
+                if($('select[data-key="establishStatus"]').val() == 1){
+                    $(".yesterdayNet").addClass('hidden');
+                    $(".sumNet").addClass('hidden');
+                    $(".admin-widget-yearrate").css('display','block');
+                }
             }else {
                 $(".admin-widget-fundStrategy").css('display','block');
+                
+                if($('select[data-key="establishStatus"]').val() == 1){
+                    $(".yesterdayNet").removeClass('hidden');
+                    $(".sumNet").removeClass('hidden');
+                    $(".admin-widget-yearrate").css('display','none');
+                }
+            }
+        });
+
+        $("select[data-key='establishStatus']").on('click',function(){
+            if($(this).val() == 1){
+                if($("select[data-key='fundGenreAFk']").val() == 500){
+                    $(".yesterdayNet").removeClass('hidden');
+                    $(".sumNet").removeClass('hidden');
+                    $(".admin-widget-yearrate").css('display','none');
+                }
+            }else{
+                if($("select[data-key='fundGenreAFk']").val() == 500){
+                    $(".yesterdayNet").addClass('hidden');
+                    $(".sumNet").addClass('hidden');
+                    $(".admin-widget-yearrate").css('display','block');
+                }
             }
         });
 
@@ -413,7 +452,7 @@ var addform = Widget.extend({
         if (/\/draftedit$/.test(_APP_HASH._uri_)) {
             data.product.id = _APP_HASH.id
         }
-        
+
         return  data;
     },
     validateSubmitData : function(){
