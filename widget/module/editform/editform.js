@@ -176,7 +176,7 @@ var editform = Widget.extend({
     },
     toNum : function (filters){
     	
-    	var  isNumArr =['expectedArr','issureScale','offeringSize','selfDefinedProcess'];
+    	var  isNumArr =['expectedArr','issureScale','offeringSize','selfDefinedProcess','startingPrice','unitFkStartingPrice'];
 
     	for (item in filters){
     		if($.inArray(item ,isNumArr) !== -1 ){
