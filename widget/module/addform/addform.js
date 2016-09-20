@@ -57,7 +57,8 @@ var addform = Widget.extend({
             customElementsList  : [],
             isRiskRating        : '',
             notContainsFloatRateMax: '1',
-            containsLeftValue: '0',
+            containsLeftValue   : '0',
+            investModeFk        : '10',
         }
 
         data.item = Object.assign({}, defaultData, data.item);

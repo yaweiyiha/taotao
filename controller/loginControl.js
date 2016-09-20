@@ -34,7 +34,6 @@ class LoginControl extends Control{
         var me = this;
 
         this.widgets = this.createPageStructure('', widgets, '#main');
-        console.log(this.widgets);
         me.getViews([widgets.login]);
 
         listener.trigger('page', 'loaded', {info: 'load success'});

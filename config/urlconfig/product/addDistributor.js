@@ -78,8 +78,8 @@ urlConfig['distributor/edit'] =
 			{	
 				'panelName'  : '基本信息',
 				'formlist'   : [
-					[   Dict.baseInput({key: 'name' ,name: '名称', value: "", readonly: false}), Dict.baseInput({key:'telephone',name: '发行商固定电话', value: "", readonly: false}) ],
-					[   Dict.baseInput({key: 'fullName' ,name: '发行商全称', value: "", readonly: false}), Dict.baseInput({key: 'address' ,name: '发行商地址', value: "", readonly: false}) ],
+					[   Dict.distirName, Dict.distirPhone ],
+					[   Dict.distirFullName , Dict.distirAddr ],
 					[   Dict.paymentTransferCardOwner ,Dict.paymentTransferBankId ],
 					[   Dict.paymentTransferBranch ,Dict.paymentTransferCardNumber ],
 				],

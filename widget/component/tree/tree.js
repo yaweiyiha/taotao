@@ -31,7 +31,7 @@ export default Vue.component('tree-component', {
                 },
                 callback: {
                     beforeClick: function(treeId, treeNode) {
-                        console.log(treeId);
+                        //console.log(treeId);
                     }
                 }
             }

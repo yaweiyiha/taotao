@@ -213,7 +213,6 @@
                              value="{{r.value}}" 
                              name="{{li.key}}" 
                              v-model="item[li.key]" 
-                             checked="{{r.checked}}"
                              :disabled="options.disable"> {{r.name}}
                       </template>
                   </div>

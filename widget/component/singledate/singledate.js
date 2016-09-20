@@ -21,10 +21,6 @@ export default Vue.component('single-date', {
     },
     data: function () {
     },
-    ready :function(){
-        debugger
-        console.log(this.required);
-    },
     computed: {
         time: function () {
             if(this.timestamp){
@@ -62,8 +58,7 @@ export default Vue.component('single-date', {
             minView: 2,
             container: '.cnt-box'
         });
- 
-        console.log(this.key);
+
     },
     filters : {
         datetime : datetime ,

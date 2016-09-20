@@ -34,9 +34,7 @@ var editform = Widget.extend({
     init : function(data){
 
         this.data = data;
-        console.log(data.item.isRiskRating);
         this.vm = this.display(data ,tpl ,'vue');
-        console.log(data.item.isRiskRating);
         this.render();
         this.bind();
         Waves.attach('button', ['waves-light']);
@@ -145,7 +143,7 @@ var editform = Widget.extend({
                     'product' : filters,
                 }
                 Util.getData(me.data.saveUrl,obj,'POST').then((res)=>{
-                    console.log(res);
+                    //console.log(res);
                 });
             }
            
