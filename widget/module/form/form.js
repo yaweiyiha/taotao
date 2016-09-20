@@ -27,6 +27,7 @@ var form = Widget.extend({
         this.render();
         this.bind();
         Waves.attach('button', ['waves-float', 'waves-light']);
+        //Waves.attach('.add-icon', ['waves-float', 'waves-light']);
 
     },
     processData :function (data = {}){

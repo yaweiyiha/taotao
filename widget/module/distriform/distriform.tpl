@@ -1,13 +1,18 @@
 <div class="styleguide admin-widget-distriform">
 <div> 
-    <ul class="my-tabs clearfix">
-      <template v-if="tabs.length !== 0" v-for='(index, tab) in tabs' >
+    <ul v-if="tabs && tabs.length !== 0" class="my-tabs clearfix">
+      <template  v-for='(index, tab) in tabs' >
         <li data-key="{{tab.key}}" v-bind:class="{ 'active': index === 1 }">
             <a href="javascript:;" data-href="{{host + tab.url}}" >{{tab.value}}</a>
         </li>
         
       </template>
     </ul>
+    <div class="back" @click="back">
+         <span class="back-info">
+            &lt; 返回
+         </span>
+    </div>
     <div class="panel">
       <div class="panel-body">
       <template v-for = "form in forms">

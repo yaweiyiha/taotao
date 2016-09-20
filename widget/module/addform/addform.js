@@ -33,32 +33,32 @@ var addform = Widget.extend({
     init : function(data){
         // set default
         let defaultData = {
-            fundGenreAFk: '500',
-            fundGenreBFk: '700',
-            fundTypeFk: '60',
-            fundSubTypeFk: '100',
-            publisherFk: '',
-            custodianParty: '',
-            establishStatus: '0',
-            salesStatusFk: '70',
-            unitFkIssureScale: '1100',
-            unitFkOfferingSize: '1100',
-            unitFkStartingPrice: '1100',
-            unitFkIncreasement: '1100',
+            fundGenreAFk        : '500',
+            fundGenreBFk        : '700',
+            fundTypeFk          : '60',
+            fundSubTypeFk       : '100',
+            publisherFk         : '',
+            custodianParty      : '',
+            establishStatus     : '0',
+            unitFkIssureScale   : '1100',
+            unitFkOfferingSize  : '1100',
+            unitFkStartingPrice : '1100',
+            unitFkIncreasement  : '1100',
             unitFkOfMaxInvestmentPrice: '1100',
-            currencies: '10',
-            riskRating: '30',
-            arrTypeFk: '0',
-            industryTypeFk: '10',
-            custodianType: '10',
-            distributionWayFk: '130',
+            currencies          : '10',
+            riskRating          : '30',
+            arrTypeFk           : '0',
+            industryTypeFk      : '10',
+            custodianType       : '10',
+            distributionWayFk   : '130',
             vipChoicenessDistributionWayFk: '10',
-            currencies: '10',
-            arrRank: 0,
-            customElementsList: [],
-            isRiskRating: '',
+            currencies          : '10',
+            arrRank             : 0,
+            customElementsList  : [],
+            isRiskRating        : '',
             notContainsFloatRateMax: '1',
-            containsLeftValue: '0',
+            containsLeftValue   : '0',
+            investModeFk        : '10',
         }
 
         data.item = Object.assign({}, defaultData, data.item);
@@ -257,10 +257,11 @@ var addform = Widget.extend({
                 if (!Util.validate(container)) {
                     return;
                 }
-                // 可销售份额应大于起购金额
+                //max-Investment Price must 
                 if ($('[data-key=startingPrice]', me.vm.$el).size() && $('[data-key=offeringSize]', me.vm.$el).size()) {
-                    if (!Util.startPriceValidate(container)) {
-                        AlertDialog.show('可销售份额应大于起购金额');
+                    let res = Util.startPriceValidate(container);
+                    if (res && res.state == 0) {
+                        AlertDialog.show(res.mgs);
                         return;
                     }
                 }
@@ -330,13 +331,6 @@ var addform = Widget.extend({
                     parentNode.find('.tips').remove();
                 }
             }
-            // debugger
-            // if(require){
-            //     if(val === '' || val === undefined){
-            //         parentNode.find('.tips').remove();
-            //         parentNode.append(`<p class="tips">${ele.attr('data-des')}必须为必填字段</p>`);
-            //     }
-            // }
         })
 
     },
@@ -348,18 +342,11 @@ var addform = Widget.extend({
         let filters = {};
 
         filters = Object.assign(filters, Util.getInputFilters());
-        if(filters.name == "" || filters.name == undefined){
-            //todo 
-            //return;
-        }
 
         filters.fundTypeFk    = parseInt(filters.fundTypeFk);
         filters.fundSubTypeFk = parseInt(filters.fundSubTypeFk);
 
-        /*if($("input[data-key='maturities']").val() === '' 
-            || $("input[data-key='maturities']").val() === undefined){
-            filters.unitFkMaturities= '';
-        }*/
+        //deal with units has no value
         if($("input[data-key='offeringSize']").val() === '' 
             || $("input[data-key='offeringSize']").val() === undefined){
             filters.unitFkOfferingSize = '';

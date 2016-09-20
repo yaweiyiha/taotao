@@ -155,14 +155,29 @@ var util = {
         };
         let startingPrice = +$('[data-key=startingPrice]', layer).val();
         let offeringSize = +$('[data-key=offeringSize]', layer).val();
+        let maxInvestmentPrice = +$('[data-key=maxInvestmentPrice]' ,layer).val();
 
         let startingPriceUint = $('[data-key=unitFkStartingPrice]', layer).val();
         let offeringSizeUint = $('[data-key=unitFkOfferingSize]', layer).val();
+        let MaxInvestmentPriceUnit = $('[data-key=unitFkOfMaxInvestmentPrice]',layer).val();
 
         if (offeringSize * Dict[offeringSizeUint] <= startingPrice * Dict[startingPriceUint]) {
-            return false;
-        } else {
-            return true;
+            let obj = {
+                state : 0,
+                mgs :  '可销售份额应大于起购金额'
+            }
+            return obj;
+        } else if(maxInvestmentPrice * Dict[MaxInvestmentPriceUnit] <=  startingPrice * Dict[startingPriceUint]){
+            let obj = {
+                state : 0,
+                mgs :  '最大投资金额应大于起购金额'
+            }
+            return obj; 
+        }else{
+            let obj = {
+                state : 1
+            }
+            return obj; 
         }
     },
     validate: (layer) => {
@@ -206,19 +221,7 @@ var util = {
                     errorTip = `${des}输入有误`;
                     parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}输入有误</p>`);
                 }
-            }else {
-                // if (val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)) { 
-                //     valid = false;
-                //     errorTip = `${des}输入有误`;
-                // }
             }
-            // if (errorTip) {
-            //     if (parentNode.find('.tips').size()) {
-            //         parentNode.find('.tips').text(errorTip);
-            //     } else {
-            //         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}输入有误</p>`);
-            //     }
-            // }
         });
         
         if (valid === false) {

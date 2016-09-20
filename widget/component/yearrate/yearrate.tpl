@@ -74,6 +74,6 @@
 	  		<label><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
 	  		<label class="ml10"><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
   		</div>
-	  	<ladder-comm :unit="YearRateUnit" :left-contain="leftContain" :not-float-upper-limit="notFloatUpperLimit" :latter-data="latterData" :interaction="true" :disable="disable"></ladder-comm>
+	  	<ladder-comm :relate-startprice="true" :unit="YearRateUnit" :left-contain="leftContain" :not-float-upper-limit="notFloatUpperLimit" :latter-data="latterData" :interaction="true" :disable="disable"></ladder-comm>
   	</div>
 </div>

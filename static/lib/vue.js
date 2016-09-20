@@ -1020,7 +1020,7 @@ var text = Object.freeze({
 
       warn = function (msg, vm) {
         if (hasConsole && !config.silent) {
-          console.error('[Vue warn]: ' + msg + (vm ? formatComponentName(vm) : ''));
+          //console.error('[Vue warn]: ' + msg + (vm ? formatComponentName(vm) : ''));
         }
       };
 

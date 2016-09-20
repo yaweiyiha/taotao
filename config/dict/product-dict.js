@@ -31,6 +31,8 @@ export default {
 					    options : ['天','自然月','自然季','自然年','非固定期限（不赎回则一直持有）','无', '不限期（前台投资人自选期限）'],value : [2100,2200,2300,2400,-3,-2,-1] , isNum : 1,validate: {isrequire : false} },
  	'distriDate' 	:  { key :'dateRelease' ,name : '发行日期', wrapperClass : 'col-md-6 ' ,  type : 'singledate',validate: {isrequire : false}, placeholder: '请选择发行日期'},
  	'purchaseAmount':  { key :'startingPrice', reg: '^\d+\.?\d*$', regError: '需要为数字',  name : '起购金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入起购金额',validate: {isrequire : true,isNumber : true}},
+ 	'purchaseAmountHidden':  { key :'startingPrice', type : 'hidden', wrapperClass: 'none'},
+ 	'unitFkStartingPriceHidden': { key :'unitFkStartingPrice', type : 'hidden', wrapperClass: 'none'},
  	'increasingAmount':{ key :'increasement' , reg: '^\d+\.?\d*$', regError: '需要为数字',  name : '递增金额', wrapperClass : 'col-md-4 prn',brd : true, type : 'input',placeholder : '请输入递增金额',validate: {isrequire : true,isNumber : true}},
  	'subscriptionFee' :{ key :'subscribeFee' ,name : '认购费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入认购费"},
 	'ManageFee' 	: { key :'managementCost' ,name : '管理费', wrapperClass : 'col-md-6' ,   type : 'input', placeholder : "请输入管理费"},

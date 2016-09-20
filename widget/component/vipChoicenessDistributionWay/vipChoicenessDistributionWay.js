@@ -1,3 +1,5 @@
+import singledate from  'widget/component/singledate/singledate';
+
 let style = __inline('./vipChoicenessDistributionWay.inline.less');
 let tpl = __inline('./vipChoicenessDistributionWay.tpl');
 
@@ -9,13 +11,13 @@ require.loadCss({
 export default Vue.component('choiceness-distribution', {
  	template: tpl,
  	props: {
- 		list: {default: []},
- 		disable: {default: false},
- 		distribution : {default: '10'},
- 		incomecalcutype : {default: '10'},
- 		distributeinterval   : {default: ''}, 	
- 		incomecompletion   : {default: ''}, 
- 		startdateinterest  : {default:''}		
+ 		list                 : { default: []   },
+ 		disable              : { default: false},
+ 		distribution         : { default: '10' },
+ 		incomecalcutype      : { default: '10' },
+ 		distributeinterval   : { default: ''   }, 	
+ 		incomecompletion     : { default: ''   }, 
+ 		startdateinterest    : { default: ''   }		
  	},
  	data: () => ({
  		distriCircleShow     : false,
@@ -56,7 +58,5 @@ export default Vue.component('choiceness-distribution', {
  			}
  		}
 
- 	},
- 	watch : {
  	}
 });

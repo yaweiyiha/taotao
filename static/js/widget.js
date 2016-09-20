@@ -52,6 +52,7 @@ var Widget = (function() {
      * @return {Object}   
      */
     Widget.prototype.display = function (data, tpl, type = 'vue') {
+
         var me = this;
         var _data_ = this._data_;
         var container = this._containerDom_;

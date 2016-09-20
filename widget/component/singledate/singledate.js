@@ -61,8 +61,7 @@ export default Vue.component('single-date', {
             minView: 2,
             container: '.cnt-box'
         });
- 
-        console.log(this.key);
+
     },
     filters : {
         datetime : datetime ,
