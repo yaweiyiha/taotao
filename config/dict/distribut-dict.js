@@ -14,7 +14,7 @@ export default {
  	'distriName'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : '分销方名称',value : '创宁金融', wrapperClass : 'col-md-2' , type : 'text'},
  	'padNum'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : 'pad数',value : '20', wrapperClass : 'col-md-2' , type : 'text'},
  	'distriLogo'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName',  wrapperClass : 'col-md-5' , type : 'img',src: 'static/img/default_user.jpg'},
- 	'IdCardPositive'  :   { key :'identifyUrls身份证反面照片',  name : '身份证正面照片' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
+ 	'IdCardPositive'  :   { key :'identifyUrls身份证正面照片',  name : '身份证正面照片' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
  	'IdCardNegative'  :   { key :'identifyUrls身份证反面照片', name : '身份证反面照片' , wrapperClass : 'col-md-5 up-down' , type : 'img',src: 'static/img/default_user.jpg'},
  	'transferCertificate'  :   { key :'evidenceUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
 

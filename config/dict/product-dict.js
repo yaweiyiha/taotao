@@ -49,8 +49,8 @@ export default {
  	'buyBegintime'	: { key :'startDatePurchase' ,name : '购买起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日", timestamp: 1473304491256},
 	'buyEndTime'	: { key :'endDatePurchase' ,name : '购买截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日"},
 
-	'startPurchase'	: { key :'startDatePurchase' ,name : '起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买起始日",validate: {isrequire : true} ,timestamp: 1473304491256},
-	'endPurchase'	: { key :'endDatePurchase' ,name : '截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择购买截止日",validate: {isrequire : true}},
+	'startPurchase'	: { key :'startDatePurchase' ,name : '起始日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择起始日",validate: {isrequire : true} ,timestamp: 1473304491256},
+	'endPurchase'	: { key :'endDatePurchase' ,name : '截止日', wrapperClass : 'col-md-6' ,   type : 'singledate', placeholder : "请选择截止日",validate: {isrequire : true}},
  	
  	'staticUnit'	: (unit) => ({key :'' ,name : unit, wrapperClass : 'col-md-2 pln', type : 'text', bln: true}),
  	'interestRate' 	: { key :'expectedArr', name : '利率', wrapperClass : 'col-md-6' , type : 'input', placeholder : '', unit: '%'},					
