@@ -75,7 +75,7 @@ urlConfig['order/detail'] =
 					  	Dict.baseText('紧急联系人证件类型', 'orderInfoEmergencyIdType','','emergency'),
 					  	Dict.baseText('紧急联系人证件号码', 'orderInfoEmergencyIdNumber','','text'),
 	
-				 	],[
+				 	]/*,[
 				 		Dict.baseText('持卡人姓名', 'paymentBankCardOwner','','text'),
 				 	],[
 				 		Dict.baseText('银行名称', 'paymentBankBankName','','text'),
@@ -84,7 +84,7 @@ urlConfig['order/detail'] =
 				 		Dict.baseText('开卡地区', 'paymentBankAreaFullName','','text'),
 				 		Dict.baseText('支行信息', 'paymentBankAccountBranch','','text'),
 
-				 	] 
+				 	] */
 				 ],
 			},
 			{	

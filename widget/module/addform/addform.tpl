@@ -86,6 +86,7 @@
                         :distributeinterval="item.distributeInterval"
                         :startdateinterest="item.startDateInterest"
                         :disable="options.disable"
+                        :incomecompletion="item.incomeCompletionDateNumber"
                       ></choiceness-distribution>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
