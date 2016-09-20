@@ -13,7 +13,8 @@ urlConfig['fund/edit'] = {
 				'formlist'   : [
 					[Dict.distriSize, Dict.unitFkIssureScale,Dict.saleSize,Dict.unitFkOfferingSize],
 					[Dict.comSoled],
-					[Dict.yearRate]
+					[Dict.yearRate],
+					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},
 			{	
@@ -54,7 +55,8 @@ urlConfig['asset/edit'] = {
 				'formlist'   : [
 					// [Dict.soled ,Dict.yearIncome],
 					[Dict.comSoled ],
-					[Dict.yearRate]
+					[Dict.yearRate],
+					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},
 			{	
@@ -88,7 +90,8 @@ urlConfig['trust/edit'] = {
 			{	
 				'panelName' : '销售信息',
 				'formlist'   : [
-					[Dict.comSoled ],	
+					[Dict.comSoled ],
+					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},
 			{	
@@ -123,6 +126,7 @@ urlConfig['debtassgin/edit'] = {
 				'panelName' : '日期',
 				'formlist'   : [
 					[Dict.proFoundDay ],
+					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},
 			{	
@@ -157,6 +161,7 @@ urlConfig['equityInvestment/edit'] = {
 				'panelName' : '日期',
 				'formlist'   : [
 					[Dict.proFoundDay ],
+					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},
 			{	

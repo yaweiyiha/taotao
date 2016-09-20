@@ -104,6 +104,8 @@
                     <div class="input-group-addon input-title" v-bind:style="li.selfStyle">{{li.name}} : {{li.value}}
                     </div>
                   </div>
+                  <input v-if="li.type === 'hidden'" data-key="{{li.key}}" type="hidden" value="{{item[li.key]}}">
+
                   <div v-if="li.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" >{{li.name}}
                         <span v-if="li.isrequire" class="text-strong-red">*</span>
