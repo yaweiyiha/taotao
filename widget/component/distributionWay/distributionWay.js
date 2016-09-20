@@ -4,8 +4,8 @@ let style = __inline('./distributionWay.inline.less');
 let tpl = __inline('./distributionWay.tpl');
 
 require.loadCss({
-    name: 'admin-widget-distributionWay-style',
-    content: style
+    name    : 'admin-widget-distributionWay-style',
+    content : style
 });
 
 export default Vue.component('distribution-way', {

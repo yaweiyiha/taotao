@@ -160,6 +160,7 @@
                       <div class="input-group-addon input-title" >{{li.name}}
                           <span v-if="li.isrequire" class="text-strong-red">*</span>
                       </div>
+
                       <template v-for="r in li.radios">
                         <input 
                           type="radio" 
@@ -168,7 +169,6 @@
                           value="{{r.value}}" 
                           name="{{li.key}}" 
                           v-model="item[li.key]"
-                          checked="{{r.checked}}"
                           > {{r.name}}
                       </template>
                   </div>

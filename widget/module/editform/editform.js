@@ -34,16 +34,22 @@ var editform = Widget.extend({
     init : function(data){
 
         this.data = data;
+        console.log(data.item.isRiskRating);
         this.vm = this.display(data ,tpl ,'vue');
+        console.log(data.item.isRiskRating);
         this.render();
         this.bind();
         Waves.attach('button', ['waves-light']);
+
     },
     processData :function(){
+
         this.saveUrl   = data.saveUrl;
         this.publicUrl = data.publicUrl;
+
     },
     render : function(){
+
         if($('select[data-key="publisherFk"]')){
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
@@ -54,6 +60,7 @@ var editform = Widget.extend({
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
+
     },
     bind: function () {
         
@@ -83,7 +90,7 @@ var editform = Widget.extend({
             }
 
             if(filters.isRiskRating === 2){
-                    filters.riskRating = '';
+                filters.riskRating = '';
             }
 
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
@@ -148,7 +155,7 @@ var editform = Widget.extend({
         	window.location.href = '#main/product/maintenance';
         })
 
-        // 是否启用风险等级联动
+        // enable risk rating 
         container.on('click', '[data-key=isRiskRating]', function () {
             let on = container.find('[data-key=isRiskRating]:checked').val();
             let target = container.find('[data-key=riskRating]').parents('.input-wrapper');
@@ -158,14 +165,13 @@ var editform = Widget.extend({
                 target.show();
             }
         });
+
         //init risk level
         setTimeout(() => {
             if (container.find('[data-key=isRiskRating]:checked').val() === '2') {
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
-
-        $('select[data-key="unitFkOfferingSize"]').on('change')
 
     },
     toNum : function (filters){

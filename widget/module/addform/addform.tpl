@@ -86,6 +86,7 @@
                         :distributeinterval="item.distributeInterval"
                         :startdateinterest="item.startDateInterest"
                         :disable="options.disable"
+                        :incomecompletion="item.incomeCompletionDateNumber"
                       ></choiceness-distribution>
                   </template>
                   <template v-if="li.type === 'fundStrategy'">
@@ -110,7 +111,6 @@
                        <found-status 
                        :establish="item.establishStatus" 
                        :sales="item.salesStatusFk" 
-                       :salesother="item.salesStatusFk"
                        :disable="options.disable"
                        :dateestablished ="item.dateEstablished"
                        :executestate="item.executeState"
@@ -143,6 +143,7 @@
                   <div v-if="li.type === 'input'" class="form-group input-group">
                     <div class="input-group-addon input-title" v-bind:style="li.textStyle">{{li.name}}
                         <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+                        <span v-else class="text-strong-red"></span>
                     </div>
                     <input data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-number="{{li.validate.isNumber ? 'number' : ''}}"  data-des="{{li.name}}" data-key="{{li.key}}" v-bind:class="{'bln' : li.bln ,'brn' : li.brn ,'bld' : li.bld , 'brd' : li.brd }" class="input-control"  maxlength="40" placeholder="{{li.placeholder}}"  v-bind:readonly="options.disable" value="{{item[li.key]}}" data-phone="{{li.validate.isPhone ? 'phone' : ''}}">  
                     <div class="unit" v-if="li.unit">{{ li.unit }}</div>
@@ -157,7 +158,6 @@
                     >
                     </comm-type>
                   </div>
-
                   <div v-if="li.type === 'select'" class="form-group input-group w100 "  >
                       <div v-if= "li.name" class="input-group-addon input-title"  >{{li.name}}<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
                       </div>

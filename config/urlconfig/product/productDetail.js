@@ -116,7 +116,7 @@ urlConfig['trust/detail'] =
 		            ],[
 		                elementDict.distributor, elementDict.hoster	
 					],[
-						elementDict.distriArea,elementDict.phone
+						elementDict.proDistriLocation,elementDict.phone
 					]
 
 				],

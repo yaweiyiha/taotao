@@ -58,11 +58,12 @@ class addProControl extends Control{
         me.getViews([widgets.menu],menusConfig);
         me.getViews([widgets.topbanner],data.topbanner);
         me.getModel('productinfo', (model) => {
+
             model.getData(data.url, {id: _APP_HASH.id}).then((res) => {
+
                 let dictData = {};
                 // $.extend(dictData, data);  
-
-                dictData.item = $.extend(res.item, Util.processData(res.item))
+                dictData.item = $.extend(res.item, Util.processData(res.item));
                 me.getViews([me.widgets.editform], $.extend(dictData, data));
             });
         });

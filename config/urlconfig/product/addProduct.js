@@ -66,9 +66,8 @@ urlConfig['fund/add'] =
 		],
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary',type : 'button',evt:'republic' ,'productCategories' :10 },
-		{name : '保存',classList : 'default ml10', type : 'button', evt : 'save' ,'productCategories':10},
-
+		{name : '保存',classList : 'primary ', type : 'button', evt : 'save' ,'productCategories':10},
+		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic' ,'productCategories' :10 },
 	],
 	'saveUrl'    : 'product/save',
 	'publishUrl' : 'product/publish',

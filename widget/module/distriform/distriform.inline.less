@@ -5,6 +5,21 @@
 	img.attachments0Path {
 		width: 200px;
 	}
+
+	.back{
+		cursor   : pointer ;
+		position : absolute;
+		top      : 54px;
+		right    : 0;
+		z-index  : 10000000;
+
+		.back-info{
+			color: #286ede;
+		    float: right;
+		    position: relative;
+		    right: 30px;
+		}
+	}
 	.attachment-view-wrapper {
 		position: fixed;
 		width: 100%;
@@ -156,6 +171,9 @@
 		}
 		.text {
 			left : 64px;
+			.input-title{
+				margin-bottom : 6px;
+			}
 		}
 		.input-wrapper {
 			.unit {
