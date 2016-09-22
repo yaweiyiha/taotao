@@ -192,6 +192,7 @@
 
                       <single-date 
                            :key="li.key" 
+                           :name="li.name"
                            :disable="options.disable" 
                            :placeholder="li.placeholder"
                            :timestamp ="item[li.key]"
@@ -205,13 +206,16 @@
                     </div>
                     <input data-key="{{li.key}}" class="input-control  readonly">
                     <div class="input-group-addon input-title choose-button">选择</div>
-                  </div> 
-                  <div  v-if="li.type === 'area'" class="form-group input-group">
-                   <div class="input-group-addon input-title" >{{li.name}}
-                      <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
-                   </div>
-                     <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}" data-key="{{li.key}}" value="{{item.areaFullName}}" data-values="{{item.areaCode}}">
                   </div>
+
+                  <!-- type:area --> 
+                  <div  v-if="li.type === 'area'" class="form-group input-group">
+                    <div class="input-group-addon input-title" >{{li.name}}
+                      <span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+                    </div>
+                    <input type="text" class="city-select input-control" v-bind:readonly="options.disable" :disabled="options.disable" placeholder="{{li.placeholder}}" data-key="{{li.key}}" value="{{item.areaFullName}}" data-values="{{item.areaCode}}" data-valide="{{li.validate.isrequire ? 'required' : '' }}" data-des="{{li.name}}"/>
+                  </div>
+
                   <div v-if="li.type ==='radios'" class="form-group input-group"> 
                       <div class="input-group-addon input-title" >{{li.name}}
                           <span v-if="li.isrequire" class="text-strong-red">*</span>

@@ -303,6 +303,10 @@ var util = {
             //币种
             currencies         :  data.product.currencies,
 
+            //基金净值累计分红
+            yesterdayNet       :  data.product.yesterdayNet,
+            sumNet             :  data.product.sumNet,
+
             issureScale        :  toString(data.product.issureScale),
             arrTypeFk          :  toString(data.product.arrTypeFk),
             offeringSize       :  toString(data.product.offeringSize),
@@ -363,7 +367,8 @@ var util = {
             paymentTransferBranch : data.publisher.paymentTransferBranch,
             paymentTransferCardNumber : data.publisher.paymentTransferCardNumber,
             notContainsFloatRateMax: toString(data.product.notContainsFloatRateMax),
-            containsLeftValue: toString(data.product.containsLeftValue),      
+            containsLeftValue: toString(data.product.containsLeftValue),
+
         }
     }
 };

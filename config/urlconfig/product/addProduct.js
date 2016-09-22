@@ -36,7 +36,6 @@ urlConfig['fund/add'] =
 					[   elementDict.trusteeFee    , elementDict.phone       ],
 				],
 			},
-
 			{	
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
@@ -64,6 +63,7 @@ urlConfig['fund/add'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	elementDict.yearRate	],
+					[	elementDict.yesterdayNet ,elementDict.sumNet],
 				]
 			},
 			{	

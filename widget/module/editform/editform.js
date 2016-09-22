@@ -41,13 +41,12 @@ var editform = Widget.extend({
 
     },
     processData :function(){
-
         this.saveUrl   = data.saveUrl;
         this.publicUrl = data.publicUrl;
 
     },
     render : function(){
-
+        let me = this;
         if($('select[data-key="publisherFk"]')){
             let publisherList  = enums.publisherFk;
             let publisherArr   =  [];
@@ -57,6 +56,17 @@ var editform = Widget.extend({
                 publisherArr.push(option);
             }
             $('select[data-key="publisherFk"]').append(publisherArr);
+        }
+
+        /*基金净值&累计分红*/
+        if (me.data.item.establishStatus == 1 && me.data.item.fundGenreAFk == 500) {
+            $(".yesterdayNet").removeClass('hidden');
+            $(".sumNet").removeClass('hidden');
+            $(".admin-widget-yearrate").css('display','none');
+        }else{
+            $(".yesterdayNet").addClass('hidden');
+            $(".sumNet").addClass('hidden');
+            $(".admin-widget-yearrate").css('display','block');
         }
 
     },

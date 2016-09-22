@@ -14,6 +14,7 @@ urlConfig['fund/edit'] = {
 					[Dict.distriSize, Dict.unitFkIssureScale,Dict.saleSize,Dict.unitFkOfferingSize],
 					[Dict.comSoled],
 					[Dict.yearRate],
+					[Dict.yesterdayNet ,Dict.sumNet],
 					[Dict.purchaseAmountHidden, Dict.unitFkStartingPriceHidden]
 				],
 			},

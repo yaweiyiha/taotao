@@ -52,6 +52,7 @@ urlConfig['fund/validate'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	elementDict.yearRate	],
+					[	elementDict.yesterdayNet ,elementDict.sumNet],
 				]
 			},
 			{	

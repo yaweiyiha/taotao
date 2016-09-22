@@ -396,10 +396,9 @@ export default {
  		key :'locationFk' ,
  		name : '项目所在地', 
  		wrapperClass : 'col-md-6' ,   
- 		type : 'area', 
- 		placeholder : '', 
+ 		type : 'area',
+ 		placeholder: '请添加项目所在地' 
  		validate: {isrequire : true}, 
- 		placeholder: '请添加项目所在地'
  	},
  	'proDistriLocation'   : { 
  		key :'locationFk' ,
@@ -520,6 +519,27 @@ export default {
  		wrapperClass : 'col-md-6' ,  
  		type : 'radios',
  		radios : [{'name': '预售',value: '20' },{'name' : '在售',value: '10' },{'name' : '售罄',value: '30' } ]
+ 	},
+
+ 	'yesterdayNet'  : { 
+ 		key :'yesterdayNet' ,
+ 		name : '基金净值', 
+ 		wrapperClass : 'col-md-6 hidden yesterdayNet' ,  
+ 		brd : true, 
+ 		type : 'input', 
+ 		placeholder:'请输入基金净值',
+ 		validate: {isrequire : true ,isNumber : true},
+ 		unit: '元'
+ 	},
+ 	'sumNet'   : { 
+ 		key :'sumNet' ,
+ 		name : '累计分红', 
+ 		wrapperClass : 'col-md-6 hidden sumNet' ,  
+ 		brd : true, 
+ 		type : 'input', 
+ 		placeholder:'请输入累计分红',
+ 		validate: {isrequire : true ,isNumber : true},
+ 		unit: '元'
  	},
  	
  	//components

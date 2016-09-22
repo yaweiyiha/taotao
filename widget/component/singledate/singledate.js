@@ -21,6 +21,9 @@ export default Vue.component('single-date', {
     },
     data: function () {
     },
+    ready :function(){
+        console.log(this.required);
+    },
     computed: {
         time: function () {
             if(this.timestamp){
