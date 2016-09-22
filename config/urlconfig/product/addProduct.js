@@ -363,8 +363,8 @@ urlConfig['equityInvestment/add'] =
 				'descTitle' : '(全部必填)',
 				'formlist'  : [
 					[	elementDict.collarCast      , elementDict.collarCastNumber ],
-					[ 	elementDict.buyBegintime    , elementDict.buyEndTime       ],
-					[   elementDict.collarCastDesc ],
+					/*[ 	elementDict.buyBegintime    , elementDict.buyEndTime       ],*/
+					/*[   elementDict.collarCastDesc ],*/
 				]
 			},
 			{	
