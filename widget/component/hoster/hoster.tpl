@@ -4,7 +4,12 @@
       	托管方
       	<span class="text-strong-red">*</span>
       </div>
-      <select class="input-control"  data-key="custodianType" is-num="1" style="width:45%;float:left" :disabled="disable" v-model="custodiantype"> 
+      <select class="input-control"  
+      data-key="custodianType" 
+      is-num="1" 
+      style="width:45%;float:left" 
+      :disabled="disable" 
+      v-model="custodiantype"> 
 		    <option value="10">无</option>
         <option value="20">托管券商</option>
         <option value="30">托管银行</option>
@@ -19,6 +24,7 @@
           v-model="custodian" 
           data-valide="required"
           data-des="{{datades}}"
+          :disabled="disable"
           >
   </div>
 </div>
