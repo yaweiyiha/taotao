@@ -1,24 +1,70 @@
 export default {
-	'commissionType'   :  { type: 'CommType',validate: {isrequire : true} },
- 	'consignmentTime'  : { startkey :'offlineStartDate',endkey :'offlineEndDate', name : '申请代销时间', wrapperClass : 'col-md-5' , type : 'time',validate:{"isrequire":true}},
- 	'uploadContract'   : { key :'productName', name : '上传合同影印件', wrapperClass : 'col-md-5' , type : 'button' ,value : '添加图片' ,icon : 'addImg',validate:{"isrequire":true}},
- 	'appProName'  :   { key :'productName', name : '申请代销产品名称',value : '', wrapperClass : 'col-md-2' , type : 'text'},
- 	'appDistri'  :   { key :'agentName', name : '申请分销商',value : '', wrapperClass : 'col-md-2' , type : 'text'},
- 	'appTime'  :   { key :'createTime', name : '申请代销时间',value : '', wrapperClass : 'col-md-2' , type : 'text'},
- 	'appAmount'  :   { key :'applyQuota', name : '申请代销额度',value : '', wrapperClass : 'col-md-2' , type : 'text'},
- 	'commissionTypeText'  :   { key :'productName', name : '佣金类型',value : '固定佣金 佣金比例:2%', wrapperClass : 'col-md-2' , type : 'text'},
- 	'distriCompany'  :   { key :'productName', name : '发行公司',value : '固定佣金 佣金比例:2%', wrapperClass : 'col-md-2' , type : 'text'},
- 	'distriTime'  :   { key :'productName', name : '代销时间',value : '2016-10-08至2016-12-10', wrapperClass : 'col-md-2' , type : 'text'},
- 	'distriAmount'  :   { key :'productName', name : '代销额度',value : '200万', wrapperClass : 'col-md-2' , type : 'text'},
- 	'contractCopy'  :   { key :'attachments0Path', name : '合同电子影印件', wrapperClass : 'col-md-5 left-right' , type : 'img', src: 'static/img/default_user.jpg'},
- 	'distriName'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : '分销方名称',value : '创宁金融', wrapperClass : 'col-md-2' , type : 'text'},
- 	'padNum'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName', name : 'pad数',value : '20', wrapperClass : 'col-md-2' , type : 'text'},
- 	'distriLogo'  :   { selfStyle: {paddingLeft: '50px'}, key :'productName',  wrapperClass : 'col-md-5' , type : 'img',src: 'static/img/default_user.jpg'},
- 	'IdCardPositive'  :   { key :'identifyUrls身份证正面照片',  name : '身份证正面照片' ,selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
- 	'IdCardNegative'  :   { key :'identifyUrls身份证反面照片', name : '身份证反面照片' , wrapperClass : 'col-md-5 up-down' , type : 'img',src: 'static/img/default_user.jpg'},
- 	'transferCertificate'  :   { key :'evidenceUrls0', name : '转账凭证' , selfStyle: {paddingLeft: '50px'}, wrapperClass : 'col-md-5 up-down' , type : 'img'},
 
- 	'payType'  : (name, key = '', value = '',subtype= '')  =>  ({ key :key, name : name,value : value, subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left', position: 'relative', left: '-30px'}, wrapperClass : 'col-md-4' , type : 'text'}),
+ 	'uploadContract'   : { 
+ 		key :'productName', 
+ 		name : '上传合同影印件', 
+ 		wrapperClass : 'col-md-5' , 
+ 		type : 'button' ,
+ 		value : '添加图片' ,
+ 		icon : 'addImg',
+ 		validate:{"isrequire":true}
+ 	},
+
+ 	'contractCopy'  :   { 
+ 		key :'attachments0Path', 
+ 		name : '合同电子影印件', 
+ 		wrapperClass : 'col-md-5 left-right' , 
+ 		type : 'img', 
+ 		src: ''
+ 	},
+ 	'distriName'  :   { 
+ 		key :'productName', 
+ 		name : '分销方名称', 
+ 		wrapperClass : 'col-md-2' ,
+ 		selfStyle: {paddingLeft: '50px'},  
+ 		type : 'text'
+ 	},
+ 	'padNum'  :   { 
+ 		selfStyle: {paddingLeft: '50px'}, 
+ 		key :'productName', 
+ 		name : 'pad数',
+ 		value : '20', 
+ 		wrapperClass : 'col-md-2' , 
+ 		type : 'text'
+ 	},
+ 	'distriLogo'  :   { 
+ 		selfStyle: {paddingLeft: '50px'}, 
+ 		key :'productName',  
+ 		wrapperClass : 'col-md-5' , 
+ 		type : 'img',
+ 		src: ''
+ 	},
+ 	'IdCardPositive'  :   { 
+ 		key :'identifyUrls身份证正面照片',  
+ 		name : '身份证正面照片' ,
+ 		selfStyle: {paddingLeft: '50px'}, 
+ 		wrapperClass : 'col-md-5 up-down' , 
+ 		type : 'img'
+ 	},
+ 	'IdCardNegative'  :   { 
+ 		key :'identifyUrls身份证反面照片', 
+ 		name : '身份证反面照片' , 
+ 		wrapperClass : 'col-md-5 up-down' , 
+ 		type : 'img',
+ 		src: 'static/img/default_user.jpg'
+ 	},
+ 	'transferCertificate'  :   { 
+ 		key :'evidenceUrls0', 
+ 		name : '转账凭证' , 
+ 		selfStyle: {paddingLeft: '50px'}, 
+ 		wrapperClass : 'col-md-5 up-down' , 
+ 		type : 'img'
+ 	},
+
+ 	//components
+ 	'commissionType'  :  { type: 'CommType',validate: {isrequire : true} },
+ 	//component functions
+ 	'payType'   : (name, key = '', value = '',subtype= '')  =>  ({ key :key, name : name,value : value, subtype: subtype, selfStyle: {paddingLeft: '50px', textAlign: 'left', position: 'relative', left: '-30px'}, wrapperClass : 'col-md-4' , type : 'text'}),
  	'baseDateText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text', filter: 'datetime'}),
  	'baseText'  : (name, key = '', value = '',subtype= '') => ({ key :key, name : name , value: value,subtype: subtype, selfStyle: {textAlign: 'left'}, wrapperClass : 'col-md-6 up-down' , type : 'text'}),
  	'textList'  : (textArr) => ({  textArr : textArr ,selfStyle: {paddingLeft: '50px', textAlign: 'left'}, wrapperClass : 'col-md-6' , type : 'textList'}),

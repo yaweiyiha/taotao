@@ -86,10 +86,6 @@ urlConfig['trust/validate'] =
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '信托产品审核',
 		'key' : '产品维护',
-		'subFun' : [
-			{'key' : '保存' , evt :'save'},
-			{'key' : '发布' , evt :'republic'},
-		],
 	},
 	'tabs' : [
 		{ key: 'proEle', value: '产品要素'},
@@ -366,7 +362,7 @@ urlConfig['equityInvestment/validate'] =
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
 					[	elementDict.collarCast, elementDict.collarCastNumber ],
-					[   elementDict.collarCastDesc  ]
+					//[   elementDict.collarCastDesc  ]
 				]
 			},
 			{	

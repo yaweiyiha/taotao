@@ -36,7 +36,6 @@ fis.media('remote').match('*', {
         receiver: 'http://localhost:80/receiver.php',
         to: 'D:/assetarr/fundmarket/admin/src/main/webapp'
     }),
-  
 });
 
 fis.media('remote').match('*.{js,css,jpg,png,gif,woff}', {
@@ -152,7 +151,6 @@ fis.match('::package', {
         ],
         'static/add_sync_0_pkg.js': [
             'controller/addProControl.js',
-
             'widget/module/header/header.js',
             'widget/module/form/form.js',
             'widget/module/menu/menu.js',
@@ -207,6 +205,7 @@ fis.match('::package', {
 fis.match('*.{js,css,png}', {
     useHash: true
 });
+
 fis.match('test/data/**.js', {
     useHash: true,
     isMod: true

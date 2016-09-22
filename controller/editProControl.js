@@ -63,6 +63,7 @@ class addProControl extends Control{
 
                 let dictData = {};
                 // $.extend(dictData, data);  
+                // 
                 dictData.item = $.extend(res.item, Util.processData(res.item));
                 me.getViews([me.widgets.editform], $.extend(dictData, data));
             });

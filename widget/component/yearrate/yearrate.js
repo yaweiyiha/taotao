@@ -42,7 +42,7 @@ export default Vue.component('year-rate', {
 		// 		this.leftContain = '0';
 		// 	}
 		// }
-
+		
 		// if (this.latterData && this.latterData.length) {
 		// 	if (typeof this.latterData[0].extraRate === 'number' || typeof this.latterData[0].extraCommission === 'number') {
 		// 		this.floatUpperLimit = '0';
@@ -56,7 +56,7 @@ export default Vue.component('year-rate', {
 		if ($('.cnt-box [data-key=unitFkStartingPrice]').size()) {
 			this.disableUnit = true;
 		}
-
+		
 		// 起购金额单位联动
 		$('.cnt-box').on('change', '[data-key=unitFkStartingPrice]', function () {
 			me.YearRateUnit = me.unitDict[$(this).val()];

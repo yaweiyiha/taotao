@@ -7,7 +7,14 @@
 			filter: grayscale(100%);
 			-webkit-filter: grayscale(100%);
 		}
+		
+		&:hover{
+			animation : myshake  .2s ;
+			-webkit-animation :  myshake  .2s ;
+		}
+
 	}
+
 
 	.remove {
 		&.disabled {
@@ -21,4 +28,14 @@
 	img {
 		cursor: pointer;
 	}
+}
+
+@keyframes myshake {
+	from {transform : rotate(-45deg)}
+	to   {transform : rotate(45deg)}
+}
+
+@-webkit-keyframes myshake {
+	from {transform : rotate(-45deg)}
+	to   {transform : rotate(45deg)}
 }

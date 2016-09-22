@@ -92,10 +92,6 @@ urlConfig['trust/detail'] =
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '信托产品详情',
 		'key' : '产品维护',
-		'subFun' : [
-			{'key' : '保存' , evt :'save'},
-			{'key' : '发布' , evt :'republic'},
-		],
 	},
 	'options' : {
 		disable: true

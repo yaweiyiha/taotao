@@ -102,7 +102,7 @@ var editform = Widget.extend({
         $('button[data-role="save"]').on('click',function(){
 
             let dataRole = $(this).attr('data-role');
-            if(dataRole == 'save' || dataRole == 'republic') {
+            if(dataRole == 'save' || dataRole == 'release') {
 
                 let filters = {};
                 let url  =  '';

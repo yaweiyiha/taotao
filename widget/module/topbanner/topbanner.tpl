@@ -14,7 +14,7 @@
                         <em class="add-icon"></em>
                         <span class="" >{{func.key}}</span>
                     </a>
-                    <div v-if="func.code === 'save' || func.code === 'republic' " >
+                    <div v-if="func.code === 'save' || func.code === 'release' " >
                         <button class="custom-button" data-role="{{func.evt}}">{{func.key}}</button>
                     </div>
                     <span v-if="index !== subFun.length - 1" class="spliter"></span>

@@ -55,7 +55,7 @@ class Router {
         //console.log(page);
 
         window._APP_HASH = Url.urlToJSON();
-        window._APP_HASH._uri_ = page;
+        window._APP_HASH._uri_  =  page;
         window._APP_HASH._page_ = hash;
         let configData = urlConfig[page] || {};
         configData.options = configData.options || {};

@@ -1,14 +1,15 @@
-import Widget from 'static/js/widget.js';
-import table from 'widget/module/table/table.js';
-import dateControl from 'widget/classComponent/datecontrol/datecontrol.js';
-import cityselect from 'widget/component/cityselect/cityselect.js';
-import dialog from 'widget/classComponent/dialog/dialog.js';
-import Util from 'widget/util/util';
-import productDistri from 'widget/component/productDistri/productDistri'
-import alertDialog from "widget/classComponent/dialog/alert.js"
 
-var style = __inline('./form.inline.less');
-var tpl = __inline('./form.tmpl');
+import Widget        from 'static/js/widget.js';
+import table         from 'widget/module/table/table.js';
+import dateControl   from 'widget/classComponent/datecontrol/datecontrol.js';
+import cityselect    from 'widget/component/cityselect/cityselect.js';
+import dialog        from 'widget/classComponent/dialog/dialog.js';
+import Util          from 'widget/util/util';
+import productDistri from 'widget/component/productDistri/productDistri'
+import alertDialog   from "widget/classComponent/dialog/alert.js"
+
+var style =  __inline('./form.inline.less');
+var tpl   =  __inline('./form.tmpl');
 
 require.loadCss({
     name: 'usersys-widget-form-style',
@@ -22,13 +23,10 @@ var form = Widget.extend({
         this._filters_ = {};
         this.localData = {};
     	this.data = data;
-
         this.eles = this.display(data, tpl, 'native');
         this.render();
         this.bind();
         Waves.attach('button', ['waves-float', 'waves-light']);
-        //Waves.attach('.add-icon', ['waves-float', 'waves-light']);
-
     },
     processData :function (data = {}){
     	this.data = data;
@@ -68,21 +66,7 @@ var form = Widget.extend({
                     $(li).hasClass('active') && $(c).removeClass('active');
                  }  
             });
-        }
-        // if($("select[data-key='name']")){
-
-        //     let proNameEle = $("select[data-key='name']");
-        //     let publisherArr   =  [];
-        //     Util.getData('report/agentsales/constants', '' ,'GET').then((res)=> {
-
-        //         res.forEach(function(item){
-        //             let option = `<option value="${item.productId}">${item.productName}</option>`;
-        //             publisherArr.push(option);
-        //         })
-        //         proNameEle.append(publisherArr);
-        //     })
-            
-        // }        
+        }     
 
     },
 

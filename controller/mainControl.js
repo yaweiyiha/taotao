@@ -20,7 +20,6 @@ var widgets  = {
         { widget: 'form', data: {},container: '.form-wrapper' },
     searchfilter : 
         { widget: 'searchfilter', data: {},container: '.form-wrapper' },
-
     table : 
         { widget: 'table', container: '.my-cnt-wrapper' },
 };

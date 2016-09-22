@@ -55,7 +55,7 @@ var addform = Widget.extend({
             currencies          : '10',
             arrRank             : 0,
             customElementsList  : [],
-            isRiskRating        : '',
+            isRiskRating        : '1',
             notContainsFloatRateMax: '1',
             containsLeftValue   : '0',
             investModeFk        : '10',
@@ -196,8 +196,6 @@ var addform = Widget.extend({
                 return;
             }
 
-
-
             for (let i = 0, len = inputCollections.length; i < len; i++) {
                 let ele = $(inputCollections[i]);
                 let key = ele.attr('data-key');
@@ -252,7 +250,7 @@ var addform = Widget.extend({
                     }
   
                 });
-            }else if(dataRole == 'republic'){
+            }else if(dataRole == 'release'){
 
                 if (!Util.validate(container)) {
                     return;
@@ -276,7 +274,7 @@ var addform = Widget.extend({
                             AlertDialog.show('发布成功');
                             window.location.href = '#main/product/maintenance';
                         }else if(res.status === 0){
-                            AlertDialog.show('发布失败，请检查是否有非法输入');
+                            res.msg &&  AlertDialog.show(res.msg);
                         }
                     }else{
                         AlertDialog.show('网络请求失败');
@@ -286,7 +284,6 @@ var addform = Widget.extend({
             }
            
         })
-
         $(".city-select").on('click',function(){
             citySelectDialog.show({
 
@@ -296,7 +293,6 @@ var addform = Widget.extend({
                 }
             });
         })
-
         $("select[data-key='fundGenreAFk']").on('click',function(){
             let  value = $(this).val();
             if(value !== "500"){
@@ -305,7 +301,6 @@ var addform = Widget.extend({
                 $(".admin-widget-fundStrategy").css('display','block');
             }
         });
-
         $('input').on('blur' ,function(){
             let ele = $(this);
             let isNumTag = ele.attr('data-number');

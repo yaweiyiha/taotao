@@ -9,7 +9,7 @@
         <div class="user-info-box" v-on:click.stop="showMenu = !showMenu">
             <div class="avatar-icon"></div>
             <div class="arrow" v-bind:class="{ 'down': showMenu }"></div>
-            <ul class="user-menu" v-show="showMenu">
+            <ul class="user-menu" v-bind:class="{'show' : showMenu } ">
                 <li>
                     <a href="logout" onclick="javascript:sessionStorage.clear();">
                         <i class="icon-off"></i>退出

@@ -17,7 +17,6 @@ urlConfig['distributor/info'] =
 					[ Dict.padNum ],
 				 ],
 			},
-
 			{	
 				'panelName' : '分销方logo',
 				'formlist'   : [

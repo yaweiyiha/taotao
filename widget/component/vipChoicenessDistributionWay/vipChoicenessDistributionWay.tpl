@@ -7,7 +7,6 @@
                      <select class="input-control" data-key="vipChoicenessDistributionWayFk" v-model="distribution" :disabled="disable"> 
                         	<option  value="10" > 到期一次性还本付息 </option>
                         	<option  value="120"> 按期付息,到期还本  </option>
-
                       </select>
                 </div>  
             </div>

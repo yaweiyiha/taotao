@@ -1,78 +1,87 @@
 
-import elementDict from 'config/dict/product-dict'
+import Dict from 'config/dict/product-dict'
 
 urlConfig['fund/draftedit'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
+		'title'      : '产品管理',
+		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑基金产品',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle'  , 'value': '产品要素' },
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
 	],
 	'forms' : [
-
+		// correspond proEle 
 		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-
-					[   elementDict.proName, elementDict.fundType,elementDict.fundTypeUnit	],
-					[   elementDict.fundStrategy],
-					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.fundLeader,elementDict.fundManager],
-					[   elementDict.trusteeFee ,elementDict.phone ],
+					/******************************************/
+					[   Dict.proName       , Dict.fundType     ,
+					    Dict.fundTypeUnit ],
+					/******************************************/
+					[   Dict.fundStrategy ],
+					[   Dict.distributor   , Dict.hoster	  ],
+					[   Dict.fundLeader    , Dict.fundManager ],
+					[   Dict.trusteeFee    , Dict.phone       ],
 				],
 			},
-
 			{	
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.foundStatus , elementDict.proStatus],
-					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ,elementDict.distriDate],
-					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
-					[	elementDict.subscriptionFee ,elementDict.ManageFee],
-					[	elementDict.redemptionFee, elementDict.compensationPay],
-					[	elementDict.closedTime , elementDict.openDay,],
-					[	elementDict.moneyType ,elementDict.riskRant],
-					[   elementDict.incomeRant ]
+                    /***************************************************/
+					[	Dict.foundStatus      , Dict.proStatus          ],
+					/***************************************************/
+					[	Dict.distriSize       , Dict.unitFkIssureScale   , 
+					    Dict.saleSize         , Dict.unitFkOfferingSize ],
+					/***************************************************/
+					[	Dict.proTerm          , Dict.distriDate         ],
+					/***************************************************/
+					[	Dict.purchaseAmount   , Dict.unitFkStartingPrice , 
+					    Dict.increasingAmount , Dict.unitFkIncreasement ],
+					/***************************************************/
+					[	Dict.subscriptionFee  , Dict.ManageFee          ],
+					[	Dict.redemptionFee    , Dict.compensationPay    ],
+					[	Dict.closedTime       , Dict.openDay            ],
+					[	Dict.moneyType        , Dict.riskRant           ],
+					[   Dict.incomeRant ]
 				],
 			},
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.yearRate	],
+					[	Dict.yearRate	],
 				]
 			},
 			{	
 				'formlist'   : [
-					[	elementDict.customEle ],
+					[	Dict.customEle  ],
 				],
 			},
 		],
+		// correspond CommiSet 
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.commissionType ],
+					[	Dict.commissionType  ],
 				],
 			},
 		],
 	],
 	'buttonlist': [
-		{name : '发布',classList : 'primary',type : 'button',evt:'republic' ,'productCategories' :10 },
-		{name : '保存',classList : 'default ml10', type : 'button', evt : 'save' ,'productCategories':10},
+		{ 'name' :'发布', 'classList' : 'primary'     , 'type' :'button', 'evt' :'release' , 'productCategories' : 10 },
+		{ 'name' :'保存', 'classList' : 'default ml10', 'type' :'button', 'evt' :'save'    , 'productCategories' : 10},
 
 	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url'            : 'product/draftEdit',
+	'saveUrl'        : 'product/save',
+	'publishUrl'     : 'product/publish',
+	//flat data when it is nested, default is false 
 	'useProcessData' : true
 
 }
@@ -80,57 +89,45 @@ urlConfig['fund/draftedit'] =
 urlConfig['trust/draftedit'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
+		'title'      : '产品管理',
+		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑信托产品',
-		'key' : '产品维护',
-		'subFun' : [
-			{'key' : '保存' , evt :'save'},
-			{'key' : '发布' , evt :'republic'},
-		],
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle'   , 'value': '产品要素' },
+		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
 	],
 	'forms' : [
+		// correspond proEle
 		[
 			{	
-				'panelName' : '基本信息',
-				'descTitle' : '(*为必填)',
+				'panelName'  : '基本信息',
+				'descTitle'  : '(*为必填)',
 				'formlist'   : [
-					[	
-						elementDict.proName, elementDict.industryTypeFk 
-		            ],[
-		                elementDict.distributor, elementDict.hoster	
-					],[
-						elementDict.proDistriLocation,elementDict.phone
-					]
-
+					[	Dict.proName           , Dict.industryTypeFk ],
+					[   Dict.distributor       , Dict.hoster	     ],
+					[   Dict.proDistriLocation , Dict.phone          ]
 				],
 			},
 
 			{	
-				'panelName' : '购买信息',
-				'descTitle' : '(*为必填)',
+				'panelName'  : '购买信息',
+				'descTitle'  : '(*为必填)',
 				'formlist'   : [
-					[	
-						elementDict.foundStatus , elementDict.proStatus
-					],[	
-						elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,
-					],
-					[	
-						elementDict.proTerm 
-					],
-					[	
-						elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount,elementDict.unitFkIncreasement,
-					],[	
-						elementDict.buyBegintime ,elementDict.buyEndTime
-					],[	
-						elementDict.moneyType ,elementDict.riskRant
-					],[
-						elementDict.incomeRant
-					]
+					/***************************************************/
+					[	Dict.foundStatus      , Dict.proStatus          ],
+					/***************************************************/
+					[	Dict.distriSize       , Dict.unitFkIssureScale   , 
+					    Dict.saleSize         , Dict.unitFkOfferingSize ],
+					/***************************************************/
+					[	Dict.proTerm         ],
+					/***************************************************/
+					[	Dict.purchaseAmount   , Dict.unitFkStartingPrice ,
+					    Dict.increasingAmount , Dict.unitFkIncreasement ],
+					/***************************************************/
+					[	Dict.buyBegintime     , Dict.buyEndTime         ],
+					[	Dict.moneyType        , Dict.riskRant           ],
+					[   Dict.incomeRant      ],
 
 				],
 			},
@@ -138,56 +135,58 @@ urlConfig['trust/draftedit'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.distributionWay],
-					[	elementDict.yearRate	],
+					[ 	Dict.distributionWay ],
+					[	Dict.yearRate	     ],
 				]
 			},
 			{	
 				'formlist'   : [
-					[	elementDict.customEle ],
+					[	Dict.customEle       ],
 				],
 			},
 		],
+		// correspond CommiSet 
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.commissionType ],
+					[	Dict.commissionType ],
 				],
 			},
 		],
 
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :40},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :40},
+		{ 'name' :'发布', 'classList' :'primary'     , 'type' :'button', 'evt' :'release' , 'productCategories' :40},
+		{ 'name' :'保存', 'classList' :'default ml10', 'type' :'button', 'evt' :'save'     , 'productCategories' :40},
 	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url'            : 'product/draftEdit',
+	'saveUrl'        : 'product/save',
+	'publishUrl'     : 'product/publish',
+	//flat data when it is nested, default is false 
 	'useProcessData' : true
 }
 urlConfig['asset/draftedit'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
+		'title'      : '产品管理',
+		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑资管产品',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle'   , 'value': '产品要素'},
+		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
 	],
 	'forms' : [
+		// correspond proEle
 		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.proName, elementDict.investModeFk ],
-					[   elementDict.distributor, elementDict.hoster	],
-					[   elementDict.proDistriLocation],
-					[   elementDict.investManager, elementDict.phone ]
+					[   Dict.proName, Dict.investModeFk ],
+					[   Dict.distributor, Dict.hoster	],
+					[   Dict.proDistriLocation          ],
+					[   Dict.investManager, Dict.phone  ]
 
 				],
 			},
@@ -196,71 +195,79 @@ urlConfig['asset/draftedit'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.foundStatus , elementDict.proStatus],
-					[	elementDict.distriSize ,elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize,],
-					[	elementDict.proTerm ],
-					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
-					[	elementDict.buyBegintime ,elementDict.buyEndTime],
-					[	elementDict.subscriptionFee ,elementDict.ManageFee],
-					[	elementDict.redemptionFee, elementDict.compensationPay],
-					[	elementDict.closedTime , elementDict.openDay,],
-					[	elementDict.moneyType ,elementDict.riskRant],
-					[   elementDict.incomeRant ]
+					/***************************************************/
+					[	Dict.foundStatus      , Dict.proStatus          ],
+					/***************************************************/
+					[	Dict.distriSize       , Dict.unitFkIssureScale   ,
+					    Dict.saleSize         , Dict.unitFkOfferingSize ],
+					/***************************************************/
+					[	Dict.proTerm         ],
+					/***************************************************/
+					[	Dict.purchaseAmount   , Dict.unitFkStartingPrice ,
+					    Dict.increasingAmount , Dict.unitFkIncreasement ],
+					/***************************************************/
+					[	Dict.buyBegintime     , Dict.buyEndTime         ],
+					[	Dict.subscriptionFee  , Dict.ManageFee          ],
+					[	Dict.redemptionFee    , Dict.compensationPay    ],
+					[	Dict.closedTime       , Dict.openDay            ],
+					[	Dict.moneyType        , Dict.riskRant           ],
+					[   Dict.incomeRant  ]
 				],
 			},
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.distributionWay],
-					[	elementDict.yearRate	],
-					// [   elementDict.incomeComputeDay ,elementDict.fixedDay,elementDict.closeDay , elementDict.foundDay],
+					[ 	Dict.distributionWay ],
+					[	Dict.yearRate	     ],
 				]
 			},
 			{	
 				'formlist'   : [
-					[	elementDict.customEle ],
+					[	Dict.customEle       ],
 				],
 			},
 		],
+		// correspond CommiSet 
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.commissionType ],
+					[	Dict.commissionType ],
 				],
 			},
 		],
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :30},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :30},
+		{ 'name' : '发布', 'classList' : 'primary'     , 'type' : 'button', 'evt' :'release' , 'productCategories' :30 },
+		{ 'name' : '保存', 'classList' : 'default ml10', 'type' : 'button', 'evt' :'save'    , 'productCategories' :30 },
 	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url'            : 'product/draftEdit',
+	'saveUrl'        : 'product/save',
+	'publishUrl'     : 'product/publish',
+	//flat data when it is nested, default is false 
 	'useProcessData' : true
 }
 
 urlConfig['debtassgin/draftedit'] =
 {
 	'topbanner' : {
-		'title' : '产品管理',
-		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
+		'title'      : '产品管理',
+		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑债权转让产品',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle'   , 'value': '产品要素'},
+		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
 	],
 	'forms' : [
+		// correspond proEle
 		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.proName, elementDict.distributor ],
-					[   elementDict.proTerm	],
+					[   Dict.proName     , Dict.distributor ],
+					[   Dict.proTerm	],
 				],
 			},
 
@@ -268,47 +275,55 @@ urlConfig['debtassgin/draftedit'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-				    [	elementDict.distriSize, elementDict.unitFkIssureScale,elementDict.saleSize ,elementDict.unitFkOfferingSize],
-					[	elementDict.purchaseAmount,elementDict.unitFkStartingPrice,elementDict.increasingAmount , elementDict.unitFkIncreasement],
-					[	elementDict.maxInvestmentPrice , elementDict.unitFkOfMaxInvestmentPrice,elementDict.moneyType],
+					/************************************************************/
+				    [	Dict.distriSize         , Dict.unitFkIssureScale          ,
+				    	Dict.saleSize           , Dict.unitFkOfferingSize        ],
+				    /************************************************************/
+					[	Dict.purchaseAmount     , Dict.unitFkStartingPrice        ,
+					    Dict.increasingAmount   , Dict.unitFkIncreasement        ],
+					/************************************************************/
+					[	Dict.maxInvestmentPrice , Dict.unitFkOfMaxInvestmentPrice ,
+					    Dict.moneyType         ],
 				],
 			},
 			{	
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[ 	elementDict.vipChoicenessDistributionWay],
-					[	elementDict.yearRate	],
+					[ 	Dict.vipChoicenessDistributionWay ],
+					[	Dict.yearRate	],
 				]
 			},
 			{
 				'panelName' : '其他',
 				'formlist'   : [
-					[	elementDict.isRiskRating, elementDict.riskRant	],
+					[	Dict.isRiskRating, Dict.riskRant	],
 				]
 			},
 			{	
 				'formlist'   : [
-					[	elementDict.customEle ],
+					[	Dict.customEle  ],
 				],
 			},
 		],
+		// correspond CommiSet 
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.commissionType ],
+					[	Dict.commissionType ],
 				],
 			},
 		],
 
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save','productCategories' :60},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic','productCategories' :60},
+		{ 'name' :'发布', 'classList' :'primary'      , 'type' :'button', 'evt' :'release', 'productCategories' :60 },
+		{ 'name' :'保存', 'classList' :'default ml10' , 'type' :'button', 'evt' :'save'   , 'productCategories' :60 },
 	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url'            : 'product/draftEdit',
+	'saveUrl'        : 'product/save',
+	'publishUrl'     : 'product/publish',
+	//flat data when it is nested, default is false 
 	'useProcessData' : true
 }
 
@@ -321,18 +336,23 @@ urlConfig['equityInvestment/draftedit'] =
 		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ key: 'proEle'   , value: '产品要素'},
+		{ key: 'CommiSet' , value: '佣金设置' }, 
 	],
 	'forms' : [
+		// correspond proEle
 		[
 			{	
 				'panelName' : '基本信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[   elementDict.proName, elementDict.distributor ],
-					[   elementDict.proLocation , elementDict.financeAmount,elementDict.unitFkIssureScale	],
-					[   elementDict.stockRight ],
+					/*************************************************/
+					[   Dict.proName             , Dict.distributor ],
+					/*************************************************/
+					[   Dict.proLocation         , Dict.financeAmount,
+					    Dict.unitFkIssureScale	],
+					/*************************************************/
+					[   Dict.stockRight         ],
 				],
 			},
 
@@ -340,40 +360,44 @@ urlConfig['equityInvestment/draftedit'] =
 				'panelName' : '购买信息',
 				'descTitle' : '(*为必填)',
 				'formlist'   : [
-					[	elementDict.saleSize ,elementDict.unitFkOfferingSize,elementDict.purchaseAmount,elementDict.unitFkStartingPrice],
-					[	elementDict.startPurchase ,elementDict.endPurchase],
-					[	elementDict.moneyType ,elementDict.riskRant],
+					/**************************************************/
+					[	Dict.saleSize      , Dict.unitFkOfferingSize   ,
+					    Dict.purchaseAmount, Dict.unitFkStartingPrice ],
+					/**************************************************/
+					[	Dict.startPurchase , Dict.endPurchase         ],
+					[	Dict.moneyType     , Dict.riskRant            ],
 				],
 			},
 			{	
 				'panelName' : '领头人',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.collarCast, elementDict.collarCastNumber ]
-					// [   elementDict.collarCastDesc  ]
+					[	Dict.collarCast    , Dict.collarCastNumber ]
 				]
 			},
 			{	
 				'formlist'   : [
-					[	elementDict.customEle ],
+					[	Dict.customEle     ],
 				],
 			},
 		],
+		// correspond CommiSet 
 		[
 			{	
 				'formlist'   : [
-					[	elementDict.commissionType ],
+					[	Dict.commissionType ],
 				],
 			},
 		],
 	],
 	'buttonlist': [
-		{name : '保存',classList : 'primary', type : 'button', evt : 'save', 'productCategories' :70},
-		{name : '发布',classList : 'default ml10',type : 'button',evt:'republic', 'productCategories' :70},
+		{ 'name' :'发布', 'classList' :'primary'     , 'type' :'button', 'evt' :'release', 'productCategories' :70 },
+		{ 'name' :'保存', 'classList' :'default ml10', 'type' :'button', 'evt' :'save'   , 'productCategories' :70 },
 	],
-	'url'        : 'product/draftEdit',
-	'saveUrl'    : 'product/save',
-	'publishUrl' : 'product/publish',
+	'url'            : 'product/draftEdit',
+	'saveUrl'        : 'product/save',
+	'publishUrl'     : 'product/publish',
+	//flat data when it is nested, default is false 
 	'useProcessData' : true
 }
 

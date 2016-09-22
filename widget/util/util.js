@@ -199,7 +199,12 @@ var util = {
                 val = val.trim();
             }
             let des = item.attr('data-des') || '';
-            let parentNode = item.parents('.input-wrapper');
+            let parentNode = '';
+            if(item.parents('.own-input').length !== 0){
+                parentNode = item.parents('.own-input');
+            }else{
+                parentNode = item.parents('.input-wrapper');
+            }
             let offsetLeft = parentNode.find('.input-title').outerWidth() || 105;
             offsetLeft = Math.max(offsetLeft, 105);
 

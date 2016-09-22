@@ -363,11 +363,14 @@ var table = Widget.extend({
         var me = this;
         me.submitData = data;
         let model = new tableModel();
-
+        $(me.vm.$el).find('tbody').removeClass('transition');
+        $(me.vm.$el).find('tbody').css('opacity','0');
         model.getData(data.url ,data.param).then((res) => {  
             if (res.msg === 'success') {
                 let totalPages = Math.ceil(res.totalSize / res.pageSize);
                 let pages = me.calculateIndexes(res.pageNo, totalPages, 5);
+
+
                 this.vm.$set('totalPages', totalPages);
                 this.vm.$set('totalSize', res.totalSize)
                 this.vm.$set('pageList', pages);
@@ -376,6 +379,12 @@ var table = Widget.extend({
                 res = me.processData(Object.assign(me._initData_, res));
                 this.vm.$set('items', res.items);
                 this.vm.$set('extraInfo', res.extraInfo);
+                // debugger;
+                setTimeout(() => {
+                    $(me.vm.$el).find('tbody').addClass('transition');
+                    $(me.vm.$el).find('tbody').css('opacity','1');
+                }, 0);
+                
             }
         });
     },

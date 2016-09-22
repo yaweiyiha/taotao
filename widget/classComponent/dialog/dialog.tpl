@@ -4,6 +4,7 @@
 		<div class="ui-dialog-titlebar ui-widget-header rt">
 
 			<span v-if="type === 'addPro'" class="icon icon-addpro"></span>
+			<span v-if="type === 'alert'" class="icon icon-warn"></span>
 
 			<span id="ui-id-1" class="ui-dialog-title">{{title}}</span>
 			

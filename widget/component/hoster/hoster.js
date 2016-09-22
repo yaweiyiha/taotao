@@ -20,6 +20,15 @@ export default Vue.component('hoster', {
  			}else if(this.custodiantype == '30'){
  				return '请输入托管银行';
  			}else if(this.custodiantype == '40'){
+ 				return '请输入第三方支付存管';
+ 			}
+ 		},
+ 		datades : function(){
+ 			if(this.custodiantype == '20'){
+ 				return '托管券商';
+ 			}else if(this.custodiantype == '30'){
+ 				return '托管银行';
+ 			}else if(this.custodiantype == '40'){
  				return '第三方支付存管';
  			}
  		}

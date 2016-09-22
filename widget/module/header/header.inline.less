@@ -21,9 +21,13 @@
 			width: 130px;
 			font-size: 12px;
 			position: absolute;
-			right: 10px;
+			right: -143px;
 			top: 45px;
 			border: 1px solid #eee;
+			transition: right .2s cubic-bezier(0.57, -0.02, 0.03, 1.28);
+			&.show {
+				right :10px;
+			}
 
 			li:not(:last-child) {
 				border-bottom: 1px solid #eee;

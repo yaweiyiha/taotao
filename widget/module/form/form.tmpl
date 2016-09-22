@@ -1,7 +1,6 @@
 <div class="admin-widget-form">
   <div> 
-<!--     <div class="panel-heading"></div> -->
-    <%if (tabs.length !== 0) {%>
+    <%if (tabs && tabs.length !== 0) {%>
     <ul  class="nav nav-tabs nav-justified">
     <%for (var i = 0, len = tabs.length; i < len; i++ ) {%>
       <li data-key="<%-tabs[i].key%>">
@@ -10,20 +9,6 @@
     <%}%>
     </ul>
     <%}%>
-<!--     <div >
-      <div class="panel panel-default">
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-xs-8">
-                <%for (var i = 0, len = head.subList.length; i < len; i++ ) {%>
-                  <a id="inProcess" href="javascript:void(0);"><%-head.subList[i].key%>(7)</a> 
-                <%}%>
-              </div>
-
-            </div>
-          </div>
-      </div>      
-    </div> -->
     <div class=" panel-default">
       <div class="panel-body">
       <%for (var i = 0, len = formlist.length; i < len; i++ ) {%>
@@ -74,7 +59,5 @@
         <%}%>
       </div>
       <%}%>
-
-
   </div>
 </div>
