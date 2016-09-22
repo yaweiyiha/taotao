@@ -55,8 +55,8 @@ urlConfig['fund/draftedit'] =
 				'panelName' : '收益信息',
 				'descTitle' : '(全部必填)',
 				'formlist'   : [
-					[	elementDict.yearRate	],
-					[	elementDict.yesterdayNet ,elementDict.sumNet],
+					[	Dict.yearRate	],
+					[	Dict.yesterdayNet ,Dict.sumNet],
 				]
 			},
 			{	

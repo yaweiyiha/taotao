@@ -397,7 +397,7 @@ export default {
  		name : '项目所在地', 
  		wrapperClass : 'col-md-6' ,   
  		type : 'area',
- 		placeholder: '请添加项目所在地' 
+ 		placeholder: '请添加项目所在地', 
  		validate: {isrequire : true}, 
  	},
  	'proDistriLocation'   : { 
