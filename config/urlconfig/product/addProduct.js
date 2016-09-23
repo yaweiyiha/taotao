@@ -12,13 +12,14 @@ import elementDict from 'config/dict/product-dict'
 urlConfig['fund/add'] =
 {
 	'topbanner' : {
-		'title'      : '产品管理',
+		'title'      : '产品管y理',
 		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增基金产品',
 	},
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -79,6 +80,26 @@ urlConfig['fund/add'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'formlist'   : [
+					[	elementDict.collarCastDesc ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'formlist'   : [
+					[	elementDict.collarCastDesc ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'formlist'   : [
+					[	elementDict.collarCastDesc ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布', 'classList' :'primary '    , 'type' :'button', 'evt' :'release','productCategories' :10 },
@@ -99,6 +120,7 @@ urlConfig['trust/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -174,6 +196,7 @@ urlConfig['asset/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -253,6 +276,7 @@ urlConfig['debtassgin/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -329,6 +353,7 @@ urlConfig['equityInvestment/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[

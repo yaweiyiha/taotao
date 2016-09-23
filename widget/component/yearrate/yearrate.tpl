@@ -50,7 +50,7 @@
 		          <div class="input-group-addon input-title">
 		          	固定下限
 		          </div>
-					<input class="input-control minArr" v-model="minArr" :disabled="disable">
+					<input class="input-control minArr" v-model="minArr" :disabled="disable" />
 					<div class="unit">%</div>
 		      	</div>
 		  	</div>  	
@@ -59,7 +59,7 @@
 		          <div class="input-group-addon input-title">
 		          	浮动上限
 		          </div>
-					<input class="input-control maxArr" v-model="maxArr" :disabled="disable">
+					<input class="input-control maxArr" v-model="maxArr" :disabled="disable" />
 					<div class="unit">%</div>
 		      	</div>
 		  	</div>  	

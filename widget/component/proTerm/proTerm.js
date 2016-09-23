@@ -15,7 +15,7 @@ export default Vue.component('pro-term', {
  		startinginvest : {default : ''},
  		basedays       : {default : '365'},
  		custombasedays : {default : ''},
- 		unitstartingmaturities : {default : ''}
+ 		unitstartingmaturities : {default : '10'}
  	},
  	data: () => ({
  		nonFixTerm : false,
