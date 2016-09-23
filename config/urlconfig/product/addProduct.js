@@ -84,19 +84,25 @@ urlConfig['fund/add'] =
 			{	
 				'panelName' : '产品介绍',
 				'formlist'   : [
-					[	elementDict.collarCastDesc ],
+					[	elementDict.presentType ],
 				],
 			},
 			{	
 				'panelName' : '公司简介',
 				'formlist'   : [
-					[	elementDict.collarCastDesc ],
+					[	elementDict.presentType ],
 				],
 			},
 			{	
 				'panelName' : '了解更多',
 				'formlist'   : [
-					[	elementDict.collarCastDesc ],
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
 				],
 			},
 		],

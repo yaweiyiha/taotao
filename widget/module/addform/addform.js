@@ -4,13 +4,13 @@ import dateControl from 'widget/classComponent/datecontrol/datecontrol';
 import Star from   'widget/component/star/star';
 import singledate from  'widget/component/singledate/singledate';
 import commset from  'widget/component/productcommset/productcommset';
+import editor from 'widget/component/editor/editor';
 import formModel from 'model/formModel';
 import CommType from 'widget/component/commtype/commtype';
 import YearRate from 'widget/component/yearrate/yearrate';
 import VerifyConfirm from 'widget/component/verifyconfirm/verifyconfirm';
 import fundStrategy from 'widget/component/fundStrategy/fundStrategy';
 import Util from 'widget/util/util';
-import editor from 'widget/component/editor/editor';
 import AlertDialog from "widget/classComponent/dialog/alert"
 import citySelectDialog from "widget/classComponent/dialog/citySelectDialog"
 import distributionWay from 'widget/component/distributionWay/distributionWay';
@@ -18,6 +18,8 @@ import CustomEle from "widget/component/customele/customele"
 import foundStatus from "widget/component/foundStatus/foundStatus";
 import proTerm from "widget/component/proTerm/proTerm"
 import Hoster from "widget/component/hoster/hoster"
+import presentType from "widget/component/presentType/presentType"
+import relatedDoc from "widget/component/relatedDoc/relatedDoc"
 import vipChoicenessDistributionWay from "widget/component/vipChoicenessDistributionWay/vipChoicenessDistributionWay";
 
 let style = __inline('./addform.inline.less');

@@ -547,6 +547,8 @@ export default {
  	'collarCastDesc'   : { type : 'editor'},
  	'commissionType'   : { type : 'CommType', validate: {isrequire : true} },
  	'hoster'  		   : { type : 'hoster'},
+ 	'presentType'  	   : { type : 'presentType'},
+ 	'relatedDoc'       : { type : 'relatedDoc'},
  	'foundStatus'      : { type : 'foundStatus'},
  	'distributionWay'  : { type : 'distributionWay'},
  	'fundStrategy'	   : { type : 'fundStrategy'},

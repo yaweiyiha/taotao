@@ -64,6 +64,11 @@
                     >
                     </custom-ele>
                   </template>
+
+                  <template v-if="li.type === 'relatedDoc'">
+                    <relateddoc></relateddoc>
+                  </template>
+
                   <template v-if="li.type === 'year-rate'">
                       <year-rate
                         :arr-type-fk="item.arrTypeFk"
@@ -133,6 +138,11 @@
                         :disable="options.disable">
                       </hoster>
                   </template>
+
+                  <template v-if="li.type === 'presentType'">
+                      <presenttype></presenttype>
+                  </template>
+
                   <template v-if="li.type === 'editor'">
                     <editor :disable="options.disable"></editor>
                   </template>
