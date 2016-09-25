@@ -15,10 +15,10 @@ export default Vue.component('editor', {
  	data: () => ({
  		height: '300px',
  		width: '100%',
- 		rid: 'introductionContent'
+ 		rid: 'introductionContent' + '-' + (+new Date())
  	}),
  	ready: function () {
- 		/*this.rid += '-' + (+new Date());*/
+ 		//this.rid += '-' + (+new Date());
  		_editable=true;
  		var isReadonly = !_editable;
  		var introductionEditor = new baidu.editor.ui.Editor({
@@ -35,7 +35,7 @@ export default Vue.component('editor', {
 			initialFrameWidth: '100%',
 			maximumWords:50000
 		});
-		introductionEditor.render('introductionContent');  //editor为编辑器容器的id
+		introductionEditor.render(this.rid);  //editor为编辑器容器的id
  		/*editor = UE.getEditor(this.rid);*/
  	},
  	methods: {
