@@ -6,8 +6,16 @@
 			<p><a align="right" type="button" class="btn btn-info add" >预览公司简介</a></p>
 		</div>
 		<div class="col-md-12">
-			<!-- <div id="{{rid}}" v-bind:style="{ height: height, width: width }"></div> -->
-			<p style="margin-left:0;color:#333;">支持png，jpg，jpeg，bmp四种图片格式，为保证pad前台展示效果，如若撑满pad屏幕宽度，建议图片宽度为1988px ，高度不超过720px。</p>
+			<div class="form-group">
+				<div class="input-group">
+					<textarea id="{{rid}}" v-bind:style="{ height: height, width: width }"></textarea>
+					<p style="margin-left:0;color:#333;line-height:24px;">支持png，jpg，jpeg，bmp四种图片格式，为保证pad前台展示效果，如若撑满pad屏幕宽度，建议图片宽度为1988px ，高度不超过720px。</p>
+				</div>
+			</div>
 		</div>
+		<!-- <div class="col-md-12">
+			<div id="{{rid}}" v-bind:style="{ height: height, width: width }"></div>
+			<p style="margin-left:0;color:#333;">支持png，jpg，jpeg，bmp四种图片格式，为保证pad前台展示效果，如若撑满pad屏幕宽度，建议图片宽度为1988px ，高度不超过720px。</p>
+		</div> -->
 	</div>
 </div>

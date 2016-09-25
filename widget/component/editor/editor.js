@@ -15,11 +15,11 @@ export default Vue.component('editor', {
  	data: () => ({
  		height: '300px',
  		width: '100%',
- 		rid: 'editor-box'
+ 		rid: 'introductionContent'
  	}),
  	ready: function () {
- 		/*this.rid += '-' + (+new Date());
- 		editor = UE.getEditor(this.rid);*/
+ 		this.rid += '-' + (+new Date());
+ 		editor = UE.getEditor(this.rid);
  	},
  	methods: {
  		submit: () => {
