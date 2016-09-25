@@ -12,7 +12,7 @@ import elementDict from 'config/dict/product-dict'
 urlConfig['fund/add'] =
 {
 	'topbanner' : {
-		'title'      : '产品管y理',
+		'title'      : '产品管理',
 		'subtitle'   : {'name': '产品维护', 'url' : '#main/product/maintenance' }, 
 		'thirdTitle' : '新增基金产品',
 	},
@@ -83,24 +83,32 @@ urlConfig['fund/add'] =
 		[
 			{	
 				'panelName' : '产品介绍',
+				'padShowName': '1',
+				'receptionShow': '1',
 				'formlist'   : [
 					[	elementDict.presentType ],
 				],
 			},
 			{	
 				'panelName' : '公司简介',
+				'padShowName': '1',
+				'receptionShow': '1',
 				'formlist'   : [
 					[	elementDict.presentType ],
 				],
 			},
 			{	
 				'panelName' : '了解更多',
+				'padShowName': '1',
+				'receptionShow': '1',
 				'formlist'   : [
 					[	elementDict.presentType ],
 				],
 			},
 			{	
 				'panelName' : '相关文件',
+				'padShowName': '1',
+				'receptionShow': '1',
 				'formlist'   : [
 					[	elementDict.relatedDoc  ],
 				],

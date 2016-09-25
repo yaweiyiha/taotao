@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group input-group"> 
-			    	<div class="input-group-addon input-title">图片
+			    	<div class="input-group-addon input-title">文件名称
 			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
 			    	</div>
 			    	<input 
@@ -17,7 +17,7 @@
 					data-des="图片" 
 					data-key="introductionPhotoName"   
 					class="input-control"
-					placeholder="请输入图片文件"  
+					placeholder="请输入文件名称"  
 					:disabled="disable"
 					value="{{introductionPhotoName}}" /> 
 				</div>
@@ -33,9 +33,9 @@
 				</div>
 			</div>
 			<div class="col-md-2 col-md-right btn-group">
-				<button type="button" class="btn btn-info delete">删除</button>&nbsp;&nbsp;
-				<button type="button" class="up" style=" width:20px; height:30px; border:0; background:url(static/img/up.png) no-repeat left top"></button>&nbsp;&nbsp;
-				<button type="button" class="down" style=" width:20px; height:30px; border:0; background:url(static/img/down.png) no-repeat left top"></button>&nbsp;&nbsp;
+				<button type="button" class="btn btn-info delete" @click="remove(item)">删除</button>&nbsp;&nbsp;
+				<button type="button" class="up"></button>&nbsp;&nbsp;
+				<button type="button" class="down"></button>&nbsp;&nbsp;
 			</div>
 		</div>
 	</template>

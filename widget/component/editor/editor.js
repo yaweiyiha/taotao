@@ -18,8 +18,8 @@ export default Vue.component('editor', {
  		rid: 'editor-box'
  	}),
  	ready: function () {
- 		this.rid += '-' + (+new Date());
- 		editor = UE.getEditor(this.rid);
+ 		/*this.rid += '-' + (+new Date());
+ 		editor = UE.getEditor(this.rid);*/
  	},
  	methods: {
  		submit: () => {

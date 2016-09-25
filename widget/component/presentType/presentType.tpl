@@ -13,11 +13,11 @@
 	        </div>
 	    </div>
 	</div>
-	{{intrtype}}
+	
 	<!-- 富文本 -->
 	<template v-if="intrtype == '0'">
 		<div class="row">
-			<editor :disable="options.disable"></editor>
+			<editor></editor>
         </div>
 	</template>
 
