@@ -18,8 +18,25 @@ export default Vue.component('editor', {
  		rid: 'introductionContent'
  	}),
  	ready: function () {
- 		this.rid += '-' + (+new Date());
- 		editor = UE.getEditor(this.rid);
+ 		/*this.rid += '-' + (+new Date());*/
+ 		_editable=true;
+ 		var isReadonly = !_editable;
+ 		var introductionEditor = new baidu.editor.ui.Editor({
+			toolbars:[[ 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 
+			'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 
+			'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
+			'selectall', 'cleardoc', '|','customstyle', 'paragraph', 'fontfamily', 'fontsize',
+			'|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','insertimage', 'emotion']],
+			autoFloatEnabled: false,
+			readonly:isReadonly,
+			autoHeightEnabled: false,
+			zIndex:899,
+			initialFrameHeight:300, //初始化高度
+			initialFrameWidth: '100%',
+			maximumWords:50000
+		});
+		introductionEditor.render('introductionContent');  //editor为编辑器容器的id
+ 		/*editor = UE.getEditor(this.rid);*/
  	},
  	methods: {
  		submit: () => {

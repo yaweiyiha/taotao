@@ -215,6 +215,7 @@ fis.match('static/js/ueditor/{lang,themes,third-party,dialogs}/**', {
     useHash: false,
     isMod: false
 });
+
 fis.match('*.png', {
     useMap : true
 });
