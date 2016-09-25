@@ -40,11 +40,13 @@ var scrawl = function (options) {
         },
 
         originalState:function (options) {
-            var me = this;
+            var me = this,
+                url = editor.options.scrawlUrl;
 
             me.brushWidth = options.drawBrushSize;//同步画笔粗细
             me.brushColor = options.drawBrushColor;//同步画笔颜色
 
+            $G("fileForm").action = url + (url.indexOf("?") == -1 ? "?" : "&") + "action=tmpImg";//初始form提交地址
             context.lineWidth = me.brushWidth;//初始画笔大小
             context.strokeStyle = me.brushColor;//初始画笔颜色
             context.fillStyle = "transparent";//初始画布背景颜色
@@ -220,23 +222,12 @@ var scrawl = function (options) {
             });
         },
         _addAddImgListener:function () {
-            var file = $G("J_imgTxt");
-            if (!window.FileReader) {
-                $G("J_addImg").style.display = 'none';
-                $G("J_removeImg").style.display = 'none';
-                $G("J_sacleBoard").style.display = 'none';
-            }
-            domUtils.on(file, "change", function (e) {
+            var doc = document,
+                file = $G("J_imgTxt");
+            domUtils.on(file, "change", function () {
                 var frm = file.parentNode;
                 addMaskLayer(lang.backgroundUploading);
-
-                var target = e.target || e.srcElement,
-                    reader = new FileReader();
-                reader.onload = function(evt){
-                    var target = evt.target || evt.srcElement;
-                    ue_callback(target.result, 'SUCCESS');
-                };
-                reader.readAsDataURL(target.files[0]);
+                frm.submit();
                 frm.reset();
             });
         },
@@ -277,7 +268,7 @@ var scrawl = function (options) {
         _addClearSelectionListenter:function () {
             var doc = document;
             domUtils.on(doc, 'mousemove', function (e) {
-                if (browser.ie && browser.version < 11)
+                if (browser.ie)
                     doc.selection.clear();
                 else
                     window.getSelection().removeAllRanges();
@@ -606,7 +597,7 @@ function ue_callback(url, state) {
             //trace 2457
             obj.btn2Highlight("J_sacleBoard");
         };
-        img.src = url;
+        img.src = editor.options.scrawlPath + url;
     } else {
         alert(state);
     }
@@ -631,19 +622,18 @@ function exec(scrawlObj) {
         addMaskLayer(lang.scrawlUpLoading);
         var base64 = scrawlObj.getCanvasData();
         if (!!base64) {
-            var options = {
+            ajax.request(editor.options.scrawlUrl, {
                 timeout:100000,
+                content:base64,
                 onsuccess:function (xhr) {
                     if (!scrawlObj.isCancelScrawl) {
                         var responseObj;
                         responseObj = eval("(" + xhr.responseText + ")");
                         if (responseObj.state == "SUCCESS") {
                             var imgObj = {},
-                                url = editor.options.scrawlUrlPrefix + responseObj.url;
+                                url = editor.options.scrawlPath + responseObj.url;
                             imgObj.src = url;
                             imgObj._src = url;
-                            imgObj.alt = responseObj.original || '';
-                            imgObj.title = responseObj.title || '';
                             editor.execCommand("insertImage", imgObj);
                             dialog.close();
                         } else {
@@ -656,13 +646,7 @@ function exec(scrawlObj) {
                     alert(lang.imageError);
                     dialog.close();
                 }
-            };
-            options[editor.getOpt('scrawlFieldName')] = base64;
-
-            var actionUrl = editor.getActionUrl(editor.getOpt('scrawlActionName')),
-                params = utils.serializeParam(editor.queryCommandValue('serverparam')) || '',
-                url = utils.formatUrl(actionUrl + (actionUrl.indexOf('?') == -1 ? '?':'&') + params);
-            ajax.request(url, options);
+            });
         }
     } else {
         addMaskLayer(lang.noScarwl + "&nbsp;&nbsp;&nbsp;<input type='button' value='" + lang.continueBtn + "'  onclick='removeMaskLayer()'/>");

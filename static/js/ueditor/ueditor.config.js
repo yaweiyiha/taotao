@@ -21,7 +21,7 @@
      */
 	var pathName=window.document.location.pathname;
 	var projectName=pathName.substring(0,pathName.substr(1).indexOf('/')+1);
-	window.UEDITOR_HOME_URL = projectName+'/static/js/ueditor/';
+	window.UEDITOR_HOME_URL = projectName+'/resources/ueditor1_3_6-utf8-jsp/';
     var URL = window.UEDITOR_HOME_URL || getUEBasePath();
 
     /**
@@ -83,11 +83,19 @@
         //,videoFieldName:"upfile"                    //附件提交的表单名，若此处修改，需要在后台对应文件修改对应参数
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
-        , toolbars:[[ 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 
-                       'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 
-                       'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
-                       'selectall', 'cleardoc', '|','customstyle', 'paragraph', 'fontfamily', 'fontsize',
-                       '|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','insertimage', 'emotion']]
+        , toolbars:[
+            ['fullscreen', 'source', '|', 'undo', 'redo', '|',
+                'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+                'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+                'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+                'directionalityltr', 'directionalityrtl', 'indent', '|',
+                'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+                'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+                'insertimage', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe','insertcode', 'webapp', 'pagebreak', 'template', 'background', '|',
+                'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
+                'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+                'print', 'preview', 'searchreplace', 'help', 'drafts']
+        ]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
 //        ,labelMap:{
 //            'anchor':'', 'undo':''
@@ -139,7 +147,7 @@
 
         //,readonly : false //编辑器初始化结束后,编辑区域是否是只读的，默认是false
 
-        ,zIndex : 10     //编辑器层级的基数,默认是900
+        ,zIndex : 9000000     //编辑器层级的基数,默认是900
 
         //,imagePopup:true      //图片操作的浮层开关，默认打开
 
@@ -286,7 +294,7 @@
 
         //
         //wordCount
-        // ,wordCount: false          //是否开启字数统计
+        //,wordCount:true          //是否开启字数统计
         //,maximumWords:10000       //允许的最大字符数
         //字数统计提示，{#count}代表当前字数，{#leave}代表还可以输入多少字符数,留空支持多语言自动切换，否则按此配置显示
         //,wordCountMsg:''   //当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符
@@ -300,7 +308,7 @@
 
         //elementPathEnabled
         //是否启用元素路径，默认是显示
-        ,elementPathEnabled : false
+        //,elementPathEnabled : true
 
         //removeFormat
         //清除格式时可以删除的标签和属性
@@ -446,5 +454,3 @@
     };
 
 })();
-
-module.exports = window.UEDITOR_CONFIG;
