@@ -373,6 +373,42 @@ var addform = Widget.extend({
             }
         })
 
+        /*container.on('change', 'input.uploadFile', function () {
+                    
+            var filepath=$(this).val();
+            //获得上传文件名
+            var fileArr = filepath.split("\\");
+            
+            if(fileArr != null){
+                var fileTArr = fileArr[fileArr.length-1].toLowerCase().split(".");
+                var filetype = fileTArr[fileTArr.length-1];
+                
+                
+            }
+
+        })*/
+
+        container.on('change', '#uploadFile', function () {
+            var formData = new FormData($('#uploadForm')); 
+            
+            $.ajax({  
+                url: 'filesUpload/singleProductFileUpload' ,  
+                type: 'POST',  
+                data: formData,  
+                async: false,  
+                cache: false,  
+                contentType: false,  
+                processData: false, 
+                dataType: 'json',
+                success: function (returndata) {  
+                    alert(returndata);  
+                },  
+                error: function (returndata) {  
+                    alert(returndata);  
+                }  
+            });    
+            
+        })
     },
     processAddProData : function(role=''){
         let me = this;

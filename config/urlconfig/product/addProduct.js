@@ -83,8 +83,8 @@ urlConfig['fund/add'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': '1',
-				'receptionShow': '1',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
 				'formlist'   : [
 					[	elementDict.presentType ],
 				],

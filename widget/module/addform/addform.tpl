@@ -20,25 +20,29 @@
       <template v-for = "(index,form) in forms">
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{ 'none' : index > 0 }">
           <div v-for = "panel in form" class="sub-panel" >
-              <div class="row title" v-if="panel.panelName" v-bind:class="{'padsty':(panel.padShowName > 0)}">
+              <div class="row title" v-if="panel.panelName" v-bind:class="{'padsty':(panel.padShowName.isHide > 0)}">
                   <div class="col-xs-2"> 
                       <span class="section-title">{{panel.panelName}}</span>
                       <span v-if="panel.subFun" class="icon" data-role="{{panel.subFun}}"></span>
                       <span class="text-strong-red">{{panel.descTitle}}</span>
                   </div>
-                  <div class="col-xs-6" v-if="panel.padShowName">
+
+                  <!-- PAD端显示名称 -->
+                  <div class="col-xs-6" v-if="panel.padShowName.isHide">
                     <div class="input-group">
                       <div class="input-group-addon input-title">PAD端显示名称 
                           <span class="text-strong-red">*</span>
                       </div>
-                      <input class="ipt-sty" value="" maxlength="40" data-key="" placeholder="{{panel.panelName}}" />
+                      <input class="ipt-sty" value="" maxlength="40" data-key="{{panel.padShowName.key}}" placeholder="{{panel.panelName}}" />
                     </div>
                   </div>
-                  <div class="col-xs-4 text-right" v-if="panel.receptionShow">
+                  <!-- 前台不展示 -->
+                  <div class="col-xs-4 text-right" v-if="panel.receptionShow.isHide">
                     <label class="checkbox-inline">
-                      <input type="checkbox" class="checkbox" style="top:7px;">前台不展示
+                      <input type="checkbox" class="checkbox" data-key="{{panel.receptionShow.key}}"  value="" style="top:7px;">前台不展示
                     </label>
                   </div>
+
               </div>
               <div v-if="panel.subFun" data-role="{{panel.subFun}}Content" class="none"> 
                   <div class="row mt10">

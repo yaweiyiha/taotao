@@ -37,7 +37,7 @@
 					class="input-control"
 					placeholder="请输入网站地址"  
 					:disabled="disable" 
-					value="{{webUrl}}" /> 
+					value="" /> 
 				</div>
 			</div>
 		</div>
@@ -56,9 +56,9 @@
 					data-des="标题" 
 					data-key="attachTitle"   
 					class="input-control"
-					placeholder="请输入产品标题"  
+					placeholder=""  
 					:disabled="disable"
-					value="{{attachTitle}}" /> 
+					value="" /> 
 				</div>
 			</div>
 		</div>
@@ -68,24 +68,28 @@
 			    	<div class="input-group-addon input-title">图片
 			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
 			    	</div>
+			    	
 			    	<input 
 					data-valide="required" 
 					data-des="图片" 
-					data-key="introductionPhotoName"   
+					data-key="showName"   
 					class="input-control"
-					placeholder="请输入图片文件"  
+					placeholder="请输入文件名称"  
 					:disabled="disable"
-					value="{{introductionPhotoName}}" />  
+					value="" />  
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group input-group"> 
-			    	<input 
-					data-valide="required" 
-					type="file" 
-					data-key="introductionPhoto"   
-					class="form-control file"
-					accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" /> 
+					<form id="uploadForm" enctype="multipart/form-data">
+				    	<input 
+						type="file" 
+						name="multipartFile" 
+						class="form-control file"
+						id="uploadFile"
+						accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
+						<!-- <input type="button" value="上传" class ="doUpload" /> -->
+					</form>
 				</div>
 			</div>
 		</div>
@@ -98,21 +102,25 @@
 			    	<input 
 					data-valide="required" 
 					data-des="关联" 
-					data-key="introductionVideoName"   
+					data-key="showName"   
 					class="input-control"
-					placeholder="请输入关联文件"  
+					placeholder="请输入文件名称"  
 					:disabled="disable"
-					value="{{introductionVideoName}}" />  
+					value="" />  
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group input-group"> 
-			    	<input 
-					data-valide="required" 
-					type="file" 
-					data-key="introductionPhoto"   
-					class="form-control file"
-					accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" /> 
+				<div class="form-group input-group">
+					
+						<input 
+						class="form-control file" 
+						data-valide="required" 
+						type="file" 
+						name="multipartFile" 
+						data-key="attType"   
+						accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />
+						<input type="button" value="上传" class="doUpload" />
+					
 				</div>
 			</div>
 		</div>
