@@ -80,16 +80,25 @@
 				</div>
 			</div>
 			<div class="col-md-6">
-				<div class="form-group input-group"> 
+				<div class="form-group input-group">
 					<form id="uploadForm" enctype="multipart/form-data">
-				    	<input 
-						type="file" 
-						name="multipartFile" 
-						class="form-control file"
-						id="uploadFile"
-						accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
-						<!-- <input type="button" value="上传" class ="doUpload" /> -->
+						<input name="file" type="file" />
+						<input type="button" value="Upload" id="uploadFile" />
 					</form>
+					<progress></progress>
+					<!-- <form id="uploadForm" method="post" enctype="multipart/form-data">
+						<div class="form-group">
+							<input 
+							type="file" 
+							name="multipartFile" 
+							id="file-field"
+							class="form-control"
+							accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
+			            </div>
+						<div class="form-group">
+			              	<button type="submit" class="btn btn-default btn-submit">Upload</button>
+			            </div>
+					</form> -->
 				</div>
 			</div>
 		</div>
@@ -111,16 +120,13 @@
 			</div>
 			<div class="col-md-6">
 				<div class="form-group input-group">
-					
-						<input 
-						class="form-control file" 
-						data-valide="required" 
-						type="file" 
-						name="multipartFile" 
-						data-key="attType"   
-						accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />
-						<input type="button" value="上传" class="doUpload" />
-					
+					<input 
+					class="form-control file" 
+					data-valide="required" 
+					type="file" 
+					name="multipartFile" 
+					data-key="attType"   
+					accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />					
 				</div>
 			</div>
 		</div>

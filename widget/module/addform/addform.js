@@ -373,42 +373,30 @@ var addform = Widget.extend({
             }
         })
 
-        /*container.on('change', 'input.uploadFile', function () {
-                    
-            var filepath=$(this).val();
-            //获得上传文件名
-            var fileArr = filepath.split("\\");
+        container.on('click','#uploadFile',function(){
             
-            if(fileArr != null){
-                var fileTArr = fileArr[fileArr.length-1].toLowerCase().split(".");
-                var filetype = fileTArr[fileTArr.length-1];
-                
-                
-            }
+        });
 
+        /*container.on('change', '#uploadFile', function () {
+            // uploadFile = “file”的input元素
+            // 每当选择文件后立即发送Ajax请求
+            
+            //'filesUpload/singleProductFileUpload'是具体发送POST请求针对的服务器URL
+            $.ajax('filesUpload/singleProductFileUpload', {
+                type: 'POST',
+                files: $('#uploadFile'),
+                iframe: true,
+                // 注意如果服务器返回结果是JSON，dataType要设置
+                dataType: 'json'
+            }).done(function(data) {
+                // 这里data是JavaScript对象
+                console.log('done()', data);
+            }).fail(function() {
+                console.log('fail()');
+            }).always(function() {
+                console.log('always()');
+            });
         })*/
-
-        container.on('change', '#uploadFile', function () {
-            var formData = new FormData($('#uploadForm')); 
-            
-            $.ajax({  
-                url: 'filesUpload/singleProductFileUpload' ,  
-                type: 'POST',  
-                data: formData,  
-                async: false,  
-                cache: false,  
-                contentType: false,  
-                processData: false, 
-                dataType: 'json',
-                success: function (returndata) {  
-                    alert(returndata);  
-                },  
-                error: function (returndata) {  
-                    alert(returndata);  
-                }  
-            });    
-            
-        })
     },
     processAddProData : function(role=''){
         let me = this;

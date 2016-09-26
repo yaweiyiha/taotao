@@ -124,6 +124,7 @@ fis.match('::package', {
             'static/js/controller.js',
             'static/js/model.js',
             'static/js/widget.js',
+            'static/js/jquery.iframe-transport.js',
             '/widget/util/*.js',
             '/route/route.js'
         ],

@@ -145,6 +145,7 @@ var distriform = Widget.extend({
           var MAXWIDTH  = 260; 
           var MAXHEIGHT = 180;
 
+
           if (file.files && file.files[0])
           {
               // imageContainer.onload = function(){
@@ -157,6 +158,7 @@ var distriform = Widget.extend({
               var reader = new FileReader();
               reader.onload = function(evt){
                 imageContainer.src = evt.target.result;
+
                 $(imageContainer).on('click', function () {
                   $(me.vm.$el).find('.attachment-view-wrapper img').attr('src', imageContainer.src);
                   $(me.vm.$el).find('.attachment-view-wrapper').show();
