@@ -373,30 +373,27 @@ var addform = Widget.extend({
             }
         })
 
-        container.on('click','#uploadFile',function(){
-            
-        });
-
-        /*container.on('change', '#uploadFile', function () {
-            // uploadFile = “file”的input元素
-            // 每当选择文件后立即发送Ajax请求
-            
-            //'filesUpload/singleProductFileUpload'是具体发送POST请求针对的服务器URL
-            $.ajax('filesUpload/singleProductFileUpload', {
-                type: 'POST',
-                files: $('#uploadFile'),
-                iframe: true,
-                // 注意如果服务器返回结果是JSON，dataType要设置
-                dataType: 'json'
-            }).done(function(data) {
-                // 这里data是JavaScript对象
-                console.log('done()', data);
-            }).fail(function() {
-                console.log('fail()');
-            }).always(function() {
-                console.log('always()');
-            });
-        })*/
+        //文件上传功能
+        container.on('click', '.uploadFile', function () {
+             var formData = new FormData($(this).parents(".uploadForm")[0]);  
+             $.ajax({  
+                url: 'filesUpload/singleProductFileUpload' ,  
+                type: 'POST',  
+                data: formData,  
+                async: false,
+                cache: false, 
+                contentType: false,  
+                processData: false,  
+                success: function (response) {  
+                    if(response.msg == 'success'){
+                        uploadFileData = response.item;
+                    }
+                },  
+                error: function (response) {  
+                    alert(response.msg);  
+                }  
+             });
+        })
     },
     processAddProData : function(role=''){
         let me = this;

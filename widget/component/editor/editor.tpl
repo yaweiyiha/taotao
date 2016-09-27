@@ -3,7 +3,7 @@
 <div class="styleguide admin-widget-editor">
 	<div class="row">
 		<div class="col-md-6">
-			<p><a align="right" type="button" class="btn btn-info add" @click="showprepro">预览公司简介</a></p>
+			<p><a align="right" type="button" class="btn btn-info add" @click="submit">预览公司简介</a></p>
 		</div>
 		<div class="col-md-12">
 			<div class="form-group">

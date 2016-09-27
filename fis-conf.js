@@ -117,14 +117,13 @@ fis.match('test/data/**.js', {
 fis.match('::package', {
     packager: fis.plugin('map', {
         'static/core-lib.js': [
-            'static/lib/**.js',
+            'static/lib/**.js'
         ],
         'static/core-js.js': [
             '/config/**.js',
             'static/js/controller.js',
             'static/js/model.js',
             'static/js/widget.js',
-            'static/js/jquery.iframe-transport.js',
             '/widget/util/*.js',
             '/route/route.js'
         ],
