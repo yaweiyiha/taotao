@@ -13,7 +13,13 @@ export default Vue.component('presenttype', {
  	template: tpl,
  	props: {
  		disable        : {default: false},
- 		intrtype       : {default : '0'},
+ 		introductionType : {default : '0'},
+ 		intrtype: {default: ''},
+ 		panelname : {default : ''},
+ 		imgatttype: {default: ''},
+ 		videoatttype : {default : ''},
+ 		richatttype : {default : ''},
+ 		relateatttype: {default : ''},
  	},
  	data: () => ({
  		

@@ -1,11 +1,11 @@
 
-<div class="styleguide admin-widget-presentType">
+<div class="styleguide admin-widget-presentType" data-intrtype="{{intrtype}}">
 	<div class="row">
 		<div class="col-md-6">
 		    <div class="form-group">
 		        <div class="input-group">
 		            <div class="input-group-addon" >展示类型</div>
-	                <select class="input-control valid" data-key="introductionType" v-model="intrtype" :disabled="disable" is-num="1">
+	                <select class="input-control introductionType" name="introductionType" v-model="introductionType" :disabled="disable" is-num="1">
 	                    <option value="0" >富文本</option>
 	                    <option value="1" >外部网站</option>
 	                    <option value="2" >视频、文件</option>
@@ -16,14 +16,17 @@
 	</div>
 	
 	<!-- 富文本 -->
-	<template v-if="intrtype == '0'">
+	<template v-if="introductionType == '0'">
 		<div class="row">
-			<editor></editor>
+			<editor
+			:richatttype="richatttype"
+			:panelname="panelname"
+			></editor>
         </div>
 	</template>
 
 	<!-- 外部网站 -->
-	<template v-if="intrtype == '1'">
+	<template v-if="introductionType == '1'">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group input-group"> 
@@ -32,20 +35,19 @@
 			    	</div>
 			    	<div class="input-group-addon input-title" style="min-width:50px;">http://</div>
 			    	<input 
-					data-valide="required" 
-					data-des="网站地址" 
-					data-key="webUrl"
-					class="input-control"
-					placeholder="请输入网站地址"  
-					:disabled="disable" 
-					value="" /> 
+			    	type="text" 
+					name="webUrl"
+					class="input-control webUrl"
+					value=""
+					placeholder="请输入网站地址" 
+					/> 
 				</div>
 			</div>
 		</div>
 	</template>
 
 	<!-- 视频、文件 -->
-	<template v-if="intrtype == '2'">
+	<template v-if="introductionType == '2'">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group input-group"> 
@@ -53,12 +55,10 @@
 			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
 			    	</div>
 			    	<input 
-					data-valide="required" 
-					data-des="标题" 
-					data-key="attachTitle"   
-					class="input-control"
-					placeholder=""  
-					:disabled="disable"
+			    	type="text" 
+					name="attachTitle"   
+					class="input-control attachTitle"
+					placeholder="请输入标题"
 					value="" /> 
 				</div>
 			</div>
@@ -70,16 +70,13 @@
 			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
 			    	</div>
 			    	<input 
-					data-valide="required" 
-					data-des="图片" 
-					data-key="showName"   
-					class="input-control"
-					placeholder="请输入文件名称"  
-					:disabled="disable"
+					name="showName"   
+					class="input-control imgShowName"
+					placeholder="请输入文件名称"
 					value="" />  
 				</div>
 			</div>
-			<form class="uploadForm" enctype="multipart/form-data" >
+			<form class="uploadForm" enctype="multipart/form-data" data-imgatttype="{{imgatttype}}" >
 				<div class="col-md-4">
 					<div class="form-group input-group">
 						<input type="file" name="multipartFile" class="form-control" accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
@@ -99,16 +96,14 @@
 			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
 			    	</div>
 			    	<input 
-					data-valide="required" 
-					data-des="关联" 
-					data-key="showName"   
-					class="input-control"
+					name="showName"   
+					class="input-control videoShowName"
 					placeholder="请输入文件名称"  
 					:disabled="disable"
 					value="" />  
 				</div>
 			</div>
-			<form class="uploadForm" enctype="multipart/form-data" >
+			<form class="uploadForm" enctype="multipart/form-data" data-videoatttype="{{videoatttype}}">
 				<div class="col-md-4">
 					<div class="form-group input-group">
 						<input class="form-control" type="file" name="multipartFile" accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />

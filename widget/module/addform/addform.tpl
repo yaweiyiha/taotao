@@ -20,7 +20,8 @@
 
       <template v-for = "(index,form) in forms">
         <div class="panel-body"  form-index= '{{index}}' v-bind:class="{ 'none' : index > 0 }">
-          <div v-for = "panel in form" class="sub-panel" >
+          <template  v-for = "panel in form">
+            <div class="sub-panel" data-intrtype={{panel.intrType}} data-imgatttype={{panel.imgAttType}} data-videoatttype={{panel.videoAttType}} data-richatttype={{panel.richAttType}} data-relateatttype={{panel.relateAttType}} v-bind:class="{'intrType':(panel.padShowName.isHide > 0)}">
               <div class="row title" v-if="panel.panelName" v-bind:class="{'padsty':(panel.padShowName.isHide > 0)}">
                   <div class="col-xs-2"> 
                       <span class="section-title">{{panel.panelName}}</span>
@@ -34,17 +35,17 @@
                       <div class="input-group-addon input-title">PAD端显示名称 
                           <span class="text-strong-red">*</span>
                       </div>
-                      <input class="ipt-sty" value="" maxlength="40" data-key="{{panel.padShowName.key}}" placeholder="{{panel.panelName}}" />
+                      <input class="ipt-sty padShowName" value="" maxlength="40" name="{{panel.padShowName.key}}" placeholder="{{panel.panelName}}" />
                     </div>
                   </div>
                   <!-- 前台不展示 -->
                   <div class="col-xs-4 text-right" v-if="panel.receptionShow.isHide">
                     <label class="checkbox-inline">
-                      <input type="checkbox" class="checkbox" data-key="{{panel.receptionShow.key}}"  value="" style="top:7px;">前台不展示
+                      <input type="checkbox" class="checkbox receptionShow" name="{{panel.receptionShow.key}}"  value="" style="top:7px;">前台不展示
                     </label>
                   </div>
-
               </div>
+          
               <div v-if="panel.subFun" data-role="{{panel.subFun}}Content" class="none"> 
                   <div class="row mt10">
                     <div class="col-md-5 input-wrapper rt">
@@ -158,7 +159,14 @@
                   </template>
 
                   <template v-if="li.type === 'presentType'">
-                      <presenttype></presenttype>
+                      <presenttype
+                      :panelname="panel.panelName"
+                      :intrtype="panel.intrType"
+                      :imgatttype="panel.imgAttType"
+                      :videoatttype="panel.videoAttType"
+                      :richatttype="panel.richAttType"
+                      :relateatttype="panel.relateAttType"
+                      ></presenttype>
                   </template>
 
                   <template v-if="li.type === 'editor'">
@@ -268,12 +276,17 @@
    
           </div>
         </template>
+        </div>
+        </template>
+        </div>
       </template>
+
       <div class="tac">
           <template v-for="bt in buttonlist">
               <button class="custom-button {{bt.classList}}" data-role="{{bt.evt}}" pro="{{bt.productCategories}}">{{bt.name}}</button> 
-      </template> 
+          </template> 
       </div>
+
       <div class="buttons-wrapper">
           <template v-for="bt in buttons">
               <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}">{{bt.name}}</button> 

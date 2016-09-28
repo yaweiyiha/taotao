@@ -62,6 +62,7 @@ var addform = Widget.extend({
             containsLeftValue   : '0',
             investModeFk        : '10',
         }
+        prointrimgData = '',prointrvideoData='',cmpcofmimgData='',cmpcofmvideoData='',knowmoreimgData='',knowmorevideoData='';
 
         data.item = Object.assign({}, defaultData, data.item);
  
@@ -374,9 +375,14 @@ var addform = Widget.extend({
         })
 
         //文件上传功能
+
         container.on('click', '.uploadFile', function () {
-             var formData = new FormData($(this).parents(".uploadForm")[0]);  
-             $.ajax({  
+            let intrtypeVal = $('.admin-widget-presentType').attr('data-intrtype');
+            let imgatttypeVal = $(this).parents('.uploadForm').attr('data-imgatttype');
+            let videoatttype = $(this).parents('.uploadForm').attr('data-videoatttype');
+            
+            let formData = new FormData($(this).parents(".uploadForm")[0]);
+            $.ajax({  
                 url: 'filesUpload/singleProductFileUpload' ,  
                 type: 'POST',  
                 data: formData,  
@@ -386,13 +392,42 @@ var addform = Widget.extend({
                 processData: false,  
                 success: function (response) {  
                     if(response.msg == 'success'){
-                        uploadFileData = response.item;
+                        //产品介绍
+                        if(intrtypeVal = 10){
+                            if(imgatttypeVal == 10){
+                                prointrimgData = response.item;
+                            }
+                            if(videoatttype == 20){
+                                prointrvideoData = response.item;
+                            }
+                        }
+
+                        //公司简介
+                        if(intrtypeVal = 40){
+                            if(imgatttypeVal == 40){
+                                cmpcofmimgData = response.item;
+                            }
+                            if(videoatttype == 50){
+                                cmpcofmvideoData = response.item;
+                            }
+                        }
+
+                        //了解更多
+                        if(intrtypeVal = 70){
+                            if(imgatttypeVal == 70){
+                                knowmoreimgData = response.item;
+                            }
+                            if(videoatttype == 80){
+                                knowmorevideoData = response.item;
+                            }
+                        }
+
                     }
                 },  
                 error: function (response) {  
                     alert(response.msg);  
                 }  
-             });
+            });
         })
     },
     processAddProData : function(role=''){
@@ -475,7 +510,107 @@ var addform = Widget.extend({
             data.product.id = _APP_HASH.id
         }
 
-        return  data;
+        //公司介绍数据
+        //let intrExtentContainer = container.find('.intrType');
+        let intrExtentData = [];
+
+        container.find('.intrType').each(function(idx,ele){
+            
+            let attachmentData = [];
+
+            let intrTypeVal = $(ele).attr('data-intrType');
+            let imgatttypeVal = $(ele).attr('data-imgatttype');
+            let videoatttypeVal = $(ele).attr('data-videoatttype');
+            let richatttypeVal = $(ele).attr('data-richatttype');
+            let relateatttypeVal = $(ele).attr('data-relateatttype');
+
+            let padNameVal = $(ele).find('.padShowName').val();
+            let isShowVal = $(ele).find('.receptionShow').prop('checked');
+            let introductionTypeVal = $(ele).find('.introductionType option:selected').val();
+            let introductionVal = $(ele).find('.introduction').val();
+            let webUrlVal = $(ele).find('input.webUrl').val();
+            let attachTitleVal = $(ele).find('input.attachTitle').val();
+
+            let imgShowNameVal = $(ele).find('input.imgShowName').val();
+            let videoShowNameVal = $(ele).find('input.videoShowName').val();
+
+
+            if(intrTypeVal == 10){
+                if(imgatttypeVal == 10){
+                    if(prointrimgData){
+                        prointrimgData.attType = 10;
+                        prointrimgData.showName = imgShowNameVal;
+                        attachmentData.push(prointrimgData);
+                    }
+                }
+                if(videoatttypeVal == 20){
+                    if(prointrvideoData){
+                        prointrvideoData.attType = 20;
+                        prointrvideoData.showName = videoShowNameVal;
+                        attachmentData.push(prointrvideoData);
+                    }
+                }
+            }
+
+            if(intrTypeVal == 40){
+                if(imgatttypeVal == 40){
+                    if(cmpcofmimgData){
+                        cmpcofmimgData.attType = 40;
+                        cmpcofmimgData.showName = imgShowNameVal;
+                        attachmentData.push(cmpcofmimgData);
+                    }
+                    
+                }
+                if(videoatttypeVal == 50){
+                    if(cmpcofmvideoData){
+                        cmpcofmvideoData.attType = 50;
+                        cmpcofmvideoData.showName = videoShowNameVal;
+                        attachmentData.push(cmpcofmvideoData);
+                    }
+                }
+            }
+
+            if(intrTypeVal == 70){
+                if(imgatttypeVal == 70){
+                    if(knowmoreimgData){
+                        knowmoreimgData.attType = 70;
+                        knowmoreimgData.showName = imgShowNameVal;
+                        attachmentData.push(knowmoreimgData);
+                    }
+                }
+                if(videoatttypeVal == 80){
+                    if(knowmorevideoData){
+                        knowmorevideoData.attType = 80;
+                        knowmorevideoData.showName = videoShowNameVal;
+                        attachmentData.push(knowmorevideoData);
+                    }
+                    
+                }
+            }
+
+            if(intrTypeVal == 100){
+                
+            }
+            
+
+            intrExtentData[idx] = {
+                intrType     : intrTypeVal?intrTypeVal:'',
+                padName      : padNameVal?padNameVal:'',
+                isShow       : isShowVal?isShowVal:'',
+                introductionType : introductionTypeVal?introductionTypeVal:'',
+                introduction : '',
+                webUrl       : webUrlVal?webUrlVal:'',
+                attachTitle  : attachTitleVal?attachTitleVal:'',
+                attachmentList : attachmentData
+            }
+        })
+        
+        console.log(JSON.stringify(intrExtentData));
+
+        //data.introductionExtendList = 
+        //alert(JSON.stringify(data));
+
+        //return  data;
     },
     validateSubmitData : function(){
 

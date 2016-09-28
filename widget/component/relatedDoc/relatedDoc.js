@@ -26,6 +26,14 @@ export default Vue.component('relateddoc', {
  		},
  		remove: function (item) {
  			this.list.$remove(item);
+ 		},
+ 		up: function(){
+ 			for(var i=0;i<this.list.length;i++){
+
+ 			}
+ 		},
+ 		down: function(){
+			
  		}
  	},
  	computed: {

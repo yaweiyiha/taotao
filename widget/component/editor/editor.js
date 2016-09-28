@@ -1,5 +1,6 @@
-/*import UE_config from 'static/js/ueditor/ueditor.config.js';*/
-/*import UE from 'static/js/ueditor/ueditor.all.js';*/
+import UE_config from 'static/js/ueditor/ueditor.config.js';
+//debugger;
+import UE from 'static/js/ueditor/ueditor.all.min.js';
 
 let style = __inline('./editor.inline.less');
 let tpl = __inline('./editor.tpl');
@@ -12,6 +13,10 @@ require.loadCss({
 
 export default Vue.component('editor', {
  	template: tpl,
+ 	props: {
+ 		panelname: {default : ''},
+ 		richatttype: {default : ''},
+ 	},
  	data: () => ({
  		height: '300px',
  		width: '100%',
@@ -21,7 +26,7 @@ export default Vue.component('editor', {
  	ready: function () {
  		//this.rid += '-' + (+new Date());
  		//editor = UE.getEditor(this.rid);
- 		introductionEditor = new baidu.editor.ui.Editor({
+ 		this.introductionEditor = new baidu.editor.ui.Editor({
 			toolbars:[[ 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 
 			'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 
 			'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
@@ -35,8 +40,7 @@ export default Vue.component('editor', {
 			initialFrameWidth: '100%',
 			maximumWords: 50000
 		});
-		introductionEditor.render(this.rid); //editor为编辑器容器的id
- 		
+		this.introductionEditor.render(this.rid); //editor为编辑器容器的id
  	},
  	methods: {
  		submit: () => {
