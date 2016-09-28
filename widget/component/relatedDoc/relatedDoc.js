@@ -10,7 +10,13 @@ export default Vue.component('relateddoc', {
  	template: tpl,
  	props: {
  		list: {default: []},
- 		disable: {default: false}
+ 		disable: {default: false},
+ 		intrtype: {default: ''},
+ 		panelname : {default : ''},
+ 		imgatttype: {default: ''},
+ 		videoatttype : {default : ''},
+ 		richatttype : {default : ''},
+ 		relateatttype: {default : ''},
  	},
  	data: () => ({
  		output: ''
@@ -27,13 +33,13 @@ export default Vue.component('relateddoc', {
  		remove: function (item) {
  			this.list.$remove(item);
  		},
- 		up: function(){
- 			for(var i=0;i<this.list.length;i++){
-
- 			}
+ 		up: function(event){
+ 			var pRow = $(event.target).parents('.relatedocitem');
+			pRow.prev().before(pRow);
  		},
- 		down: function(){
-			
+ 		down: function(event){
+			var pRow = $(event.target).parents('.relatedocitem');
+			pRow.next().after(pRow);
  		}
  	},
  	computed: {

@@ -85,7 +85,14 @@
                   </template>
 
                   <template v-if="li.type === 'relatedDoc'">
-                    <relateddoc></relateddoc>
+                    <relateddoc
+                    :panelname="panel.panelName"
+                    :intrtype="panel.intrType"
+                    :imgatttype="panel.imgAttType"
+                    :videoatttype="panel.videoAttType"
+                    :richatttype="panel.richAttType"
+                    :relateatttype="panel.relateAttType"
+                    ></relateddoc>
                   </template>
 
                   <template v-if="li.type === 'year-rate'">

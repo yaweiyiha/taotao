@@ -62,7 +62,12 @@ var addform = Widget.extend({
             containsLeftValue   : '0',
             investModeFk        : '10',
         }
-        prointrimgData = '',prointrvideoData='',cmpcofmimgData='',cmpcofmvideoData='',knowmoreimgData='',knowmorevideoData='';
+        prointrimgData = '',
+        prointrvideoData='',
+        cmpcofmimgData='',
+        cmpcofmvideoData='',
+        knowmoreimgData='',
+        knowmorevideoData='';
 
         data.item = Object.assign({}, defaultData, data.item);
  
@@ -377,11 +382,20 @@ var addform = Widget.extend({
         //文件上传功能
 
         container.on('click', '.uploadFile', function () {
-            let intrtypeVal = $('.admin-widget-presentType').attr('data-intrtype');
-            let imgatttypeVal = $(this).parents('.uploadForm').attr('data-imgatttype');
-            let videoatttype = $(this).parents('.uploadForm').attr('data-videoatttype');
+            let ele = $(this);
             
-            let formData = new FormData($(this).parents(".uploadForm")[0]);
+            if(!(ele.parents('.uploadForm').find('input[name="multipartFile"]').val())){
+                ele.parents('.uploadForm').find('.uploadSuccessTips').html('');
+                return false;
+            }
+            
+            let intrtypeVal = $('.admin-widget-presentType').attr('data-intrtype');
+            let imgatttypeVal = ele.parents('.uploadForm').attr('data-imgatttype');
+            let videoatttypeVal = ele.parents('.uploadForm').attr('data-videoatttype');
+            let relateatttypeVal = ele.parents('.uploadForm').attr('data-relateatttype');
+            
+            let formData = new FormData(ele.parents(".uploadForm")[0]);
+            
             $.ajax({  
                 url: 'filesUpload/singleProductFileUpload' ,  
                 type: 'POST',  
@@ -397,7 +411,7 @@ var addform = Widget.extend({
                             if(imgatttypeVal == 10){
                                 prointrimgData = response.item;
                             }
-                            if(videoatttype == 20){
+                            if(videoatttypeVal == 20){
                                 prointrvideoData = response.item;
                             }
                         }
@@ -407,7 +421,7 @@ var addform = Widget.extend({
                             if(imgatttypeVal == 40){
                                 cmpcofmimgData = response.item;
                             }
-                            if(videoatttype == 50){
+                            if(videoatttypeVal == 50){
                                 cmpcofmvideoData = response.item;
                             }
                         }
@@ -417,11 +431,20 @@ var addform = Widget.extend({
                             if(imgatttypeVal == 70){
                                 knowmoreimgData = response.item;
                             }
-                            if(videoatttype == 80){
+                            if(videoatttypeVal == 80){
                                 knowmorevideoData = response.item;
                             }
                         }
 
+                        //相关文件
+                        if(intrtypeVal = 100){
+                            if(relateatttypeVal==100){
+                                ele.parents('.uploadForm').find('input[name="multipartFile"]')
+                                .attr('data-result',JSON.stringify(response.item));
+                            }
+                        }
+
+                        ele.parents('.uploadForm').find('.uploadSuccessTips').html('上传成功');
                     }
                 },  
                 error: function (response) {  
@@ -525,7 +548,7 @@ var addform = Widget.extend({
             let relateatttypeVal = $(ele).attr('data-relateatttype');
 
             let padNameVal = $(ele).find('.padShowName').val();
-            let isShowVal = $(ele).find('.receptionShow').prop('checked');
+            let isShowVal = $(ele).find('.receptionShow').prop('checked')?0:1;
             let introductionTypeVal = $(ele).find('.introductionType option:selected').val();
             let introductionVal = $(ele).find('.introduction').val();
             let webUrlVal = $(ele).find('input.webUrl').val();
@@ -584,12 +607,19 @@ var addform = Widget.extend({
                         knowmorevideoData.showName = videoShowNameVal;
                         attachmentData.push(knowmorevideoData);
                     }
-                    
                 }
             }
 
             if(intrTypeVal == 100){
-                
+                if(relateatttypeVal == 100){
+                    $('#relatedocList .relatedocitem').each(function(index,element){
+                        resultData = JSON.parse($(element).find('input[name="multipartFile"]').attr('data-result'));
+                        resultData.sort = index;
+                        resultData.attType = 100;
+                        resultData.showName = $(element).find('input[name="showName"]').val();
+                        attachmentData.push(resultData);
+                    })
+                }
             }
             
 
@@ -604,11 +634,9 @@ var addform = Widget.extend({
                 attachmentList : attachmentData
             }
         })
-        
-        console.log(JSON.stringify(intrExtentData));
 
-        //data.introductionExtendList = 
-        //alert(JSON.stringify(data));
+        data.introductionExtendList = intrExtentData;
+        console.log(JSON.stringify(data));
 
         //return  data;
     },

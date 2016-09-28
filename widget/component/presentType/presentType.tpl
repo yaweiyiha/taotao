@@ -78,8 +78,9 @@
 			</div>
 			<form class="uploadForm" enctype="multipart/form-data" data-imgatttype="{{imgatttype}}" >
 				<div class="col-md-4">
-					<div class="form-group input-group">
+					<div class="form-group input-group uploadSuccess">
 						<input type="file" name="multipartFile" class="form-control" accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
+						<span class="text-strong-red uploadSuccessTips"></span>
 					</div>
 				</div>
 				<div class="col-md-2">
@@ -105,8 +106,9 @@
 			</div>
 			<form class="uploadForm" enctype="multipart/form-data" data-videoatttype="{{videoatttype}}">
 				<div class="col-md-4">
-					<div class="form-group input-group">
+					<div class="form-group input-group uploadSuccess">
 						<input class="form-control" type="file" name="multipartFile" accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />
+						<span class="text-strong-red uploadSuccessTips"></span>
 					</div>
 				</div>
 				<div class="col-md-2">
