@@ -1,6 +1,7 @@
 import UE_config from 'static/js/ueditor/ueditor.config.js';
-//debugger;
-import UE from 'static/js/ueditor/ueditor.all.min.js';
+import UE from 'static/js/ueditor/ueditor.all.js';
+import previewDialog from 'widget/classComponent/dialog/previewDialog.js';
+
 
 let style = __inline('./editor.inline.less');
 let tpl = __inline('./editor.tpl');
@@ -25,27 +26,16 @@ export default Vue.component('editor', {
  	}),
  	ready: function () {
  		//this.rid += '-' + (+new Date());
- 		//editor = UE.getEditor(this.rid);
- 		this.introductionEditor = new baidu.editor.ui.Editor({
-			toolbars:[[ 'undo', 'redo', '|','bold', 'italic', 'underline', 'fontborder', 
-			'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 
-			'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 
-			'selectall', 'cleardoc', '|','customstyle', 'paragraph', 'fontfamily', 'fontsize',
-			'|','justifyleft', 'justifycenter', 'justifyright', 'justifyjustify','insertimage', 'emotion']],
-			autoFloatEnabled: false,
-			readonly: this.isReadonly,
-			autoHeightEnabled: false,
-			zIndex: 899,
-			initialFrameHeight: 300, //初始化高度
-			initialFrameWidth: '100%',
-			maximumWords: 50000
-		});
-		this.introductionEditor.render(this.rid); //editor为编辑器容器的id
+
+ 		editor = UE.getEditor(this.rid);
  	},
  	methods: {
- 		submit: () => {
- 			let content = UE.getEditor(this.rid).getContent();
- 			alert(content);
+ 		submit: (event) => {
+ 			let introductionId = $(event.target).parents('.richTextarea').find('.introduction').prop('id');
+ 			let content = UE.getEditor(introductionId).getContentTxt();
+ 			
+ 			previewDialog.show(content);
+
  		}
  	}
 });

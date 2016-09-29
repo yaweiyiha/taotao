@@ -117,10 +117,12 @@ fis.match('test/data/**.js', {
 fis.match('::package', {
     packager: fis.plugin('map', {
         'static/core-lib.js': [
-            'static/lib/**.js'
+            'static/lib/**.js',
         ],
         'static/core-js.js': [
             '/config/**.js',
+            /*'static/js/ueditor/ueditor.config.js',
+            'static/js/ueditor/ueditor.all.min.js',*/
             'static/js/controller.js',
             'static/js/model.js',
             'static/js/widget.js',
@@ -140,7 +142,7 @@ fis.match('::package', {
             'widget/module/table/table.js',
             'widget/module/footer/footer.js',
             'widget/component/**.js',
-            'widget/component/edit/edit.js',
+            'widget/component/editor/editor.js',
             'widget/filter/**.js',
             'widget/classComponent/datecontrol/datecontrol.js',
             'widget/classComponent/dialog/**.js',
@@ -155,7 +157,7 @@ fis.match('::package', {
             'widget/module/form/form.js',
             'widget/module/menu/menu.js',
             'widget/module/footer/footer.js',
-            'widget/component/edit/edit.js',
+            'widget/component/editor/editor.js',
             'widget/classComponent/dialog/dialog.js',
             'widget/module/backtotop/backtotop.js',
             'widget/module/addform/addform.js',

@@ -1,5 +1,3 @@
-import editor from 'widget/component/editor/editor';
-import singledate from  'widget/component/singledate/singledate';
 
 let style = __inline('./presentType.inline.less');
 let tpl = __inline('./presentType.tpl');

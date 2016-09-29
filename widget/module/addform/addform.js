@@ -22,6 +22,7 @@ import presentType from "widget/component/presentType/presentType"
 import relatedDoc from "widget/component/relatedDoc/relatedDoc"
 import vipChoicenessDistributionWay from "widget/component/vipChoicenessDistributionWay/vipChoicenessDistributionWay";
 
+
 let style = __inline('./addform.inline.less');
 let tpl = __inline('./addform.tpl');
 

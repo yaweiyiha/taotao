@@ -65,6 +65,7 @@
 			</validator>
 		</div>
 		<div v-if="type === 'alert'" class="modal-body">{{info}}</div>
+		<div v-if="type === 'preview'" class="modal-body">{{info}}</div>
 		<div v-if="type === 'inputConfirm'" class="input-confirm-box">
 			<textarea class="input-confirm" placeholder="请输入拒绝理由" maxlength="500"></textarea>
 		</div>

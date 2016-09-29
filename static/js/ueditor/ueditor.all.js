@@ -29566,3 +29566,5 @@ UE.registerUI('autosave', function(editor) {
 
 
 })();
+
+module.exports = window.UE;
