@@ -175,7 +175,7 @@ var addform = Widget.extend({
         }
 
         let proIntrData = '',comCofmData = '',knowMoreData = '',relateDocData = '';
-        console.log(JSON.stringify(data.item.introductionExtendList));
+        //console.log(JSON.stringify(data.item.introductionExtendList));
         if(data.item.introductionExtendList){
             let introductionExtendListData = data.item.introductionExtendList;
             for(var i=0;i<introductionExtendListData.length;i++){
@@ -491,6 +491,8 @@ var addform = Widget.extend({
                 }
             });
         })
+
+        //基金类型-证券
         $("select[data-key='fundGenreAFk']").on('click',function(){
             let  value = $(this).val();
             if(value !== "500"){
@@ -512,6 +514,7 @@ var addform = Widget.extend({
             }
         });
 
+        //成立状态-已成立
         $("select[data-key='establishStatus']").on('click',function(){
             if($(this).val() == 1){
                 if($("select[data-key='fundGenreAFk']").val() == 500){
@@ -527,6 +530,7 @@ var addform = Widget.extend({
                 }
             }
         });
+        
         $('input').on('blur' ,function(){
             let ele = $(this);
             let isNumTag = ele.attr('data-number');
@@ -845,7 +849,7 @@ var addform = Widget.extend({
             }
         })
 
-        console.log(JSON.stringify(intrExtentData));
+        //console.log(JSON.stringify(intrExtentData));
 
         data.introductionExtendList = intrExtentData;
 

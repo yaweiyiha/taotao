@@ -187,7 +187,11 @@ var util = {
 
         eles.toArray().forEach((item) => {
             item = $(item);
-            let validter = item.attr('data-valide');
+            let validter = '';
+            if(!($(item).parents('.input-wrapper').hasClass('hidden'))){
+               validter = item.attr('data-valide'); 
+            }
+            
             if(validter){
                 validter = String.prototype.split.call(validter, ',');
                 validter = validter.map((item) => {

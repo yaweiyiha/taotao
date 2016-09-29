@@ -36,7 +36,7 @@
 					<div class="col-md-6">
 						<div class="form-group input-group"> 
 					    	<div class="input-group-addon input-title">网站地址
-					    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+					    		<span class="text-strong-red">*</span>
 					    	</div>
 					    	<div class="input-group-addon input-title" style="min-width:50px;">http://</div>
 					    	<input 
@@ -60,7 +60,7 @@
 					<div class="col-md-6">
 						<div class="form-group input-group"> 
 					    	<div class="input-group-addon input-title">标题
-					    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+					    		<span class="text-strong-red">*</span>
 					    	</div>
 					    	<input 
 					    	type="text" 
@@ -76,7 +76,7 @@
 					<div class="col-md-6">
 						<div class="form-group input-group"> 
 					    	<div class="input-group-addon input-title">图片
-					    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+					    		<span class="text-strong-red">*</span>
 					    	</div>
 					    	<input 
 							name="showName"   
@@ -104,7 +104,7 @@
 					<div class="col-md-6">
 						<div class="form-group input-group"> 
 					    	<div class="input-group-addon input-title">关联
-					    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+					    		<span class="text-strong-red">*</span>
 					    	</div>
 					    	<input 
 							name="showName"   

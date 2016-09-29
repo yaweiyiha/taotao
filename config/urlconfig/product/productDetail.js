@@ -12,7 +12,7 @@ urlConfig['fund/detail'] =
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' },
 		{ 'key': 'Detail', 'value': '发行商信息' },
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true
@@ -149,7 +149,7 @@ urlConfig['trust/detail'] =
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
 		{ 'key': 'Detail', 'value': '发行商信息' },
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' },*/ 
 	],
 	'forms' : [
 		[
@@ -291,7 +291,7 @@ urlConfig['asset/detail'] =
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
 		{ 'key': 'Detail', 'value': '发行商信息' },
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
@@ -426,7 +426,7 @@ urlConfig['debtassgin/detail'] =
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
 		{ 'key': 'Detail', 'value': '发行商信息' },
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
@@ -530,7 +530,7 @@ urlConfig['equityInvestment/detail'] =
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
 		{ 'key': 'Detail', 'value': '发行商信息' },
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true

@@ -12,7 +12,7 @@
 			<div class="col-md-5">
 				<div class="form-group input-group"> 
 			    	<div class="input-group-addon input-title">文件名称
-			    		<span v-if="li.validate.isrequire" class="text-strong-red">*</span>
+			    		<span class="text-strong-red">*</span>
 			    	</div>
 			    	<input 
 					name="showName"   

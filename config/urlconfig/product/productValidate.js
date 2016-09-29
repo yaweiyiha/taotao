@@ -11,7 +11,7 @@ urlConfig['fund/validate'] =
 	'tabs' : [
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true
@@ -139,7 +139,7 @@ urlConfig['trust/validate'] =
 	'tabs' : [
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true
@@ -275,7 +275,7 @@ urlConfig['asset/validate'] =
 	'tabs' : [
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true
@@ -402,7 +402,7 @@ urlConfig['debtassgin/validate'] =
 	'tabs' : [
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'options' : {
 		disable: true
@@ -501,7 +501,7 @@ urlConfig['equityInvestment/validate'] =
 	'tabs' : [
 		{ 'key': 'proEle', 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' },
-		{ 'key': 'other' , 'value': '其他' },  
+		/*{ 'key': 'other' , 'value': '其他' },  */
 	],
 	'options' : {
 		disable: true

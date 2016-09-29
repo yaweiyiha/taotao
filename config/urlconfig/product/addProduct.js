@@ -19,7 +19,7 @@ urlConfig['fund/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' },*/ 
 	],
 	'forms' : [
 		[
@@ -148,7 +148,7 @@ urlConfig['trust/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
@@ -271,7 +271,7 @@ urlConfig['asset/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素'},
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
@@ -399,7 +399,7 @@ urlConfig['debtassgin/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
@@ -499,7 +499,7 @@ urlConfig['equityInvestment/add'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		{ 'key': 'other' , 'value': '其他' }, 
+		/*{ 'key': 'other' , 'value': '其他' }, */
 	],
 	'forms' : [
 		[
