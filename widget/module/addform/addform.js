@@ -453,6 +453,23 @@ var addform = Widget.extend({
                 }  
             });
         })
+
+        //相关文件-删除
+        container.on('click', '.relateDelete', function () {
+            $(this).parents('.relatedocItem').remove();
+        })
+
+        //相关文件-上移
+        container.on('click', '.relateUp', function () {
+            let pRow = $(this).parents('.relatedocItem');
+            pRow.prev().before(pRow);
+        })
+
+        //相关文件-下移
+        container.on('click', '.relateDown', function () {
+            let pRow = $(this).parents('.relatedocItem');
+            pRow.next().after(pRow);
+        })
     },
     processAddProData : function(role=''){
         let me = this;
@@ -550,8 +567,15 @@ var addform = Widget.extend({
 
             let padNameVal = $(ele).find('.padShowName').val();
             let isShowVal = $(ele).find('.receptionShow').prop('checked')?0:1;
+            
             let introductionTypeVal = $(ele).find('.introductionType option:selected').val();
-            let introductionVal = $(ele).find('.introduction').val();
+
+            //富媒体内容
+            let introductionId = $(ele).find('.introduction').attr('id');
+            if(intrTypeVal == 10 || intrTypeVal == 40 || intrTypeVal == 70){
+                introductionVal = UE.getEditor(introductionId).getContentTxt();
+            }
+
             let webUrlVal = $(ele).find('input.webUrl').val();
             let attachTitleVal = $(ele).find('input.attachTitle').val();
 
@@ -560,6 +584,7 @@ var addform = Widget.extend({
 
 
             if(intrTypeVal == 10){
+
                 if(imgatttypeVal == 10){
                     if(prointrimgData){
                         prointrimgData.attType = 10;
@@ -627,19 +652,20 @@ var addform = Widget.extend({
             intrExtentData[idx] = {
                 intrType     : intrTypeVal?intrTypeVal:'',
                 padName      : padNameVal?padNameVal:'',
-                isShow       : isShowVal?isShowVal:'',
+                isShow       : isShowVal,
                 introductionType : introductionTypeVal?introductionTypeVal:'',
-                introduction : '',
+                introduction : introductionVal,
                 webUrl       : webUrlVal?webUrlVal:'',
                 attachTitle  : attachTitleVal?attachTitleVal:'',
                 attachmentList : attachmentData
             }
         })
 
-        data.introductionExtendList = intrExtentData;
-        console.log(JSON.stringify(data));
+        console.log(JSON.stringify(intrExtentData));
 
-        //return  data;
+        data.introductionExtendList = intrExtentData;
+
+        return  data;
     },
     validateSubmitData : function(){
 

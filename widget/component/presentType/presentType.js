@@ -24,5 +24,13 @@ export default Vue.component('presenttype', {
  	}),
  	computed : {
  		
+ 	},
+ 	methods: {
+ 		selectChange: (event) => {
+ 			let idx = $(event.target).val()
+ 			$(event.target).parents('.admin-widget-presentType')
+ 			.find('.tab-content .tab-pane:eq("'+idx+'")')
+ 			.addClass('active').siblings().removeClass('active');
+ 		}
  	}
 });

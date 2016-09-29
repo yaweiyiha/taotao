@@ -23,24 +23,31 @@ export default Vue.component('relateddoc', {
  	}),
  	methods: {
  		add: function() {
- 			this.list = this.list.concat([{
+ 			/*this.list = this.list.concat([{
  				title: '',
  				content: '',
  				isValid: 1,
  				sorter: this.list.length + 1
- 			}]);
- 		},
- 		remove: function (item) {
+ 			}]);*/
+ 			var relatedocTpl = document.getElementById("relatedocTpl").innerHTML;
+ 			var eleDiv = document.createElement("div");
+ 			eleDiv.className = 'relatedocItem';
+ 			eleDiv.innerHTML = relatedocTpl;
+ 			
+ 			document.getElementById("relatedocList").appendChild(eleDiv);
+ 		}
+
+ 		/*remove: function (item) {
  			this.list.$remove(item);
  		},
  		up: function(event){
- 			var pRow = $(event.target).parents('.relatedocitem');
+ 			let pRow = $(event.target).parents('.relatedocItem');
 			pRow.prev().before(pRow);
  		},
  		down: function(event){
-			var pRow = $(event.target).parents('.relatedocitem');
+			let pRow = $(event.target).parents('.relatedocItem');
 			pRow.next().after(pRow);
- 		}
+ 		}*/
  	},
  	computed: {
  		output: function () {

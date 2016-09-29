@@ -5,9 +5,10 @@
 		</div>
 	</div>
 	<!-- 新增文件 -->
-	<div id="relatedocList">
-	<template v-for="item in list">
-		<div class="row relatedocitem">
+	<div id="relatedocList"></div>
+	<!-- <template v-for="item in list"> -->
+	<div id="relatedocTpl" style="display:none;">
+		<div class="row">
 			<div class="col-md-5">
 				<div class="form-group input-group"> 
 			    	<div class="input-group-addon input-title">文件名称
@@ -34,10 +35,11 @@
 				</div>
 			</form>
 			<div class="col-md-2 col-md-right btn-group">
-				<button type="button" class="btn btn-info delete" @click="remove(item)">删除</button>&nbsp;&nbsp;
-				<button type="button" class="up" @click="up"></button>&nbsp;&nbsp;
-				<button type="button" class="down" @click="down"></button>&nbsp;&nbsp;
+				<button type="button" class="btn btn-info relateDelete">删除</button>&nbsp;&nbsp;
+				<button type="button" class="up relateUp"></button>&nbsp;&nbsp;
+				<button type="button" class="down relateDown"></button>&nbsp;&nbsp;
 			</div>
 		</div>
-	</template>
+	<!-- </template> -->
+	</div>
 </div>

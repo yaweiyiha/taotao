@@ -203,7 +203,54 @@ urlConfig['trust/add'] =
 				],
 			},
 		],
-
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布', 'classList' : 'primary'     , 'type' : 'button', 'evt' :'release', 'productCategories' :40 },
@@ -284,6 +331,54 @@ urlConfig['asset/add'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布','classList' :'primary'     , 'type' : 'button', 'evt' : 'release', 'productCategories' :30 },
@@ -360,7 +455,30 @@ urlConfig['debtassgin/add'] =
 				],
 			},
 		],
-
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布', classList :'primary'      , 'type' :'button', 'evt' :'release', 'productCategories' :60 },
@@ -430,6 +548,30 @@ urlConfig['equityInvestment/add'] =
 			{	
 				'formlist'   : [
 					[	elementDict.commissionType ],
+				],
+			},
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
 				],
 			},
 		],
