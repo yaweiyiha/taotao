@@ -11,6 +11,7 @@ urlConfig['fund/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle 
@@ -73,6 +74,54 @@ urlConfig['fund/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	Dict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布', 'classList' : 'primary'     , 'type' :'button', 'evt' :'release' , 'productCategories' : 10 },
@@ -97,6 +146,7 @@ urlConfig['trust/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素' },
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -154,7 +204,54 @@ urlConfig['trust/draftedit'] =
 				],
 			},
 		],
-
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	Dict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' :'发布', 'classList' :'primary'     , 'type' :'button', 'evt' :'release' , 'productCategories' :40},
@@ -176,6 +273,7 @@ urlConfig['asset/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -237,6 +335,54 @@ urlConfig['asset/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	Dict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'buttonlist': [
 		{ 'name' : '发布', 'classList' : 'primary'     , 'type' : 'button', 'evt' :'release' , 'productCategories' :30 },
@@ -259,6 +405,7 @@ urlConfig['debtassgin/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -315,6 +462,30 @@ urlConfig['debtassgin/draftedit'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	Dict.relatedDoc  ],
+				],
+			},
+		],
 
 	],
 	'buttonlist': [
@@ -334,11 +505,11 @@ urlConfig['equityInvestment/draftedit'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '编辑股权投资产品',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle'   , value: '产品要素'},
-		{ key: 'CommiSet' , value: '佣金设置' }, 
+		{ 'key': 'proEle'   , 'value': '产品要素'},
+		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -387,6 +558,30 @@ urlConfig['equityInvestment/draftedit'] =
 			{	
 				'formlist'   : [
 					[	Dict.commissionType ],
+				],
+			},
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	Dict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	Dict.relatedDoc  ],
 				],
 			},
 		],

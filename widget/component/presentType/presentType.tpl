@@ -5,7 +5,7 @@
 		    <div class="form-group">
 		        <div class="input-group">
 		            <div class="input-group-addon" >展示类型</div>
-	                <select class="input-control introductionType" name="introductionType" v-model="introductionType" v-on:change="selectChange" :disabled="disable" is-num="1">
+	                <select class="input-control introductionType" name="introductionType" v-on:change="selectChange" :disabled="disable" is-num="1">
 	                    <option value="0" >富文本</option>
 	                    <option value="1" >外部网站</option>
 	                    <option value="2" >视频、文件</option>
@@ -21,6 +21,7 @@
 			<div class="tab-pane active">
 				<div class="row">
 					<editor
+					:disabled="disable"
 					:richatttype="richatttype"
 					:panelname="panelname"
 					></editor>
@@ -43,6 +44,7 @@
 							name="webUrl"
 							class="input-control webUrl"
 							value=""
+							:disabled="disable"
 							placeholder="请输入网站地址" 
 							/> 
 						</div>
@@ -65,7 +67,8 @@
 							name="attachTitle"   
 							class="input-control attachTitle"
 							placeholder="请输入标题"
-							value="" /> 
+							value=""
+							:disabled="disable" /> 
 						</div>
 					</div>
 				</div>
@@ -79,19 +82,20 @@
 							name="showName"   
 							class="input-control imgShowName"
 							placeholder="请输入文件名称"
-							value="" />  
+							value="" 
+							:disabled="disable"/>  
 						</div>
 					</div>
 					<form class="uploadForm" enctype="multipart/form-data" data-imgatttype="{{imgatttype}}" >
 						<div class="col-md-4">
 							<div class="form-group input-group uploadSuccess">
-								<input type="file" name="multipartFile" class="form-control" accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" />
+								<input type="file" name="multipartFile" class="form-control" accept=".jpg, .png, .jpeg, .bmp, .gif, .psd, .tiff" :disabled="disable" />
 								<span class="text-strong-red uploadSuccessTips"></span>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="form-group input-group">
-								<button type="button" class="btn btn-default uploadFile">上传</button> 
+								<button type="button" class="btn btn-default uploadFile" :disabled="disable">上传</button> 
 							</div>
 						</div>
 					</form>
@@ -113,13 +117,13 @@
 					<form class="uploadForm" enctype="multipart/form-data" data-videoatttype="{{videoatttype}}">
 						<div class="col-md-4">
 							<div class="form-group input-group uploadSuccess">
-								<input class="form-control" type="file" name="multipartFile" accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" />
+								<input class="form-control" type="file" name="multipartFile" accept=".avi, .rmvb, .flv, .wmv, .mp4, .swf, .rm, .mpg, .mpge, .3gp, .vob, .ppt, .pptx" :disabled="disable" />
 								<span class="text-strong-red uploadSuccessTips"></span>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="form-group input-group">
-								<button type="button" class="btn btn-default uploadFile">上传</button> 
+								<button type="button" class="btn btn-default uploadFile" :disabled="disable">上传</button> 
 							</div>
 						</div>
 					</form>

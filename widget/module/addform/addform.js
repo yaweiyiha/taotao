@@ -173,6 +173,180 @@ var addform = Widget.extend({
             $(".sumNet").addClass('hidden');
             $(".admin-widget-yearrate").css('display','block');
         }
+
+        let proIntrData = '',comCofmData = '',knowMoreData = '',relateDocData = '';
+        console.log(JSON.stringify(data.item.introductionExtendList));
+        if(data.item.introductionExtendList){
+            let introductionExtendListData = data.item.introductionExtendList;
+            for(var i=0;i<introductionExtendListData.length;i++){
+                let intrTypeVal = introductionExtendListData[i].intrType;
+                if(intrTypeVal == 10){
+                    proIntrData = introductionExtendListData[i];
+                }
+                if(intrTypeVal == 40){
+                    comCofmData = introductionExtendListData[i];
+                }
+                if(intrTypeVal == 70){
+                    knowMoreData = introductionExtendListData[i];
+                }
+                if(intrTypeVal == 100){
+                    relateDocData = introductionExtendListData[i];
+                }
+            }
+        }
+        
+        container.find('.intrType').each(function(idx,ele){
+            let intrTypeVal = $(ele).attr('data-intrType');
+            if(intrTypeVal == 10){
+                if(proIntrData){
+                    $(ele).find('.padShowName').val(proIntrData.padName);
+                    if(!proIntrData.isShow){
+                        $(ele).find('.receptionShow').prop('checked',true);
+                        $(ele).find('.prointrCont').hide();
+                    }else{
+                        $(ele).find('.receptionShow').prop('checked',false);
+                        $(ele).find('.prointrCont').show();
+                    }
+
+                    $(ele).find('.introductionType option[value="'+proIntrData.introductionType+'"]')
+                    .prop('selected',true).siblings().attr('selected',false);
+
+                    $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+proIntrData.introductionType+'")')
+                    .addClass('active').siblings().removeClass('active');
+
+                    
+
+                    //富媒体内容
+                    /*let introductionId = $(ele).find('.introduction').prop('id');
+
+                    UE.getEditor(introductionId).setContent(proIntrData.introduction, false);*/
+
+                    //富媒体不可编辑
+                    /*UE.getEditor(introductionId).setDisabled('fullscreen');
+                    UE.getEditor(introductionId).setEnabled();*/
+                    
+
+                    $(ele).find('input.webUrl').val(proIntrData.webUrl);
+
+                    $(ele).find('input.attachTitle').val(proIntrData.attachTitle);
+
+                    if(proIntrData.attachmentList){
+                        for(var j=0;j<proIntrData.attachmentList.length;j++){
+                            if(proIntrData.attachmentList[j].attType == 10){
+                                $(ele).find('input.imgShowName').val(proIntrData.attachmentList[j].showName);
+                            }
+                            if(proIntrData.attachmentList[j].attType == 20){
+                                $(ele).find('input.videoShowName').val(proIntrData.attachmentList[j].showName);
+                            }
+                        }
+                    }
+
+                }
+                
+            }
+            if(intrTypeVal == 40){
+                if(comCofmData){
+                    $(ele).find('.padShowName').val(comCofmData.padName);
+
+                    if(!comCofmData.isShow){
+                        $(ele).find('.receptionShow').prop('checked',true);
+                        $(ele).find('.prointrCont').hide();
+                    }else{
+                        $(ele).find('.receptionShow').prop('checked',false);
+                        $(ele).find('.prointrCont').show();
+                    }
+
+                    $(ele).find('.introductionType option[value="'+comCofmData.introductionType+'"]')
+                    .prop('selected',true).siblings().attr('selected',false);
+
+                    $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+comCofmData.introductionType+'")')
+                    .addClass('active').siblings().removeClass('active');
+
+                    $(ele).find('input.webUrl').val(comCofmData.webUrl);
+
+                    $(ele).find('input.attachTitle').val(comCofmData.attachTitle);
+
+                    if(comCofmData.attachmentList){
+                        for(var j=0;j<comCofmData.attachmentList.length;j++){
+                            if(comCofmData.attachmentList[j].attType == 40){
+                                $(ele).find('input.imgShowName').val(comCofmData.attachmentList[j].showName);
+                            }
+                            if(comCofmData.attachmentList[j].attType == 50){
+                                $(ele).find('input.videoShowName').val(comCofmData.attachmentList[j].showName);
+                            }
+                        }
+                    }
+
+                }
+                
+
+            }
+            if(intrTypeVal == 70){
+                if(knowMoreData){
+                    $(ele).find('.padShowName').val(knowMoreData.padName);
+
+                    if(!knowMoreData.isShow){
+                        $(ele).find('.receptionShow').prop('checked',true);
+                        $(ele).find('.prointrCont').hide();
+                    }else{
+                        $(ele).find('.receptionShow').prop('checked',false);
+                        $(ele).find('.prointrCont').show();
+                    }
+
+                    $(ele).find('.introductionType option[value="'+knowMoreData.introductionType+'"]')
+                    .prop('selected',true).siblings().prop('selected',false);
+
+                    $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+knowMoreData.introductionType+'")')
+                    .addClass('active').siblings().removeClass('active');
+
+                    $(ele).find('input.webUrl').val(knowMoreData.webUrl);
+
+                    $(ele).find('input.attachTitle').val(knowMoreData.attachTitle);
+                    if(knowMoreData.attachmentList){
+                        for(var j=0;j<knowMoreData.attachmentList.length;j++){
+                            if(knowMoreData.attachmentList[j].attType == 70){
+                                $(ele).find('input.imgShowName').val(knowMoreData.attachmentList[j].showName);
+                            }
+                            if(knowMoreData.attachmentList[j].attType == 80){
+                                $(ele).find('input.videoShowName').val(knowMoreData.attachmentList[j].showName);
+                            }
+                        }
+                    }
+                }
+            }
+            if(intrTypeVal == 100){
+                if(relateDocData){
+                    $(ele).find('.padShowName').val(relateDocData.padName);
+
+                    if(!relateDocData.isShow){
+                        $(ele).find('.receptionShow').prop('checked',true);
+                        $(ele).find('.prointrCont').hide();
+                    }else{
+                        $(ele).find('.receptionShow').prop('checked',false);
+                        $(ele).find('.prointrCont').show();
+                    }
+
+                    if(relateDocData.attachmentList){
+                        for(var j=0;j<relateDocData.attachmentList.length;j++){
+                            let relatedocTpl = document.getElementById("relatedocTpl").innerHTML;
+                            let eleDiv = document.createElement("div");
+                            eleDiv.className = 'relatedocItem';
+                            $(eleDiv).attr('data-shownameval',relateDocData.attachmentList[j].showName);
+                            
+                            eleDiv.innerHTML = relatedocTpl;
+                            document.getElementById("relatedocList").appendChild(eleDiv);
+                        }
+
+                        $(ele).find('#relatedocList input.relateShowName').each(function(index,element){
+                            let shownameVal = $(this).parents('.relatedocItem').attr('data-shownameval');
+                            $(this).val(shownameVal);
+                        })
+                    }
+                }
+                
+            }
+        })
+
     },
     bind: function () {
         let me = this;
@@ -469,6 +643,16 @@ var addform = Widget.extend({
         container.on('click', '.relateDown', function () {
             let pRow = $(this).parents('.relatedocItem');
             pRow.next().after(pRow);
+        })
+
+
+        //前台不展示
+        container.on('click', '.receptionShow', function () {
+            if($(this).prop('checked')){
+                $(this).parents('.intrType').find('.prointrCont').hide();
+            }else{
+                $(this).parents('.intrType').find('.prointrCont').show();
+            }
         })
     },
     processAddProData : function(role=''){

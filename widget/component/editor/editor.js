@@ -15,6 +15,7 @@ require.loadCss({
 export default Vue.component('editor', {
  	template: tpl,
  	props: {
+ 		disable: {default: true},
  		panelname: {default : ''},
  		richatttype: {default : ''},
  	},
@@ -32,10 +33,14 @@ export default Vue.component('editor', {
  	methods: {
  		submit: (event) => {
  			let introductionId = $(event.target).parents('.richTextarea').find('.introduction').prop('id');
- 			let content = UE.getEditor(introductionId).getContentTxt();
+ 			let content = UE.getEditor(introductionId).getContent();
  			
  			previewDialog.show(content);
 
- 		}
+ 		},
+ 		setDisabled: () => {
+		    /*UE.getEditor('editor').setDisabled('fullscreen');*/
+		    /*UE.getEditor('editor').setEnabled();*/
+		}
  	}
 });

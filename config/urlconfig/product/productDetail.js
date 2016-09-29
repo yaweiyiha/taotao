@@ -7,12 +7,12 @@ urlConfig['fund/detail'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '基金产品详情',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' },
-		{ key: 'Detail', value: '发行商信息' },
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' },
+		{ 'key': 'Detail', 'value': '发行商信息' },
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -80,7 +80,56 @@ urlConfig['fund/detail'] =
 					[   elementDict.paymentTransferIntroduction],
 				],
 			},
-		]
+		],
+
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'url': 'product/detail',
 	'useProcessData' : true
@@ -92,15 +141,15 @@ urlConfig['trust/detail'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '信托产品详情',
-		'key' : '产品维护',
 	},
 	'options' : {
 		disable: true
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
-		{ key: 'Detail', value: '发行商信息' },
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'Detail', 'value': '发行商信息' },
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -175,7 +224,55 @@ urlConfig['trust/detail'] =
 					[   elementDict.paymentTransferIntroduction],
 				],
 			},
-		]
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'url': 'product/detail',
 	'useProcessData' : true
@@ -186,15 +283,15 @@ urlConfig['asset/detail'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '资管产品详情',
-		'key' : '产品维护',
 	},
 	'options' : {
 		disable: true
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
-		{ key: 'Detail', value: '发行商信息' },
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'Detail', 'value': '发行商信息' },
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -260,7 +357,55 @@ urlConfig['asset/detail'] =
 					[   elementDict.paymentTransferIntroduction],
 				],
 			},
-		]
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 
 	],
 	'url': 'product/detail',
@@ -273,15 +418,15 @@ urlConfig['debtassgin/detail'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '债权转让产品详情',
-		'key' : '产品维护',
 	},
 	'options' : {
 		disable: true
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
-		{ key: 'Detail', value: '发行商信息' },
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'Detail', 'value': '发行商信息' },
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		[
@@ -343,7 +488,31 @@ urlConfig['debtassgin/detail'] =
 					[   elementDict.paymentTransferIntroduction],
 				],
 			},
-		]
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 
 	],
 	'url': 'product/detail',
@@ -356,12 +525,12 @@ urlConfig['equityInvestment/detail'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '股权投资产品详情',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
-		{ key: 'Detail', value: '发行商信息' },
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'Detail', 'value': '发行商信息' },
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -419,7 +588,31 @@ urlConfig['equityInvestment/detail'] =
 					[   elementDict.paymentTransferIntroduction],
 				],
 			},
-		]
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'url': 'product/detail',
 	'useProcessData' : true

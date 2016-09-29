@@ -35,13 +35,13 @@
                       <div class="input-group-addon input-title">PAD端显示名称 
                           <span class="text-strong-red">*</span>
                       </div>
-                      <input class="ipt-sty padShowName" value="" maxlength="40" name="{{panel.padShowName.key}}" placeholder="{{panel.panelName}}" />
+                      <input class="ipt-sty padShowName" value="" maxlength="40" name="{{panel.padShowName.key}}" placeholder="{{panel.panelName}}" disabled="{{panel.padShowName.disabled}}" />
                     </div>
                   </div>
                   <!-- 前台不展示 -->
                   <div class="col-xs-4 text-right" v-if="panel.receptionShow.isHide">
                     <label class="checkbox-inline">
-                      <input type="checkbox" class="checkbox receptionShow" name="{{panel.receptionShow.key}}"  value="" style="top:7px;">前台不展示
+                      <input type="checkbox" class="checkbox receptionShow" name="{{panel.receptionShow.key}}"  value="" style="top:7px;" disabled="{{panel.receptionShow.disabled}}">前台不展示
                     </label>
                   </div>
               </div>
@@ -67,7 +67,7 @@
                   </div>
               </div>
         <template v-for="list in panel.formlist">
-          <div class="row ">
+          <div class="row" v-bind:class="{'prointrCont':(panel.padShowName.isHide > 0)}">
             <template v-for="li in list">
                 <div class="{{li.wrapperClass || ''}} input-wrapper rt">
                   <template v-if="li.type === 'verify-confirm'">
@@ -86,6 +86,7 @@
 
                   <template v-if="li.type === 'relatedDoc'">
                     <relateddoc
+                    :disable="options.disable"
                     :panelname="panel.panelName"
                     :intrtype="panel.intrType"
                     :imgatttype="panel.imgAttType"
@@ -167,6 +168,7 @@
 
                   <template v-if="li.type === 'presentType'">
                       <presenttype
+                      :disable="options.disable"
                       :panelname="panel.panelName"
                       :intrtype="panel.intrType"
                       :imgatttype="panel.imgAttType"

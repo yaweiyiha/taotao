@@ -7,11 +7,11 @@ urlConfig['fund/validate'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品审核', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '基金产品审核',
-		'key' : '产品审核',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -73,6 +73,55 @@ urlConfig['fund/validate'] =
 				],
 			},
 		],
+
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'detailUrl'    : 'product/verify/',
 	'publishUrl' : 'product/saveVerify',
@@ -86,11 +135,11 @@ urlConfig['trust/validate'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '信托产品审核',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -162,6 +211,54 @@ urlConfig['trust/validate'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 
 	],
 	'detailUrl'    : 'product/verify/',
@@ -174,11 +271,11 @@ urlConfig['asset/validate'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '资管产品审核',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -241,6 +338,54 @@ urlConfig['asset/validate'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '公司简介',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'40',
+				'imgAttType':'40',
+				'videoAttType':'50',
+				'richAttType':'60',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '了解更多',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'70',
+				'imgAttType':'70',
+				'videoAttType':'80',
+				'richAttType':'90',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 	],
 	'detailUrl'    : 'product/verify/',
 	'publishUrl' : 'product/saveVerify',
@@ -253,11 +398,11 @@ urlConfig['debtassgin/validate'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '债权转让产品审核',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'options' : {
 		disable: true
@@ -314,6 +459,30 @@ urlConfig['debtassgin/validate'] =
 				],
 			},
 		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
+				],
+			},
+		],
 
 	],
 	'detailUrl'    : 'product/verify/',
@@ -328,11 +497,11 @@ urlConfig['equityInvestment/validate'] =
 		'title' : '产品管理',
 		'subtitle' : {'name': '产品维护', url : '#main/product/maintenance' }, 
 		'thirdTitle' : '股权投资产品审核',
-		'key' : '产品维护',
 	},
 	'tabs' : [
-		{ key: 'proEle', value: '产品要素'},
-		{ key: 'CommiSet', value: '佣金设置' }, 
+		{ 'key': 'proEle', 'value': '产品要素'},
+		{ 'key': 'CommiSet', 'value': '佣金设置' },
+		{ 'key': 'other' , 'value': '其他' },  
 	],
 	'options' : {
 		disable: true
@@ -381,6 +550,30 @@ urlConfig['equityInvestment/validate'] =
 			{	
 				'formlist'   : [
 					[	elementDict.commissionType ],
+				],
+			},
+		],
+		[
+			{	
+				'panelName' : '产品介绍',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'10',
+				'imgAttType':'10',
+				'videoAttType':'20',
+				'richAttType':'30',
+				'formlist'   : [
+					[	elementDict.presentType ],
+				],
+			},
+			{	
+				'panelName' : '相关文件',
+				'padShowName': {isHide:'1',key:'padName'},
+				'receptionShow': {isHide:'1',key:'isShow'},
+				'intrType':'100',
+				'relateAttType':'100',
+				'formlist'   : [
+					[	elementDict.relatedDoc  ],
 				],
 			},
 		],
