@@ -58,14 +58,16 @@ var editform = Widget.extend({
             $('select[data-key="publisherFk"]').append(publisherArr);
         }
 
-        /*基金净值&累计分红*/
+        /*基金净值&累计分红&固定利率*/
         if (me.data.item.establishStatus == 1 && me.data.item.fundGenreAFk == 500) {
-            $(".yesterdayNet").removeClass('hidden');
+            /*$(".yesterdayNet").removeClass('hidden');
             $(".sumNet").removeClass('hidden');
+            $(".expectedArr").removeClass('hidden');*/
             $(".admin-widget-yearrate").css('display','none');
         }else{
-            $(".yesterdayNet").addClass('hidden');
+            /*$(".yesterdayNet").addClass('hidden');
             $(".sumNet").addClass('hidden');
+            $(".expectedArr").addClass('hidden');*/
             $(".admin-widget-yearrate").css('display','block');
         }
 
@@ -101,6 +103,7 @@ var editform = Widget.extend({
                 filters.riskRating = '';
             }
 
+            //alert(JSON.stringify(filters));
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';
@@ -152,6 +155,7 @@ var editform = Widget.extend({
                 let obj  = {
                     'product' : filters,
                 }
+
                 Util.getData(me.data.saveUrl,obj,'POST').then((res)=>{
                     //console.log(res);
                 });

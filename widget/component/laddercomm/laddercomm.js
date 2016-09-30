@@ -91,13 +91,16 @@ export default Vue.component('ladder-comm', {
  					cache.operator2 = null;
  				} else {
  					cache.value1 = +item.start;
- 					cache.operator1 = me.leftContain === '1' ? 'GE' : 'GT';
+ 					if(index === 0 && item.start !== ''){
+ 						cache.operator1 = 'GE';
+ 					}else{
+ 						cache.operator1 = me.leftContain === '1' ? 'GE' : 'GT';
+ 					}
  					cache.value2 = +item.end;
  					cache.operator2 = me.leftContain === '1' ? 'LT' : 'LE';
  				}
  				return cache;
  			});
-
  			return JSON.stringify(cache);
  		}
  	},

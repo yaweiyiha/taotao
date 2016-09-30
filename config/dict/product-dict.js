@@ -541,6 +541,16 @@ export default {
  		validate: {isrequire : true ,isNumber : true},
  		unit: '元'
  	},
+ 	'expectedArr'   : { 
+ 		key :'expectedArr' ,
+ 		name : '固定利率', 
+ 		wrapperClass : 'col-md-6 hidden expectedArr' ,  
+ 		brd : true, 
+ 		type : 'input', 
+ 		placeholder:'请输入固定利率',
+ 		validate: {isrequire : true ,isNumber : true},
+ 		unit: '%'
+ 	},
  	
  	//components
  	//parse type and render it in template 

@@ -85,6 +85,8 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(data){
+        console.log(JSON.stringify(data));
+        
         let container = $(this.vm.$el);
         let res = data;
         let me = this;
@@ -385,6 +387,7 @@ var addform = Widget.extend({
             let url  = '';
             let param = '';
             let inputCollections = $('.panel-body').find('[data-key]');
+            let operType = $(this).attr('data-oper');
 
             if (!Util.validate(container)) {
                 return;
@@ -403,8 +406,15 @@ var addform = Widget.extend({
                 }
             }
             url = me.data.submiturl || me.data.url;
-            param = me.data.param;
+            /*param = me.data.param;
             if(param){
+                let params = location.href.split('?')[1].split("=");
+                
+                let key = params[0];
+                let val = params[1];
+                data[key] = val;
+            }*/
+            if(operType == 'edit'){
                 let params = location.href.split('?')[1].split("=");
                 let key = params[0];
                 let val = params[1];
@@ -461,6 +471,29 @@ var addform = Widget.extend({
                         return;
                     }
                 }
+
+                //成立状态-已成立
+                let date = new Date();
+                let seperator1 = "-";
+                let year = date.getFullYear();
+                let month = date.getMonth() + 1;
+                let strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                let currentdate = year + seperator1 + month + seperator1 + strDate;
+                let currentTimestamp = Date.parse(currentdate);
+                //输入时间
+                let iptTimestamp = Date.parse($('input[data-key="dateEstablished"]').val());
+
+                if(iptTimestamp >= currentTimestamp){
+                    AlertDialog.show("成立日期必须小于今天！");
+                    return;
+                }
+
                 let data = me.processAddProData();
 
                 data.product.categoryFk = parseInt($(this).attr("pro"));
@@ -725,6 +758,7 @@ var addform = Widget.extend({
         
         if (yearRateContainer.size()) {
             let yearRateData = Util.getYearRateData(yearRateContainer);
+            //console.log(JSON.stringify(yearRateData.productLadderRates));
 
             data.product.arrTypeFk = yearRateData.arrTypeFk;
             data.product.expectedArr = yearRateData.expectedArr;

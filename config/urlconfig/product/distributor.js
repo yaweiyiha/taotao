@@ -29,7 +29,7 @@ urlConfig['distributor/add'] =
 
 	],
 	'buttons' : [
-		{'name' : '确认新增', 'classList' : 'primary', 'type' : 'button', 'evt' : 'submit', 'selfStyle': {'position':'fixed', 'bottom':'70px'}},
+		{'name' : '确认新增', 'classList' : 'primary', 'type' : 'button', 'evt' : 'submit', 'oper':'add', 'selfStyle': {'position':'fixed', 'bottom':'70px'}},
 	],
 	'submiturl'  : 'publisher/add',
 	'backPage'   : '#main/distributors/maintenance',
@@ -86,7 +86,7 @@ urlConfig['distributor/edit'] =
 		]
 	],
 	'buttons': [
-		{ 'name' :'保存', 'classList' :'primary','type' :'button', 'evt' :'submit' },
+		{ 'name' :'保存', 'classList' :'primary','type' :'button', 'evt' :'submit','oper':'edit' },
 	],
 	'url'       : 'publisher/detail',
 	'submiturl' : 'publisher/edit',

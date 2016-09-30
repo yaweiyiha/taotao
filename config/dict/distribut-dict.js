@@ -1,5 +1,14 @@
 export default {
 
+	'consignmentTime'  : { 
+		startkey :'offlineStartDate',
+		endkey :'offlineEndDate', 
+		name : '申请代销时间', 
+		wrapperClass : 'col-md-5' , 
+		type : 'time',
+		validate:{"isrequire":true}
+	},
+
  	'uploadContract'   : { 
  		key :'productName', 
  		name : '上传合同影印件', 

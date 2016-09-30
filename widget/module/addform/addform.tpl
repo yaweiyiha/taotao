@@ -298,7 +298,7 @@
 
       <div class="buttons-wrapper">
           <template v-for="bt in buttons">
-              <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}">{{bt.name}}</button> 
+              <button class="custom-button {{bt.classList}} bottom-button" v-bind:style="bt.selfStyle" data-role="{{bt.evt}}" data-oper="{{bt.oper}}">{{bt.name}}</button> 
           </template> 
       </div>
   </div>

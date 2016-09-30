@@ -100,6 +100,7 @@ var util = {
             }
         } else if (data.arrTypeFk === 30 || data.arrTypeFk === 40) {
             data.productLadderRates = JSON.parse(el.find('.admin-widget-laddercomm textarea').val());
+
             data.productLadderRates.forEach(function (item) {
                 delete item.extraCommission;
             });

@@ -145,7 +145,7 @@ export default Vue.component('year-rate', {
  					if (this.latterData.length === 0) {
  						this.latterData = [{
 						    "value1": +startingPrice,
-						    "operator1": "GT",
+						    "operator1": "GE",
 						    "value2": null,
 						    "operator2": null,
 						    "measureUnitFk": +$('[data-key=unitFkStartingPrice]').val(),
