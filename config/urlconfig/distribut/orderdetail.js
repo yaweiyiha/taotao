@@ -75,7 +75,7 @@ urlConfig['order/detail'] =
 					  	Dict.baseText('紧急联系人证件类型', 'orderInfoEmergencyIdType','','emergency'),
 					  	Dict.baseText('紧急联系人证件号码', 'orderInfoEmergencyIdNumber','','text'),
 	
-				 	]/*,[
+				 	],[
 				 		Dict.baseText('持卡人姓名', 'paymentBankCardOwner','','text'),
 				 	],[
 				 		Dict.baseText('银行名称', 'paymentBankBankName','','text'),
@@ -84,21 +84,21 @@ urlConfig['order/detail'] =
 				 		Dict.baseText('开卡地区', 'paymentBankAreaFullName','','text'),
 				 		Dict.baseText('支行信息', 'paymentBankAccountBranch','','text'),
 
-				 	] */
+				 	]
 				 ],
 			},
 			{	
-				'panelName' : '汇款银行卡',
+				'panelName' : '回款银行卡',
 				'formlist'   : [
 					[	
-						Dict.baseText('持卡人姓名', 'paymentBankCardOwner','','text'),
+						Dict.baseText('持卡人姓名', 'receiveBankCardOwner','','text'),
 				 	],[
-					  	Dict.baseText('银行名称', 'paymentBankBankName','','text'),
-					  	Dict.baseText('卡号', 'paymentBankCardNumber','','text'),
+					  	Dict.baseText('银行名称', 'receiveBankBankName','','text'),
+					  	Dict.baseText('卡号', 'receiveBankCardNumber','','text'),
 	
 				 	],[
-				 		Dict.baseText('开卡地区', 'paymentBankAreaFullName','','text'),
-				 		Dict.baseText('支行信息', 'paymentBankAccountBranch','','text'),
+				 		Dict.baseText('开卡地区', 'receiveBankAreaFullName','','text'),
+				 		Dict.baseText('支行信息', 'receiveBankAccountBranch','','text'),
 				 	]
 				 ],
 			},

@@ -21,6 +21,9 @@ export default Vue.component('ladder-comm', {
 		leftContain: {
 			default: '0'
 		},
+		arrtypefk: {
+			default: ''
+		},
 		notFloatUpperLimit: {
 			default: '1'
 		},
@@ -69,13 +72,19 @@ export default Vue.component('ladder-comm', {
  					'万元': 1200,
  					'亿元': 1300
  				};
- 				if (this.notFloatUpperLimit === '0') {
+ 				
+				if (this.notFloatUpperLimit === '0') {
 	 				cache.minExtraRate = +item.proportion;
  					cache.maxExtraRate = +item.upperProportion;
  				} else {
+ 					if(this.arrtypefk == "30"){
+		 				cache.extraRate = +item.proportion;
+		 			}else if(this.arrtypefk == "40"){
+			 			cache.minExtraRate = +item.proportion;
+	 				}
 	 				cache.extraCommission = +item.proportion;
-	 				cache.minExtraRate = +item.proportion;
  				}
+ 				
  				cache.measureUnitFk = this.unit ? dict[this.unit] : dict[item.unit];
  				cache.sorter = index;
  				cache.isValid = 1;

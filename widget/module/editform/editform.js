@@ -60,14 +60,14 @@ var editform = Widget.extend({
 
         /*基金净值&累计分红&固定利率*/
         if (me.data.item.establishStatus == 1 && me.data.item.fundGenreAFk == 500) {
-            /*$(".yesterdayNet").removeClass('hidden');
+            $(".yesterdayNet").removeClass('hidden');
             $(".sumNet").removeClass('hidden');
-            $(".expectedArr").removeClass('hidden');*/
+            $(".expectedArr").removeClass('hidden');
             $(".admin-widget-yearrate").css('display','none');
         }else{
-            /*$(".yesterdayNet").addClass('hidden');
+            $(".yesterdayNet").addClass('hidden');
             $(".sumNet").addClass('hidden');
-            $(".expectedArr").addClass('hidden');*/
+            $(".expectedArr").addClass('hidden');
             $(".admin-widget-yearrate").css('display','block');
         }
 
@@ -182,6 +182,23 @@ var editform = Widget.extend({
         setTimeout(() => {
             if (container.find('[data-key=isRiskRating]:checked').val() === '2') {
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
+            }
+        });
+
+        //成立状态-已成立
+        $("select[data-key='establishStatus']").on('click',function(){
+            if(me.data.item.fundGenreAFk == 500){
+                if($(this).val() == 1){
+                    $(".yesterdayNet").removeClass('hidden');
+                    $(".sumNet").removeClass('hidden');
+                    $(".expectedArr").removeClass('hidden');
+                    $(".admin-widget-yearrate").css('display','none');
+                }else{
+                    $(".yesterdayNet").addClass('hidden');
+                    $(".sumNet").addClass('hidden');
+                    $(".expectedArr").addClass('hidden');
+                    $(".admin-widget-yearrate").css('display','block');
+                }
             }
         });
 

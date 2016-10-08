@@ -78,6 +78,7 @@
 	  	:relate-startprice="true" 
 	  	:unit="YearRateUnit" 
 	  	:left-contain="leftContain" 
+	  	:arrtypefk="arrTypeFk"
 	  	:not-float-upper-limit="notFloatUpperLimit" 
 	  	:latter-data="latterData" 
 	  	:interaction="true" 

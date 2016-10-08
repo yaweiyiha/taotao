@@ -744,7 +744,8 @@ var addform = Widget.extend({
             }
             data.product.commissionTypeFk = commTypeData.commissionTypeFk;
             data.product.baseCommission = commTypeData.baseCommission;
-            data.productCommissionList = commTypeData.productCommissionList
+            data.productCommissionList = commTypeData.productCommissionList;
+            //console.log(JSON.stringify(data.productCommissionList));
         }
 
         let publisherEle  = $('select[data-key="publisherFk"]');
@@ -758,7 +759,8 @@ var addform = Widget.extend({
         
         if (yearRateContainer.size()) {
             let yearRateData = Util.getYearRateData(yearRateContainer);
-            //console.log(JSON.stringify(yearRateData.productLadderRates));
+            
+            console.log(JSON.stringify(yearRateData.productLadderRates));
 
             data.product.arrTypeFk = yearRateData.arrTypeFk;
             data.product.expectedArr = yearRateData.expectedArr;
@@ -887,7 +889,7 @@ var addform = Widget.extend({
 
         data.introductionExtendList = intrExtentData;
 
-        return  data;
+        //return  data;
     },
     validateSubmitData : function(){
 

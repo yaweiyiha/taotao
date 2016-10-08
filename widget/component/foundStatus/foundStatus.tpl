@@ -35,8 +35,7 @@
 	<div class="row">
 		<div class="col-md-12">
 		<div v-if="establish == '0'" class="form-group input-group"> 
-		    <div class="input-group-addon input-title">产品状态     
-		    </div>
+		    <div class="input-group-addon input-title">产品状态</div>
 		    <input 
 		      	data-key="salesStatusFk" 
 		      	type="radio" 
