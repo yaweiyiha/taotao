@@ -246,7 +246,7 @@ var table = Widget.extend({
             data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
             data.extraInfo.totalCommission = data.totalCommission;
         }
-        
+        console.log(JSON.stringify(data.pageList));
         return data;
     },
     render :function(){

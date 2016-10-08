@@ -82,6 +82,7 @@
                     <li v-if="pageNo === 1" class="paginate_button previous disabled">
                         <a href="javascript:;" aria-controls="tp" data-dt-idx="1" tabindex="0">«</a>
                     </li>
+
                     <li v-else class="paginate_button previous">
                         <a href="javascript:;" aria-controls="tp" data-dt-idx="1" tabindex="0" @click="changePage(pageNo - 1)">«</a>
                     </li>
@@ -93,16 +94,17 @@
                         </li>
                     </template>
                     <template v-else>
-                        <template v-for="item in pageList">
-                        <li v-if="item === pageNo" class="paginate_button active">
-                            <a href="javascript:;">{{ item }}</a>
-                        </li>
-                        <li v-if="item === '...'" class="paginate_button disabled">
-                            <a href="javascript:;">{{ item }}</a>
-                        </li>
-                        <li v-if="item !== pageNo && item !== '...'" class="paginate_button">
-                            <a href="javascript:;" @click="changePage(item)">{{ item }}</a>
-                        </li>
+                        <template v-for="itm in pageList">
+                            <li v-if="itm === pageNo" class="paginate_button active">
+                                <a href="javascript:;">{{ itm }}</a>
+                            </li>
+                            <li v-if="itm === '...'" class="paginate_button disabled">
+                                {{itm}}
+                                <a href="javascript:;">{{ itm }}</a>
+                            </li>
+                            <li v-if="itm !== pageNo && itm !== '...'" class="paginate_button">
+                                <a href="javascript:;" @click="changePage(itm)">{{ itm }}</a>
+                            </li>
                         </template>
                     </template>
     				<!-- <li class="paginate_button ">
