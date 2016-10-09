@@ -62,14 +62,19 @@ var editform = Widget.extend({
         if (me.data.item.establishStatus == 1 && me.data.item.fundGenreAFk == 500) {
             $(".yesterdayNet").removeClass('hidden');
             $(".sumNet").removeClass('hidden');
-            $(".expectedArr").removeClass('hidden');
+            $(".arr-expected").removeClass('hidden');
             $(".admin-widget-yearrate").css('display','none');
+            $(".date-established").css('display','block');
         }else{
             $(".yesterdayNet").addClass('hidden');
             $(".sumNet").addClass('hidden');
-            $(".expectedArr").addClass('hidden');
+            $(".arr-expected").addClass('hidden');
             $(".admin-widget-yearrate").css('display','block');
+            $(".date-established").css('display','none');
         }
+
+        //固定利率计算
+        me.calculateSumARR();
 
     },
     bind: function () {
@@ -191,17 +196,44 @@ var editform = Widget.extend({
                 if($(this).val() == 1){
                     $(".yesterdayNet").removeClass('hidden');
                     $(".sumNet").removeClass('hidden');
-                    $(".expectedArr").removeClass('hidden');
+                    $(".arr-expected").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
+                    $(".date-established").css('display','block');
+                    
+                    if(''!= container.find('input[data-key="yesterdayNet"]') && ''!= container.find('input[data-key="sumNet"]').val()){
+                        me.calculateSumARR();
+                    }
+
                 }else{
                     $(".yesterdayNet").addClass('hidden');
                     $(".sumNet").addClass('hidden');
-                    $(".expectedArr").addClass('hidden');
+                    $(".arr-expected").addClass('hidden');
                     $(".admin-widget-yearrate").css('display','block');
+                    $(".date-established").css('display','none');
                 }
             }
         });
 
+        container.on('change', 'input[data-key="dateEstablished"]', function () {
+            var fundGenre = me.data.item.fundGenreAFk;
+            var establishStatus = me.data.item.establishStatus;
+            if(''!= container.find('input[data-key="yesterdayNet"]') && ''!= container.find('input[data-key="sumNet"]').val() && fundGenre == '500'  && establishStatus == '1'){
+                me.calculateSumARR();
+            }
+        });
+
+        container.on('input propertychange', 'input[data-key="yesterdayNet"]', function () {
+            //alert($(this).val());
+            if(''!= $(this).val() && ''!= container.find('input[data-key="sumNet"]').val()){
+                me.calculateSumARR();
+            }
+        })
+
+        container.on('input propertychange', 'input[data-key="sumNet"]', function () {
+            if(''!= container.find('input[data-key="yesterdayNet"]').val() && ''!= $(this).val()){
+                me.calculateSumARR();
+            }
+        });
     },
     toNum : function (filters){
     	
@@ -214,6 +246,33 @@ var editform = Widget.extend({
     	} 
     	
     	return filters;
+    },
+    calculateSumARR : function(){
+        let me = this;
+        let container = $('.cnt-box');
+        let num1 = container.find('input[data-key="yesterdayNet"]').val()*1;
+        let num2 = container.find('input[data-key="sumNet"]').val()*1;
+        let startDate = (new Date(container.find('input[data-key="dateEstablished"]').val())).setHours(0, 0, 0, 0);
+        //console.log(startDate)
+
+        let endDate =(new Date()).setHours(0, 0, 0, 0);
+        let num3=(endDate-startDate)/1000/3600/24;
+
+        if(num1 >=0 && num2 >=0 && num3>0){
+            let num4=(num1-1+num2)*365/num3;
+            num4=num4.toFixed(2);
+
+            container.find('.arr-expected input[data-key="expectedArr"]').val(num4);
+
+            /*$('#sumARR').val(num4);
+            $('#expectedARR').val(num4);*/
+            
+            return true;
+        } else {
+            alert('成立日期必须小于今天');
+            
+            return false;
+        }
     },
     methods:{
     	back : () => {

@@ -94,12 +94,12 @@
                         </li>
                     </template>
                     <template v-else>
-                        <template v-for="itm in pageList">
+                        <!-- {{pageList}} -->
+                        <template v-for="itm in pageList" track-by="$index">
                             <li v-if="itm === pageNo" class="paginate_button active">
                                 <a href="javascript:;">{{ itm }}</a>
                             </li>
                             <li v-if="itm === '...'" class="paginate_button disabled">
-                                {{itm}}
                                 <a href="javascript:;">{{ itm }}</a>
                             </li>
                             <li v-if="itm !== pageNo && itm !== '...'" class="paginate_button">

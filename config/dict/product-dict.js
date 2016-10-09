@@ -544,7 +544,7 @@ export default {
  	'expectedArr'   : { 
  		key :'expectedArr' ,
  		name : '固定利率', 
- 		wrapperClass : 'col-md-6 hidden expectedArr' ,  
+ 		wrapperClass : 'col-md-6 hidden arr-expected' ,  
  		brd : true, 
  		type : 'input', 
  		placeholder:'请输入固定利率',

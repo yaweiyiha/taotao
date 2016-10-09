@@ -76,6 +76,7 @@ var table = Widget.extend({
             this._params_.filters.pageSize = this._initData_.param.pageSize;
         }
 
+
         this.vm = this.display(myData, tpl ,'vue');
         this.render();
         this.bind();
@@ -246,7 +247,7 @@ var table = Widget.extend({
             data.extraInfo.totalInvestmentAmount = data.totalInvestmentAmount;
             data.extraInfo.totalCommission = data.totalCommission;
         }
-        console.log(JSON.stringify(data.pageList));
+        
         return data;
     },
     render :function(){
@@ -365,10 +366,12 @@ var table = Widget.extend({
         let model = new tableModel();
         $(me.vm.$el).find('tbody').removeClass('transition');
         $(me.vm.$el).find('tbody').css('opacity','0');
+
         model.getData(data.url ,data.param).then((res) => {  
             if (res.msg === 'success') {
                 let totalPages = Math.ceil(res.totalSize / res.pageSize);
                 let pages = me.calculateIndexes(res.pageNo, totalPages, 5);
+                //console.log(JSON.stringify(pages));
 
 
                 this.vm.$set('totalPages', totalPages);
@@ -407,6 +410,7 @@ var table = Widget.extend({
             data.param = Object.assign(scope._params_.filters, {pageNo: page});
         }
         //data.param = Object.assign(scope._params_.filters, {pageNo: page});
+
         scope.updateTableData(data);
     },
     setMethods: function () {

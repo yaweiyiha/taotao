@@ -23,7 +23,7 @@ deploy file to remote machine
 demo : fis3 relase xuxu -w
 ********************************************/
 
-fis.media('xuxu').match('*', {
+fis.media('gaogao').match('*', {
     deploy: fis.plugin('http-push', {
         receiver: 'http://localhost:80/receiver.php',
         to: 'D:/apache-tomcat-7.0.70/webapps/admin'
@@ -42,7 +42,7 @@ fis.media('remote').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 
-fis.media('xuxu').match('*.{js,css,jpg,png,gif,woff}', {
+fis.media('gaogao').match('*.{js,css,jpg,png,gif,woff}', {
     url: '/admin$0'
 })
 

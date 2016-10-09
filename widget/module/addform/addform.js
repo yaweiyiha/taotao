@@ -170,10 +170,12 @@ var addform = Widget.extend({
             $(".yesterdayNet").removeClass('hidden');
             $(".sumNet").removeClass('hidden');
             $(".admin-widget-yearrate").css('display','none');
+            $(".date-established").css('display','block');
         }else{
             $(".yesterdayNet").addClass('hidden');
             $(".sumNet").addClass('hidden');
             $(".admin-widget-yearrate").css('display','block');
+            $(".date-established").css('display','none');
         }
 
         let proIntrData = '',comCofmData = '',knowMoreData = '',relateDocData = '';
@@ -554,12 +556,14 @@ var addform = Widget.extend({
                     $(".yesterdayNet").removeClass('hidden');
                     $(".sumNet").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
+                    $(".date-established").css('display','block');
                 }
             }else{
                 if($("select[data-key='fundGenreAFk']").val() == 500){
                     $(".yesterdayNet").addClass('hidden');
                     $(".sumNet").addClass('hidden');
                     $(".admin-widget-yearrate").css('display','block');
+                    $(".date-established").css('display','none');
                 }
             }
         });
@@ -760,7 +764,7 @@ var addform = Widget.extend({
         if (yearRateContainer.size()) {
             let yearRateData = Util.getYearRateData(yearRateContainer);
             
-            console.log(JSON.stringify(yearRateData.productLadderRates));
+            //console.log(JSON.stringify(yearRateData.productLadderRates));
 
             data.product.arrTypeFk = yearRateData.arrTypeFk;
             data.product.expectedArr = yearRateData.expectedArr;
@@ -889,7 +893,7 @@ var addform = Widget.extend({
 
         data.introductionExtendList = intrExtentData;
 
-        //return  data;
+        return  data;
     },
     validateSubmitData : function(){
 
