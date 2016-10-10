@@ -27,7 +27,11 @@ export default Vue.component('editor', {
  	}),
  	ready: function () {
  		//this.rid += '-' + (+new Date());
-		editor = UE.getEditor(this.rid);
+		editor = UE.getEditor(this.rid,{
+			initialFrameWidth :'100%',
+			initialFrameHeight:'320',
+			scaleEnabled:true
+		});
  		
 
  		/*let editor = new UE.ui.Editor({initialFrameHeight:320 });  
@@ -36,7 +40,7 @@ export default Vue.component('editor', {
  	methods: {
  		submit: (event) => {
  			let introductionId = $(event.target).parents('.richTextarea').find('.introduction').prop('id');
- 			let content = UE.getEditor(introductionId).getContent();
+ 			let content = UE.getEditor(introductionId).getContentTxt();
  			
  			previewDialog.show(content);
 

@@ -1,8 +1,8 @@
-var style = __inline('./dialog.inline.less');
-var tpl = __inline('./dialog.tpl');
+var style = __inline('./previewDialog.inline.less');
+var tpl = __inline('./previewDialog.tpl');
  
 require.loadCss({
-    name: 'usersys-widget-dialog-style',
+    name: 'admin-widget-previewDialog-style',
     content: style
 });
 

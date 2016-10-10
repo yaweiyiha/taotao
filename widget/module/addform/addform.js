@@ -222,7 +222,11 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId1 = $(ele).find('.introduction').prop('id');
-                    let proIntrUeditor = UE.getEditor(introductionId1);
+                    let proIntrUeditor = UE.getEditor(introductionId1,{
+                        initialFrameWidth :'100%',
+                        initialFrameHeight:'320',
+                        scaleEnabled:true
+                    });
 
                     proIntrUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
@@ -273,7 +277,11 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId2 = $(ele).find('.introduction').prop('id');
-                    let comCofmUeditor = UE.getEditor(introductionId2);
+                    let comCofmUeditor = UE.getEditor(introductionId2,{
+                        initialFrameWidth :'100%',
+                        initialFrameHeight:'320',
+                        scaleEnabled:true
+                    });
 
                     comCofmUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
@@ -324,7 +332,11 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId3 = $(ele).find('.introduction').prop('id');
-                    let knowMoreUeditor = UE.getEditor(introductionId3);
+                    let knowMoreUeditor = UE.getEditor(introductionId3,{
+                        initialFrameWidth :'100%',
+                        initialFrameHeight:'320',
+                        scaleEnabled:true
+                    });
 
                     knowMoreUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
