@@ -11,7 +11,7 @@ urlConfig['fund/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'  , 'value': '产品要素' },
 		{ 'key': 'CommiSet', 'value': '佣金设置' }, 
-		/*{ 'key': 'other' , 'value': '其他' }, */
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle 
@@ -146,7 +146,7 @@ urlConfig['trust/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素' },
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
-		/*{ 'key': 'other' , 'value': '其他' },*/ 
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -273,7 +273,7 @@ urlConfig['asset/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
-		/*{ 'key': 'other' , 'value': '其他' }, */
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -405,7 +405,7 @@ urlConfig['debtassgin/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
-		/*{ 'key': 'other' , 'value': '其他' }, */
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle
@@ -509,7 +509,7 @@ urlConfig['equityInvestment/draftedit'] =
 	'tabs' : [
 		{ 'key': 'proEle'   , 'value': '产品要素'},
 		{ 'key': 'CommiSet' , 'value': '佣金设置' }, 
-		/*{ 'key': 'other' , 'value': '其他' }, */
+		{ 'key': 'other' , 'value': '其他' }, 
 	],
 	'forms' : [
 		// correspond proEle

@@ -20,15 +20,18 @@ export default Vue.component('editor', {
  		richatttype: {default : ''},
  	},
  	data: () => ({
- 		height: '300px',
+ 		height: '320px',
  		width: '100%',
  		rid: 'introductionContent' + '-' + (+new Date()),
  		isReadonly: false
  	}),
  	ready: function () {
  		//this.rid += '-' + (+new Date());
+		editor = UE.getEditor(this.rid);
+ 		
 
- 		editor = UE.getEditor(this.rid);
+ 		/*let editor = new UE.ui.Editor({initialFrameHeight:320 });  
+        editor.render(this.rid);*/
  	},
  	methods: {
  		submit: (event) => {

@@ -1,4 +1,6 @@
 import Widget from 'static/js/widget.js';
+/*import UE_config from 'static/js/ueditor/ueditor.config.js';
+import UE from 'static/js/ueditor/ueditor.all.js';*/
 import cityselect from 'widget/component/cityselect/cityselect.js';
 import dateControl from 'widget/classComponent/datecontrol/datecontrol';
 import Star from   'widget/component/star/star';
@@ -85,7 +87,7 @@ var addform = Widget.extend({
         this.publicUrl = data.publicUrl;
     },
     render : function(data){
-        console.log(JSON.stringify(data));
+        //console.log(JSON.stringify(data));
         
         let container = $(this.vm.$el);
         let res = data;
@@ -179,7 +181,7 @@ var addform = Widget.extend({
         }
 
         let proIntrData = '',comCofmData = '',knowMoreData = '',relateDocData = '';
-        //console.log(JSON.stringify(data.item.introductionExtendList));
+        console.log(JSON.stringify(data.options.disable));
         if(data.item.introductionExtendList){
             let introductionExtendListData = data.item.introductionExtendList;
             for(var i=0;i<introductionExtendListData.length;i++){
@@ -218,17 +220,20 @@ var addform = Widget.extend({
                     $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+proIntrData.introductionType+'")')
                     .addClass('active').siblings().removeClass('active');
 
-                    
-
                     //富媒体内容
-                    /*let introductionId = $(ele).find('.introduction').prop('id');
+                    let introductionId1 = $(ele).find('.introduction').prop('id');
+                    let proIntrUeditor = UE.getEditor(introductionId1);
 
-                    UE.getEditor(introductionId).setContent(proIntrData.introduction, false);*/
+                    proIntrUeditor.addListener("ready", function () {
+                        // editor准备好之后才可以使用
+                        proIntrUeditor.setContent(proIntrData.introduction, false, true);
+                        
+                        if(data.options.disable){
+                            proIntrUeditor.setDisabled('fullscreen');
+                        }
+                        
+                    });
 
-                    //富媒体不可编辑
-                    /*UE.getEditor(introductionId).setDisabled('fullscreen');
-                    UE.getEditor(introductionId).setEnabled();*/
-                    
 
                     $(ele).find('input.webUrl').val(proIntrData.webUrl);
 
@@ -265,6 +270,20 @@ var addform = Widget.extend({
 
                     $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+comCofmData.introductionType+'")')
                     .addClass('active').siblings().removeClass('active');
+
+                    //富媒体内容
+                    let introductionId2 = $(ele).find('.introduction').prop('id');
+                    let comCofmUeditor = UE.getEditor(introductionId2);
+
+                    comCofmUeditor.addListener("ready", function () {
+                        // editor准备好之后才可以使用
+                        comCofmUeditor.setContent(comCofmData.introduction, false, true);
+                        
+                        if(data.options.disable){
+                            comCofmUeditor.setDisabled('fullscreen');
+                        }
+                        
+                    });
 
                     $(ele).find('input.webUrl').val(comCofmData.webUrl);
 
@@ -303,6 +322,20 @@ var addform = Widget.extend({
                     $(ele).find('.admin-widget-presentType .tab-content .tab-pane:eq("'+knowMoreData.introductionType+'")')
                     .addClass('active').siblings().removeClass('active');
 
+                    //富媒体内容
+                    let introductionId3 = $(ele).find('.introduction').prop('id');
+                    let knowMoreUeditor = UE.getEditor(introductionId3);
+
+                    knowMoreUeditor.addListener("ready", function () {
+                        // editor准备好之后才可以使用
+                        knowMoreUeditor.setContent(knowMoreData.introduction, false, true);
+                        
+                        if(data.options.disable){
+                            knowMoreUeditor.setDisabled('fullscreen');
+                        }
+                        
+                    });
+
                     $(ele).find('input.webUrl').val(knowMoreData.webUrl);
 
                     $(ele).find('input.attachTitle').val(knowMoreData.attachTitle);
@@ -330,20 +363,16 @@ var addform = Widget.extend({
                         $(ele).find('.prointrCont').show();
                     }
 
+                    
                     if(relateDocData.attachmentList){
-                        for(var j=0;j<relateDocData.attachmentList.length;j++){
+                        document.getElementById("relatedocList").innerHTML='';
+                        $.each(relateDocData.attachmentList,function(name, value){
                             let relatedocTpl = document.getElementById("relatedocTpl").innerHTML;
                             let eleDiv = document.createElement("div");
                             eleDiv.className = 'relatedocItem';
-                            $(eleDiv).attr('data-shownameval',relateDocData.attachmentList[j].showName);
-                            
                             eleDiv.innerHTML = relatedocTpl;
                             document.getElementById("relatedocList").appendChild(eleDiv);
-                        }
-
-                        $(ele).find('#relatedocList input.relateShowName').each(function(index,element){
-                            let shownameVal = $(this).parents('.relatedocItem').attr('data-shownameval');
-                            $(this).val(shownameVal);
+                            $(eleDiv).find('input.relateShowName').val(value.showName);
                         })
                     }
                 }
