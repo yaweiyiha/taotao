@@ -18,9 +18,17 @@
 			    <div class="form-group">
 			        <div class="input-group">
 			            <div class="input-group-addon">成立日
-			           	<span  class="text-strong-red">*</span>
+			           	<span class="text-strong-red">*</span>
 			            </div>
 			            <single-date  
+			                :disable="disable" 
+			                key="dateEstablished" 
+			                name="成立日"
+			                data-key="dateEstablished" 
+			                placeholder="请输入成立日" 
+			                :timestamp="dateestablished">
+			            </single-date>
+			            <!-- <single-date  
 			                :disable="disable" 
 			                required="required" 
 			                key="dateEstablished" 
@@ -28,7 +36,7 @@
 			                data-key="dateEstablished" 
 			                placeholder="请输入成立日" 
 			                :timestamp="dateestablished">
-			            </single-date>
+			            </single-date> -->
 					</div>
 			    </div>
 			</div>

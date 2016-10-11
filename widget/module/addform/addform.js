@@ -592,21 +592,27 @@ var addform = Widget.extend({
 
         //成立状态-已成立
         $("select[data-key='establishStatus']").on('click',function(){
-            if($(this).val() == 1){
-                if($("select[data-key='fundGenreAFk']").val() == 500){
+
+            if($("select[data-key='fundGenreAFk']").val() == 500){
+                if($(this).val() == 1){
                     $(".yesterdayNet").removeClass('hidden');
                     $(".sumNet").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
                     $(".date-established").css('display','block');
-                }
-            }else{
-                if($("select[data-key='fundGenreAFk']").val() == 500){
+                }else{
                     $(".yesterdayNet").addClass('hidden');
                     $(".sumNet").addClass('hidden');
                     $(".admin-widget-yearrate").css('display','block');
                     $(".date-established").css('display','none');
                 }
+            }else{
+                if($(this).val() == 1){
+                    $(".date-established").css('display','block');
+                }else{
+                    $(".date-established").css('display','none');
+                }
             }
+
         });
         
         $('input').on('blur' ,function(){

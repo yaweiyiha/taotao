@@ -199,7 +199,7 @@ var editform = Widget.extend({
                     $(".arr-expected").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
                     $(".date-established").css('display','block');
-                    
+
                     if(''!= container.find('input[data-key="yesterdayNet"]') && ''!= container.find('input[data-key="sumNet"]').val()){
                         me.calculateSumARR();
                     }
@@ -216,14 +216,14 @@ var editform = Widget.extend({
 
         container.on('change', 'input[data-key="dateEstablished"]', function () {
             var fundGenre = me.data.item.fundGenreAFk;
-            var establishStatus = me.data.item.establishStatus;
+            var establishStatus = $("select[data-key='establishStatus']").val();
+            
             if(''!= container.find('input[data-key="yesterdayNet"]') && ''!= container.find('input[data-key="sumNet"]').val() && fundGenre == '500'  && establishStatus == '1'){
                 me.calculateSumARR();
             }
         });
 
         container.on('input propertychange', 'input[data-key="yesterdayNet"]', function () {
-            //alert($(this).val());
             if(''!= $(this).val() && ''!= container.find('input[data-key="sumNet"]').val()){
                 me.calculateSumARR();
             }
@@ -268,10 +268,6 @@ var editform = Widget.extend({
             $('#expectedARR').val(num4);*/
             
             return true;
-        } else {
-            alert('成立日期必须小于今天');
-            
-            return false;
         }
     },
     methods:{
