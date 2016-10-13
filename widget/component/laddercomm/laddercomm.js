@@ -144,7 +144,9 @@ export default Vue.component('ladder-comm', {
  					if(me.arrtypefk == 30){
 		 				cache.proportion = item.extraRate;
 		 			}else if(me.arrtypefk == 40){
-			 			cache.proportion = item.extraCommission || item.minExtraRate;
+			 			cache.proportion = item.minExtraRate;
+	 				}else{
+	 					cache.proportion = item.extraCommission;
 	 				}
 	 				cache.upperProportion = '';
  				}else{

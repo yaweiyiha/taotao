@@ -236,14 +236,7 @@ var editform = Widget.extend({
                 container.find('[data-key=riskRating]').parents('.input-wrapper').hide();
             }
         });
-
-        //历史实际年化收益率
-        container.find('select.arrTypeFk').on('change',function(){
-            if($(this).val() == 10){
-                
-            }
-        })
-
+        
         //成立状态-已成立
         
         $("select[data-key='establishStatus']").on('change',function(){

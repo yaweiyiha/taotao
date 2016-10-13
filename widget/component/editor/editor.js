@@ -15,7 +15,7 @@ require.loadCss({
 export default Vue.component('editor', {
  	template: tpl,
  	props: {
- 		disable: {default: true},
+ 		disabled: {default: true},
  		panelname: {default : ''},
  		richatttype: {default : ''},
  	},
@@ -27,6 +27,7 @@ export default Vue.component('editor', {
  	}),
  	ready: function () {
  		//this.rid += '-' + (+new Date());
+
 		editor = UE.getEditor(this.rid,{
 			initialFrameWidth :'100%',
 			initialFrameHeight:320,
