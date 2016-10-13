@@ -55,8 +55,9 @@
                   </template>
                   <template v-if="li.type === 'year-rate'">
                     <year-rate
+                        :establishstatus="item.establishStatus"
                         :arr-type-fk="item.arrTypeFk"
-                        :expected-arr="item.product.expectedArr"
+                        :expectedarr="item.product.expectedArr"
                         :fix-min="item.product.fixMin"
                         :min-arr="item.product.minArr"
                         :float-max="item.product.floatMax"
@@ -87,6 +88,7 @@
                        :sales="item.salesStatusFk" 
                        :disable="options.disable"
                        :dateestablished ="item.dateEstablished"
+                       :executestate = "item.executeState"
                        >
                       </found-status>
                   </template>

@@ -200,10 +200,12 @@ var util = {
                 });
             }
             let val = item.attr('data-values') || item.val();
+
             if (val) {
                 val = val.trim();
             }
             let des = item.attr('data-des') || '';
+
             let parentNode = '';
             if(item.parents('.own-input').length !== 0){
                 parentNode = item.parents('.own-input');
@@ -224,7 +226,7 @@ var util = {
                     if (isNaN(val)) {
                         valid = false;
                         errorTip = `${des}必须为数字`;
-                         parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}必须为数字</p>`);
+                        parentNode.append(`<p class="tips" style="margin-left:${offsetLeft}px">${des}必须为数字</p>`);
                     }
                 } else if(val !== '' &&  !/^[-'a-zA-Z0-9\u4e00-\u9eff\.-]+$/i.test(val)){
                     valid = false;
@@ -233,6 +235,16 @@ var util = {
                 }
             }
         });
+
+        if ($('select[data-key="paymentTransferBankId"]').attr('data-valide')) {
+            if($('select[data-key="paymentTransferBankId"]').val() == '' || $('select[data-key="paymentTransferBankId"]').val() == null){
+                valid = false;
+                let des = $('select[data-key="paymentTransferBankId"]').attr('data-des') || '';
+                let offsetLeft = $('select[data-key="paymentTransferBankId"]').parents('.input-wrapper').find('.input-title').outerWidth() || 105;
+                offsetLeft = Math.max(offsetLeft, 105);
+                $('select[data-key="paymentTransferBankId"]').parents('.input-wrapper').append('<p class="tips" style="margin-left:'+offsetLeft+'px">'+des+'必填</p>');
+            }
+        }
         
         if (valid === false) {
             AlertDialog.show('填写不完整或填写有误，请检查');

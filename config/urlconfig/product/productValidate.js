@@ -77,8 +77,8 @@ urlConfig['fund/validate'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'10',
 				'imgAttType':'10',
 				'videoAttType':'20',
@@ -89,8 +89,8 @@ urlConfig['fund/validate'] =
 			},
 			{	
 				'panelName' : '公司简介',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'40',
 				'imgAttType':'40',
 				'videoAttType':'50',
@@ -101,8 +101,8 @@ urlConfig['fund/validate'] =
 			},
 			{	
 				'panelName' : '了解更多',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'70',
 				'imgAttType':'70',
 				'videoAttType':'80',
@@ -113,8 +113,8 @@ urlConfig['fund/validate'] =
 			},
 			{	
 				'panelName' : '相关文件',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'100',
 				'relateAttType':'100',
 				'formlist'   : [
@@ -214,8 +214,8 @@ urlConfig['trust/validate'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'10',
 				'imgAttType':'10',
 				'videoAttType':'20',
@@ -226,8 +226,8 @@ urlConfig['trust/validate'] =
 			},
 			{	
 				'panelName' : '公司简介',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'40',
 				'imgAttType':'40',
 				'videoAttType':'50',
@@ -238,8 +238,8 @@ urlConfig['trust/validate'] =
 			},
 			{	
 				'panelName' : '了解更多',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'70',
 				'imgAttType':'70',
 				'videoAttType':'80',
@@ -250,8 +250,8 @@ urlConfig['trust/validate'] =
 			},
 			{	
 				'panelName' : '相关文件',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'100',
 				'relateAttType':'100',
 				'formlist'   : [
@@ -341,8 +341,8 @@ urlConfig['asset/validate'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'10',
 				'imgAttType':'10',
 				'videoAttType':'20',
@@ -353,8 +353,8 @@ urlConfig['asset/validate'] =
 			},
 			{	
 				'panelName' : '公司简介',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'40',
 				'imgAttType':'40',
 				'videoAttType':'50',
@@ -365,8 +365,8 @@ urlConfig['asset/validate'] =
 			},
 			{	
 				'panelName' : '了解更多',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'70',
 				'imgAttType':'70',
 				'videoAttType':'80',
@@ -377,8 +377,8 @@ urlConfig['asset/validate'] =
 			},
 			{	
 				'panelName' : '相关文件',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'100',
 				'relateAttType':'100',
 				'formlist'   : [
@@ -462,8 +462,8 @@ urlConfig['debtassgin/validate'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'10',
 				'imgAttType':'10',
 				'videoAttType':'20',
@@ -474,8 +474,8 @@ urlConfig['debtassgin/validate'] =
 			},
 			{	
 				'panelName' : '相关文件',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'100',
 				'relateAttType':'100',
 				'formlist'   : [
@@ -556,8 +556,8 @@ urlConfig['equityInvestment/validate'] =
 		[
 			{	
 				'panelName' : '产品介绍',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'10',
 				'imgAttType':'10',
 				'videoAttType':'20',
@@ -568,8 +568,8 @@ urlConfig['equityInvestment/validate'] =
 			},
 			{	
 				'panelName' : '相关文件',
-				'padShowName': {isHide:'1',key:'padName'},
-				'receptionShow': {isHide:'1',key:'isShow'},
+				'padShowName': {isHide:'1',key:'padName',disabled:true},
+				'receptionShow': {isHide:'1',key:'isShow',disabled:true},
 				'intrType':'100',
 				'relateAttType':'100',
 				'formlist'   : [

@@ -123,14 +123,23 @@
 	  			<div class="form-group input-group"> 
 				    <div class="input-group-addon input-title">产品状态     
 				    </div>
-				    <input 
+				    <!-- <input 
 				      	data-key ="executeState" 
 				      	type="radio" 
 				      	class="radio-input"  
 				      	name="founed"  
 				      	value="80" 
 				      	checked="checked" 
-				      	:disabled="disable"> 募集失败
+				      	:disabled="disable"> 募集失败 -->
+
+					<input 
+				      	data-key="salesStatusFk" 
+				      	type="radio"
+				      	class="radio-input"  
+				      	name="founed"
+				      	:disabled="disable" 
+				      	value="80" 
+				      	checked="checked"> 募集失败
 		  		</div> 
 	  		</template>
 	  		

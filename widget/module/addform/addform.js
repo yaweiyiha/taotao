@@ -78,6 +78,7 @@ var addform = Widget.extend({
         this.data.tabs = data.tabs;
 
         this.vm = this.display(this.data ,tpl ,'vue');
+        
         this.render(data);
         this.bind();
         Waves.attach('button', ['waves-light']);
@@ -181,7 +182,7 @@ var addform = Widget.extend({
         }
 
         let proIntrData = '',comCofmData = '',knowMoreData = '',relateDocData = '';
-        console.log(JSON.stringify(data.options.disable));
+        //console.log(JSON.stringify(data.options.disable));
         if(data.item.introductionExtendList){
             let introductionExtendListData = data.item.introductionExtendList;
             for(var i=0;i<introductionExtendListData.length;i++){
@@ -222,17 +223,16 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId1 = $(ele).find('.introduction').prop('id');
-                    let proIntrUeditor = UE.getEditor(introductionId1,{
-                        initialFrameWidth :'100%',
-                        initialFrameHeight:'320',
-                        scaleEnabled:true
-                    });
+
+                    let proIntrUeditor = UE.getEditor(introductionId1);
 
                     proIntrUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
                         proIntrUeditor.setContent(proIntrData.introduction, false, true);
                         
                         if(data.options.disable){
+                            //$('#'+introductionId1).append('<div class="u-toolbar-shadow" style="position:absolute;top:0;left:0;width:100%;height:55px;background-color:rgba(255,255,255,0.5);z-index:11;"></div>');
+                            
                             proIntrUeditor.setDisabled('fullscreen');
                         }
                         
@@ -277,11 +277,7 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId2 = $(ele).find('.introduction').prop('id');
-                    let comCofmUeditor = UE.getEditor(introductionId2,{
-                        initialFrameWidth :'100%',
-                        initialFrameHeight:'320',
-                        scaleEnabled:true
-                    });
+                    let comCofmUeditor = UE.getEditor(introductionId2);
 
                     comCofmUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
@@ -332,11 +328,7 @@ var addform = Widget.extend({
 
                     //富媒体内容
                     let introductionId3 = $(ele).find('.introduction').prop('id');
-                    let knowMoreUeditor = UE.getEditor(introductionId3,{
-                        initialFrameWidth :'100%',
-                        initialFrameHeight:'320',
-                        scaleEnabled:true
-                    });
+                    let knowMoreUeditor = UE.getEditor(introductionId3);
 
                     knowMoreUeditor.addListener("ready", function () {
                         // editor准备好之后才可以使用
@@ -432,9 +424,17 @@ var addform = Widget.extend({
             let inputCollections = $('.panel-body').find('[data-key]');
             let operType = $(this).attr('data-oper');
 
+            /*if($('select[data-key="paymentTransferBankId"]').val() == '' || $('select[data-key="paymentTransferBankId"]').val() == null){
+                let des = $('select[data-key="paymentTransferBankId"]').attr('data-des') || '';
+                let offsetLeft = $('select[data-key="paymentTransferBankId"]').parents('.input-wrapper').find('.input-title').outerWidth() || 105;
+                offsetLeft = Math.max(offsetLeft, 105);
+                $('select[data-key="paymentTransferBankId"]').parents('.input-wrapper').append('<p class="tips" style="margin-left:'+offsetLeft+'px">'+des+'必填</p>');
+            }*/
+
             if (!Util.validate(container)) {
                 return;
             }
+
             if(!me.validateSubmitData()){
                 AlertDialog.show('两次卡号不一致，请重新输入');
                 return;
@@ -506,6 +506,7 @@ var addform = Widget.extend({
                 if (!Util.validate(container)) {
                     return;
                 }
+
                 //max-Investment Price must 
                 if ($('[data-key=startingPrice]', me.vm.$el).size() && $('[data-key=offeringSize]', me.vm.$el).size()) {
                     let res = Util.startPriceValidate(container);
@@ -599,17 +600,23 @@ var addform = Widget.extend({
                     $(".sumNet").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
                     $(".date-established").css('display','block');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','required');
                 }else{
                     $(".yesterdayNet").addClass('hidden');
                     $(".sumNet").addClass('hidden');
                     $(".admin-widget-yearrate").css('display','block');
                     $(".date-established").css('display','none');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','');
+                    $(this).parents('.admin-widget-foundStatus').parent().find('.tips').remove();
                 }
             }else{
                 if($(this).val() == 1){
                     $(".date-established").css('display','block');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','required');
                 }else{
                     $(".date-established").css('display','none');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','');
+                    $(this).parents('.admin-widget-foundStatus').parent().find('.tips').remove();
                 }
             }
 
@@ -643,7 +650,6 @@ var addform = Widget.extend({
         })
 
         //文件上传功能
-
         container.on('click', '.uploadFile', function () {
             let ele = $(this);
             
@@ -785,6 +791,8 @@ var addform = Widget.extend({
             data.customElementsList = Util.getCustomElement(container.find('.admin-widget-customele'));
         }
         
+
+
         // get commission type info
         let commTypeContainer = container.find('.admin-widget-commtype');
         if (commTypeContainer.size()) {
@@ -810,6 +818,11 @@ var addform = Widget.extend({
         
         if (yearRateContainer.size()) {
             let yearRateData = Util.getYearRateData(yearRateContainer);
+
+            /*if (yearRateData.arrTypeFk === 0 && role !== 'save') {
+                AlertDialog.show('请填写历史实际年化收益率内容');
+                return;
+            }*/
             
             //console.log(JSON.stringify(yearRateData.productLadderRates));
 

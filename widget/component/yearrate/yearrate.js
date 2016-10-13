@@ -13,8 +13,9 @@ require.loadCss({
 export default Vue.component('year-rate', {
  	template: tpl,
  	props: {
+ 		establishstatus: {default: ''},
  		arrTypeFk: {default: '0'},
- 		expectedArr: {default: '0'},
+ 		expectedarr: {default: '0'},
  		fixMin: {default: false},
  		floatMax: {default: false},
  		minArr: {default: ''},
@@ -26,13 +27,14 @@ export default Vue.component('year-rate', {
  		leftContain: {default: '0'}
  	},
  	ready: function () {
+
  		let me = this;
+
 		if (this.latterData && this.latterData.length) {
 			this.YearRateUnit = this.unitDict['' + this.latterData[0].measureUnitFk];
 		} else {
 			this.YearRateUnit = '元';
 		}
-
 		// // 左包含, 右包含
 		// if (this.latterData && this.latterData.length) {
 		// 	let lastLatter = this.latterData[this.latterData.length - 1];
@@ -61,6 +63,11 @@ export default Vue.component('year-rate', {
 		$('.cnt-box').on('change', '[data-key=unitFkStartingPrice]', function () {
 			me.YearRateUnit = me.unitDict[$(this).val()];
 		});
+
+
+		if(this.arrTypeFk == 10 && this.establishstatus == 1){
+			this.expectedarr = 0;
+		}
  	},
  	computed: {
  		disableUnitComputed: function () {

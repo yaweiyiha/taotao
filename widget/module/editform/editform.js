@@ -81,9 +81,34 @@ var editform = Widget.extend({
         
         let me = this;
         let container = $(this.vm.$el);
+
         $('button[data-role="submit"]').on('click', function () {
+
+            //成立状态-已成立
+            let date = new Date();
+            let seperator1 = "-";
+            let year = date.getFullYear();
+            let month = date.getMonth() + 1;
+            let strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            let currentdate = year + seperator1 + month + seperator1 + strDate;
+            let currentTimestamp = Date.parse(currentdate);
+            //输入时间
+            let iptTimestamp = Date.parse($('input[data-key="dateEstablished"]').val());
+            if(iptTimestamp >= currentTimestamp){
+                AlertDialog.show("成立日期必须小于今天！");
+                return;
+            }
             
+            //alert(container.find("input.expectedArr").val());
+
         	let filters = Util.getInputFilters();
+
         	filters =  me.toNum(filters);
         	filters.productId = parseInt(_APP_HASH.id);
             
@@ -91,6 +116,7 @@ var editform = Widget.extend({
             if ($('.admin-widget-star').size()) {
                 filters.arrRank = +$('.admin-widget-star').attr('data-value');
             }
+
             // get year rate info
             let yearRateContainer = container.find('.admin-widget-yearrate');
             if (yearRateContainer.size()) {
@@ -108,7 +134,28 @@ var editform = Widget.extend({
                 filters.riskRating = '';
             }
 
+            if(me.data.item.fundGenreAFk == 500){
+                if(container.find("select[data-key='establishStatus']").val() == 1){
+                    filters.expectedArr  = container.find('input[data-key="expectedArr"]').val();
+                    filters.arrTypeFk = 10;
+                    filters.fixMin = '';
+                    filters.minArr = '';
+                    filters.floatMax = '';
+                    filters.maxArr = '';
+                }else{
+                    filters.yesterdayNet  = '';
+                    filters.sumNet  = '';
+                    filters.dateEstablished = '';
+                }
+            }else{
+                if(container.find("select[data-key='establishStatus']").val() == 1){
+
+                }else{
+                    
+                }
+            }
             //alert(JSON.stringify(filters));
+
         	Util.getData(me.data.submitUrl,filters,"POST").then((res) => {
                 if(res.msg === "success"){
                     window.location.href = '#main/product/maintenance';
@@ -190,29 +237,61 @@ var editform = Widget.extend({
             }
         });
 
+        //历史实际年化收益率
+        container.find('select.arrTypeFk').on('change',function(){
+            if($(this).val() == 10){
+                
+            }
+        })
+
         //成立状态-已成立
-        $("select[data-key='establishStatus']").on('click',function(){
+        
+        $("select[data-key='establishStatus']").on('change',function(){
+
             if(me.data.item.fundGenreAFk == 500){
                 if($(this).val() == 1){
+                    $('input[data-key="expectedArr"]');
                     $(".yesterdayNet").removeClass('hidden');
                     $(".sumNet").removeClass('hidden');
                     $(".arr-expected").removeClass('hidden');
                     $(".admin-widget-yearrate").css('display','none');
                     $(".date-established").css('display','block');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','required');
+
+                    container.find('input[data-key="yesterdayNet"]').val('');
+                    container.find('input[data-key="sumNet"]').val('');
+                    container.find('input[data-key="expectedArr"]').val(0);
+                    container.find('input[data-key="dateEstablished"]').val('');
 
                     if(''!= container.find('input[data-key="yesterdayNet"]') && ''!= container.find('input[data-key="sumNet"]').val()){
                         me.calculateSumARR();
                     }
-
                 }else{
                     $(".yesterdayNet").addClass('hidden');
                     $(".sumNet").addClass('hidden');
                     $(".arr-expected").addClass('hidden');
                     $(".admin-widget-yearrate").css('display','block');
+
+                    container.find("input.expectedArr").val(0);
+
                     $(".date-established").css('display','none');
+
+                    $('input[data-key="dateEstablished"]').attr('data-valide','');
+                    $(this).parents('.admin-widget-foundStatus').parent().find('.tips').remove();
+                }
+            }else{
+                if($(this).val() == 1){
+                    $(".date-established").css('display','block');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','required');
+                }else{
+                    $(".date-established").css('display','none');
+                    $('input[data-key="dateEstablished"]').attr('data-valide','');
+                    $(this).parents('.admin-widget-foundStatus').parent().find('.tips').remove();
                 }
             }
         });
+
+
 
         container.on('change', 'input[data-key="dateEstablished"]', function () {
             var fundGenre = me.data.item.fundGenreAFk;
@@ -263,9 +342,6 @@ var editform = Widget.extend({
             num4=num4.toFixed(2);
 
             container.find('.arr-expected input[data-key="expectedArr"]').val(num4);
-
-            /*$('#sumARR').val(num4);
-            $('#expectedARR').val(num4);*/
             
             return true;
         }

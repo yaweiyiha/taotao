@@ -31,10 +31,17 @@
   	<div class="row" v-if="arrTypeFk === '10'">
 		<div class="col-md-6 input-wrapper rt">
 	      	<div class="form-group input-group w100">
-	          <div class="input-group-addon input-title">
-	          	固定利率
-	          </div>
-				<input class="input-control expectedArr" :disabled="disable" v-model="expectedArr">
+		          <div class="input-group-addon input-title">
+		          	固定利率
+		          </div>
+				<!-- <input 
+				class="input-control expectedArr" 
+				:disabled="disable" 
+				v-model="expectedarr"> -->
+				<input 
+				class="input-control expectedArr" 
+				:disabled="disable"
+				v-model="expectedarr">
 				<div class="unit">%</div>
 	      	</div>
 	  	</div>  	
@@ -74,6 +81,7 @@
 	  		<label><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="1" :disabled="disable"> 左包含</label>
 	  		<label class="ml10"><input type="radio" data-key="containsLeftValue" v-model="leftContain" value="0" :disabled="disable"> 右包含</label>
   		</div>
+
 	  	<ladder-comm 
 	  	:relate-startprice="true" 
 	  	:unit="YearRateUnit" 
@@ -84,5 +92,6 @@
 	  	:interaction="true" 
 	  	:disable="disable">
 	  	</ladder-comm>
+	  	
   	</div>
 </div>

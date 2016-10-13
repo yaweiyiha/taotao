@@ -36,6 +36,7 @@ export default Vue.component('ladder-comm', {
  	ready: function () {
  		let me = this;
  		this.list = this.revertData();
+
 		// 起购金额联动
 		if (this.relateStartprice) {
 			if (me.list && me.list.length && $('.cnt-box [data-key=startingPrice]').size()) {
@@ -139,12 +140,18 @@ export default Vue.component('ladder-comm', {
  					'1300': '亿元'
  				};
 
-				cache.proportion = item.minExtraRate
-				cache.upperProportion = item.maxExtraRate;
  				if (me.notFloatUpperLimit === '1') {
-	 				cache.proportion = item.extraCommission || item.minExtraRate;
+ 					if(me.arrtypefk == 30){
+		 				cache.proportion = item.extraRate;
+		 			}else if(me.arrtypefk == 40){
+			 			cache.proportion = item.extraCommission || item.minExtraRate;
+	 				}
 	 				cache.upperProportion = '';
+ 				}else{
+ 					cache.proportion = item.minExtraRate;
+ 					cache.upperProportion = item.maxExtraRate;
  				}
+
  				cache.unit = dict['' + item.measureUnitFk];
  				if (index !== list.length - 1) {
 	 				if (item.operator1 === 'GT' || item.operator1 === 'GE' || item.operator2 === 'GT' || item.operator2 === 'GE') {

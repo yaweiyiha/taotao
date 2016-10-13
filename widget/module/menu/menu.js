@@ -92,12 +92,11 @@ var menu = Widget.extend({
 			event.preventDefault();
 			$(event.target).parents('.nav-list').find('a').removeClass('active');
 			$(event.target).addClass('active');
-			var query = event.target.getAttribute('href');
+			var query = event.target.getAttribute('data-href');
 			var name = event.target.getAttribute('data-name');
-			location.href = query;
-			// sRouter.config({
-			// 	mode: 'history'
-			// }).go(query);		
+
+			window.location.href = query;
+				
 		}
     }
 })

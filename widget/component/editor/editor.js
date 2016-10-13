@@ -23,16 +23,15 @@ export default Vue.component('editor', {
  		height: '320px',
  		width: '100%',
  		rid: 'introductionContent' + '-' + (+new Date()),
- 		isReadonly: false
+ 		isReadonly: false,
  	}),
  	ready: function () {
  		//this.rid += '-' + (+new Date());
 		editor = UE.getEditor(this.rid,{
 			initialFrameWidth :'100%',
-			initialFrameHeight:'320',
-			scaleEnabled:true
+			initialFrameHeight:320,
+			scaleEnabled: true
 		});
- 		
 
  		/*let editor = new UE.ui.Editor({initialFrameHeight:320 });  
         editor.render(this.rid);*/

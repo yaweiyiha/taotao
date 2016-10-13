@@ -25,10 +25,11 @@ class Router {
             me.navigation();
         });
 
-        window.addEventListener('hashchange', function () {
+        /*window.addEventListener('hashchange', function () {
             listener.trigger('hash', 'change');
             me.navigation();
-        }, false);
+        }, false);*/
+
         window.addEventListener('popstate', function () {
             listener.trigger('hash', 'change');
             me.navigation();
@@ -65,54 +66,9 @@ class Router {
         let path = `admin:controller/${hash}Control.js`;
         listener.trigger('page', 'change');
         console.log(path);
+        
         require.async(path, function (controller) {
             new controller(configData);
         });
     }
 }
-
-// class Router {
-	
-// 	init(){
-// 		var me = this;
-// 		if (window.history.pushState) {
-// 			/*window.addEventListener("popstate", function() {
-// 				me.stateTrigger();															
-// 			});*/
-
-// 			// 默认载入
-// 			me.stateTrigger();
-// 		}
-// 	}
-	
-// 	stateTrigger(){
-// 		let me = this;
-// 		var query = location.href.split("/").slice(3);
-// 		var pageHrefVal = '';
-// 		for(var i=0;i<query.length;i++){
-// 			pageHrefVal = pageHrefVal +'/'+ query[i];
-// 		}
-// 		if(pageHrefVal == '/'){
-// 			history.replaceState(null, document.title, location.href+'index.html');
-// 			$('#loading').hide();
-// 		}else{
-// 			$('#loading').hide();
-			
-// 			sRouter.config({
-// 				mode: 'history'
-// 			}).listen();
-// 		}
-		
-// 		me.navigation();
-// 	}
-	
-// 	navigation() {
-//         let page = Url.getPage() || '';
-//         let configData = urlConfig[page] || {};
-//         let path = `admin:controller/mainControl.js`;
-        
-//         require.async(path, function (controller) {
-//             new controller(configData);
-//         });
-//     }
-// };
